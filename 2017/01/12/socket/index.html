@@ -13,7 +13,9 @@
 <p>HTTP, FTP, XMPP, POP, IMAP, SMTP, DHCP, DNS, VoIP, SIP, RTP, RTCP …etc</p>
 </blockquote>
 <p>但以上所有的 應用層 都是建立在另外一種 Protocols 上，我們稱它為 傳輸層。傳輸層是專門管理 網路方面的，但在這個 <strong>CocoaAsyncSocket專案</strong> 我們只會用到 <strong>UDP</strong> 跟 <strong>TCP</strong> 兩種</p>
-<h2 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h2><h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2></div></article></div></section><footer><div class="paginator"><a href="/2016/12/21/swift-3-open-public-private-fileprivate/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+<h4 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h4><p><strong>User Datagram Protocol (UDP)</strong> 相對於 TCP 來說他比較簡單，UDP只能傳送比較小的封包，然後透過 socket 傳過去到指定目錄，然後…….沒了！就好像你出發到德國去，只買單程機票。<br>而且也不保證順利到得了目的地。如果你傳送十個封包，然後也不保證他們是依照順序到達。但是 UDP 弱點也是 UDP 的強項，比如今天你要打電話或者使用視訊功能，你不想要你的網路花時間在處理那些在中間不小心失去的封包，舉例來說今天你在觀看一位當紅主播的視屏，她表演了吃麵，過了一陣子表演了喝湯，如果這時候剛好吃麵的封包被解析回來了出現在喝湯的畫面，那不就變得很怪嗎？</p>
+<p>UDP 還有另外一項優點，他並不用實作 connection handshake。Handshake 其實很複雜，但長話短說來解釋就是，互相確認一下雙方的個人資料。又舉了吃麵的例子，我今天到了麵店要點一碗陽春麵，我先批哩啪拉的問過老闆的身世，老闆幾歲啊？住哪啊？你有沒有女兒啊？先把一些該有的資訊都得到之後才說：我要一碗陽春麵，就不能直接說嗎？所以 UDP 不識做 handshake 可以加速他來回通訊的時間，但缺點就是不安全。</p>
+<h4 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h4></div></article></div></section><footer><div class="paginator"><a href="/2016/12/21/swift-3-open-public-private-fileprivate/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
 var disqus_identifier = '2017/01/12/socket/';
 var disqus_title = 'Sockets';
 var disqus_url = 'http://stephenchen.com/2017/01/12/socket/';
