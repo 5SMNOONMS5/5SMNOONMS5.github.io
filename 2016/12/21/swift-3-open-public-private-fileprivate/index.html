@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Swift 3 Access Control with diagram · CLS</title><meta name="description" content="Swift 3 Access Control with diagram - Stephen Chen"><meta name="viewport" content="width=device-width, initial-scale=2"><link rel="short icon" href="/img/earth.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://stephenchen.com/atom.xml" title="CLS"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/img/earth.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="https://github.com/5SMNOONMS5" target="_blank" class="nav-list-link"><img src="/img/github.png" alt="GitHub" style="width: 15px;"></a></li><li class="nav-list-item"><a href="http://stackoverflow.com/users/3672927/stephen-chen?tab=profile" target="_blank" class="nav-list-link"><img src="/img/stackoverflow.png" alt="Stack Overflow" style="width: 16px;"></a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link"><img src="/img/rss.png" alt="Rss" style="width: 14px;"></a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Swift 3 Access Control with diagram</h1><div class="post-info">Dec 21, 2016</div><div class="post-content"><p>A diagram for open, public, private, fileprivate access level</p>
+<a id="more"></a>
+<p><img src="swift3-access-control.png" alt="swift3-access-control"></p>
+<p>In words</p>
+<h1 id="open"><a href="#open" class="headerlink" title="open"></a>open</h1><ul>
+<li>An open class is accessible and subclassable outside of the defining module. An open class member is accessible and overridable outside of the defining module.</li>
+</ul>
+<h1 id="public"><a href="#public" class="headerlink" title="public"></a>public</h1><ul>
+<li>A public class is accessible but not subclassable outside of the defining module. A public class member is accessible but not overridable outside of the defining module.</li>
+</ul>
+<h1 id="private"><a href="#private" class="headerlink" title="private"></a>private</h1><ul>
+<li>The private foo method is accessible only within the scope of the class A { … } definition. It is not even accessible from an extension to the type.</li>
+</ul>
+<h1 id="fileprivate"><a href="#fileprivate" class="headerlink" title="fileprivate"></a>fileprivate</h1><ul>
+<li>The file-private bar method is accessible from the same source file.</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html" target="_blank" rel="external">reference</a><br><a href="http://stackoverflow.com/questions/39027250/what-is-a-good-example-to-differentiate-between-fileprivate-and-private-in-swift/41261058#41261058" target="_blank" rel="external">Stack overflow about private and fileprivate</a></p>
+</div></article></div></section><footer><div class="paginator"><a href="/2017/01/12/socket/" class="prev">PREV</a><a href="/2016/12/20/Swift-Code-Conventions-Helper-And-Documentor/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+var disqus_identifier = '2016/12/21/swift-3-open-public-private-fileprivate/';
+var disqus_title = 'Swift 3 Access Control with diagram';
+var disqus_url = 'http://stephenchen.com/2016/12/21/swift-3-open-public-private-fileprivate/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//seansun.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://stephenchen.com">Stephen Chen</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Network Diagnostic Tools · CLS</title><meta name="description" content="Network Diagnostic Tools - Stephen Chen"><meta name="viewport" content="width=device-width, initial-scale=2"><link rel="short icon" href="/img/earth.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://stephenchen.com/atom.xml" title="CLS"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/img/earth.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="https://github.com/5SMNOONMS5" target="_blank" class="nav-list-link"><img src="/img/github.png" alt="GitHub" style="width: 15px;"></a></li><li class="nav-list-item"><a href="http://stackoverflow.com/users/3672927/stephen-chen?tab=profile" target="_blank" class="nav-list-link"><img src="/img/stackoverflow.png" alt="Stack Overflow" style="width: 16px;"></a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link"><img src="/img/rss.png" alt="Rss" style="width: 14px;"></a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Network Diagnostic Tools</h1><div class="post-info">Nov 18, 2016</div><div class="post-content"><p>Sometimes there will be unexpected while playing with servers , so here I will try three different network diagnostic tools to trace the package and guess what may be happened .</p>
+<a id="more"></a>
+<h1 id="1-Ping"><a href="#1-Ping" class="headerlink" title="1.Ping"></a>1.Ping</h1><h4 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h4><ul>
+<li>The ping command is usually used as a simple way verify that a computer can communicate over the network with another computer or network device.</li>
+</ul>
+<p><img src="ping.png" alt="ping"></p>
+<ul>
+<li>In above example , the ping command is used to ping the hostname www.google.com . The report tells me each ICMP echo request message sent to www.google.com was returned successful.</li>
+</ul>
+<p><img src="ping-DDos.png" alt="ping-DDos"></p>
+<div class="tip"><br>    Don’t try to use -f (Flood) option , some firewalls or hosts can believe it’s a DoS attack and drop the icmp packets silently.<br></div>
+
+<h1 id="2-MTR"><a href="#2-MTR" class="headerlink" title="2.MTR"></a>2.MTR</h1><h4 id="Synopsis-1"><a href="#Synopsis-1" class="headerlink" title="Synopsis"></a>Synopsis</h4><ul>
+<li><a href="http://www.bitwizard.nl/mtr/" target="_blank" rel="external">MTR</a> combines the functionality of the <a href="https://en.wikipedia.org/wiki/Traceroute" target="_blank" rel="external">Traceroute</a> and <a href="https://www.lifewire.com/ping-command-2618099" target="_blank" rel="external">Ping</a> programs in a single network diagnostic tool.</li>
+</ul>
+<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mtr</div></pre></td></tr></table></figure>
+<h4 id="Export-environment-variable-for-further-use"><a href="#Export-environment-variable-for-further-use" class="headerlink" title="Export environment variable for further use"></a>Export environment variable for further use</h4><ul>
+<li>After install via <a href="http://brew.sh/" target="_blank" rel="external">Homebrew</a> , <a href="http://www.bitwizard.nl/mtr/" target="_blank" rel="external">MTR</a> will locate under <strong>/usr/local/sbin/</strong> folder .</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>"</span>:/usr/<span class="built_in">local</span>/sbin/</div></pre></td></tr></table></figure>
+<h4 id="MTR-Sample"><a href="#MTR-Sample" class="headerlink" title="MTR Sample"></a>MTR Sample</h4><p><img src="mtr-sample.png" alt="mtr-sample"></p>
+<ul>
+<li>Above you can see all packets of data travelling from my host to destination host . Unfortunately, I don’t want to dig this here . If you want learn more , please go  <a href="https://www.linode.com/docs/networking/diagnostics/diagnosing-network-issues-with-mtr" target="_blank" rel="external">here</a>  </li>
+</ul>
+<h1 id="3-Traceroute"><a href="#3-Traceroute" class="headerlink" title="3.Traceroute"></a>3.Traceroute</h1><ul>
+<li><a href="https://linux.die.net/man/8/traceroute" target="_blank" rel="external">Traceroute</a> print the route packets trace to network host</li>
+</ul>
+<p><img src="tracerouter.png" alt="tracerouter"></p>
+<ul>
+<li><p>Above you can see your all packets of data travelling just likes <a href="http://www.bitwizard.nl/mtr/" target="_blank" rel="external">MTR</a> , but one of the different part is you can see the router transfer inside one specify router . See No.7 ~ No.11 at above sample .</p>
+</li>
+<li><p>more reference <a href="https://www.digitalocean.com/community/tutorials/how-to-use-traceroute-and-mtr-to-diagnose-network-issues" target="_blank" rel="external">DigitalOcean</a> , <a href="https://shapeshed.com/unix-traceroute/" target="_blank" rel="external">here</a>.</p>
+</li>
+</ul>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/11/24/Vim/" class="prev">PREV</a><a href="/2016/10/25/Developing-With-Xcodebuild/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+var disqus_identifier = '2016/11/18/network-diagnostic-tools/';
+var disqus_title = 'Network Diagnostic Tools';
+var disqus_url = 'http://stephenchen.com/2016/11/18/network-diagnostic-tools/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//seansun.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://stephenchen.com">Stephen Chen</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

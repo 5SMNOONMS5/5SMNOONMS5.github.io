@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> One-way Hash Function · CLS</title><meta name="description" content="One-way Hash Function - Stephen Chen"><meta name="viewport" content="width=device-width, initial-scale=2"><link rel="short icon" href="/img/earth.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://stephenchen.com/atom.xml" title="CLS"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/img/earth.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="https://github.com/5SMNOONMS5" target="_blank" class="nav-list-link"><img src="/img/github.png" alt="GitHub" style="width: 15px;"></a></li><li class="nav-list-item"><a href="http://stackoverflow.com/users/3672927/stephen-chen?tab=profile" target="_blank" class="nav-list-link"><img src="/img/stackoverflow.png" alt="Stack Overflow" style="width: 16px;"></a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link"><img src="/img/rss.png" alt="Rss" style="width: 14px;"></a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">One-way Hash Function</h1><div class="post-info">Oct 12, 2016</div><div class="post-content"><p>I saw this terminology a lot，here is my review</p>
+<a id="more"></a>
+<h4 id="Nick-names"><a href="#Nick-names" class="headerlink" title="Nick names"></a>Nick names</h4><ul>
+<li>message digest</li>
+<li>fingerprint</li>
+<li>compression function</li>
+</ul>
+<h4 id="One-way-hash-function-flow-diagram"><a href="#One-way-hash-function-flow-diagram" class="headerlink" title="One-way hash function flow diagram"></a>One-way hash function flow diagram</h4><p><img src="hash%20function.png" alt="name"></p>
+<ul>
+<li>note : hash values (ex：A，B) can’t be the same ( <a href="https://en.wikipedia.org/wiki/Collision_(computer_science" target="_blank" rel="external">collision</a>) )  </li>
+</ul>
+<h4 id="One-way-hash-algorithms"><a href="#One-way-hash-algorithms" class="headerlink" title="One-way hash algorithms"></a>One-way hash algorithms</h4><ul>
+<li><p><strong>MD4</strong>(Message Digest 4) and its improved version <strong>MD5</strong>. Both algorithms produce <strong>128-bit</strong>    hash values.</p>
+</li>
+<li><p><strong>SHA</strong>(Secure Hash Algorithm) produce <strong>128-bit</strong> hash values.</p>
+</li>
+<li><p><strong>SHA256</strong>(256-bit version Secure Hash Algorithm) produce <strong>256-bit</strong> hash values.</p>
+</li>
+</ul>
+<p>There is more , likes <strong>SHA512</strong> or <strong>SHA-384</strong> .</p>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/10/20/iOS-swift3-0-learning-experience/" class="prev">PREV</a><a href="/2016/10/06/Hexo-Github-Pages/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+var disqus_identifier = '2016/10/12/One-way-Hash-Function/';
+var disqus_title = 'One-way Hash Function';
+var disqus_url = 'http://stephenchen.com/2016/10/12/One-way-Hash-Function/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//seansun.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://stephenchen.com">Stephen Chen</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

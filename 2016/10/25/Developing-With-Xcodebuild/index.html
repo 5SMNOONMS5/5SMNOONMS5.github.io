@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Running Xcode From Command Line Tool · CLS</title><meta name="description" content="Running Xcode From Command Line Tool - Stephen Chen"><meta name="viewport" content="width=device-width, initial-scale=2"><link rel="short icon" href="/img/earth.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://stephenchen.com/atom.xml" title="CLS"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/img/earth.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="https://github.com/5SMNOONMS5" target="_blank" class="nav-list-link"><img src="/img/github.png" alt="GitHub" style="width: 15px;"></a></li><li class="nav-list-item"><a href="http://stackoverflow.com/users/3672927/stephen-chen?tab=profile" target="_blank" class="nav-list-link"><img src="/img/stackoverflow.png" alt="Stack Overflow" style="width: 16px;"></a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link"><img src="/img/rss.png" alt="Rss" style="width: 14px;"></a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Running Xcode From Command Line Tool</h1><div class="post-info">Oct 25, 2016</div><div class="post-content"><p>Speed up iOS development process via Command Line Tools <strong>xcodebuild</strong> and <strong>xcbuild</strong></p>
+<a id="more"></a>
+<h4 id="Check-xcodebuild-exists"><a href="#Check-xcodebuild-exists" class="headerlink" title="Check xcodebuild exists"></a>Check xcodebuild exists</h4><ul>
+<li><p>Here provide two way to check，listing 1：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ find /usr/bin -name xcodebuild</div></pre></td></tr></table></figure>
+</li>
+<li><p>Listing 2：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">which</span> xcodebuild</div></pre></td></tr></table></figure>
+</li>
+<li><p>If <strong>xcodebuild</strong> nonexist，run this</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcode-select --install</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Detail-of-xcodebuild"><a href="#Detail-of-xcodebuild" class="headerlink" title="Detail of xcodebuild"></a>Detail of xcodebuild</h4><ul>
+<li>Actually there is a <a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html" target="_blank" rel="external">comprehensive analysis of xcodebuild</a>，or through the output of <strong>man xcodebuild</strong></li>
+</ul>
+<h4 id="First-check-sdks-and-destination"><a href="#First-check-sdks-and-destination" class="headerlink" title="First check sdks and destination"></a>First check sdks and destination</h4><ul>
+<li><p>Outcomes will add behind the xcodebuild <strong>-sdk</strong> parameter</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild -showsdks</div></pre></td></tr></table></figure>
+</li>
+<li><p>Outcomes will add behind the xcodebuild <strong>-destination</strong> parameter</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ instruments <span class="_">-s</span> devices</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="With-simulator"><a href="#With-simulator" class="headerlink" title="With simulator"></a>With simulator</h4><blockquote>
+<p>Remember to replace -destination . -sdk and <yourname>.xcworkspace with your own</yourname></p>
+</blockquote>
+<ul>
+<li>Change working directory to the directory that contains <yourname>.xcworkspace or <yourname>.xcodeproj</yourname></yourname></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild \</div><div class="line">  -sdk iphonesimulator10.0 \</div><div class="line">  -workspace <span class="string">"&lt;YourName&gt;.xcworkspace"</span> \</div><div class="line">  -scheme <span class="string">"&lt;YourName&gt;"</span> \</div><div class="line">  -destination <span class="string">'platform=iOS Simulator,name=iPhone 6,OS=10.0'</span> \</div><div class="line">  -configuration <span class="string">"Debug"</span> \</div><div class="line">  <span class="built_in">test</span></div></pre></td></tr></table></figure>
+<h4 id="Xcodebuild-with-xcpretty-highly-recommend"><a href="#Xcodebuild-with-xcpretty-highly-recommend" class="headerlink" title="Xcodebuild with xcpretty (highly recommend)"></a>Xcodebuild with xcpretty (highly recommend)</h4><ul>
+<li><p><a href="https://github.com/supermarin/xcpretty" target="_blank" rel="external">Xcodebuild</a> make your xcodebuild output more readable，following line to see the usage of <strong>xcpretty</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcpretty --h</div></pre></td></tr></table></figure>
+</li>
+<li><p>Combine <strong>xcodebuild</strong> and <strong>xcpretty</strong> sample</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild \</div><div class="line">  -sdk iphonesimulator10.0 \</div><div class="line">  -workspace <span class="string">"&lt;YourName&gt;.xcworkspace"</span> \</div><div class="line">  -scheme <span class="string">"&lt;YourName&gt;"</span> \</div><div class="line">  -destination <span class="string">'platform=iOS Simulator,name=iPhone 6,OS=10.0'</span> \</div><div class="line">  -configuration <span class="string">"Debug"</span> \</div><div class="line">  <span class="built_in">test</span> | xcpretty -t -c -r html &amp;&amp; open <span class="_">-a</span> Google\ Chrome.app build/reports/tests.html</div></pre></td></tr></table></figure>
+</li>
+<li><p>You can also <strong>pipe</strong> above command with other commands such as <strong>open -a Google\ Chrome.app</strong></p>
+</li>
+</ul>
+<h4 id="Build-the-archive"><a href="#Build-the-archive" class="headerlink" title="Build the archive"></a>Build the archive</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild</div><div class="line">  -workspace &lt;YourName&gt;.xcworkspace</div><div class="line">  -scheme &lt;YourName&gt;</div><div class="line">  -sdk iphoneos</div><div class="line">  -configuration AppStoreDistribution archive</div><div class="line">  -archivePath ./build/&lt;YourName&gt;.xcarchive</div></pre></td></tr></table></figure>
+<h4 id="Export-ipa-file"><a href="#Export-ipa-file" class="headerlink" title="Export .ipa file"></a>Export .ipa file</h4><p><a href="http://stackoverflow.com/questions/32763288/ios-builds-ipa-creation-no-longer-works-from-the-command-line" target="_blank" rel="external">iOS builds / ipa creation no longer works from the command line</a></p>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/11/18/network-diagnostic-tools/" class="prev">PREV</a><a href="/2016/10/20/iOS-swift3-0-learning-experience/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+var disqus_identifier = '2016/10/25/Developing-With-Xcodebuild/';
+var disqus_title = 'Running Xcode From Command Line Tool';
+var disqus_url = 'http://stephenchen.com/2016/10/25/Developing-With-Xcodebuild/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//seansun.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://stephenchen.com">Stephen Chen</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

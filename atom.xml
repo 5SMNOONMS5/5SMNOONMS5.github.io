@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>CLS</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://stephenchen.com/"/>
+  <updated>2017-01-13T04:04:00.000Z</updated>
+  <id>http://stephenchen.com/</id>
+  
+  <author>
+    <name>Stephen Chen</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Sockets</title>
+    <link href="http://stephenchen.com/2017/01/12/socket/"/>
+    <id>http://stephenchen.com/2017/01/12/socket/</id>
+    <published>2017-01-12T14:41:19.000Z</published>
+    <updated>2017-01-13T04:04:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>此篇是是轉自 CocoaAsyncSocket 的 <a href="https://github.com/robbiehanson/CocoaAsyncSocket/wiki/Intro" target="_blank" rel="external">Wiki</a> ， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！</p>
+<a id="more"></a>
+<h1 id="Sockets-Ports-and-DNS-Oh-My"><a href="#Sockets-Ports-and-DNS-Oh-My" class="headerlink" title="Sockets, Ports, and DNS - Oh My!"></a>Sockets, Ports, and DNS - Oh My!</h1><p>以網路的術語，一台電腦可能擁有很多的 socket 端口。當兩台電腦要連結，比如從自己的桌機連到 yahoo 的主機。兩台電腦會建立一個連線，從使用者的 socket 端口到 yahoo 主機的 socket 端口，這條連線我們稱它為 Network connection。</p>
+<p>當要建立這條 Network connection，其中一方的 socket 必須得知到 yahoo 主機的 socket 端口位置。每個 socket 大致上區分為兩個區塊：一個是 <strong>Ip位址</strong> 另一個是 <strong>Port</strong>。</p>
+<p>一台主機可以擁有很多個 <strong>Ip位址</strong>，比如一台電腦可以擁有網卡，數據機，WIFI卡，VPN連線跟藍芽連線…等。另外附帶一提，每台電腦都有一個介面是可以自己呼叫自己的網路介面，通常工程師稱他們為 <strong>localhost</strong>，術語是 <strong>loopback</strong>，通常 loopback 是去 ping 電腦主機的虛擬網卡，一個 loop迴圈的概念。</p>
+<p>那什麼是 DNS 呢。DNS 就好像一本電話簿一樣，如果你要打給某個人，但是你不知道他的電話，你可以打開電話簿來看他的電話號碼。用以上的例子來解釋。假如你要連上 google.com，那你的電腦會先到 DNS 去找 google.com 的 ip address，然後你自己電腦的 socket 就會 google.com 的 ip address ， 這樣就連上，而達到所謂的 network connection。</p>
+<h1 id="Networking"><a href="#Networking" class="headerlink" title="Networking"></a>Networking</h1><p>網路其實有時候不是很可靠的。當你發送一個新的 data 出去的時候，你的封包有可能會透過 Wifi, 行動網路或者透過衛星系統。</p>
+<p>所有的網路傳遞在傳送和接收的都會被切割為很多小的封包，這些封包透過網路到達路由器之後再讓路由器決定這些封包要到哪邊去。但是假如網路開始出現問題，封包越傳越多，路由器會開始超過他的負荷。這種很時常發生，所以路由器開始把一些來不及解析的封包丟掉。</p>
+<p>此外也有可能是電腦自己把封包丟掉，當電腦超過負荷的時候，應用程式也有可能沒辦法這麼快速的讀取封包。或者有一些淺在的可能性當這些封包再傳輸的過程中被毀損了。</p>
+<p>如果你剛開始接觸網路，你會覺得這一切都是奇蹟。</p>
+<h1 id="Bring-on-the-Protocols"><a href="#Bring-on-the-Protocols" class="headerlink" title="Bring on the Protocols"></a>Bring on the Protocols</h1><p>現在網路世界有一大堆的 Protocols (協議)，協議就好像是有一位女生答應我的告白，但是要成為她男朋友必須要有某些條件，比如我星期一，三，五要吃雞排。二，四，六要喝珍奶，<br>必須要遵守這些條件才可以當她男朋友。回到議題上，以下這些列出來的 Protocols 我們稱它為 <strong>應用層</strong></p>
+<blockquote>
+<p>HTTP, FTP, XMPP, POP, IMAP, SMTP, DHCP, DNS, VoIP, SIP, RTP, RTCP …etc</p>
+</blockquote>
+<p>但以上所有的 應用層 都是建立在另外一種 Protocols 上，我們稱它為 傳輸層。傳輸層是專門管理 網路方面的，但在這個 <strong>CocoaAsyncSocket專案</strong> 我們只會用到 <strong>UDP</strong> 跟 <strong>TCP</strong> 兩種</p>
+<h2 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h2><h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;此篇是是轉自 CocoaAsyncSocket 的 &lt;a href=&quot;https://github.com/robbiehanson/CocoaAsyncSocket/wiki/Intro&quot;&gt;Wiki&lt;/a&gt; ， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Swift 3 Access Control with diagram</title>
+    <link href="http://stephenchen.com/2016/12/21/swift-3-open-public-private-fileprivate/"/>
+    <id>http://stephenchen.com/2016/12/21/swift-3-open-public-private-fileprivate/</id>
+    <published>2016-12-21T10:28:39.000Z</published>
+    <updated>2017-01-10T01:41:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>A diagram for open, public, private, fileprivate access level</p>
+<a id="more"></a>
+<p><img src="swift3-access-control.png" alt="swift3-access-control"></p>
+<p>In words</p>
+<h1 id="open"><a href="#open" class="headerlink" title="open"></a>open</h1><ul>
+<li>An open class is accessible and subclassable outside of the defining module. An open class member is accessible and overridable outside of the defining module.</li>
+</ul>
+<h1 id="public"><a href="#public" class="headerlink" title="public"></a>public</h1><ul>
+<li>A public class is accessible but not subclassable outside of the defining module. A public class member is accessible but not overridable outside of the defining module.</li>
+</ul>
+<h1 id="private"><a href="#private" class="headerlink" title="private"></a>private</h1><ul>
+<li>The private foo method is accessible only within the scope of the class A { … } definition. It is not even accessible from an extension to the type.</li>
+</ul>
+<h1 id="fileprivate"><a href="#fileprivate" class="headerlink" title="fileprivate"></a>fileprivate</h1><ul>
+<li>The file-private bar method is accessible from the same source file.</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html" target="_blank" rel="external">reference</a><br><a href="http://stackoverflow.com/questions/39027250/what-is-a-good-example-to-differentiate-between-fileprivate-and-private-in-swift/41261058#41261058" target="_blank" rel="external">Stack overflow about private and fileprivate</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;A diagram for open, public, private, fileprivate access level&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Swift Code Conventions Helper And Document Generator</title>
+    <link href="http://stephenchen.com/2016/12/20/Swift-Code-Conventions-Helper-And-Documentor/"/>
+    <id>http://stephenchen.com/2016/12/20/Swift-Code-Conventions-Helper-And-Documentor/</id>
+    <published>2016-12-20T02:29:31.000Z</published>
+    <updated>2016-12-20T08:44:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>A way to cheat time from Project Manager</p>
+<a id="more"></a>
+<p>Code Conventions and Code Document had been part of my big problems , until <a href="https://realm.io/" target="_blank" rel="external">Realm</a> released two great tools which are <a href="https://github.com/realm/SwiftLint" target="_blank" rel="external">SwiftLint</a> and <a href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy</a></p>
+<h1 id="Jazzy"><a href="#Jazzy" class="headerlink" title="Jazzy"></a>Jazzy</h1><p>A command-line utility that generates documentation for Swift or Objective-C . I will provide very simple use here</p>
+<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[sudo] gem install jazzy</div></pre></td></tr></table></figure>
+<h4 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h4><p>Remember to replace the text inside angle brackets , assume you have <a href="https://cocoapods.org/" target="_blank" rel="external">cocoapods</a> install</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">jazzy \</div><div class="line">  --clean \</div><div class="line">  --xcodebuild-arguments -workspace,&lt;PROJECT&gt;.xcworkspace,-scheme,&lt;SCHEME&gt; \</div><div class="line">  --min-acl internal \</div><div class="line">  --author &lt;NAME&gt; \</div><div class="line">  --theme apple \</div><div class="line">  --author_url &lt;URL&gt; \</div><div class="line">  --github_url &lt;URL&gt; \</div><div class="line">  --module-version &lt;VERSION&gt; \</div><div class="line">  --output docs/index.html</div></pre></td></tr></table></figure>
+<p>If you don’t have <a href="https://cocoapods.org/" target="_blank" rel="external">cocoapods</a> , change above code from<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--xcodebuild-arguments -workspace,&lt;PROJECT&gt;.xcworkspace,-scheme,&lt;SCHEME&gt; \</div></pre></td></tr></table></figure></p>
+<p>To<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--xcodebuild-arguments -project,&lt;PROJECT&gt;.xcodeproj,-scheme,&lt;SCHEME&gt; \</div></pre></td></tr></table></figure></p>
+<h4 id="Success"><a href="#Success" class="headerlink" title="Success"></a>Success</h4><p>♪♫ ♪♫ ♪♫ ♪♫  </p>
+<p><img src="jazzy.gif" alt="jszzy"></p>
+<p>Fro advance usage and more detail , please head to <a href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy</a> or type jazzy -h</p>
+<h1 id="SwiftLint"><a href="#SwiftLint" class="headerlink" title="SwiftLint"></a>SwiftLint</h1><p>A tool to enforce Swift style and conventions. This is great for entire iOS team write a unified style code .</p>
+<h4 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a>Install</h4><p>Here use <a href="http://brew.sh/" target="_blank" rel="external">homebrew</a> to install<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install swiftlint</div></pre></td></tr></table></figure></p>
+<h4 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a>Usage</h4><p>Add below code to xcode run script , then run the project .</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> which swiftlint &gt;/dev/null; then</div><div class="line">    swiftlint</div><div class="line"><span class="keyword">else</span></div><div class="line">    echo <span class="string">"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"</span></div><div class="line">fi</div></pre></td></tr></table></figure>
+<p><img src="swiftlint.gif" alt="homebrew"></p>
+<h4 id="Understanding"><a href="#Understanding" class="headerlink" title="Understanding"></a>Understanding</h4><p>You will probably see lots of warning and here I pick line 17 <strong>syntactic_sugar</strong> warning</p>
+<p><img src="warning1.png" alt="warning picture"></p>
+<p>First let us parse the warning . All the warning and error combine follow the syntax<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">description (rules_name)</div></pre></td></tr></table></figure></p>
+<p>So this warning is call <strong>syntactic_sugar</strong> and <strong>“Shorthand syntactic sugar should be used, i.e. [Int] instead of Array<int>“</int></strong> is the description of <strong>syntactic_sugar</strong> , you can fix it by what description suggested .</p>
+<h4 id="Customize-your-own"><a href="#Customize-your-own" class="headerlink" title="Customize your own"></a>Customize your own</h4><p>First: You can see all the rules <a href="https://github.com/realm/SwiftLint/tree/master/Source/SwiftLintFramework/Rules" target="_blank" rel="external">here</a></p>
+<p>Second: Add .swiftlint.yml under the project folder , then copy the code and fill each respectively .</p>
+<script src="https://gist.github.com/5SMNOONMS5/f25219b5407eba652063f161eb712782.js"></script>
+
+<p>run again</p>
+<p><img src="warning2.png" alt="warning2 picture"></p>
+<p>see? The warning disappear , I add <strong>syntactic_sugar</strong> to disabled_rules .</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># rule identifiers to exclude from running</span></div><div class="line"><span class="attr">disabled_rules:</span></div><div class="line"><span class="bullet">  -</span> syntactic_sugar</div><div class="line"><span class="bullet">  -</span> colon</div><div class="line"><span class="bullet">  -</span> todo</div><div class="line"><span class="bullet">  -</span> empty_count</div><div class="line"><span class="bullet">  -</span> trailing_whitespace</div></pre></td></tr></table></figure>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>It is always necessary to have effective tools .</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;A way to cheat time from Project Manager&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Fix &#39;&#39;Unrecognized selector sent to instance&#39;&#39; error</title>
+    <link href="http://stephenchen.com/2016/12/16/unrecognized-selector-sent-to-instance-error/"/>
+    <id>http://stephenchen.com/2016/12/16/unrecognized-selector-sent-to-instance-error/</id>
+    <published>2016-12-16T03:37:09.000Z</published>
+    <updated>2017-01-13T01:54:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Provide easy way to solve this horrible problem</p>
+<a id="more"></a>
+<p>While developing iOS application , you probably face this kind of error a lot</p>
+<p><img src="error.png" alt="error picture"></p>
+<p>The easiest way is create a exception breakpoint</p>
+<p><img src="Step1.png" alt="Step1"></p>
+<p><img src="Step2.png" alt="Step2"></p>
+<p>Run and build , the breakpoint should stop at where caused this error .</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Provide easy way to solve this horrible problem&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Learning Vim</title>
+    <link href="http://stephenchen.com/2016/11/24/Vim/"/>
+    <id>http://stephenchen.com/2016/11/24/Vim/</id>
+    <published>2016-11-24T02:28:41.000Z</published>
+    <updated>2017-01-13T01:54:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>a coding life with Vim</p>
+<a id="more"></a>
+<h1 id="OS-Environment"><a href="#OS-Environment" class="headerlink" title="OS Environment"></a>OS Environment</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cat /etc/redhat-release</div><div class="line">CentOS release 6.7 (Final)</div></pre></td></tr></table></figure>
+<h1 id="Search-available-VIM"><a href="#Search-available-VIM" class="headerlink" title="Search available VIM"></a>Search available VIM</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum search vim</div></pre></td></tr></table></figure>
+<p><img src="yum-search.png" alt="yum-search.png"></p>
+<h1 id="Install-VIM"><a href="#Install-VIM" class="headerlink" title="Install VIM"></a>Install VIM</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># choose one correspond to your os , for me chose vim-enhanced.x86_64</div><div class="line">yum install vim-enhanced.x86_64</div></pre></td></tr></table></figure>
+<h1 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h1><h4 id="Vim-didn’t-display-correct-character"><a href="#Vim-didn’t-display-correct-character" class="headerlink" title="Vim didn’t display correct character"></a>Vim didn’t display correct character</h4><ul>
+<li>sometimes I will type Chinese character in my file , if text is garbled.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> encoding=utf8</div></pre></td></tr></table></figure>
+<ul>
+<li>always add this line in /etc/vimrc for further use</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="built_in">set</span> encoding=utf8 &gt;&gt; /etc/vimrc</div></pre></td></tr></table></figure>
+<ul>
+<li>Reference</li>
+</ul>
+<p><a href="http://www.cnblogs.com/Jack47/p/how-to-solve-garbled-vim-Linux.html" target="_blank" rel="external">Understand between termencoding, encoding, fileencoding, fileencodings</a></p>
+<p>more setting information <a href="https://blog.gtwang.org/tips/vim-working-with-unicode/" target="_blank" rel="external">here</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;a coding life with Vim&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Network Diagnostic Tools</title>
+    <link href="http://stephenchen.com/2016/11/18/network-diagnostic-tools/"/>
+    <id>http://stephenchen.com/2016/11/18/network-diagnostic-tools/</id>
+    <published>2016-11-18T09:51:00.000Z</published>
+    <updated>2016-11-23T09:17:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Sometimes there will be unexpected while playing with servers , so here I will try three different network diagnostic tools to trace the package and guess what may be happened .</p>
+<a id="more"></a>
+<h1 id="1-Ping"><a href="#1-Ping" class="headerlink" title="1.Ping"></a>1.Ping</h1><h4 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h4><ul>
+<li>The ping command is usually used as a simple way verify that a computer can communicate over the network with another computer or network device.</li>
+</ul>
+<p><img src="ping.png" alt="ping"></p>
+<ul>
+<li>In above example , the ping command is used to ping the hostname www.google.com . The report tells me each ICMP echo request message sent to www.google.com was returned successful.</li>
+</ul>
+<p><img src="ping-DDos.png" alt="ping-DDos"></p>
+<div class="tip"><br>    Don’t try to use -f (Flood) option , some firewalls or hosts can believe it’s a DoS attack and drop the icmp packets silently.<br></div>
+
+<h1 id="2-MTR"><a href="#2-MTR" class="headerlink" title="2.MTR"></a>2.MTR</h1><h4 id="Synopsis-1"><a href="#Synopsis-1" class="headerlink" title="Synopsis"></a>Synopsis</h4><ul>
+<li><a href="http://www.bitwizard.nl/mtr/" target="_blank" rel="external">MTR</a> combines the functionality of the <a href="https://en.wikipedia.org/wiki/Traceroute" target="_blank" rel="external">Traceroute</a> and <a href="https://www.lifewire.com/ping-command-2618099" target="_blank" rel="external">Ping</a> programs in a single network diagnostic tool.</li>
+</ul>
+<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mtr</div></pre></td></tr></table></figure>
+<h4 id="Export-environment-variable-for-further-use"><a href="#Export-environment-variable-for-further-use" class="headerlink" title="Export environment variable for further use"></a>Export environment variable for further use</h4><ul>
+<li>After install via <a href="http://brew.sh/" target="_blank" rel="external">Homebrew</a> , <a href="http://www.bitwizard.nl/mtr/" target="_blank" rel="external">MTR</a> will locate under <strong>/usr/local/sbin/</strong> folder .</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>"</span>:/usr/<span class="built_in">local</span>/sbin/</div></pre></td></tr></table></figure>
+<h4 id="MTR-Sample"><a href="#MTR-Sample" class="headerlink" title="MTR Sample"></a>MTR Sample</h4><p><img src="mtr-sample.png" alt="mtr-sample"></p>
+<ul>
+<li>Above you can see all packets of data travelling from my host to destination host . Unfortunately, I don’t want to dig this here . If you want learn more , please go  <a href="https://www.linode.com/docs/networking/diagnostics/diagnosing-network-issues-with-mtr" target="_blank" rel="external">here</a>  </li>
+</ul>
+<h1 id="3-Traceroute"><a href="#3-Traceroute" class="headerlink" title="3.Traceroute"></a>3.Traceroute</h1><ul>
+<li><a href="https://linux.die.net/man/8/traceroute" target="_blank" rel="external">Traceroute</a> print the route packets trace to network host</li>
+</ul>
+<p><img src="tracerouter.png" alt="tracerouter"></p>
+<ul>
+<li><p>Above you can see your all packets of data travelling just likes <a href="http://www.bitwizard.nl/mtr/" target="_blank" rel="external">MTR</a> , but one of the different part is you can see the router transfer inside one specify router . See No.7 ~ No.11 at above sample .</p>
+</li>
+<li><p>more reference <a href="https://www.digitalocean.com/community/tutorials/how-to-use-traceroute-and-mtr-to-diagnose-network-issues" target="_blank" rel="external">DigitalOcean</a> , <a href="https://shapeshed.com/unix-traceroute/" target="_blank" rel="external">here</a>.</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Sometimes there will be unexpected while playing with servers , so here I will try three different network diagnostic tools to trace the package and guess what may be happened .&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Running Xcode From Command Line Tool</title>
+    <link href="http://stephenchen.com/2016/10/25/Developing-With-Xcodebuild/"/>
+    <id>http://stephenchen.com/2016/10/25/Developing-With-Xcodebuild/</id>
+    <published>2016-10-25T09:46:26.000Z</published>
+    <updated>2016-10-27T07:29:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Speed up iOS development process via Command Line Tools <strong>xcodebuild</strong> and <strong>xcbuild</strong></p>
+<a id="more"></a>
+<h4 id="Check-xcodebuild-exists"><a href="#Check-xcodebuild-exists" class="headerlink" title="Check xcodebuild exists"></a>Check xcodebuild exists</h4><ul>
+<li><p>Here provide two way to check，listing 1：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ find /usr/bin -name xcodebuild</div></pre></td></tr></table></figure>
+</li>
+<li><p>Listing 2：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">which</span> xcodebuild</div></pre></td></tr></table></figure>
+</li>
+<li><p>If <strong>xcodebuild</strong> nonexist，run this</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcode-select --install</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Detail-of-xcodebuild"><a href="#Detail-of-xcodebuild" class="headerlink" title="Detail of xcodebuild"></a>Detail of xcodebuild</h4><ul>
+<li>Actually there is a <a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html" target="_blank" rel="external">comprehensive analysis of xcodebuild</a>，or through the output of <strong>man xcodebuild</strong></li>
+</ul>
+<h4 id="First-check-sdks-and-destination"><a href="#First-check-sdks-and-destination" class="headerlink" title="First check sdks and destination"></a>First check sdks and destination</h4><ul>
+<li><p>Outcomes will add behind the xcodebuild <strong>-sdk</strong> parameter</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild -showsdks</div></pre></td></tr></table></figure>
+</li>
+<li><p>Outcomes will add behind the xcodebuild <strong>-destination</strong> parameter</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ instruments <span class="_">-s</span> devices</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="With-simulator"><a href="#With-simulator" class="headerlink" title="With simulator"></a>With simulator</h4><blockquote>
+<p>Remember to replace -destination . -sdk and <yourname>.xcworkspace with your own</yourname></p>
+</blockquote>
+<ul>
+<li>Change working directory to the directory that contains <yourname>.xcworkspace or <yourname>.xcodeproj</yourname></yourname></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild \</div><div class="line">  -sdk iphonesimulator10.0 \</div><div class="line">  -workspace <span class="string">"&lt;YourName&gt;.xcworkspace"</span> \</div><div class="line">  -scheme <span class="string">"&lt;YourName&gt;"</span> \</div><div class="line">  -destination <span class="string">'platform=iOS Simulator,name=iPhone 6,OS=10.0'</span> \</div><div class="line">  -configuration <span class="string">"Debug"</span> \</div><div class="line">  <span class="built_in">test</span></div></pre></td></tr></table></figure>
+<h4 id="Xcodebuild-with-xcpretty-highly-recommend"><a href="#Xcodebuild-with-xcpretty-highly-recommend" class="headerlink" title="Xcodebuild with xcpretty (highly recommend)"></a>Xcodebuild with xcpretty (highly recommend)</h4><ul>
+<li><p><a href="https://github.com/supermarin/xcpretty" target="_blank" rel="external">Xcodebuild</a> make your xcodebuild output more readable，following line to see the usage of <strong>xcpretty</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcpretty --h</div></pre></td></tr></table></figure>
+</li>
+<li><p>Combine <strong>xcodebuild</strong> and <strong>xcpretty</strong> sample</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild \</div><div class="line">  -sdk iphonesimulator10.0 \</div><div class="line">  -workspace <span class="string">"&lt;YourName&gt;.xcworkspace"</span> \</div><div class="line">  -scheme <span class="string">"&lt;YourName&gt;"</span> \</div><div class="line">  -destination <span class="string">'platform=iOS Simulator,name=iPhone 6,OS=10.0'</span> \</div><div class="line">  -configuration <span class="string">"Debug"</span> \</div><div class="line">  <span class="built_in">test</span> | xcpretty -t -c -r html &amp;&amp; open <span class="_">-a</span> Google\ Chrome.app build/reports/tests.html</div></pre></td></tr></table></figure>
+</li>
+<li><p>You can also <strong>pipe</strong> above command with other commands such as <strong>open -a Google\ Chrome.app</strong></p>
+</li>
+</ul>
+<h4 id="Build-the-archive"><a href="#Build-the-archive" class="headerlink" title="Build the archive"></a>Build the archive</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild</div><div class="line">  -workspace &lt;YourName&gt;.xcworkspace</div><div class="line">  -scheme &lt;YourName&gt;</div><div class="line">  -sdk iphoneos</div><div class="line">  -configuration AppStoreDistribution archive</div><div class="line">  -archivePath ./build/&lt;YourName&gt;.xcarchive</div></pre></td></tr></table></figure>
+<h4 id="Export-ipa-file"><a href="#Export-ipa-file" class="headerlink" title="Export .ipa file"></a>Export .ipa file</h4><p><a href="http://stackoverflow.com/questions/32763288/ios-builds-ipa-creation-no-longer-works-from-the-command-line" target="_blank" rel="external">iOS builds / ipa creation no longer works from the command line</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Speed up iOS development process via Command Line Tools &lt;strong&gt;xcodebuild&lt;/strong&gt; and &lt;strong&gt;xcbuild&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS Swift 3 Reviews Part I</title>
+    <link href="http://stephenchen.com/2016/10/20/iOS-swift3-0-learning-experience/"/>
+    <id>http://stephenchen.com/2016/10/20/iOS-swift3-0-learning-experience/</id>
+    <published>2016-10-20T03:21:56.000Z</published>
+    <updated>2016-10-29T02:57:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Recently Apple update to swift3.0 so I decided to read the <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html#//apple_ref/doc/uid/TP40014097-CH3-ID0" target="_blank" rel="external">Language Guide</a>，maybe this article is not all new to swift3.0，it’s all about new to me，just pick whcih contents you interestded 。Here are some of my personal reviews ….。</p>
+<a id="more"></a>
+<h1 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h1><ul>
+<li><a href="#Attributes">Attributes</a></li>
+<li><a href="#Function">Function</a></li>
+<li><a href="#Generics">Generics</a></li>
+</ul>
+<h1 id="Attributes"><a href="#Attributes" class="headerlink" title="Attributes"></a>Attributes</h1><ul>
+<li><strong>Attributes</strong> provide more information about a <strong>declaration</strong> or <strong>type</strong> , There are two kinds of attributes in Swift, those that apply to <strong>declarations</strong> and those that apply to <strong>types</strong>.</li>
+</ul>
+<h4 id="Attributes-Diagram"><a href="#Attributes-Diagram" class="headerlink" title="Attributes Diagram"></a>Attributes Diagram</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="type">Attributes</span> --- <span class="number">1</span>. <span class="type">Declaration</span> <span class="type">Attributes</span></div><div class="line">           |</div><div class="line">           |-- <span class="number">2</span>. <span class="type">Type</span> <span class="type">Attributes</span></div></pre></td></tr></table></figure>
+<h4 id="Declaration-Attributes"><a href="#Declaration-Attributes" class="headerlink" title="Declaration Attributes"></a>Declaration Attributes</h4><ul>
+<li>Apply to declarations only。ex: <strong>@available</strong></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// First release</span></div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">MyProtocol</span> </span>&#123;</div><div class="line">    <span class="comment">// protocol definition</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// Subsequent release renames MyProtocol</span></div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">MyRenamedProtocol</span> </span>&#123;</div><div class="line">    <span class="comment">// protocol definition</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@available</span>(*, unavailable, renamed: <span class="string">"MyRenamedProtocol"</span>)</div><div class="line"><span class="keyword">typealias</span> <span class="type">MyProtocol</span> = <span class="type">MyRenamedProtocol</span></div></pre></td></tr></table></figure>
+<ul>
+<li>The usage of <strong>@objc</strong> declaration attributes</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@objc</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleClass</span>: <span class="title">NSObject</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> enabled: <span class="type">Bool</span> &#123;</div><div class="line">        <span class="meta">@objc</span>(isEnabled) <span class="keyword">get</span> &#123;</div><div class="line">            <span class="comment">// Return the appropriate value</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>Declaration attributes can also used by <strong>Interface Builder</strong></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="type">IBAction</span></div><div class="line"><span class="type">IBOutlet</span></div><div class="line"><span class="type">IBDesignable</span></div><div class="line"><span class="type">IBInspectable</span></div></pre></td></tr></table></figure>
+<h4 id="Type-Attributes"><a href="#Type-Attributes" class="headerlink" title="Type Attributes"></a>Type Attributes</h4><ul>
+<li>Apply to types only。There are few attributes appear very often which are <strong>autoclosure</strong><br>. <strong>escaping</strong> and <strong>@noescape</strong></li>
+</ul>
+<h4 id="Autoclosure"><a href="#Autoclosure" class="headerlink" title="Autoclosure"></a>Autoclosure</h4><ul>
+<li>I found a very great explanation with some sample codes <a href="http://stackoverflow.com/questions/24102617/how-to-use-swift-autoclosure" target="_blank" rel="external">here</a></li>
+</ul>
+<h4 id="Escape-and-noescape"><a href="#Escape-and-noescape" class="headerlink" title="Escape and noescape"></a>Escape and noescape</h4><blockquote>
+<p>This article is focus on Swift 3 , so I won’t show different written prior to Swift 3 .</p>
+</blockquote>
+<ul>
+<li><p><strong>@Noescape</strong> means closure <strong>will not</strong> be stored somewhere，used at a later time，or <a href="http://stackoverflow.com/questions/28427436/noescape-attribute-in-swift-1-2" target="_blank" rel="external">used asynchronously</a> and <a href="http://stackoverflow.com/questions/39504180/escaping-closures-in-swift" target="_blank" rel="external">this avoid retain cycle</a>。BTW，according to the <a href="https://github.com/apple/swift-evolution/blob/master/proposals/0103-make-noescape-default.md" target="_blank" rel="external">SE-0103</a> <strong>noescape</strong> is now make as default for closure parameters</p>
+</li>
+<li><p><strong>@escape</strong> in contrast to <strong>@noescape</strong>，it <strong>will</strong> be stored somewhere and use later</p>
+</li>
+</ul>
+<h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><h4 id="Default-Parameter-Values"><a href="#Default-Parameter-Values" class="headerlink" title="Default Parameter Values"></a>Default Parameter Values</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">someFunction</span><span class="params">(withoutDefault: Int, withDefault: Int = <span class="number">12</span>)</span></span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Variadic-Parameters"><a href="#Variadic-Parameters" class="headerlink" title="Variadic Parameters"></a>Variadic Parameters</h4><ul>
+<li>A variadic parameter accepts zero or more values of a specified type. You use a variadic parameter to specify that the parameter can be passed a varying number of input values when the function is called. Write variadic parameters by inserting three period characters (…) after the parameter’s type name.</li>
+</ul>
+<blockquote>
+<p>Those two are equal，but I personal prefer <strong>[Double]</strong> style no <strong>Double…</strong></p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">arithmeticMean</span><span class="params">(<span class="number">_</span> numbers: Double...)</span></span> -&gt; <span class="type">Double</span> &#123;</div><div class="line">    <span class="keyword">var</span> total: <span class="type">Double</span> = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> number <span class="keyword">in</span> numbers &#123;</div><div class="line">        total += number</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> total / <span class="type">Double</span>(numbers.<span class="built_in">count</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">arithmeticMean</span><span class="params">(<span class="number">_</span> numbers: [Double])</span></span> -&gt; <span class="type">Double</span> &#123;</div><div class="line">    <span class="keyword">var</span> total: <span class="type">Double</span> = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> number <span class="keyword">in</span> numbers &#123;</div><div class="line">        total += number</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> total / <span class="type">Double</span>(numbers.<span class="built_in">count</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="In-Out-Parameters"><a href="#In-Out-Parameters" class="headerlink" title="In-Out Parameters"></a>In-Out Parameters</h4><ul>
+<li>An in-out parameter has a value that is passed in to the function, is modified by the function, and is passed back out of the function to replace the original value</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">swapTwoInts</span><span class="params">(<span class="number">_</span> a: <span class="keyword">inout</span> Int, <span class="number">_</span> b: <span class="keyword">inout</span> Int)</span></span> &#123;</div><div class="line">    <span class="keyword">let</span> temporaryA = a</div><div class="line">    a = b</div><div class="line">    b = temporaryA</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> someInt = <span class="number">3</span></div><div class="line"><span class="keyword">var</span> anotherInt = <span class="number">107</span></div><div class="line">swapTwoInts(&amp;someInt, &amp;anotherInt)</div><div class="line"><span class="built_in">print</span>(<span class="string">"someInt is now <span class="subst">\(someInt)</span>, and anotherInt is now <span class="subst">\(anotherInt)</span>"</span>)</div><div class="line"><span class="comment">// Prints "someInt is now 107, and anotherInt is now 3"</span></div></pre></td></tr></table></figure>
+<ul>
+<li>In-Out parameters with <strong>recursive</strong> method</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">x</span><span class="params">(<span class="keyword">inout</span> depth: Int)</span></span> &#123;</div><div class="line">    <span class="comment">// Increase depth value.</span></div><div class="line">    depth += <span class="number">1</span></div><div class="line">    <span class="keyword">if</span> (depth &lt; <span class="number">10</span>) &#123;</div><div class="line">	<span class="comment">// Use recursion to increase depth again.</span></div><div class="line">	x(&amp;depth)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Count depth of recursion.</span></div><div class="line"><span class="keyword">var</span> depth = <span class="number">0</span></div><div class="line">x(&amp;depth)</div><div class="line"><span class="built_in">print</span>(depth)</div><div class="line"><span class="comment">// Output : 10</span></div></pre></td></tr></table></figure>
+<h4 id="Nested-Functions"><a href="#Nested-Functions" class="headerlink" title="Nested Functions"></a>Nested Functions</h4><ul>
+<li>All of the functions have been examples of global functions，which are defined at a global scope。<br>Nested functions are hidden from the outside world by default。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">chooseStepFunction</span><span class="params">(backward: Bool)</span></span> -&gt; (<span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">stepForward</span><span class="params">(input: Int)</span></span> -&gt; <span class="type">Int</span> &#123; <span class="keyword">return</span> input + <span class="number">1</span> &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">stepBackward</span><span class="params">(input: Int)</span></span> -&gt; <span class="type">Int</span> &#123; <span class="keyword">return</span> input - <span class="number">1</span> &#125;</div><div class="line">    <span class="keyword">return</span> backward ? stepBackward : stepForward</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> currentValue = -<span class="number">4</span></div><div class="line"><span class="keyword">let</span> moveNearerToZero = chooseStepFunction(backward: currentValue &gt; <span class="number">0</span>)</div><div class="line"><span class="comment">// moveNearerToZero now refers to the nested stepForward() function</span></div><div class="line"></div><div class="line"><span class="keyword">while</span> currentValue != <span class="number">0</span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(currentValue)</span>... "</span>)</div><div class="line">    currentValue = moveNearerToZero(currentValue)</div><div class="line">&#125;</div><div class="line"><span class="built_in">print</span>(<span class="string">"zero!"</span>)</div><div class="line"><span class="comment">// -4...</span></div><div class="line"><span class="comment">// -3...</span></div><div class="line"><span class="comment">// -2...</span></div><div class="line"><span class="comment">// -1...</span></div><div class="line"><span class="comment">// zero!</span></div></pre></td></tr></table></figure>
+<h1 id="Generics"><a href="#Generics" class="headerlink" title="Generics"></a>Generics</h1><ul>
+<li><p>Generic code enables you to write flexible，reusable functions and types that can work with any type, subject to requirements that you define. You can write code that avoids duplication and expresses its intent in a clear， abstracted manner.</p>
+</li>
+<li><p>The generic version of the function uses a <strong>Type Parameter</strong> (below case we made placeholder as <strong>“T”</strong>)，declare a <strong>Type Parameter</strong> inside angle brackets。</p>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">swapTwoValues</span>&lt;T&gt;<span class="params">(<span class="number">_</span> a: <span class="keyword">inout</span> T, <span class="number">_</span> b: <span class="keyword">inout</span> T)</span></span> &#123;</div><div class="line">    <span class="keyword">let</span> temporaryA = a</div><div class="line">    a = b</div><div class="line">    b = temporaryA</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> someInt = <span class="number">3</span></div><div class="line"><span class="keyword">var</span> anotherInt = <span class="number">107</span></div><div class="line">swapTwoValues(&amp;someInt, &amp;anotherInt)</div><div class="line"><span class="comment">// someInt is now 107, and anotherInt is now 3</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> someString = <span class="string">"hello"</span></div><div class="line"><span class="keyword">var</span> anotherString = <span class="string">"world"</span></div><div class="line">swapTwoValues(&amp;someString, &amp;anotherString)</div><div class="line"><span class="comment">// someString is now "world", and anotherString is now "hello"</span></div></pre></td></tr></table></figure>
+<ul>
+<li>You can provide more than one type parameter by writing multiple type parameter names within the angle brackets, separated by commas.</li>
+</ul>
+<blockquote>
+<p> Always make your type parameter has descriptive names,</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">swapTwoValues</span>&lt;Key,Value&gt;<span class="params">(<span class="number">_</span> a: <span class="keyword">inout</span> Key,</span></span></div><div class="line">                              <span class="number">_</span> b: <span class="keyword">inout</span> Key,</div><div class="line">                              <span class="number">_</span> <span class="built_in">c</span>: <span class="keyword">inout</span> Value) &#123;</div><div class="line"></div><div class="line">    <span class="keyword">let</span> temporaryA = a</div><div class="line">    a = b</div><div class="line">    b = temporaryA</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Real-world-generic-types"><a href="#Real-world-generic-types" class="headerlink" title="Real world generic types"></a>Real world generic types</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Stack</span>&lt;<span class="title">WhetherElement</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">var</span> items = [<span class="type">WhetherElement</span>]()</div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(<span class="number">_</span> item: WhetherElement)</span></span> &#123;</div><div class="line">        <span class="keyword">self</span>.items.append(item)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">WhetherElement</span> &#123;</div><div class="line">        <span class="keyword">return</span> items.removeLast()</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> <span class="built_in">c</span> = <span class="type">Stack</span>&lt;<span class="type">String</span>&gt;()</div><div class="line"><span class="built_in">c</span>.push(<span class="string">"A"</span>)</div><div class="line"><span class="built_in">c</span>.push(<span class="string">"B"</span>)</div><div class="line"><span class="built_in">c</span>.push(<span class="string">"C"</span>)</div><div class="line"><span class="built_in">c</span>.items</div><div class="line"><span class="comment">// ["A", "B", "C"]</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"<span class="subst">\(<span class="built_in">c</span>.items)</span>"</span>)</div><div class="line"></div><div class="line"><span class="keyword">var</span> i = <span class="type">Stack</span>&lt;<span class="type">Int</span>&gt;()</div><div class="line">i.push(<span class="number">4</span>)</div><div class="line">i.push(<span class="number">5</span>)</div><div class="line">i.push(<span class="number">6</span>)</div><div class="line">i.items</div><div class="line"><span class="comment">// [4, 5, 6]</span></div></pre></td></tr></table></figure>
+<ul>
+<li>Complement</li>
+</ul>
+<blockquote>
+<p>Key word <a href="https://www.natashatherobot.com/when-to-use-mutating-functions-in-swift-structs/" target="_blank" rel="external">mutating</a></p>
+</blockquote>
+<h4 id="Extending-a-Generic-Type"><a href="#Extending-a-Generic-Type" class="headerlink" title="Extending a Generic Type"></a>Extending a Generic Type</h4><ul>
+<li>The following example extends the generic Stack type to add a <strong>read-only</strong> computed property called topItem, which returns the top item on the stack without popping it from the stack:</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Stack</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> topItem: <span class="type">WhetherElement</span>? &#123;</div><div class="line">        <span class="keyword">return</span> items.isEmpty ? <span class="literal">nil</span> : items[items.<span class="built_in">count</span> - <span class="number">1</span>]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Type-Constraints"><a href="#Type-Constraints" class="headerlink" title="Type Constraints"></a>Type Constraints</h4><ul>
+<li>According to following sample , when function go into <strong>if</strong> comparison，it will fail。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">findIndex</span>&lt;T&gt;<span class="params">(array: [T], <span class="number">_</span> valueToFind: T)</span></span> -&gt; <span class="type">Int</span>? &#123;</div><div class="line">    <span class="keyword">for</span> (index, value) <span class="keyword">in</span> array.<span class="built_in">enumerate</span>() &#123;</div><div class="line">        <span class="keyword">if</span> value == valueToFind &#123;</div><div class="line">            <span class="keyword">return</span> index</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>So let your type parameter which is <strong>T</strong> inherit <strong>Equatable</strong></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">findIndex</span>&lt;T: Equatable&gt;<span class="params">(of valueToFind: T, <span class="keyword">in</span> array:[T])</span></span> -&gt; <span class="type">Int</span>? &#123;</div><div class="line">    <span class="keyword">for</span> (index, value) <span class="keyword">in</span> array.enumerated() &#123;</div><div class="line">        <span class="keyword">if</span> value == valueToFind &#123;</div><div class="line">            <span class="keyword">return</span> index</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Associated-Types"><a href="#Associated-Types" class="headerlink" title="Associated Types"></a>Associated Types</h4><ul>
+<li>Declare Associated Types with <strong>associatedtype</strong> key word</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Container</span> </span>&#123;</div><div class="line">    associatedtype <span class="type">ItemType</span></div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">append</span><span class="params">(<span class="number">_</span> item: ItemType)</span></span>   </div><div class="line">    <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123; <span class="keyword">get</span> &#125;                  </div><div class="line">    <span class="keyword">subscript</span>(i: <span class="type">Int</span>) -&gt; <span class="type">ItemType</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>It kinds of abstract class in other language，but <strong>associatedtype</strong> not specified any type。The protocol only specifies the three bits of functionality that any type must provide in order to be considered a Container</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">IntStack</span>: <span class="title">Container</span> </span>&#123;</div><div class="line">    <span class="comment">// original IntStack implementation</span></div><div class="line">    <span class="keyword">var</span> items = [<span class="type">Int</span>]()</div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(<span class="number">_</span> item: Int)</span></span> &#123;</div><div class="line">        items.append(item)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> items.removeLast()</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// conformance to the Container protocol</span></div><div class="line">    <span class="keyword">typealias</span> <span class="type">ItemType</span> = <span class="type">Int</span></div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">append</span><span class="params">(<span class="number">_</span> item: Int)</span></span> &#123;</div><div class="line">        <span class="keyword">self</span>.push(item)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> items.<span class="built_in">count</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">subscript</span>(i: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> items[i]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>You can also make the generic Stack type conform to the Container protocol:</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Stack</span>&lt;<span class="title">Element</span>&gt;: <span class="title">Container</span> </span>&#123;</div><div class="line">    <span class="comment">// original Stack&lt;Element&gt; implementation</span></div><div class="line">    <span class="keyword">var</span> items = [<span class="type">Element</span>]()</div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(<span class="number">_</span> item: Element)</span></span> &#123;</div><div class="line">        items.append(item)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">Element</span> &#123;</div><div class="line">        <span class="keyword">return</span> items.removeLast()</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// conformance to the Container protocol</span></div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">append</span><span class="params">(<span class="number">_</span> item: Element)</span></span> &#123;</div><div class="line">        <span class="keyword">self</span>.push(item)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> items.<span class="built_in">count</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">subscript</span>(i: <span class="type">Int</span>) -&gt; <span class="type">Element</span> &#123;</div><div class="line">        <span class="keyword">return</span> items[i]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>You can extend an existing type to add conformance to a protocol，so any variable declare type array mush  implement those three functions</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Array</span>: <span class="title">Container</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Container</span> </span>&#123;</div><div class="line">    associatedtype <span class="type">Introduction</span></div><div class="line">    <span class="keyword">var</span> sayIamArray: <span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">    <span class="keyword">var</span> sayHello: <span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Array</span> : <span class="title">Container</span> </span>&#123;</div><div class="line">    <span class="keyword">typealias</span> <span class="type">Introduction</span> = <span class="type">String</span></div><div class="line"></div><div class="line">    <span class="keyword">internal</span> <span class="keyword">var</span> sayHello: <span class="type">Introduction</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Say Hello"</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">internal</span> <span class="keyword">var</span> sayIamArray: <span class="type">Introduction</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"I am an array"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Generic-Where-Clauses"><a href="#Generic-Where-Clauses" class="headerlink" title="Generic Where Clauses"></a>Generic Where Clauses</h4><ul>
+<li>A <strong>generic where clause</strong> enables you to require that an associated type must conform to a certain protocol，or that certain type parameters and associated types must be the same。For my opinion，it kinds of check mechanism to allow your <strong>Type Constraints required</strong> certain behavior</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">allItemsMatch</span>&lt;C1: Container, C2: Container&gt;</span></div><div class="line">    <span class="params">(<span class="number">_</span> someContainer: C1, <span class="number">_</span> anotherContainer: C2)</span> -&gt; <span class="type">Bool</span></div><div class="line">    <span class="keyword">where</span> <span class="type">C1</span>.<span class="type">ItemType</span> == <span class="type">C2</span>.<span class="type">ItemType</span>, <span class="type">C1</span>.<span class="type">ItemType</span>: <span class="type">Equatable</span> &#123;</div><div class="line"></div><div class="line">        <span class="comment">// Check that both containers contain the same number of items.</span></div><div class="line">        <span class="keyword">if</span> someContainer.<span class="built_in">count</span> != anotherContainer.<span class="built_in">count</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// Check each pair of items to see if they are equivalent.</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;someContainer.<span class="built_in">count</span> &#123;</div><div class="line">            <span class="keyword">if</span> someContainer[i] != anotherContainer[i] &#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// All items match, so return true.</span></div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="All-Combine-together"><a href="#All-Combine-together" class="headerlink" title="All Combine together"></a>All Combine together</h4><p>``</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Recently Apple update to swift3.0 so I decided to read the &lt;a href=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html#//apple_ref/doc/uid/TP40014097-CH3-ID0&quot;&gt;Language Guide&lt;/a&gt;，maybe this article is not all new to swift3.0，it’s all about new to me，just pick whcih contents you interestded 。Here are some of my personal reviews ….。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>One-way Hash Function</title>
+    <link href="http://stephenchen.com/2016/10/12/One-way-Hash-Function/"/>
+    <id>http://stephenchen.com/2016/10/12/One-way-Hash-Function/</id>
+    <published>2016-10-12T03:56:05.000Z</published>
+    <updated>2016-10-26T08:42:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>I saw this terminology a lot，here is my review</p>
+<a id="more"></a>
+<h4 id="Nick-names"><a href="#Nick-names" class="headerlink" title="Nick names"></a>Nick names</h4><ul>
+<li>message digest</li>
+<li>fingerprint</li>
+<li>compression function</li>
+</ul>
+<h4 id="One-way-hash-function-flow-diagram"><a href="#One-way-hash-function-flow-diagram" class="headerlink" title="One-way hash function flow diagram"></a>One-way hash function flow diagram</h4><p><img src="hash%20function.png" alt="name"></p>
+<ul>
+<li>note : hash values (ex：A，B) can’t be the same ( <a href="https://en.wikipedia.org/wiki/Collision_(computer_science" target="_blank" rel="external">collision</a>) )  </li>
+</ul>
+<h4 id="One-way-hash-algorithms"><a href="#One-way-hash-algorithms" class="headerlink" title="One-way hash algorithms"></a>One-way hash algorithms</h4><ul>
+<li><p><strong>MD4</strong>(Message Digest 4) and its improved version <strong>MD5</strong>. Both algorithms produce <strong>128-bit</strong>    hash values.</p>
+</li>
+<li><p><strong>SHA</strong>(Secure Hash Algorithm) produce <strong>128-bit</strong> hash values.</p>
+</li>
+<li><p><strong>SHA256</strong>(256-bit version Secure Hash Algorithm) produce <strong>256-bit</strong> hash values.</p>
+</li>
+</ul>
+<p>There is more , likes <strong>SHA512</strong> or <strong>SHA-384</strong> .</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I saw this terminology a lot，here is my review&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Easy Way To Create A Blog</title>
+    <link href="http://stephenchen.com/2016/10/06/Hexo-Github-Pages/"/>
+    <id>http://stephenchen.com/2016/10/06/Hexo-Github-Pages/</id>
+    <published>2016-10-06T04:31:48.000Z</published>
+    <updated>2016-10-26T08:36:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>using Github Pages combine with blog framework such as <a href="https://hexo.io/" target="_blank" rel="external">hexo</a> , <a href="https://ghost.org/" target="_blank" rel="external">ghost</a> or <a href="https://medium.com/" target="_blank" rel="external">medium</a> ….etc .</p>
+<a id="more"></a>
+<h4 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Mac OS X EI Capitan</div></pre></td></tr></table></figure>
+<h4 id="Blog-Framework"><a href="#Blog-Framework" class="headerlink" title="Blog Framework"></a>Blog Framework</h4><p>There are many <a href="http://mashable.com/2014/05/09/16-minimalist-blogging-platforms/#01_25XkZZkqA" target="_blank" rel="external">frameworks</a>，here I choose <a href="https://hexo.io/" target="_blank" rel="external">hexo</a> .</p>
+<ul>
+<li><p>Complete tutorial <a href="https://hexo.io/" target="_blank" rel="external">hexo</a></p>
+</li>
+<li><p>Normally it hosts at port 4000 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></p>
+</li>
+</ul>
+<h4 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a>Github Pages</h4><ul>
+<li><p><a href="https://pages.github.com/" target="_blank" rel="external">Complete tutorial</a></p>
+</li>
+<li><p>Be sure your repositories name follow the rule <strong>username.github.io</strong> ( subdomain )</p>
+</li>
+</ul>
+<h4 id="Deploy-Hexo-to-Github-Pages"><a href="#Deploy-Hexo-to-Github-Pages" class="headerlink" title="Deploy Hexo to Github Pages"></a>Deploy Hexo to Github Pages</h4><ul>
+<li><p>Prerequisite</p>
+<ul>
+<li><p>With <strong>github pages</strong> and <strong>github repositories</strong> all well down</p>
+</li>
+<li><p>Success running Hexo in localhost</p>
+</li>
+</ul>
+</li>
+<li><p>Install additional package</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+</li>
+<li><p>Edit file <strong>_config.yml</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: &lt;repository url&gt;</div><div class="line">  branch: [branch]</div><div class="line">  message: [message]</div></pre></td></tr></table></figure>
+</li>
+<li><p>Generate static files for Github Pages</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure>
+</li>
+<li><p>Deploy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+</li>
+<li><p>Finish</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://yourGitHubName.github.io/</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;using Github Pages combine with blog framework such as &lt;a href=&quot;https://hexo.io/&quot;&gt;hexo&lt;/a&gt; , &lt;a href=&quot;https://ghost.org/&quot;&gt;ghost&lt;/a&gt; or &lt;a href=&quot;https://medium.com/&quot;&gt;medium&lt;/a&gt; ….etc .&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>AWS-EC2 + Vsftpd + Atom</title>
+    <link href="http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/"/>
+    <id>http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/</id>
+    <published>2016-09-12T08:04:26.000Z</published>
+    <updated>2016-12-20T02:29:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Convenience way for working with service side project . For sake of simplicity，this tutorial will only lead you major steps .</p>
+<a id="more"></a>
+<h4 id="OS-Environment"><a href="#OS-Environment" class="headerlink" title="OS Environment"></a>OS Environment</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Mac OS X EI Capitan</div><div class="line">AWS-EC2 Ubuntu 14.04.4 LTS</div></pre></td></tr></table></figure>
+<h4 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h4><ul>
+<li><p>Install <a href="https://atom.io/" target="_blank" rel="external">Atom</a></p>
+</li>
+<li><p>Install Atom packages <a href="https://atom.io/packages/remote-ftp" target="_blank" rel="external">Remote-FTP</a></p>
+</li>
+</ul>
+<h4 id="AWS-EC2"><a href="#AWS-EC2" class="headerlink" title="AWS-EC2"></a>AWS-EC2</h4><ul>
+<li>Complete tutorial <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html" target="_blank" rel="external">AWS</a></li>
+</ul>
+<h4 id="AWS-Security-Group"><a href="#AWS-Security-Group" class="headerlink" title="AWS Security Group"></a>AWS Security Group</h4><ul>
+<li>Add new <strong>Custom TCP Rule</strong> with protocol <strong>TCP</strong> and port range <strong>20 - 21</strong></li>
+<li>Add new <strong>Custom TCP Rule</strong> with protocol <strong>TCP</strong> and port range <strong>13000 - 13100</strong></li>
+</ul>
+<h4 id="Vsftpd"><a href="#Vsftpd" class="headerlink" title="Vsftpd"></a>Vsftpd</h4><p>Connect to your AWS-EC2 via ssh</p>
+<ul>
+<li><p>Install <a href="https://en.wikipedia.org/wiki/Vsftpd" target="_blank" rel="external">Vsftpd</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install vsftpd</div></pre></td></tr></table></figure>
+</li>
+<li><p>Modify vsftpd configuration</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/vsftpd.conf</div><div class="line"><span class="comment"># you can replace vim with vi , nano or emacs ....etc</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>Change few settings within vsftpd.conf</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># change those bool variable to the following</span></div><div class="line">anonymous_enable=NO</div><div class="line">local_enable=YES</div><div class="line">write_enable=YES</div><div class="line"></div><div class="line"><span class="comment"># uncomment this line</span></div><div class="line">chroot_local_user=YES</div><div class="line"></div><div class="line"><span class="comment"># add new lines</span></div><div class="line">pasv_enable=YES</div><div class="line">pasv_min_port=13000</div><div class="line">pasv_max_port=13100</div><div class="line">port_enable=YES</div><div class="line">pasv_address=&lt;your AWS public DNS&gt;</div><div class="line">pasv_addr_resolve=YES</div></pre></td></tr></table></figure>
+</li>
+<li><p>Restart vsftpd</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service vsftpd restart</div></pre></td></tr></table></figure>
+</li>
+<li><p>Create new group</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">groupadd &lt;newGroup&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Create new user and add into your new group</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">useradd -m &lt;user&gt; <span class="_">-s</span> /bin/bash -g &lt;newGroup&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Set password for new user</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">passwd &lt;password&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Create ftp home directory</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir /home/ftp</div></pre></td></tr></table></figure>
+</li>
+<li><p>Change permission</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 750 /home/ftp</div></pre></td></tr></table></figure>
+</li>
+<li><p>Change owner</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chown root:ftp /home/ftp</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Combine-AWS-EC2-Vsftpd-Atom"><a href="#Combine-AWS-EC2-Vsftpd-Atom" class="headerlink" title="Combine AWS-EC2 - Vsftpd - Atom"></a>Combine AWS-EC2 - Vsftpd - Atom</h4><ul>
+<li><p>Connect to ftp to check it correctly setup</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ftp &lt;Your Ip&gt;</div><div class="line">#enter your user name and user password</div></pre></td></tr></table></figure>
+</li>
+<li><p>Follow the <a href="https://atom.io/packages/Remote-FTP" target="_blank" rel="external">Getting started</a> section</p>
+</li>
+<li><p>Finish</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Convenience way for working with service side project . For sake of simplicity，this tutorial will only lead you major steps .&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

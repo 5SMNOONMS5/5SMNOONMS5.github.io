@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> AWS-EC2 + Vsftpd + Atom · CLS</title><meta name="description" content="AWS-EC2 + Vsftpd + Atom - Stephen Chen"><meta name="viewport" content="width=device-width, initial-scale=2"><link rel="short icon" href="/img/earth.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://stephenchen.com/atom.xml" title="CLS"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/img/earth.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="https://github.com/5SMNOONMS5" target="_blank" class="nav-list-link"><img src="/img/github.png" alt="GitHub" style="width: 15px;"></a></li><li class="nav-list-item"><a href="http://stackoverflow.com/users/3672927/stephen-chen?tab=profile" target="_blank" class="nav-list-link"><img src="/img/stackoverflow.png" alt="Stack Overflow" style="width: 16px;"></a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link"><img src="/img/rss.png" alt="Rss" style="width: 14px;"></a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">AWS-EC2 + Vsftpd + Atom</h1><div class="post-info">Sep 12, 2016</div><div class="post-content"><p>Convenience way for working with service side project . For sake of simplicity，this tutorial will only lead you major steps .</p>
+<a id="more"></a>
+<h4 id="OS-Environment"><a href="#OS-Environment" class="headerlink" title="OS Environment"></a>OS Environment</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Mac OS X EI Capitan</div><div class="line">AWS-EC2 Ubuntu 14.04.4 LTS</div></pre></td></tr></table></figure>
+<h4 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h4><ul>
+<li><p>Install <a href="https://atom.io/" target="_blank" rel="external">Atom</a></p>
+</li>
+<li><p>Install Atom packages <a href="https://atom.io/packages/remote-ftp" target="_blank" rel="external">Remote-FTP</a></p>
+</li>
+</ul>
+<h4 id="AWS-EC2"><a href="#AWS-EC2" class="headerlink" title="AWS-EC2"></a>AWS-EC2</h4><ul>
+<li>Complete tutorial <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html" target="_blank" rel="external">AWS</a></li>
+</ul>
+<h4 id="AWS-Security-Group"><a href="#AWS-Security-Group" class="headerlink" title="AWS Security Group"></a>AWS Security Group</h4><ul>
+<li>Add new <strong>Custom TCP Rule</strong> with protocol <strong>TCP</strong> and port range <strong>20 - 21</strong></li>
+<li>Add new <strong>Custom TCP Rule</strong> with protocol <strong>TCP</strong> and port range <strong>13000 - 13100</strong></li>
+</ul>
+<h4 id="Vsftpd"><a href="#Vsftpd" class="headerlink" title="Vsftpd"></a>Vsftpd</h4><p>Connect to your AWS-EC2 via ssh</p>
+<ul>
+<li><p>Install <a href="https://en.wikipedia.org/wiki/Vsftpd" target="_blank" rel="external">Vsftpd</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install vsftpd</div></pre></td></tr></table></figure>
+</li>
+<li><p>Modify vsftpd configuration</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/vsftpd.conf</div><div class="line"><span class="comment"># you can replace vim with vi , nano or emacs ....etc</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>Change few settings within vsftpd.conf</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># change those bool variable to the following</span></div><div class="line">anonymous_enable=NO</div><div class="line">local_enable=YES</div><div class="line">write_enable=YES</div><div class="line"></div><div class="line"><span class="comment"># uncomment this line</span></div><div class="line">chroot_local_user=YES</div><div class="line"></div><div class="line"><span class="comment"># add new lines</span></div><div class="line">pasv_enable=YES</div><div class="line">pasv_min_port=13000</div><div class="line">pasv_max_port=13100</div><div class="line">port_enable=YES</div><div class="line">pasv_address=&lt;your AWS public DNS&gt;</div><div class="line">pasv_addr_resolve=YES</div></pre></td></tr></table></figure>
+</li>
+<li><p>Restart vsftpd</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service vsftpd restart</div></pre></td></tr></table></figure>
+</li>
+<li><p>Create new group</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">groupadd &lt;newGroup&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Create new user and add into your new group</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">useradd -m &lt;user&gt; <span class="_">-s</span> /bin/bash -g &lt;newGroup&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Set password for new user</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">passwd &lt;password&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Create ftp home directory</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir /home/ftp</div></pre></td></tr></table></figure>
+</li>
+<li><p>Change permission</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 750 /home/ftp</div></pre></td></tr></table></figure>
+</li>
+<li><p>Change owner</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chown root:ftp /home/ftp</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Combine-AWS-EC2-Vsftpd-Atom"><a href="#Combine-AWS-EC2-Vsftpd-Atom" class="headerlink" title="Combine AWS-EC2 - Vsftpd - Atom"></a>Combine AWS-EC2 - Vsftpd - Atom</h4><ul>
+<li><p>Connect to ftp to check it correctly setup</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ftp &lt;Your Ip&gt;</div><div class="line">#enter your user name and user password</div></pre></td></tr></table></figure>
+</li>
+<li><p>Follow the <a href="https://atom.io/packages/Remote-FTP" target="_blank" rel="external">Getting started</a> section</p>
+</li>
+<li><p>Finish</p>
+</li>
+</ul>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/10/06/Hexo-Github-Pages/" class="prev">PREV</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+var disqus_identifier = '2016/09/12/Aws-Ftp-Atom/';
+var disqus_title = 'AWS-EC2 + Vsftpd + Atom';
+var disqus_url = 'http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//seansun.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://stephenchen.com">Stephen Chen</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
