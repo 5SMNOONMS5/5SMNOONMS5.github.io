@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Funny commands · CLS</title><meta name="description" content="Funny commands - Stephen Chen"><meta name="viewport" content="width=device-width, initial-scale=2"><link rel="short icon" href="/img/earth.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://stephenchen.com/atom.xml" title="CLS"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/img/earth.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="https://github.com/5SMNOONMS5" target="_blank" class="nav-list-link"><img src="/img/github.png" alt="GitHub" style="width: 15px;"></a></li><li class="nav-list-item"><a href="http://stackoverflow.com/users/3672927/stephen-chen?tab=profile" target="_blank" class="nav-list-link"><img src="/img/stackoverflow.png" alt="Stack Overflow" style="width: 16px;"></a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link"><img src="/img/rss.png" alt="Rss" style="width: 14px;"></a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Funny commands</h1><div class="post-info">Jan 19, 2017</div><div class="post-content"><p>A set of ASCII pictures that enjoy code life though hard up .</p>
+<a id="more"></a>
+<h1 id="OS-Environment"><a href="#OS-Environment" class="headerlink" title="OS Environment"></a>OS Environment</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Mac OS X EI Capitan</div></pre></td></tr></table></figure>
+<h1 id="Cowsay"><a href="#Cowsay" class="headerlink" title="Cowsay"></a>Cowsay</h1><p>Firstly I want to introduce a cute ASCII picture of a cow named <a href="https://en.wikipedia.org/wiki/Cowsay" target="_blank" rel="external">cowsay</a> , this doll can show a message that you type . As its name cow + say .</p>
+<p><img src="cowsay.png" alt="cowsay.png"></p>
+<p>So that dig into it . First install it with below two commands:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span> &lt; /dev/null 2&gt; /dev/null</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install cowsay</div></pre></td></tr></table></figure>
+<p>After settle down all installation</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cowsay <span class="string">"Hello, Word"</span></div></pre></td></tr></table></figure>
+<p>There will show you a cow with a message “Hello, Word” , but I am not satisfied with it . In fact, there is more than one doll that you can use . For example :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cowsay <span class="_">-l</span></div></pre></td></tr></table></figure>
+<p>It will show lots of doll that you can replace with .</p>
+<p><img src="dolls.png" alt="dolls"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># formula</span></div><div class="line"><span class="comment"># cowsay -f [new doll] "message here"</span></div><div class="line">cowsay <span class="_">-f</span> eyes <span class="string">"New dolls say hello word"</span></div></pre></td></tr></table></figure>
+<p><img src="eyes.png" alt="eyes.png"></p>
+<p>Ha . There are more informations<br><a href="http://ithelp.ithome.com.tw/articles/10127590" target="_blank" rel="external">source 1</a><br><a href="http://ithelp.ithome.com.tw/articles/10143897" target="_blank" rel="external">source 2</a></p>
+<h1 id="More-powerful-cowsay"><a href="#More-powerful-cowsay" class="headerlink" title="More powerful cowsay"></a>More powerful cowsay</h1><p><img src="super_cowsay.gif" alt="powerful cowsay"></p>
+<p>Install <strong>fortune</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install fortune</div></pre></td></tr></table></figure>
+<p>Then install <strong>lolcat</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install lolcat</div></pre></td></tr></table></figure>
+<p>Run it</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fortune | cowsay | lolcat</div></pre></td></tr></table></figure>
+<p><a href="https://gist.github.com/dakull/6615458" target="_blank" rel="external">more here</a></p>
+<h1 id="Train"><a href="#Train" class="headerlink" title="Train"></a>Train</h1><p>Another funny commands is a <strong>sl</strong> , it shows like a train</p>
+<p><img src="train.gif" alt="train picture"></p>
+<p>Install it with below two commands:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span> &lt; /dev/null 2&gt; /dev/null</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install sl</div></pre></td></tr></table></figure>
+<p>Run it</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sl</div></pre></td></tr></table></figure>
+<h1 id="Wanna-watch-a-movies"><a href="#Wanna-watch-a-movies" class="headerlink" title="Wanna watch a movies?"></a>Wanna watch a movies?</h1><p><img src="star_war.gif" alt="star_war"></p>
+<p>Try it , but …. it really take a long time .</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">telnet towel.blinkenlights.nl</div></pre></td></tr></table></figure>
+<h1 id="9-x-9-multiplication-table"><a href="#9-x-9-multiplication-table" class="headerlink" title="9 x 9 multiplication table"></a>9 x 9 multiplication table</h1><p><img src="multiplication table.png" alt="multiplication table"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..12&#125;; <span class="keyword">do</span> <span class="keyword">for</span> j <span class="keyword">in</span> $(seq 1 <span class="variable">$i</span>); <span class="keyword">do</span> <span class="built_in">echo</span> <span class="_">-ne</span> <span class="variable">$i</span>Ã—<span class="variable">$j</span>=$((i*j))\\t;<span class="keyword">done</span>; <span class="built_in">echo</span>;<span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h1 id="A-cute-ponysay"><a href="#A-cute-ponysay" class="headerlink" title="A cute ponysay"></a>A cute ponysay</h1><p><img src="pony1.png" alt="pony picture1"></p>
+<p><img src="pony2.png" alt="pony picture2"></p>
+<p>Now is the moment to be quiet , just enjoy the beauty .</p>
+<p>Install commands .</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span> &lt; /dev/null 2&gt; /dev/null</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install ponysay</div></pre></td></tr></table></figure>
+<p>Run it</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ponysay --quote</div></pre></td></tr></table></figure>
+<p>Or run help for more</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ponysay -h</div></pre></td></tr></table></figure>
+<h1 id="Cmatrix"><a href="#Cmatrix" class="headerlink" title="Cmatrix"></a>Cmatrix</h1><p><strong>The Matrix</strong> . How spectacular it is .</p>
+<p><img src="matrix.gif" alt="matrix"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install cmatrix</div></pre></td></tr></table></figure>
+<p>More animation <a href="http://www.tecmint.com/20-funny-commands-of-linux-or-linux-is-fun-in-terminal/" target="_blank" rel="external">here</a></p>
+</div></article></div></section><footer><div class="paginator"><a href="/2017/01/27/Custom-build-in-Sublime-Text-3/" class="prev">PREV</a><a href="/2017/01/12/socket/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+var disqus_identifier = '2017/01/19/Funny-commands/';
+var disqus_title = 'Funny commands';
+var disqus_url = 'http://stephenchen.com/2017/01/19/Funny-commands/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//seansun.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://stephenchen.com">Stephen Chen</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
