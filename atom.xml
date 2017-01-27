@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-01-27T11:10:40.000Z</updated>
+  <updated>2017-01-27T11:36:46.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -20,22 +20,22 @@
     <link href="http://stephenchen.com/2017/01/27/Custom-build-in-Sublime-Text-3/"/>
     <id>http://stephenchen.com/2017/01/27/Custom-build-in-Sublime-Text-3/</id>
     <published>2017-01-27T08:44:48.000Z</published>
-    <updated>2017-01-27T11:10:40.000Z</updated>
+    <updated>2017-01-27T11:36:46.000Z</updated>
     
-    <content type="html"><![CDATA[<p>gcc build in sublime text 3</p>
+    <content type="html"><![CDATA[<p>custom builds in sublime text 3</p>
 <a id="more"></a>
-<p>Recently I restart to learn C , so intuitively open the Xcode and start to program …, until my colleague ask me, Do you know how to build c program on <a href="https://www.sublimetext.com/" target="_blank" rel="external">Sublime Text</a> ?</p>
-<p>So here is my final solution.</p>
+<p>Recently I start to learn C language , so intuitively open the Xcode. Xcode is good, but some times it take too long to open the application. Until my colleague ask me, Do you know how to build c program on <a href="https://www.sublimetext.com/" target="_blank" rel="external">Sublime Text</a> ?</p>
+<p>So here is my little build process</p>
 <h1 id="Install-Sublime-Text"><a href="#Install-Sublime-Text" class="headerlink" title="Install Sublime Text"></a>Install Sublime Text</h1><p><a href="https://www.sublimetext.com/3" target="_blank" rel="external">Office Download Page</a></p>
 <h1 id="Create-a-custom-build-system"><a href="#Create-a-custom-build-system" class="headerlink" title="Create a custom build system"></a>Create a custom build system</h1><p><img src="build_system.gif" alt="gif animation"></p>
-<p>[1]: Create a custom build file with <strong>.sublime-build</strong> file extension</p>
-<p>[2]: Save it into</p>
-<p><img src="build_system.gif" alt="gif animation"></p>
-]]></content>
+<h1 id="Default-file-location"><a href="#Default-file-location" class="headerlink" title="Default file location"></a>Default file location</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/Users/&lt;Your Name&gt;/Library/Application Support/Sublime Text 3/Packages/User/</div></pre></td></tr></table></figure>
+<h1 id="Paste-this-code"><a href="#Paste-this-code" class="headerlink" title="Paste this code"></a>Paste this code</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;cmd&quot; : [&quot;gcc $file_name -o $&#123;file_base_name&#125; &amp;&amp; ./$&#123;file_base_name&#125; &amp;&amp; rm ./$&#123;file_base_name&#125;&quot;],</div><div class="line">	&quot;selector&quot; : &quot;source.c&quot;,</div><div class="line">	&quot;shell&quot;: true,</div><div class="line">	&quot;working_dir&quot; : &quot;$file_path&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Start-coding-press-command-B-to-build"><a href="#Start-coding-press-command-B-to-build" class="headerlink" title="Start coding, press command + B to build"></a>Start coding, press command + B to build</h1><p><img src="build.gif" alt="build"></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;gcc build in sublime text 3&lt;/p&gt;
+      &lt;p&gt;custom builds in sublime text 3&lt;/p&gt;
     
     </summary>
     
