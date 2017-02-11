@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-02-11T04:27:58.000Z</updated>
+  <updated>2017-02-11T04:49:08.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -20,18 +20,30 @@
     <link href="http://stephenchen.com/2017/02/11/Swift3-0-Unsafe-World/"/>
     <id>http://stephenchen.com/2017/02/11/Swift3-0-Unsafe-World/</id>
     <published>2017-02-11T02:56:41.000Z</published>
-    <updated>2017-02-11T04:27:58.000Z</updated>
+    <updated>2017-02-11T04:49:08.000Z</updated>
     
-    <content type="html"><![CDATA[<p>最近在研究 <a href="Reachability">https://github.com/ashleymills/Reachability.swift</a> 的時候，發現了許多 Unsafe 開頭的 API, 然後在網路上找到<a href="http://technology.meronapps.com/2016/09/27/swift-3-0-unsafe-world-2/#more-118" target="_blank" rel="external">這篇</a>，覺得寫得不錯，於是決定來把它翻譯並且搞懂 Unsafe World。</p>
+    <content type="html"><![CDATA[<p>最近在研究 <a href="https://github.com/ashleymills/Reachability.swift" target="_blank" rel="external">Reachability</a> 的時候，發現了許多 Unsafe 開頭的 API, 然後在網路上找到<a href="http://technology.meronapps.com/2016/09/27/swift-3-0-unsafe-world-2/#more-118" target="_blank" rel="external">這篇</a>，覺得寫得不錯，於是決定來把它翻譯並且搞懂 Unsafe World。</p>
 <a id="more"></a>
 <p>廢話不多說，因為文章只討論 Swift 3.0，並且提供 C 與 Swift 兩種對照寫法！而使用 Unsafe 的目的當然就是為了跟 C 溝通，所以當然要提供兩種版本。</p>
 <h1 id="宣告一個-Int-型別的-Pointer"><a href="#宣告一個-Int-型別的-Pointer" class="headerlink" title="宣告一個 Int 型別的 Pointer"></a>宣告一個 Int 型別的 Pointer</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/// 宣告一個記憶體，大小是 Int 的大小，在 32位元是 4 bytes，而64位元是 8 bytes</span></div><div class="line"><span class="keyword">int</span> *a = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</div><div class="line"><span class="comment">/// 給 *a 這個指針 42 的值</span></div><div class="line">*a = <span class="number">42</span>;</div><div class="line"></div><div class="line"><span class="built_in">printf</span>(<span class="string">"a's value: %d"</span>, *a);</div><div class="line"><span class="comment">/// 釋放 a 指針</span></div><div class="line"><span class="built_in">free</span>(a)</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">let a = UnsafeMutablePointer&lt;Int&gt;.allocate(capacity: 1)</div><div class="line">a.pointee = 42</div><div class="line"></div><div class="line">print(&quot;a&apos;s value: \(a.pointee)&quot;) // 42</div><div class="line"></div><div class="line">a.deallocate(capacity: 1)</div></pre></td></tr></table></figure>
+<p>接著開始慢慢解釋</p>
+<blockquote>
+<p>UnsafeMutablePointer<t> 宣告 一個指針的泛形型態。</t></p>
+<p>.allocate(capacity: 1) 分配 1個。</p>
+</blockquote>
+<p>也就是說假如今天 T 是 Int，那麼大小在64位元就是 8 * 3 個 bytes。</p>
+<p>而在 Swift 裡面有另外一種方法也可以達到上面效果，當要傳參數到 Function，可以透過 &amp;  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">func receive(pointer: UnsafePointer&lt;Int&gt; ) &#123;</div><div class="line">    print(&quot;param value is: \(pointer.pointee)&quot;) // 42</div><div class="line">&#125;</div><div class="line"></div><div class="line">var a: Int = 42</div><div class="line">receive(pointer: &amp;a)</div></pre></td></tr></table></figure>
+<p>但有幾點要注意</p>
+<ul>
+<li>&amp; 必須是 var </li>
+</ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;最近在研究 &lt;a href=&quot;Reachability&quot;&gt;https://github.com/ashleymills/Reachability.swift&lt;/a&gt; 的時候，發現了許多 Unsafe 開頭的 API, 然後在網路上找到&lt;a href=&quot;http://technology.meronapps.com/2016/09/27/swift-3-0-unsafe-world-2/#more-118&quot;&gt;這篇&lt;/a&gt;，覺得寫得不錯，於是決定來把它翻譯並且搞懂 Unsafe World。&lt;/p&gt;
+      &lt;p&gt;最近在研究 &lt;a href=&quot;https://github.com/ashleymills/Reachability.swift&quot;&gt;Reachability&lt;/a&gt; 的時候，發現了許多 Unsafe 開頭的 API, 然後在網路上找到&lt;a href=&quot;http://technology.meronapps.com/2016/09/27/swift-3-0-unsafe-world-2/#more-118&quot;&gt;這篇&lt;/a&gt;，覺得寫得不錯，於是決定來把它翻譯並且搞懂 Unsafe World。&lt;/p&gt;
     
     </summary>
     
