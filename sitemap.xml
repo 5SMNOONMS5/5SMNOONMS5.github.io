@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stephenchen.com/2017/02/11/Swift3-0-Unsafe-World/</loc>
+    
+    <lastmod>2017-02-11T04:27:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stephenchen.com/2017/01/27/Custom-build-in-Sublime-Text-3/</loc>
     
-    <lastmod>2017-01-27T14:15:11.000Z</lastmod>
+    <lastmod>2017-01-27T14:18:42.000Z</lastmod>
     
   </url>
   
