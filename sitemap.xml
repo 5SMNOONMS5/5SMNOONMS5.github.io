@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/</loc>
+    
+    <lastmod>2017-02-21T09:53:48.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stephenchen.com/2017/02/11/Swift3-0-Unsafe-World/</loc>
     
-    <lastmod>2017-02-11T04:49:08.000Z</lastmod>
+    <lastmod>2017-02-11T04:57:17.000Z</lastmod>
     
   </url>
   
