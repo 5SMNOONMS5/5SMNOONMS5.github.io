@@ -1,29 +1,54 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Transfer Git repositories into another server · CLS</title><meta name="description" content="Transfer Git repositories into another server - Stephen Chen"><meta name="viewport" content="width=device-width, initial-scale=2"><link rel="short icon" href="/img/earth.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://stephenchen.com/atom.xml" title="CLS"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/img/earth.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="https://github.com/5SMNOONMS5" target="_blank" class="nav-list-link"><img src="/img/github.png" alt="GitHub" style="width: 15px;"></a></li><li class="nav-list-item"><a href="http://stackoverflow.com/users/3672927/stephen-chen?tab=profile" target="_blank" class="nav-list-link"><img src="/img/stackoverflow.png" alt="Stack Overflow" style="width: 16px;"></a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link"><img src="/img/rss.png" alt="Rss" style="width: 14px;"></a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Transfer Git repositories into another server</h1><div class="post-info">Feb 21, 2017</div><div class="post-content"><p>今天公司剛好要把 原先的 Git Server 轉移到另外一台 Server，於是研究了一下</p>
 <a id="more"></a>
-<h4 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h4><p>先把<strong>全部</strong>的資源包含tag，Commit 節點，branch 全部都抓到 local 端</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch origin</div></pre></td></tr></table></figure>
-<h4 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h4><p>檢查一下所有的remote 跟 local branch 是不是都有在 local 端了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">git branch <span class="_">-a</span></div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* master</div><div class="line">remotes/origin/develop</div><div class="line">remotes/origin/master</div><div class="line">remotes/origin/release/0.1</div></pre></td></tr></table></figure>
-<h4 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h4><p>如果沒有請重新 check out 出來，像上面我們總共有三個 branch ，分別是<br><strong>develop</strong>，<strong>master</strong>還有 <strong>release</strong>，但是上面只有 <strong>master</strong> 是在 local 端，<br>請在執行下面的指令。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#git checkout -b "local name" "remote name"</span></div><div class="line"></div><div class="line">git checkout -b develop remotes/origin/master</div><div class="line"></div><div class="line">git checkout -b release/0.1 remotes/origin/release/0.1</div></pre></td></tr></table></figure>
-<p>然後再確認一次</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">git branch <span class="_">-a</span></div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">develop</div><div class="line">master</div><div class="line">* release/0.1</div><div class="line">remotes/origin/develop</div><div class="line">remotes/origin/master</div><div class="line">remotes/origin/release/0.1</div></pre></td></tr></table></figure>
-<h4 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h4><p>把新的 git service 路徑加進去</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">git remote add new-origin <span class="string">"新的URL路徑"</span></div></pre></td></tr></table></figure>
-<p><strong>新的URL路徑</strong> 看是要透過 <strong>http</strong> 或者是 <strong>ssh</strong>，<strong>ssh</strong> 方式先加 <strong>public key</strong> 到新的 <strong>git service</strong></p>
-<h4 id="Step-5"><a href="#Step-5" class="headerlink" title="Step 5"></a>Step 5</h4><ul>
-<li>都完成之後，請務必上面步驟都要準確，不然到時候少資料就掰惹。</li>
+<h4 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h4><ul>
+<li>先把<strong>全部</strong>的資源包含tag，Commit 節點，branch 全部都抓到 local 端</li>
 </ul>
-<p>接著</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch origin</div></pre></td></tr></table></figure>
+<h4 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h4><ul>
+<li>檢查一下所有的remote 跟 local branch 是不是都有在 local 端了</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch <span class="_">-a</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* master</div><div class="line">remotes/origin/develop</div><div class="line">remotes/origin/master</div><div class="line">remotes/origin/release</div></pre></td></tr></table></figure>
+<h4 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h4><ul>
+<li>如果沒有請重新 check out 出來，像上面我們總共有三個 branch ，分別是<strong>develop</strong>，<strong>master</strong>還有 <strong>release</strong>，但是上面只有 <strong>master</strong> 是在 local 端，請在執行下面的指令。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git checkout -b "local name" "remote name"</span></div><div class="line">git checkout -b develop remotes/origin/master</div><div class="line">git checkout -b release/0.1 remotes/origin/release</div></pre></td></tr></table></figure>
+<ul>
+<li>然後再確認一次</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch <span class="_">-a</span></div></pre></td></tr></table></figure>
+<ul>
+<li>螢幕會顯示</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">develop</div><div class="line">master</div><div class="line">* release/0.1</div><div class="line">remotes/origin/develop</div><div class="line">remotes/origin/master</div><div class="line">remotes/origin/release/0.1</div></pre></td></tr></table></figure>
+<h4 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h4><ul>
+<li>把新的 git service 路徑加進去</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add new-origin <span class="string">"新的URL路徑"</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>新的URL路徑</strong> 看是要透過 <strong>http</strong> 或者是 <strong>ssh</strong>，<strong>ssh</strong> 方式先加 <strong>public key</strong> 到新的 <strong>git service</strong></li>
+</ul>
+<h4 id="Step-5"><a href="#Step-5" class="headerlink" title="Step 5"></a>Step 5</h4><ul>
+<li><p>都完成之後，請務必上面步驟都要準確，不然到時候少資料就掰惹。</p>
+</li>
+<li><p>接著執行</p>
+</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push --all new-origin</div></pre></td></tr></table></figure>
-<p>如果有 <strong>tag</strong> 的話</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">git push --tags new-origin</div></pre></td></tr></table></figure>
-<h4 id="Step-6"><a href="#Step-6" class="headerlink" title="Step 6"></a>Step 6</h4><p>到新的 server 看一下 repo 是否成功惹。</p>
-<p>當確認完成之後，把原本的舊的 server URL 刪除</p>
+<ul>
+<li>如果有 <strong>tag</strong> 的話</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push --tags new-origin</div></pre></td></tr></table></figure>
+<h4 id="Step-6"><a href="#Step-6" class="headerlink" title="Step 6"></a>Step 6</h4><ul>
+<li><p>到新的 server 看一下 repo 是否成功惹。</p>
+</li>
+<li><p>當確認完成之後，把原本的舊的 server URL <strong>刪除</strong></p>
+</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote rm origin</div></pre></td></tr></table></figure>
-<p>然後再把新的 remote name 改掉變成新的URL路徑</p>
+<ul>
+<li>然後再把新的 remote name 改掉變成新的URL路徑</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote rename new-origin origin</div></pre></td></tr></table></figure>
 </div></article></div></section><footer><div class="paginator"><a href="/2017/02/11/Swift3-0-Unsafe-World/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
 var disqus_identifier = '2017/02/21/Transfer-Git-repositories-into-another-service/';
