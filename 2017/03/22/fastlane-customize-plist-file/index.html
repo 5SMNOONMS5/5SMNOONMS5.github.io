@@ -16,36 +16,23 @@
 <h4 id="步驟2：Fastlane-的初始化設定"><a href="#步驟2：Fastlane-的初始化設定" class="headerlink" title="步驟2：Fastlane 的初始化設定"></a>步驟2：Fastlane 的初始化設定</h4><ul>
 <li>第一種：(建議）</li>
 </ul>
+<blockquote>
 <p>透過 <a href="https://fabric.io/features/distribution?utm_campaign=github_readme" target="_blank" rel="external">官方</a>提供的文檔來產生初始化的程式碼</p>
+</blockquote>
 <ul>
-<li>第二種：後到當前 iOS 的資料夾下，並且跟著輸入帳號跟相關的資料</li>
+<li>第二種：開啟 Terminal 到當前 iOS 的資料夾下，並且跟著輸入帳號跟相關的資料</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane init</div></pre></td></tr></table></figure>
 <p><img src="fastlaneinit2.png" alt="fastlaneinit2.png"></p>
-<ul>
-<li><p>這兩種哪邊不一樣呢？，第一種其實已經幫你把程式碼初始化了，讓你少去比較多的步驟</p>
-</li>
-<li><p>接著我們來看一下 ruby 的代碼</p>
-</li>
-</ul>
+<p>那兩種哪邊不一樣呢？，第一種其實已經幫你把程式碼初始化了，讓你少去比較多的步驟，接著我們打開 <strong>Fastlane</strong> 來看一下的 Code。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">fastlane_version <span class="string">"1.109.0"</span></div><div class="line"></div><div class="line">generated_fastfile_id <span class="string">"adb8dedb-e633-43f6-87b0-03588e2f5a43"</span></div><div class="line"></div><div class="line">default_platform <span class="symbol">:ios</span></div><div class="line"></div><div class="line"><span class="comment"># 原本的</span></div><div class="line">lane <span class="symbol">:beta</span> <span class="keyword">do</span></div><div class="line"></div><div class="line">  <span class="comment"># build your iOS app</span></div><div class="line">  gym(</div><div class="line">    <span class="comment"># scheme: "YourScheme"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  <span class="comment"># upload to Beta by Crashlytics</span></div><div class="line">  crashlytics(</div><div class="line">    <span class="comment"># api_token: "YOUR_API_KEY",</span></div><div class="line">    <span class="comment"># build_secret: "YOUR_BUILD_SECRET"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  <span class="comment"># slack(</span></div><div class="line">  <span class="comment">#   slack_url: "https://hooks.slack.com/services/IDS"</span></div><div class="line">  <span class="comment"># )</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">lane <span class="symbol">:</span>自定義名稱我在這邊自定義名稱為公式 <span class="keyword">do</span></div><div class="line"></div><div class="line">  方法<span class="number">1</span>(</div><div class="line">    參數名<span class="number">1</span>: <span class="string">"參數值1"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  方法<span class="number">2</span>(</div><div class="line">    參數名<span class="number">1</span>: <span class="string">"參數值1"</span>,</div><div class="line">    參數名<span class="number">2</span>: <span class="string">"參數值2"</span>,</div><div class="line">    參數名<span class="number">3</span>: <span class="string">"參數值3"</span>,</div><div class="line">  )</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<ul>
-<li><p>其實他的公式非常簡單，就是把上面我打中文的地方替換成所需要的參數</p>
-</li>
-<li><p>那<strong>方法</strong>有哪些呢？依造官方有很多，比如 <strong>deliver</strong> 或者 <strong>supply</strong> 之類的…</p>
-</li>
-</ul>
+<p>其實他的公式非常簡單，就是把上面我打中文的地方替換成所需要的參數，那<strong>方法</strong>有哪些呢？依造官方有很多，比如 <strong>deliver</strong> 或者 <strong>supply</strong> 之類的…</p>
 <p><a href="actions.png">actions</a></p>
-<ul>
-<li><p>那<strong>方法的參數</strong>有哪些呢？請在 Terminal 打上 fastlane action [方法]</p>
-</li>
-<li><p>比如我想要看 <strong>supply</strong> 有哪些參數，那就</p>
-</li>
-</ul>
+<p>那<strong>方法的參數</strong>有哪些呢？請在 Terminal 打上 <strong>fastlane action [方法]</strong>，比如我想要看 <strong>supply</strong> 有哪些參數，那就</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane action supply</div></pre></td></tr></table></figure>
 <p><a href="parameters.png">parameters</a></p>
 <ul>
-<li>接著就慢慢看囉～想要什麼自己選。</li>
+<li>接著就慢慢看囉～想要什麼自己選。在依序填入到上面的公式</li>
 </ul>
 <h1 id="TroubleShooting"><a href="#TroubleShooting" class="headerlink" title="TroubleShooting"></a>TroubleShooting</h1><h4 id="Connection-reset-by-peer-SSL-connect"><a href="#Connection-reset-by-peer-SSL-connect" class="headerlink" title="Connection reset by peer - SSL_connect"></a>Connection reset by peer - SSL_connect</h4><ul>
 <li>因為我的 ruby 版本是 2.0.0，蘋果最近把服務器的TLS版本更新到 TLS 1.2，在我當前的 ruby 是不支持的</li>
