@@ -2,7 +2,7 @@
 <a id="more"></a>
 <h4 id="使用環境"><a href="#使用環境" class="headerlink" title="使用環境"></a>使用環境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">macOS Sierra</div></pre></td></tr></table></figure>
 <h1 id="自身面臨的情況"><a href="#自身面臨的情況" class="headerlink" title="自身面臨的情況"></a>自身面臨的情況</h1><p>因工作所需，需要發布 <strong>企業內部使用</strong>，並打包成不同形式的 .ipa 上架擋案。換句話說，假設我要產生 10 個 擁有不同 Info.plist 的 .ipa 檔案，如果手動的話我不就要改到死了？每次 Archive 都要等很久，然後結束之後在改 Info.plist 上的參數然再後 Archive 然後再上架。</p>
-<h1 id="本篇分享概要"><a href="#本篇分享概要" class="headerlink" title="本篇分享概要"></a>本篇分享概要</h1><p>因為官方文擋其實非常詳細，所以這邊只分享大概流程。</p>
+<h1 id="本篇分享概要"><a href="#本篇分享概要" class="headerlink" title="本篇分享概要"></a>本篇分享概要</h1><p>因為官方文檔其實非常詳細，所以這邊只分享大致流程，並不打算寫的太詳細。</p>
 <h1 id="如何自動上架"><a href="#如何自動上架" class="headerlink" title="如何自動上架"></a>如何自動上架</h1><p>目前iOS我知道打包除了手動之外，還有幾種方式分別是<a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html" target="_blank" rel="external">xcodebuild</a>，<a href="https://github.com/facebook/xctool" target="_blank" rel="external">xctool</a>和<a href="https://gradle.org/" target="_blank" rel="external">gradle</a>，而今天要使用的是把這些神器打包好的神器 <a href="https://fastlane.tools/" target="_blank" rel="external">fastlane</a></p>
 <h1 id="如何自動更新-Info-plist-的參數"><a href="#如何自動更新-Info-plist-的參數" class="headerlink" title="如何自動更新 Info.plist 的參數"></a>如何自動更新 Info.plist 的參數</h1><p>這邊我打算使用 指令集 來完成替換 Info.plist 內部參數。</p>
 <p>附帶一提，這邊情況適用我自己而已，其實任何在專案內部的檔案，圖片都可以進行變更，包括上架到 AppStore，Screenshot，Test，管理證書，都可以。It’s all depend on you.</p>
@@ -28,10 +28,40 @@
 <p>那兩種哪邊不一樣呢？，第一種其實已經幫你把程式碼初始化了，讓你少去比較多的步驟，接著我們打開 <strong>Fastlane</strong> 來看一下的 Code。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">fastlane_version <span class="string">"1.109.0"</span></div><div class="line"></div><div class="line">generated_fastfile_id <span class="string">"adb8dedb-e633-43f6-87b0-03588e2f5a43"</span></div><div class="line"></div><div class="line">default_platform <span class="symbol">:ios</span></div><div class="line"></div><div class="line"><span class="comment"># 原本的</span></div><div class="line">lane <span class="symbol">:beta</span> <span class="keyword">do</span></div><div class="line"></div><div class="line">  <span class="comment"># build your iOS app</span></div><div class="line">  gym(</div><div class="line">    <span class="comment"># scheme: "YourScheme"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  <span class="comment"># upload to Beta by Crashlytics</span></div><div class="line">  crashlytics(</div><div class="line">    <span class="comment"># api_token: "YOUR_API_KEY",</span></div><div class="line">    <span class="comment"># build_secret: "YOUR_BUILD_SECRET"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  <span class="comment"># slack(</span></div><div class="line">  <span class="comment">#   slack_url: "https://hooks.slack.com/services/IDS"</span></div><div class="line">  <span class="comment"># )</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># 自定義名稱我在這邊自定義名稱為 BABABA</span></div><div class="line">lane <span class="symbol">:BABABA</span> <span class="keyword">do</span></div><div class="line"></div><div class="line">  方法<span class="number">1</span>(</div><div class="line">    參數名<span class="number">1</span>: <span class="string">"參數值1"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  方法<span class="number">2</span>(</div><div class="line">    參數名<span class="number">1</span>: <span class="string">"參數值1"</span>,</div><div class="line">    參數名<span class="number">2</span>: <span class="string">"參數值2"</span>,</div><div class="line">    參數名<span class="number">3</span>: <span class="string">"參數值3"</span>,</div><div class="line">  )</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
 <p>其實他的公式非常簡單，就是把上面我打中文的地方替換成所需要的參數，你可以想像成宣告一個Class，然後裡面給予他n個 key:value 型態的變數，那<strong>方法</strong>有哪些呢？依造官方有很多，比如 <strong>deliver</strong> 或者 <strong>supply</strong> 之類的…</p>
+<p>推薦幾個比較實用的 Commands</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Actions名稱</th>
+<th style="text-align:left">Commands</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">fastlane actions</td>
+<td style="text-align:right">把所有的actions列出來</td>
+</tr>
+<tr>
+<td style="text-align:left">fastlane lanes</td>
+<td style="text-align:right">把所有在 Fastlane 檔案底下的 lane 和 描述列出來</td>
+</tr>
+<tr>
+<td style="text-align:left">fastlane list        ｜ 同上，但是不把描述列出來</td>
+</tr>
+<tr>
+<td style="text-align:left">fastlane new_action  ｜ 創造一個新的 actions</td>
+</tr>
+<tr>
+<td style="text-align:left">fastlane env         ｜ 這是當你有問題的時候，可以幫你把環境快速的列出來好放到 issue 給別人看</td>
+</tr>
+</tbody>
+</table>
+<p><a href="allactions.png">allactions</a></p>
+<p>我把官方比較列出的翻譯在下面，外加幾個我感覺比較常用的＠＠</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">常用Actions名稱</th>
 <th style="text-align:right">Description</th>
 </tr>
 </thead>
