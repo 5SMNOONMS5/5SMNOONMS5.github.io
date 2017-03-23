@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-03-22T19:02:37.000Z</updated>
+  <updated>2017-03-23T03:38:10.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/"/>
     <id>http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/</id>
     <published>2017-03-22T08:03:28.000Z</published>
-    <updated>2017-03-22T19:02:37.000Z</updated>
+    <updated>2017-03-23T03:38:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>fastlane + slack + bash 一鍵達到多種 .ipa 檔。</p>
 <a id="more"></a>
@@ -49,19 +49,49 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane init</div></pre></td></tr></table></figure>
 <p><img src="fastlaneinit2.png" alt="fastlaneinit2.png"></p>
 <p>那兩種哪邊不一樣呢？，第一種其實已經幫你把程式碼初始化了，讓你少去比較多的步驟，接著我們打開 <strong>Fastlane</strong> 來看一下的 Code。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">fastlane_version <span class="string">"1.109.0"</span></div><div class="line"></div><div class="line">generated_fastfile_id <span class="string">"adb8dedb-e633-43f6-87b0-03588e2f5a43"</span></div><div class="line"></div><div class="line">default_platform <span class="symbol">:ios</span></div><div class="line"></div><div class="line"><span class="comment"># 原本的</span></div><div class="line">lane <span class="symbol">:beta</span> <span class="keyword">do</span></div><div class="line"></div><div class="line">  <span class="comment"># build your iOS app</span></div><div class="line">  gym(</div><div class="line">    <span class="comment"># scheme: "YourScheme"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  <span class="comment"># upload to Beta by Crashlytics</span></div><div class="line">  crashlytics(</div><div class="line">    <span class="comment"># api_token: "YOUR_API_KEY",</span></div><div class="line">    <span class="comment"># build_secret: "YOUR_BUILD_SECRET"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  <span class="comment"># slack(</span></div><div class="line">  <span class="comment">#   slack_url: "https://hooks.slack.com/services/IDS"</span></div><div class="line">  <span class="comment"># )</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">lane <span class="symbol">:</span>自定義名稱我在這邊自定義名稱為公式 <span class="keyword">do</span></div><div class="line"></div><div class="line">  方法<span class="number">1</span>(</div><div class="line">    參數名<span class="number">1</span>: <span class="string">"參數值1"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  方法<span class="number">2</span>(</div><div class="line">    參數名<span class="number">1</span>: <span class="string">"參數值1"</span>,</div><div class="line">    參數名<span class="number">2</span>: <span class="string">"參數值2"</span>,</div><div class="line">    參數名<span class="number">3</span>: <span class="string">"參數值3"</span>,</div><div class="line">  )</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>其實他的公式非常簡單，就是把上面我打中文的地方替換成所需要的參數，那<strong>方法</strong>有哪些呢？依造官方有很多，比如 <strong>deliver</strong> 或者 <strong>supply</strong> 之類的…</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">fastlane_version <span class="string">"1.109.0"</span></div><div class="line"></div><div class="line">generated_fastfile_id <span class="string">"adb8dedb-e633-43f6-87b0-03588e2f5a43"</span></div><div class="line"></div><div class="line">default_platform <span class="symbol">:ios</span></div><div class="line"></div><div class="line"><span class="comment"># 原本的</span></div><div class="line">lane <span class="symbol">:beta</span> <span class="keyword">do</span></div><div class="line"></div><div class="line">  <span class="comment"># build your iOS app</span></div><div class="line">  gym(</div><div class="line">    <span class="comment"># scheme: "YourScheme"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  <span class="comment"># upload to Beta by Crashlytics</span></div><div class="line">  crashlytics(</div><div class="line">    <span class="comment"># api_token: "YOUR_API_KEY",</span></div><div class="line">    <span class="comment"># build_secret: "YOUR_BUILD_SECRET"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  <span class="comment"># slack(</span></div><div class="line">  <span class="comment">#   slack_url: "https://hooks.slack.com/services/IDS"</span></div><div class="line">  <span class="comment"># )</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># 自定義名稱我在這邊自定義名稱為公式</span></div><div class="line">lane <span class="symbol">:</span>公式 <span class="keyword">do</span></div><div class="line"></div><div class="line">  方法<span class="number">1</span>(</div><div class="line">    參數名<span class="number">1</span>: <span class="string">"參數值1"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  方法<span class="number">2</span>(</div><div class="line">    參數名<span class="number">1</span>: <span class="string">"參數值1"</span>,</div><div class="line">    參數名<span class="number">2</span>: <span class="string">"參數值2"</span>,</div><div class="line">    參數名<span class="number">3</span>: <span class="string">"參數值3"</span>,</div><div class="line">  )</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>其實他的公式非常簡單，就是把上面我打中文的地方替換成所需要的參數，你可以想像成宣告一個Class，然後裡面給予他n個 key:value 型態的變數，那<strong>方法</strong>有哪些呢？依造官方有很多，比如 <strong>deliver</strong> 或者 <strong>supply</strong> 之類的…</p>
 <p><img src="actions.png" alt="actions"></p>
 <p>那<strong>方法的參數</strong>有哪些呢？請在 Terminal 打上 <strong>fastlane action [方法]</strong>，比如我想要看 <strong>supply</strong> 有哪些參數，那就</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane action supply</div></pre></td></tr></table></figure>
 <p><img src="parameters.png" alt="parameters"></p>
 <ul>
-<li>接著就慢慢看囉～想要什麼自己選。在依序填入到上面的公式</li>
+<li><p>接著就慢慢看囉～想要什麼自己選。在依序填入到上面的公式</p>
+</li>
+<li><p>第三種：那如何執行它呢？</p>
+</li>
 </ul>
-<h1 id="TroubleShooting"><a href="#TroubleShooting" class="headerlink" title="TroubleShooting"></a>TroubleShooting</h1><h4 id="Connection-reset-by-peer-SSL-connect"><a href="#Connection-reset-by-peer-SSL-connect" class="headerlink" title="Connection reset by peer - SSL_connect"></a>Connection reset by peer - SSL_connect</h4><ul>
-<li>因為我的 ruby 版本是 2.0.0，蘋果最近把服務器的TLS版本更新到 TLS 1.2，在我當前的 ruby 是不支持的</li>
+<p>fastlane [公式名稱]</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane 公式</div></pre></td></tr></table></figure>
+<p>這邊也許會遇到一些環境問題，以及安裝問題，這時候就要一個一個自己去解決了，每個人遇到的問題不太一樣，可以留言在下面互相討論。不過有個問題我也覺得非常麻煩，我把問題寫在最下面的 TroubleShooting 部分</p>
+<ul>
+<li>第四種：範例</li>
 </ul>
+<p>這邊有很多開源分享他們的 Fastlane 檔案。</p>
+<p><a href="https://github.com/fastlane/examples" target="_blank" rel="external">Examples</a></p>
+<h4 id="步驟3：當上面都沒有問題的時候要來寫-bash"><a href="#步驟3：當上面都沒有問題的時候要來寫-bash" class="headerlink" title="步驟3：當上面都沒有問題的時候要來寫 bash"></a>步驟3：當上面都沒有問題的時候要來寫 bash</h4><h1 id="TroubleShooting"><a href="#TroubleShooting" class="headerlink" title="TroubleShooting"></a>TroubleShooting</h1><h4 id="Connection-reset-by-peer-SSL-connect"><a href="#Connection-reset-by-peer-SSL-connect" class="headerlink" title="Connection reset by peer - SSL_connect"></a>Connection reset by peer - SSL_connect</h4><p>因為我的 ruby 版本是 2.0.0，蘋果最近把服務器的TLS版本更新到 TLS 1.2，在我當前的 ruby 是不支持的，所以我要想辦法升級到 支援 TLS 1.2的 ruby 版本。</p>
 <p><img src="opensslfail.png" alt="opensslfail.png"></p>
+<p>在解決問題之前，我想分享一些我個人覺得蠻需要被了解的基礎，就是因為我也對 ruby 不了解，所以吃了不少虧在解決這個問題上</p>
+<p>首先我知道安裝 ruby 可以透過 <a href="https://brew.sh/" target="_blank" rel="external">homebrew</a> ， <a href="https://github.com/rbenv/rbenv" target="_blank" rel="external">rbenv</a> 以及 <a href="https://rvm.io/" target="_blank" rel="external">rvm</a>，但問題是當初我忘記我用什麼來安裝的。</p>
+<p>再來就是請詳讀這段內容，出處<a href="http://stackoverflow.com/questions/31972968/cant-install-gems-on-os-x-el-capitan" target="_blank" rel="external">Can’t install gems on OS X “El Capitan”
+</a></p>
+<blockquote>
+<p>Disclaimer: @theTinMan and other Ruby developers often point out not to use sudo when installing gems and point to things like RVM. That’s absolutely true when doing Ruby development. Go ahead and use that.</p>
+<p>However, many of us just want some binary that happens to be distributed as a gem (e.g. fakes3,  cocoapods, xcpretty …). I definitely don’t want to bother with managing a separate ruby. Here are your quicker options:</p>
+<p>Option 1: Keep using sudo</p>
+<p>Using sudo is probably fine if you want these tools to be installed globally.</p>
+<p>The problem is that these binaries are installed into /usr/bin, which is off-limits since El Capitan. However, you can install them into /usr/local/bin instead. That’s where Homebrew install its stuff, so it probably exists already.</p>
+<p>sudo gem install fakes3 -n/usr/local/bin<br>Gems will be installed into /usr/local/bin and every user on your system can use them if it’s in their PATH.</p>
+<p>Option 2: Install in your home directory (without sudo)</p>
+<p>The following will install gems in ~/.gem and put binaries in ~/bin (which you should then add to your PATH).</p>
+<p>gem install fakes3 –user-install -n~/bin<br>Make it the default</p>
+<p>Either way, you can add these parameters to your ~/.gemrc so you don’t have to remember them:</p>
+<p>gem: -n/usr/local/bin<br>i.e. echo “gem: -n/usr/local/bin” &gt;&gt; ~/.gemrc</p>
+<p>or</p>
+<p>gem: –user-install -n~/bin<br>i.e. echo “gem: –user-install -n~/bin” &gt;&gt; ~/.gemrc</p>
+<p>(Tip: You can also throw in –no-document to skip generating Ruby developer documentation.)</p>
+</blockquote>
+<p>對 ruby 生態系統有一些小了解之後之後再來解決問題也許會方便很多</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>sudo gem update –system</p>
 <p>(brew uninstall –force ruby)[]</p>
 <p>(rbenv)[<a href="https://github.com/rbenv/rbenv" target="_blank" rel="external">https://github.com/rbenv/rbenv</a>]</p>
