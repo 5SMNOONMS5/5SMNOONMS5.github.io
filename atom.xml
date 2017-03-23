@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-03-23T18:25:13.000Z</updated>
+  <updated>2017-03-23T18:26:37.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/"/>
     <id>http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/</id>
     <published>2017-03-22T08:03:28.000Z</published>
-    <updated>2017-03-23T18:25:13.000Z</updated>
+    <updated>2017-03-23T18:26:37.000Z</updated>
     
     <content type="html"><![CDATA[<p>fastlane + slack + script 一鍵產出多種不同型態的 .ipa 檔。</p>
 <a id="more"></a>
@@ -57,26 +57,29 @@
 <thead>
 <tr>
 <th style="text-align:left">Commands</th>
-<th style="text-align:left">Description</th>
+<th style="text-align:right">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left">fastlane actions</td>
-<td style="text-align:left">把所有的actions列出來</td>
+<td style="text-align:right">把所有的actions列出來</td>
 </tr>
 <tr>
 <td style="text-align:left">fastlane lanes</td>
-<td style="text-align:left">把所有在 Fastlane 檔案底下的 lane 和 描述列出來</td>
+<td style="text-align:right">把所有在 Fastlane 檔案底下的 lane 和 描述列出來</td>
 </tr>
 <tr>
-<td style="text-align:left">fastlane list        ｜ 同上，但是不把描述列出來</td>
+<td style="text-align:left">fastlane list</td>
+<td style="text-align:right">同上，但是不把描述列出來</td>
 </tr>
 <tr>
-<td style="text-align:left">fastlane new_action  ｜ 創造一個新的 actions</td>
+<td style="text-align:left">fastlane new_action</td>
+<td style="text-align:right">創造一個新的 actions</td>
 </tr>
 <tr>
-<td style="text-align:left">fastlane env         ｜ 這是當你有問題的時候，可以幫你把環境快速的列出來好放到 issue 給別人看</td>
+<td style="text-align:left">fastlane env</td>
+<td style="text-align:right">這是當你有問題的時候，可以幫你把環境快速的列出來好放到 issue 給別人看</td>
 </tr>
 </tbody>
 </table>
@@ -92,59 +95,59 @@
 <tbody>
 <tr>
 <td style="text-align:left">deliver</td>
-<td style="text-align:right">1600 USD</td>
+<td style="text-align:right">wait</td>
 </tr>
 <tr>
 <td style="text-align:left">supply</td>
-<td style="text-align:right">12 USD</td>
+<td style="text-align:right">wait</td>
 </tr>
 <tr>
 <td style="text-align:left">snapshot</td>
-<td style="text-align:right">1 USD</td>
+<td style="text-align:right">wait</td>
 </tr>
 <tr>
 <td style="text-align:left">screengrab</td>
-<td style="text-align:right">1600 USD</td>
+<td style="text-align:right">wait</td>
 </tr>
 <tr>
 <td style="text-align:left">frameit</td>
-<td style="text-align:right">12 USD</td>
+<td style="text-align:right">wait</td>
 </tr>
 <tr>
 <td style="text-align:left">pem</td>
-<td style="text-align:right">1 USD</td>
+<td style="text-align:right">wait</td>
 </tr>
 <tr>
 <td style="text-align:left">sigh</td>
-<td style="text-align:right">1600 USD</td>
+<td style="text-align:right">wait</td>
 </tr>
 <tr>
 <td style="text-align:left">produce</td>
-<td style="text-align:right">12 USD</td>
+<td style="text-align:right">wait</td>
 </tr>
 <tr>
 <td style="text-align:left">cert</td>
-<td style="text-align:right">1 USD</td>
+<td style="text-align:right">wait</td>
 </tr>
 <tr>
 <td style="text-align:left">spaceship</td>
-<td style="text-align:right">1600 USD</td>
+<td style="text-align:right">wait</td>
 </tr>
 <tr>
 <td style="text-align:left">pilot</td>
-<td style="text-align:right">12 USD</td>
+<td style="text-align:right">wait</td>
 </tr>
 <tr>
 <td style="text-align:left">gym</td>
-<td style="text-align:right">1 USD</td>
+<td style="text-align:right">wait</td>
 </tr>
 <tr>
 <td style="text-align:left">match</td>
-<td style="text-align:right">12 USD</td>
+<td style="text-align:right">wait</td>
 </tr>
 <tr>
 <td style="text-align:left">scan</td>
-<td style="text-align:right">1 USD</td>
+<td style="text-align:right">wait</td>
 </tr>
 </tbody>
 </table>
