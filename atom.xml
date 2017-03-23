@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-03-23T17:56:43.000Z</updated>
+  <updated>2017-03-23T18:02:33.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/"/>
     <id>http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/</id>
     <published>2017-03-22T08:03:28.000Z</published>
-    <updated>2017-03-23T17:56:43.000Z</updated>
+    <updated>2017-03-23T18:02:33.000Z</updated>
     
     <content type="html"><![CDATA[<p>fastlane + slack + script 一鍵產出多種不同型態的 .ipa 檔。</p>
 <a id="more"></a>
@@ -28,7 +28,8 @@
 <h1 id="自身面臨的情況"><a href="#自身面臨的情況" class="headerlink" title="自身面臨的情況"></a>自身面臨的情況</h1><p>因工作所需，需要發布 <strong>企業內部使用</strong>，並打包成不同形式的 .ipa 上架擋案。換句話說，假設我要產生 10 個 擁有不同 Info.plist 的 .ipa 檔案，如果手動的話我不就要改到死了？每次 Archive 都要等很久，然後結束之後在改 Info.plist 上的參數然再後 Archive 然後再上架。</p>
 <h1 id="本篇分享概要"><a href="#本篇分享概要" class="headerlink" title="本篇分享概要"></a>本篇分享概要</h1><p>因為官方文擋其實非常詳細，所以這邊只分享大概流程。</p>
 <h1 id="如何自動上架"><a href="#如何自動上架" class="headerlink" title="如何自動上架"></a>如何自動上架</h1><p>目前iOS我知道打包除了手動之外，還有幾種方式分別是<a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html" target="_blank" rel="external">xcodebuild</a>，<a href="https://github.com/facebook/xctool" target="_blank" rel="external">xctool</a>和<a href="https://gradle.org/" target="_blank" rel="external">gradle</a>，而今天要使用的是把這些神器打包好的神器 <a href="https://fastlane.tools/" target="_blank" rel="external">fastlane</a></p>
-<h1 id="如何自動更新-Info-plist-的參數"><a href="#如何自動更新-Info-plist-的參數" class="headerlink" title="如何自動更新 Info.plist 的參數"></a>如何自動更新 Info.plist 的參數</h1><p>這邊我打算使用 指令集 來完成替換 Info.plist 內部參數，附帶一提，這邊情況適用我自己而已，其實任何在專案內部的檔案，圖片都可以進行變更。It’s all depend on you.</p>
+<h1 id="如何自動更新-Info-plist-的參數"><a href="#如何自動更新-Info-plist-的參數" class="headerlink" title="如何自動更新 Info.plist 的參數"></a>如何自動更新 Info.plist 的參數</h1><p>這邊我打算使用 指令集 來完成替換 Info.plist 內部參數。</p>
+<p>附帶一提，這邊情況適用我自己而已，其實任何在專案內部的檔案，圖片都可以進行變更，包括上架到 AppStore，Screenshot，Test，管理證書，都可以。It’s all depend on you.</p>
 <h1 id="結合兩者-Fastlane-Script"><a href="#結合兩者-Fastlane-Script" class="headerlink" title="結合兩者 Fastlane + Script"></a>結合兩者 Fastlane + Script</h1><h4 id="步驟1：完成-Fastlane-的安裝"><a href="#步驟1：完成-Fastlane-的安裝" class="headerlink" title="步驟1：完成 Fastlane 的安裝"></a>步驟1：完成 Fastlane 的安裝</h4><ul>
 <li>安裝 homebrew</li>
 </ul>
@@ -56,15 +57,13 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane action supply</div></pre></td></tr></table></figure>
 <p><img src="parameters.png" alt="parameters"></p>
 <p>接著就慢慢看囉～想要什麼自己選。在依序填入到上面的公式</p>
-<p>####第三步驟：那如何執行呢？</p>
-<p>fastlane [公式名稱]，如上圖我的名稱是 BABABA，那就在終端機上打以下指令</p>
+<h4 id="步驟3：執行-Fastlane"><a href="#步驟3：執行-Fastlane" class="headerlink" title="步驟3：執行 Fastlane"></a>步驟3：執行 Fastlane</h4><p>fastlane [公式名稱]，如上圖我的名稱是 BABABA，那就在終端機上打以下指令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane BABABA</div></pre></td></tr></table></figure>
 <p>這邊也許會遇到一些環境問題，以及安裝問題，這時候就要一個一個自己去解決了，每個人遇到的問題不太一樣，可以留言在下面互相討論。不過有個問題我也覺得非常麻煩，我把這問題寫在最下面的 TroubleShooting 部分</p>
-<p>####第四步驟：抄襲範例</p>
-<p>這邊有很多開源分享他們的 Fastlane 開源檔案。</p>
+<h4 id="步驟4：跟著範例走"><a href="#步驟4：跟著範例走" class="headerlink" title="步驟4：跟著範例走"></a>步驟4：跟著範例走</h4><p>這邊有很多開源分享他們的 Fastlane 開源檔案。</p>
 <p><a href="https://github.com/fastlane/examples" target="_blank" rel="external">Examples</a></p>
-<p>####第五步驟：我的範例</p>
-<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><p>這部分就比較簡單了，我把 code 放在 <a href="git@github.com:5SMNOONMS5/TestFastlane.git">github</a> 上。大致架構圖如下</p>
+<h4 id="步驟5：循環步驟4"><a href="#步驟5：循環步驟4" class="headerlink" title="步驟5：循環步驟4"></a>步驟5：循環步驟4</h4><p>這邊一定要想成功，不然之後再結合 script 的時候問題會更多，</p>
+<h1 id="Script"><a href="#Script" class="headerlink" title="Script"></a>Script</h1><p>這部分就比較簡單了，我把 code 放在 <a href="git@github.com:5SMNOONMS5/TestFastlane.git">github</a> 上。大致架構圖如下</p>
 <p><img src="bash_architecture.png" alt="bash_architecture"></p>
 <p>這邊的架構是所有跟 <strong>script</strong> 相關的 .sh 檔案都會在 script 資料夾底下，透過 <a href="https://www.gnu.org/software/sed/manual/sed.txt" target="_blank" rel="external">sed</a> 會去執行變更 Info.plish 檔案裡面的變數，參數設定則是放在 <strong>script/config</strong> 裡面。</p>
 <p>在終端機底下執行</p>
