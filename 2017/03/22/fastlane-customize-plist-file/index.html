@@ -27,8 +27,9 @@
 <p><img src="fastlaneinit2.png" alt="fastlaneinit2.png"></p>
 <p>那兩種哪邊不一樣呢？，第一種其實已經幫你把程式碼初始化了，讓你少去比較多的步驟，接著我們打開 <strong>Fastlane</strong> 來看一下的 Code。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">fastlane_version <span class="string">"1.109.0"</span></div><div class="line"></div><div class="line">generated_fastfile_id <span class="string">"adb8dedb-e633-43f6-87b0-03588e2f5a43"</span></div><div class="line"></div><div class="line">default_platform <span class="symbol">:ios</span></div><div class="line"></div><div class="line"><span class="comment"># 原本的</span></div><div class="line">lane <span class="symbol">:beta</span> <span class="keyword">do</span></div><div class="line"></div><div class="line">  <span class="comment"># build your iOS app</span></div><div class="line">  gym(</div><div class="line">    <span class="comment"># scheme: "YourScheme"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  <span class="comment"># upload to Beta by Crashlytics</span></div><div class="line">  crashlytics(</div><div class="line">    <span class="comment"># api_token: "YOUR_API_KEY",</span></div><div class="line">    <span class="comment"># build_secret: "YOUR_BUILD_SECRET"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  <span class="comment"># slack(</span></div><div class="line">  <span class="comment">#   slack_url: "https://hooks.slack.com/services/IDS"</span></div><div class="line">  <span class="comment"># )</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># 自定義名稱我在這邊自定義名稱為 BABABA</span></div><div class="line">lane <span class="symbol">:BABABA</span> <span class="keyword">do</span></div><div class="line"></div><div class="line">  方法<span class="number">1</span>(</div><div class="line">    參數名<span class="number">1</span>: <span class="string">"參數值1"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  方法<span class="number">2</span>(</div><div class="line">    參數名<span class="number">1</span>: <span class="string">"參數值1"</span>,</div><div class="line">    參數名<span class="number">2</span>: <span class="string">"參數值2"</span>,</div><div class="line">    參數名<span class="number">3</span>: <span class="string">"參數值3"</span>,</div><div class="line">  )</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>其實他的公式非常簡單，就是把上面我打中文的地方替換成所需要的參數，你可以想像成宣告一個Class，然後裡面給予他n個 key:value 型態的變數，那<strong>方法</strong>有哪些呢？依造官方有很多，比如 <strong>deliver</strong> 或者 <strong>supply</strong> 之類的…</p>
-<p>推薦幾個比較實用的 Commands</p>
+<p>其實他的公式非常簡單，就是把上面我打中文的地方替換成所需要的參數，你可以想像成宣告一個Class，然後裡面給予他n個 key:value 型態的變數，那<strong>方法</strong>有哪些呢？依造官方有很多，比如 <strong>deliver</strong> 或者 <strong>supply</strong> 之類的…，以下是所有的 actions 列表</p>
+<p><img src="allactions.png" alt="allactions"></p>
+<p>這邊翻譯官方的幾個比較常用的 Commands</p>
 <table>
 <thead>
 <tr>
@@ -59,8 +60,7 @@
 </tr>
 </tbody>
 </table>
-<p><a href="allactions.png">allactions</a></p>
-<p>我把官方比較列出的翻譯在下面，外加幾個我感覺比較常用的＠＠</p>
+<p>另外翻譯官方重點 actions，外加幾個我感覺比較常用的＠＠</p>
 <table>
 <thead>
 <tr>
@@ -123,6 +123,10 @@
 </tr>
 <tr>
 <td style="text-align:left">scan</td>
+<td style="text-align:right">wait</td>
+</tr>
+<tr>
+<td style="text-align:left">slack</td>
 <td style="text-align:right">wait</td>
 </tr>
 </tbody>
