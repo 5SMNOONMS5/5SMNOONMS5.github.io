@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-03-24T04:44:02.000Z</updated>
+  <updated>2017-03-24T04:48:19.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/"/>
     <id>http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/</id>
     <published>2017-03-22T08:03:28.000Z</published>
-    <updated>2017-03-24T04:44:02.000Z</updated>
+    <updated>2017-03-24T04:48:19.000Z</updated>
     
     <content type="html"><![CDATA[<p>fastlane + slack + script 一鍵產出多種不同型態的 .ipa 檔。</p>
 <a id="more"></a>
@@ -162,7 +162,10 @@
 <p>那<strong>方法的參數</strong>有哪些呢？請在 Terminal 打上 <strong>fastlane action [方法]</strong>，比如我想要看 <strong>supply</strong> 有哪些參數，那就</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane action supply</div></pre></td></tr></table></figure>
 <p><img src="parameters.png" alt="parameters"></p>
-<p>接著就慢慢看囉～想要什麼自己選。在依序填入到上面的公式</p>
+<p>像我自己要產生 ipa 檔案的話就要看 <strong>gym</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane action gym</div></pre></td></tr></table></figure>
+<p><img src="gym.png" alt="gym"></p>
+<p>接著就慢慢看囉～想要什麼就打什麼需要什麼就打什麼。在依序填入到上面的公式</p>
 <h4 id="步驟3：執行-Fastlane"><a href="#步驟3：執行-Fastlane" class="headerlink" title="步驟3：執行 Fastlane"></a>步驟3：執行 Fastlane</h4><p>fastlane [公式名稱]，如上圖我的名稱是 BABABA，那就在終端機上打以下指令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane BABABA</div></pre></td></tr></table></figure>
 <p>這邊也許會遇到一些環境問題，以及安裝問題，這時候就要一個一個自己去解決了，每個人遇到的問題不太一樣，可以留言在下面互相討論。不過有個問題我也覺得非常麻煩，我把這問題寫在最下面的 TroubleShooting 部分</p>
