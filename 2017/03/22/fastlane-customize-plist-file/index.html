@@ -148,7 +148,7 @@
 <h4 id="步驟4：跟著範例走"><a href="#步驟4：跟著範例走" class="headerlink" title="步驟4：跟著範例走"></a>步驟4：跟著範例走</h4><p>這邊有很多開源分享他們的 Fastlane 開源檔案。</p>
 <p><a href="https://github.com/fastlane/examples" target="_blank" rel="external">Examples</a></p>
 <h4 id="步驟5：循環步驟4"><a href="#步驟5：循環步驟4" class="headerlink" title="步驟5：循環步驟4"></a>步驟5：循環步驟4</h4><p>這邊一定要想成功，不然之後再結合 script 的時候問題會更多。</p>
-<h4 id="步驟6：分享我自己的"><a href="#步驟6：分享我自己的" class="headerlink" title="步驟6：分享我自己的"></a>步驟6：分享我自己的</h4><h1 id="Script"><a href="#Script" class="headerlink" title="Script"></a>Script</h1><p>這部分就比較簡單了，我把 code 放在 <a href="git@github.com:5SMNOONMS5/TestFastlane.git">github</a> 上。大致架構圖如下</p>
+<h1 id="Script"><a href="#Script" class="headerlink" title="Script"></a>Script</h1><p>這部分就比較簡單了，我把 code 放在 <a href="git@github.com:5SMNOONMS5/TestFastlane.git">github</a> 上。大致架構圖如下</p>
 <p><img src="bash_architecture.png" alt="bash_architecture"></p>
 <p>這邊的架構是所有跟 <strong>script</strong> 相關的 .sh 檔案都會在 script 資料夾底下，透過 <a href="https://www.gnu.org/software/sed/manual/sed.txt" target="_blank" rel="external">sed</a> 會去執行變更 Info.plish 檔案裡面的變數，參數設定則是放在 <strong>script/config</strong> 裡面。</p>
 <p>在終端機底下執行</p>
@@ -163,8 +163,7 @@
 <blockquote>
 <p>Hey everyone, we’ve been working on a new way to install and use fastlane, all you have to do is to download <a href="https://kits-crashlytics-com.s3.amazonaws.com/fastlane/standalone/latest.zip" target="_blank" rel="external">fastlane.zip</a> and double click the install file. This will install fastlane with all its Ruby and OpenSSL dependencies, and should all work out of the box.<br>We just finished building this, and would love your early feedback on this beta. Please let us know how it works for you and if you run into any problems 👍<br>Download the latest version here.</p>
 </blockquote>
-<p>大意就是他把 fastlane 所需要的 dependencies 全部放在 <strong>~./fastlane/bin</strong> 底下，這就是整個程式，有點類似 docker 的感覺，安裝好之後，我的問題也解決了。安裝成功是這樣。</p>
-<p><img src="fastlaneinstall.png" alt="fastlaneinstall.png"></p>
+<p>大意就是他把 fastlane 所需要的 dependencies 全部放在 <strong>~./fastlane/bin</strong> 底下，這就是整個程式，有點類似 docker 的感覺，安裝好之後，我的問題也解決了。</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://github.com/fastlane/fastlane/issues/6553" target="_blank" rel="external">Connection reset by peer</a></p>
 <p><a href="https://github.com/fastlane/fastlane/issues/6758" target="_blank" rel="external">cert fails with error ‘Connection reset by peer - SSL_connect’</a></p>
 </div></article></div></section><footer><div class="paginator"><a href="/2017/02/21/Transfer-Git-repositories-into-another-service/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
