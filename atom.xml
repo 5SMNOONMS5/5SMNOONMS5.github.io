@@ -206,7 +206,7 @@
     <link href="http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/"/>
     <id>http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/</id>
     <published>2017-02-21T08:51:43.000Z</published>
-    <updated>2017-04-18T16:59:23.000Z</updated>
+    <updated>2017-04-18T17:00:56.000Z</updated>
     
     <content type="html"><![CDATA[<p>今天公司剛好要把 原先的 Git Server 轉移到另外一台 Server，於是研究了一下</p>
 <a id="more"></a>
@@ -263,7 +263,7 @@
 <h1 id="Git-mirror"><a href="#Git-mirror" class="headerlink" title="Git mirror"></a>Git mirror</h1><blockquote>
 <p>2017/04/19 update</p>
 </blockquote>
-<p>無意間同事發了這篇鏈接，覺得比我之前的方法要更簡潔更方便，真後悔沒有提早看到<br>(git mirror)[<a href="https://dinos80152.wordpress.com/2015/09/21/%E4%BD%BF%E7%94%A8-git-mirror-%E7%84%A1%E7%97%9B%E8%BD%89%E7%A7%BB-git-server/" target="_blank" rel="external">https://dinos80152.wordpress.com/2015/09/21/%E4%BD%BF%E7%94%A8-git-mirror-%E7%84%A1%E7%97%9B%E8%BD%89%E7%A7%BB-git-server/</a>]</p>
+<p>無意間同事發了這篇鏈接，覺得比我之前的方法要更簡潔更方便，真後悔沒有提早看到<br><a href="https://dinos80152.wordpress.com/2015/09/21/%E4%BD%BF%E7%94%A8-git-mirror-%E7%84%A1%E7%97%9B%E8%BD%89%E7%A7%BB-git-server/" target="_blank" rel="external">git mirror</a></p>
 ]]></content>
     
     <summary type="html">
