@@ -56,7 +56,7 @@
     <link href="http://stephenchen.com/2017/04/21/simple-way-build-an-framework/"/>
     <id>http://stephenchen.com/2017/04/21/simple-way-build-an-framework/</id>
     <published>2017-04-21T08:03:08.000Z</published>
-    <updated>2017-04-25T10:36:00.000Z</updated>
+    <updated>2017-04-25T10:38:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>Creating a reusable, sharable code across different project and use it via <a href="https://github.com/Carthage/Carthage" target="_blank" rel="external">Carthage</a></p>
 <a id="more"></a>
@@ -68,7 +68,7 @@
 <p>macOS Sierra</p>
 </blockquote>
 <h1 id="Step-1-Create-a-new-framework-project"><a href="#Step-1-Create-a-new-framework-project" class="headerlink" title="Step 1: Create a new framework project"></a>Step 1: Create a new framework project</h1><p>Just like create a normal project.</p>
-<p><img src="create-framework.png" alt="create-framework"></p>
+<p><img src="create-framework.gif" alt="create-framework"></p>
 ]]></content>
     
     <summary type="html">
