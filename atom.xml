@@ -56,15 +56,24 @@
     <link href="http://stephenchen.com/2017/04/21/simple-way-build-an-framework/"/>
     <id>http://stephenchen.com/2017/04/21/simple-way-build-an-framework/</id>
     <published>2017-04-21T08:03:08.000Z</published>
-    <updated>2017-04-21T08:31:47.000Z</updated>
+    <updated>2017-04-25T10:36:00.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Creating a reusable sharable code with framework.</p>
+    <content type="html"><![CDATA[<p>Creating a reusable, sharable code across different project and use it via <a href="https://github.com/Carthage/Carthage" target="_blank" rel="external">Carthage</a></p>
 <a id="more"></a>
+<p>Since iOS 8, Apple allow developer create their own dynamic framework, before iOS 8 developer can only create a static framework,</p>
+<p>Below are some references you can dig at it.</p>
+<p><a href="http://stackoverflow.com/questions/27899799/ios-static-vs-dynamic-frameworks-clarifications" target="_blank" rel="external">iOS Static vs Dynamic frameworks clarifications</a></p>
+<p><a href="https://github.com/jverkoey/iOS-Framework" target="_blank" rel="external">Building a static iOS framework is a pain in the ass</a></p>
+<h1 id="OS-Environment"><a href="#OS-Environment" class="headerlink" title="OS Environment"></a>OS Environment</h1><blockquote>
+<p>macOS Sierra</p>
+</blockquote>
+<h1 id="Step-1-Create-a-new-framework-project"><a href="#Step-1-Create-a-new-framework-project" class="headerlink" title="Step 1: Create a new framework project"></a>Step 1: Create a new framework project</h1><p>Just like create a normal project.</p>
+<p><img src="create-framework.png" alt="create-framework"></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Creating a reusable sharable code with framework.&lt;/p&gt;
+      &lt;p&gt;Creating a reusable, sharable code across different project and use it via &lt;a href=&quot;https://github.com/Carthage/Carthage&quot;&gt;Carthage&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
