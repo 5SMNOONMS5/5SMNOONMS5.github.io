@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-04-24T06:59:24.000Z</updated>
+  <updated>2017-04-26T03:46:56.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -20,17 +20,17 @@
     <link href="http://stephenchen.com/2017/04/24/What-is-Podfile-lock/"/>
     <id>http://stephenchen.com/2017/04/24/What-is-Podfile-lock/</id>
     <published>2017-04-24T03:52:44.000Z</published>
-    <updated>2017-04-24T06:59:24.000Z</updated>
+    <updated>2017-04-26T03:46:56.000Z</updated>
     
     <content type="html"><![CDATA[<p>Illustrated explanation of what is Podfile.lock</p>
 <a id="more"></a>
 <p>Have you ever encounter this error before?</p>
 <p><img src="error.png" alt="Error"></p>
-<p>Simply run <strong>pod install</strong> can solve this problem, but if you interested in why cause this problem, please read on!</p>
+<p>Simply run <strong>pod install</strong> can solve this problem, but if you interested in why cause this problem please read on!</p>
 <blockquote>
 <p>Assume that you have basic concept of using <strong><a href="https://guides.cocoapods.org/using/using-cocoapods.html" target="_blank" rel="external">Cocoapods</a></strong></p>
 </blockquote>
-<p>That said after first time run <strong>pod install</strong>, you will generate a file call <strong>Podfile.lock</strong> . First, don’t let that <strong>lock</strong> name confuse you. The purpose of <strong>Podfile.lock</strong> is tracking of every version of every library that <strong>Cocoapods</strong> has installed for you, especially working together with a team. so I copy some screenshots from <a href="https://www.youtube.com/watch?v=H-zK1mEwTe0" target="_blank" rel="external">“CocoaPods and Lockfiles (Route 85)”</a> for easily to explain.</p>
+<p>That said after first time run <strong>pod install</strong>, you will generate a file call <strong>Podfile.lock</strong>. First, don’t let that <strong>lock</strong> name confuse you. The purpose of <strong>Podfile.lock</strong> is tracking of every version of every library that <strong>Cocoapods</strong> has installed for you, especially working together with a team. so I copy some screenshots from <a href="https://www.youtube.com/watch?v=H-zK1mEwTe0" target="_blank" rel="external">“CocoaPods and Lockfiles (Route 85)”</a> for easily to explain.</p>
 <h4 id="Pod-install"><a href="#Pod-install" class="headerlink" title="Pod install"></a>Pod install</h4><p>According to the screenshot, run pod install will install <strong>Version 1.3.3 DemoLibrary</strong> on Suzie’s project</p>
 <p><img src="podfile-lock-explanation-1.png" alt="podfile-lock-explanation-1.png"></p>
 <h4 id="Fews-days-later-DemoLibrary-update-to-version-1-4-0"><a href="#Fews-days-later-DemoLibrary-update-to-version-1-4-0" class="headerlink" title="Fews days later, DemoLibrary update to version 1.4.0"></a>Fews days later, DemoLibrary update to version 1.4.0</h4><p><img src="podfile-lock-explanation-2.png" alt="podfile-lock-explanation-2.png"></p>
@@ -38,9 +38,9 @@
 <h4 id="So-here-is-how-Podfile-lock-work-record-the-version-of-what-Suzie-had-installed-then-cocoapods-will-check-what-version-Suzie-had-installed-and-then-install-on-Mark’s-project。"><a href="#So-here-is-how-Podfile-lock-work-record-the-version-of-what-Suzie-had-installed-then-cocoapods-will-check-what-version-Suzie-had-installed-and-then-install-on-Mark’s-project。" class="headerlink" title="So here is how Podfile.lock work, record the version of what Suzie had installed, then cocoapods will check what version Suzie had installed and then install on Mark’s project。"></a>So here is how Podfile.lock work, record the version of what Suzie had installed, then cocoapods will check what version Suzie had installed and then install on Mark’s project。</h4><p><img src="podfile-lock-explanation-4.png" alt="podfile-lock-explanation-4.png"></p>
 <h4 id="so-if-Mark-run-pod-update-then-Podfile-lock-will-changed-to-version-1-4-0-after-merge-it-will-appear-like-above-error，so-this-is-why-cause-this-error。"><a href="#so-if-Mark-run-pod-update-then-Podfile-lock-will-changed-to-version-1-4-0-after-merge-it-will-appear-like-above-error，so-this-is-why-cause-this-error。" class="headerlink" title="so if Mark run pod update, then Podfile.lock will changed to version 1.4.0, after merge, it will appear like above error，so this is why cause this error。"></a>so if Mark run pod update, then Podfile.lock will changed to version 1.4.0, after merge, it will appear like above error，so this is why cause this error。</h4><p><img src="podfile-lock-explanation-5.png" alt="podfile-lock-explanation-5.png"></p>
 <h4 id="Another-nice-feature-is-cocoapods-will-create-a-snapshot-of-every-library-while-using-source-control"><a href="#Another-nice-feature-is-cocoapods-will-create-a-snapshot-of-every-library-while-using-source-control" class="headerlink" title="Another nice feature is cocoapods will create a snapshot of every library while using source control"></a>Another nice feature is cocoapods will create a snapshot of every library while using source control</h4><p><img src="podfile-lock-explanation-6.png" alt="podfile-lock-explanation-6.png"></p>
-<h4 id="Briefly-here-is-what-I-learn-from-this-video-hope-you-like-it"><a href="#Briefly-here-is-what-I-learn-from-this-video-hope-you-like-it" class="headerlink" title="Briefly, here is what I learn from this video , hope you like it"></a>Briefly, here is what I learn from this video , hope you like it</h4><p><a href="https://www.youtube.com/watch?v=H-zK1mEwTe0" target="_blank" rel="external">Reference1</a></p>
+<h4 id="Briefly-here-is-what-I-learn-from-this-video-hope-you-like-it"><a href="#Briefly-here-is-what-I-learn-from-this-video-hope-you-like-it" class="headerlink" title="Briefly, here is what I learn from this video, hope you like it."></a>Briefly, here is what I learn from this video, hope you like it.</h4><p><a href="https://www.youtube.com/watch?v=H-zK1mEwTe0" target="_blank" rel="external">Reference1</a></p>
 <p><a href="https://guides.cocoapods.org/using/using-cocoapods.html" target="_blank" rel="external">Reference2</a></p>
-]]></content>
+<h4 id="If-you-use-Cartfile-instead-of-cocoapods-on-your-project-the-Cartfile-resolved-work-exactly-the-same-as-Podfile-lock"><a href="#If-you-use-Cartfile-instead-of-cocoapods-on-your-project-the-Cartfile-resolved-work-exactly-the-same-as-Podfile-lock" class="headerlink" title="If you use Cartfile instead of cocoapods on your project, the Cartfile.resolved work exactly the same as Podfile.lock"></a>If you use Cartfile instead of cocoapods on your project, the <strong>Cartfile.resolved</strong> work exactly the same as <strong>Podfile.lock</strong></h4>]]></content>
     
     <summary type="html">
     
@@ -56,9 +56,9 @@
     <link href="http://stephenchen.com/2017/04/21/simple-way-build-an-framework/"/>
     <id>http://stephenchen.com/2017/04/21/simple-way-build-an-framework/</id>
     <published>2017-04-21T08:03:08.000Z</published>
-    <updated>2017-04-26T03:26:03.000Z</updated>
+    <updated>2017-04-26T03:58:06.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Creating a reusable, sharable code across different project and use it via <a href="https://github.com/Carthage/Carthage" target="_blank" rel="external">Carthage</a></p>
+    <content type="html"><![CDATA[<p>Creating a reusable、sharable code across different projects and then deploy it on <a href="https://github.com/Carthage/Carthage" target="_blank" rel="external">Carthage</a></p>
 <a id="more"></a>
 <p>Since iOS 8, Apple allow developer create their own dynamic framework, before iOS 8 developer can only create a static framework,</p>
 <p>Below are some references you can dig at it.</p>
@@ -72,13 +72,18 @@
 <p>Then add your files into it.</p>
 <h1 id="Step-2-Share-your-framework"><a href="#Step-2-Share-your-framework" class="headerlink" title="Step 2: Share your framework"></a>Step 2: Share your framework</h1><p>Make scheme sharable.</p>
 <p><img src="create-framework2.gif" alt="create-framework2"></p>
-<h1 id="Step-3-Done-and-start-using-it"><a href="#Step-3-Done-and-start-using-it" class="headerlink" title="Step 3: Done, and start using it."></a>Step 3: Done, and start using it.</h1><p>Generate this framework by press <strong>commnad + B</strong> then click show in finder option will show up this framework on the finder.</p>
+<h1 id="Step-3-Done"><a href="#Step-3-Done" class="headerlink" title="Step 3: Done."></a>Step 3: Done.</h1><p>Generate this framework by press <strong>commnad + B</strong> then click show in finder option will show up this framework on the finder.</p>
 <p><img src="create-framework3.gif" alt="create-framework3"></p>
+<h1 id="Step-4-Deploy-to-Carthage"><a href="#Step-4-Deploy-to-Carthage" class="headerlink" title="Step 4: Deploy to Carthage"></a>Step 4: Deploy to <a href="https://github.com/Carthage/Carthage" target="_blank" rel="external">Carthage</a></h1><p>Run below code.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">carthage build --no-skip-current</div></pre></td></tr></table></figure>
+<p><img src="create-framework4.gif" alt="create-framework4"></p>
+<p>Then checking the Carthage/Build folder.</p>
+<p><img src="create-framework5.png" alt="create-framework5"></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Creating a reusable, sharable code across different project and use it via &lt;a href=&quot;https://github.com/Carthage/Carthage&quot;&gt;Carthage&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;Creating a reusable、sharable code across different projects and then deploy it on &lt;a href=&quot;https://github.com/Carthage/Carthage&quot;&gt;Carthage&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
