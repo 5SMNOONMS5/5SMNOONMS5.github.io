@@ -56,7 +56,7 @@
     <link href="http://stephenchen.com/2017/04/21/simple-way-build-an-framework/"/>
     <id>http://stephenchen.com/2017/04/21/simple-way-build-an-framework/</id>
     <published>2017-04-21T08:03:08.000Z</published>
-    <updated>2017-04-26T05:04:46.000Z</updated>
+    <updated>2017-04-26T05:06:32.000Z</updated>
     
     <content type="html"><![CDATA[<p>Creating a reusable、sharable code across different projects and then deploy it on <a href="https://github.com/Carthage/Carthage" target="_blank" rel="external">Carthage</a></p>
 <a id="more"></a>
@@ -84,7 +84,7 @@
 <h1 id="Step-6-Deploy-it-with-private-way"><a href="#Step-6-Deploy-it-with-private-way" class="headerlink" title="Step 6: Deploy it with private way"></a>Step 6: Deploy it with private way</h1><p>Deploy it to your personal git service such as <strong>BitBucket</strong>、<strong>GitLab</strong>、<strong>Github</strong>….etc.</p>
 <p>Then add private URL inside <strong>Cartfile</strong> on any of your projects.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> git \<span class="string">"Your Git URL Address\" &gt; Cartfile</span></div></pre></td></tr></table></figure>
-<p><img src="create-framework6.png" alt="create-framework6"></p>
+<p><img src="create-framework6.gif" alt="create-framework6"></p>
 <h1 id="Step-6-Deploy-it-with-public-way"><a href="#Step-6-Deploy-it-with-public-way" class="headerlink" title="Step 6: Deploy it with public way"></a>Step 6: Deploy it with public way</h1><p>to be continue….</p>
 ]]></content>
     
@@ -362,7 +362,7 @@
     <link href="http://stephenchen.com/2017/01/27/Custom-build-in-Sublime-Text-3/"/>
     <id>http://stephenchen.com/2017/01/27/Custom-build-in-Sublime-Text-3/</id>
     <published>2017-01-27T08:44:48.000Z</published>
-    <updated>2017-01-27T14:18:42.000Z</updated>
+    <updated>2017-04-26T05:05:25.000Z</updated>
     
     <content type="html"><![CDATA[<p>custom builds in sublime text 3</p>
 <a id="more"></a>
