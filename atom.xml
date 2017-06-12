@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-04-26T03:46:56.000Z</updated>
+  <updated>2017-05-24T10:00:01.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Protocol Buffers on iOS</title>
+    <link href="http://stephenchen.com/2017/05/24/Protocol-Buffers-on-iOS/"/>
+    <id>http://stephenchen.com/2017/05/24/Protocol-Buffers-on-iOS/</id>
+    <published>2017-05-24T08:05:55.000Z</published>
+    <updated>2017-05-24T10:00:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>實作 Protocol Buffers on iOS 與本地端 python service， <a href="https://www.raywenderlich.com/149335/introduction-protocol-buffers-ios" target="_blank" rel="external">原文出處</a></p>
+<a id="more"></a>
+<p>這陣子忙完了終於有機會可以來嘗試由 Google 推出的 <a href="https://developers.google.com/protocol-buffers/" target="_blank" rel="external">Protocol Buffers</a>，如果您是新專案的話可以考慮用看看</p>
+<h1 id="優點"><a href="#優點" class="headerlink" title="優點"></a>優點</h1><ul>
+<li><p>快速輕巧：根據 google 的統計 protocol buffers 比 XML 更小更快，這邊也有<a href="https://damienbod.com/2014/01/09/comparing-protobuf-json-bson-xml-with-net-for-file-streams/" target="_blank" rel="external">牛人</a>幫忙實際測試。</p>
+</li>
+<li><p>型態安全 (Type safety)：使用 protocol buffer language 必須給予型態。</p>
+</li>
+<li><p>自動反序列化：不用在寫任何解析的程式碼了，只需要更新 proto 檔案然後重新產生 model calss。</p>
+</li>
+<li><p>支援多種跨平台</p>
+</li>
+</ul>
+<h1 id="缺點"><a href="#缺點" class="headerlink" title="缺點"></a>缺點</h1><ul>
+<li><p>時間成本：要在既有專案上更動所耗費的時間成本非常的高，這點可能要好好考慮考慮</p>
+</li>
+<li><p>比較不好閱讀： 相比 XML 跟 JSON，protocol buffer 會比較不好上手</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;實作 Protocol Buffers on iOS 與本地端 python service， &lt;a href=&quot;https://www.raywenderlich.com/149335/introduction-protocol-buffers-ios&quot;&gt;原文出處&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>What is Podfile.lock?</title>
@@ -56,7 +93,7 @@
     <link href="http://stephenchen.com/2017/04/21/simple-way-build-an-framework/"/>
     <id>http://stephenchen.com/2017/04/21/simple-way-build-an-framework/</id>
     <published>2017-04-21T08:03:08.000Z</published>
-    <updated>2017-04-27T07:24:52.000Z</updated>
+    <updated>2017-04-27T07:26:00.000Z</updated>
     
     <content type="html"><![CDATA[<p>Creating a reusable, sharable code across different projects and use it via <a href="https://github.com/Carthage/Carthage" target="_blank" rel="external">Carthage</a></p>
 <a id="more"></a>
