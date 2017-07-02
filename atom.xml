@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-07-02T09:26:37.000Z</updated>
+  <updated>2017-07-02T09:38:15.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -20,11 +20,11 @@
     <link href="http://stephenchen.com/2017/07/02/Http-Mine-types/"/>
     <id>http://stephenchen.com/2017/07/02/Http-Mine-types/</id>
     <published>2017-07-02T04:35:59.000Z</published>
-    <updated>2017-07-02T09:26:37.000Z</updated>
+    <updated>2017-07-02T09:38:15.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types" target="_blank" rel="external">翻譯文</a></p>
 <a id="more"></a>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Mime type 說穿了就是一種機制用來表示當前用戶端傳送哪種類型的檔案，對於 web 來說副檔名並沒有任何的意義，然而最重要的是伺服器那邊也要正確的設定好，瀏覽器通常會使用 Mime type 去判斷當前接收到哪種類型的檔案。</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>MIME type 說穿了就是一種機制用來表示當前用戶端傳送哪種類型的檔案，對於 web 來說副檔名並沒有任何的意義，然而最重要的是伺服器那邊也要正確的設定好，瀏覽器通常會使用 MIME type 去判斷當前接收到哪種類型的檔案。</p>
 <p>當然 也有其他種方式去判斷此種檔案是什麼類型</p>
 <ul>
 <li><p>在微軟的作業系統，副檔名有時候也有助於判斷，但在其他的作業系統特別是在 Linux 跟 Mac OS，副檔名有時候並不是這麼可靠。</p>
@@ -32,7 +32,7 @@
 <li><p>神奇的數字(不知道有沒有更好的翻譯)，在某些不同種類的檔案他會有一些規則可以去推斷當前是什麼種類的檔案，比如 GIF 檔會從 47 49 46 38 (16進制)開頭，PNG 檔案會從 89 50 4E 47 (16進制)開頭，但是還是會依照不同的系統有所差別，並不是100％的保證。</p>
 </li>
 </ul>
-<p>在web的世界，必須仔細警慎的設定 mime type，瀏覽器跟伺服器通常會透過 <strong>神奇的數字</strong> 又或者是 <strong>副檔名</strong> 來定義 mime type ，又或者透過其他的相關性來判斷正確的 mime type 當只有 <strong>generic type</strong> 的時候。</p>
+<p>在web的世界，必須仔細警慎的設定 MIME type，瀏覽器跟伺服器通常會透過 <strong>神奇的數字</strong> 又或者是 <strong>副檔名</strong> 來定義 MIME type ，又或者透過其他的相關性來判斷正確的 MIME type 當只有 <strong>generic type</strong> 的時候。</p>
 <h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><p>語法非常簡單，在 / 的左邊是大類，/ 的右邊是子類。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">type/subtype</div></pre></td></tr></table></figure>
 <p>Example</p>
@@ -51,7 +51,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">POST / HTTP/1.1</div><div class="line">Host: localhost:8000</div><div class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0</div><div class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</div><div class="line">Accept-Language: en-US,en;q=0.5</div><div class="line">Accept-Encoding: gzip, deflate</div><div class="line">Connection: keep-alive</div><div class="line">Upgrade-Insecure-Requests: 1</div><div class="line">Content-Type: multipart/form-data; boundary=---------------------------8721656041911415653955004498</div><div class="line">Content-Length: 465</div><div class="line"></div><div class="line">-----------------------------8721656041911415653955004498</div><div class="line">Content-Disposition: form-data; name=&quot;myTextField&quot;</div><div class="line"></div><div class="line">Test</div><div class="line">-----------------------------8721656041911415653955004498</div><div class="line">Content-Disposition: form-data; name=&quot;myCheckBox&quot;</div><div class="line"></div><div class="line">on</div><div class="line">-----------------------------8721656041911415653955004498</div><div class="line">Content-Disposition: form-data; name=&quot;myFile&quot;; filename=&quot;test.txt&quot;</div><div class="line">Content-Type: text/plain</div><div class="line"></div><div class="line">Simple file.</div><div class="line">-----------------------------8721656041911415653955004498--</div></pre></td></tr></table></figure>
 <h1 id="multipart-byteranges-介紹"><a href="#multipart-byteranges-介紹" class="headerlink" title="multipart/byteranges 介紹"></a>multipart/byteranges 介紹</h1><p>而 <strong>multipart/byteranges</strong> 則用在當 Server 只回傳部分的資料給瀏覽器。當 Server 傳送 http 206 Partial Content，瀏覽器會知道 A 檔案將會由 A1,A2,A3,A4 所組成，A1 是在 A 的 0~25%，A2 是 A 的 25~50%，跟其他的 multipart types 一樣，也會透過 boundary 分隔符來區分，一樣也擁有 HTTP headers，Content-Disposition 和 Content-Type。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 206 Partial Content</div><div class="line">Accept-Ranges: bytes</div><div class="line">Content-Type: multipart/byteranges; boundary=3d6b6a416f9b5</div><div class="line">Content-Length: 385</div><div class="line"></div><div class="line">--3d6b6a416f9b5</div><div class="line">Content-Type: text/html</div><div class="line">Content-Range: bytes 100-200/1270</div><div class="line"></div><div class="line">eta http-equiv=&quot;Content-type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;</div><div class="line">    &lt;meta name=&quot;vieport&quot; content</div><div class="line">--3d6b6a416f9b5</div><div class="line">Content-Type: text/html</div><div class="line">Content-Range: bytes 300-400/1270</div><div class="line"></div><div class="line">-color: #f0f0f2;</div><div class="line">        margin: 0;</div><div class="line">        padding: 0;</div><div class="line">        font-family: &quot;Open Sans&quot;, &quot;Helvetica</div><div class="line">--3d6b6a416f9b5--</div></pre></td></tr></table></figure>
-<h1 id="設定對的-Mine-type-非常重要"><a href="#設定對的-Mine-type-非常重要" class="headerlink" title="設定對的 Mine type 非常重要"></a>設定對的 Mine type 非常重要</h1>]]></content>
+<h1 id="MIME-sniffing"><a href="#MIME-sniffing" class="headerlink" title="MIME sniffing"></a>MIME sniffing</h1><p>如果忘記設定 MIME type，或者瀏覽器認為你設定錯誤的 MIME type，瀏覽器將會進行 MIME sniffing，就是開始猜測你的檔案是什麼種類，每個瀏覽器就會有不一樣的結果。</p>
+<p><a href="https://www.keycdn.com/support/what-is-mime-sniffing/" target="_blank" rel="external">更深一層的了解 MIME type</a></p>
+<h1 id="結論就是，設定對的-Mine-type-非常重要"><a href="#結論就是，設定對的-Mine-type-非常重要" class="headerlink" title="結論就是，設定對的 Mine type 非常重要"></a>結論就是，設定對的 Mine type 非常重要</h1>]]></content>
     
     <summary type="html">
     
