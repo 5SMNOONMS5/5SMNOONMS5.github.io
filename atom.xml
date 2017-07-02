@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-05-24T10:00:01.000Z</updated>
+  <updated>2017-07-02T09:10:44.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -14,6 +14,82 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Http Mine types</title>
+    <link href="http://stephenchen.com/2017/07/02/Http-Mine-types/"/>
+    <id>http://stephenchen.com/2017/07/02/Http-Mine-types/</id>
+    <published>2017-07-02T04:35:59.000Z</published>
+    <updated>2017-07-02T09:10:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types" target="_blank" rel="external">翻譯文</a></p>
+<a id="more"></a>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>MIME-type 說穿了就是一種機制用來表示當前用戶端傳送哪種類型的檔案，對於 web 來說副檔名並沒有任何的意義，然而最重要的是伺服器那邊也要正確的設定好，瀏覽器通常會使用 MIME-type 去判斷當前接收到哪種類型的檔案。</p>
+<p>當然 也有其他種方式去判斷此種檔案是什麼類型</p>
+<ul>
+<li><p>在微軟的作業系統，副檔名有時候也有助於判斷，但在其他的作業系統特別是在 Linux 跟 Mac OS，副檔名有時候並不是這麼可靠。</p>
+</li>
+<li><p>神奇的數字（不知道有沒有更好的翻譯），在某些不同種類的檔案他會有一些規則可以去推斷當前是什麼種類的檔案，比如 GIF 檔會從 47 49 46 38 (16進制)開頭，PNG 檔案會從 89 50 4E 47 (16進制)開頭，但是還是會依照不同的系統有所差別，並不是100％的保證。</p>
+</li>
+</ul>
+<p>在web的世界，必須仔細警慎的設定 MIME-type，瀏覽器跟伺服器通常會透過 <strong>神奇的數字</strong> 又或者是 <strong>副檔名</strong> 來定義 MIME-type ，又或者透過其他的相關性來判斷正確的 MIME-type 當只有 <strong>generic type</strong> 的時候。</p>
+<h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><p>語法非常簡單，在 / 的左邊是大類，/ 的右邊是子類。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">type/subtype</div></pre></td></tr></table></figure>
+<p>Example</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">text/plain</div><div class="line">text/html</div><div class="line">image/jpeg</div><div class="line">image/png</div><div class="line">audio/mpeg</div><div class="line">audio/ogg</div><div class="line">audio/*</div><div class="line">video/mp4</div><div class="line">application/octet-stream</div></pre></td></tr></table></figure>
+<p>對於只有文字的檔案就用 <strong>text/plain</strong><br>對於只有二進制的檔案就用 <strong>application/octet-stream</strong></p>
+<h1 id="Multipart-types"><a href="#Multipart-types" class="headerlink" title="Multipart types"></a>Multipart types</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">multipart/form-data</div><div class="line">multipart/byteranges</div></pre></td></tr></table></figure>
+<p>當你的檔案有很多不同類型的部分，比如你有 js 又有 html 的 code 在裡面同個檔案，這時候就可以使用 <strong>Multipart types</strong>。而 <strong>multipart/form-data</strong> 常被用在 HTML Forms 跟 HTTP POST ， <strong>multipart/byteranges</strong> 則是用來連接 Http 206 Partial Content 到一個特定的子集。HTTP</p>
+<blockquote>
+<p>Http 206 Partial Content 發生在下載檔案又或者影片的時候，客戶端跟 server 說要下載的範圍，我要這段檔案的前面 2M 的 bytes，這時候 Server 就會回傳給你了。</p>
+</blockquote>
+<h1 id="multipart-form-data-介紹"><a href="#multipart-form-data-介紹" class="headerlink" title="multipart/form-data 介紹"></a>multipart/form-data 介紹</h1><p>當在使用 HTML FORM 傳送複雜表單的時候會使用 <strong>multipart/form-data</strong>，並透過 boundary 分隔符 (一長串的字串，開頭會從 – 開始) 來區分每種不同型態的資料，每一個區塊都是一塊實體並且擁有自己的 HTTP headers，Content-Disposition 和 Content-Type，順帶補充一下，當 boundary 被當作分隔符來使用，通常會忽略 <strong>Content-Length</strong> 。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Content-Type: multipart/form-data; boundary=aBoundaryString</div><div class="line">(other headers associated with the multipart document as a whole)</div><div class="line"></div><div class="line">--aBoundaryString</div><div class="line">Content-Disposition: form-data; name="myFile"; filename="img.jpg"</div><div class="line">Content-Type: image/jpeg</div><div class="line"></div><div class="line">(data)</div><div class="line">--aBoundaryString</div><div class="line">Content-Disposition: form-data; name="myField"</div><div class="line"></div><div class="line">(data)</div><div class="line">--aBoundaryString</div><div class="line">(more subparts)</div><div class="line">--aBoundaryString--</div></pre></td></tr></table></figure>
+<h1 id="multipart-byteranges-介紹"><a href="#multipart-byteranges-介紹" class="headerlink" title="multipart/byteranges 介紹"></a>multipart/byteranges 介紹</h1><h1 id="設定對的-Mine-type"><a href="#設定對的-Mine-type" class="headerlink" title="設定對的 Mine type"></a>設定對的 Mine type</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types&quot;&gt;翻譯文&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS 是如何讓 Pixels 顯示在螢幕</title>
+    <link href="http://stephenchen.com/2017/06/22/%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97%E5%B0%8D%E6%96%BC-iOS-%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%93Pixels-%E9%A1%AF%E7%A4%BA%E5%9C%A8%E8%9E%A2%E5%B9%95/"/>
+    <id>http://stephenchen.com/2017/06/22/一些心得對於-iOS-是如何讓Pixels-顯示在螢幕/</id>
+    <published>2017-06-22T13:05:08.000Z</published>
+    <updated>2017-06-22T14:26:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Pixels on iOS Screen</p>
+<a id="more"></a>
+<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>最近對於專案在進行優化，突然發現收藏在自己老久遠的文章清單裡面關於 UI 的效能問題，於是就有這篇心得文＋翻譯文了：）。</p>
+<h1 id="使用時期"><a href="#使用時期" class="headerlink" title="使用時期"></a>使用時期</h1><p>其實很後悔太晚看這些文章，因為在規劃一項 App 之前，大部分都會跟設計師討論整體流程以及架構，這時候一定都會思考要如何架構整支 APP、Git 該如何分、如何跟後端合作以及該使用哪些套件…等。也許這時候可以再多思考一個問題，那也就是 UI 效能問題。如果 App 有涉及到很大量的 shadow，rounded corner or mask 的效果的時候更是需要去思考這問題。</p>
+<h1 id="So"><a href="#So" class="headerlink" title="So"></a>So</h1><h1 id="Graphics-Stack"><a href="#Graphics-Stack" class="headerlink" title="Graphics Stack"></a>Graphics Stack</h1><p>首先 pixel 是如何出現的螢幕上。一個 pixel 是由光的三元素 紅 綠 藍所組成，透過各個不同的亮度來組合成不同的顏色。由 iPhone 5 舉例來說，螢幕是由 1,136 × 640 = 727,040 pixels = 2,181,120 color cells  所構成的，當你滑動手機的時候，螢幕會對這 2,181,120 個 color cells 進行每秒 60 次的更新，每次更新都會刷新每一個 color cell 的強度。</p>
+<h1 id="The-Software-Components"><a href="#The-Software-Components" class="headerlink" title="The Software Components"></a>The Software Components</h1><p><img src="https://www.objc.io/images/issue-3/pixels-software-stack@2x-1ae69f5a.png" alt="Image"></p>
+<ul>
+<li><p>圖形處理器 GPU (graphics processing unit.) 顧名思義就是專門來處理繪圖運算</p>
+</li>
+<li><p>而 GPU Driver 是一些 Code 專門統一各種類型的 GPU 然後在給他的上一層 OpenGL / OpenGL ES.</p>
+</li>
+<li><p>OpenGL 則專門在製作 2D 跟 3D 繪圖</p>
+</li>
+<li><p>在 OpenGL 之上則是 Core Animation，UIKit 的基礎</p>
+</li>
+</ul>
+<p>而要呈現 pixels，說穿了最重要的關鍵角色還是 GPU，在硬體的世界 GPU 跟 CPU 透過匯流排來連接彼此，<br>同時有很多 frameworks 像是 OpenGL, Core Animation 和 Core Graphics 都必須在 GPU 還有 CPU 兩者來回之間編排。為了讓螢幕可以呈現 pixels，有些工作會在 CPU 上面被完成，然後 data 會被轉到 GPU 然後處理在呈現到螢幕上。</p>
+<h1 id="The-Hardware-Players"><a href="#The-Hardware-Players" class="headerlink" title="The Hardware Players"></a>The Hardware Players</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Pixels on iOS Screen&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Protocol Buffers on iOS</title>
@@ -645,7 +721,7 @@
     <link href="http://stephenchen.com/2016/11/24/Vim/"/>
     <id>http://stephenchen.com/2016/11/24/Vim/</id>
     <published>2016-11-24T02:28:41.000Z</published>
-    <updated>2017-01-13T01:54:30.000Z</updated>
+    <updated>2017-06-22T13:55:43.000Z</updated>
     
     <content type="html"><![CDATA[<p>a coding life with Vim</p>
 <a id="more"></a>
