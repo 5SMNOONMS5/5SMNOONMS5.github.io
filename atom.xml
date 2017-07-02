@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-07-02T09:10:44.000Z</updated>
+  <updated>2017-07-02T09:16:02.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -20,30 +20,30 @@
     <link href="http://stephenchen.com/2017/07/02/Http-Mine-types/"/>
     <id>http://stephenchen.com/2017/07/02/Http-Mine-types/</id>
     <published>2017-07-02T04:35:59.000Z</published>
-    <updated>2017-07-02T09:10:44.000Z</updated>
+    <updated>2017-07-02T09:16:02.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types" target="_blank" rel="external">翻譯文</a></p>
 <a id="more"></a>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>MIME-type 說穿了就是一種機制用來表示當前用戶端傳送哪種類型的檔案，對於 web 來說副檔名並沒有任何的意義，然而最重要的是伺服器那邊也要正確的設定好，瀏覽器通常會使用 MIME-type 去判斷當前接收到哪種類型的檔案。</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Mime type 說穿了就是一種機制用來表示當前用戶端傳送哪種類型的檔案，對於 web 來說副檔名並沒有任何的意義，然而最重要的是伺服器那邊也要正確的設定好，瀏覽器通常會使用 Mime type 去判斷當前接收到哪種類型的檔案。</p>
 <p>當然 也有其他種方式去判斷此種檔案是什麼類型</p>
 <ul>
 <li><p>在微軟的作業系統，副檔名有時候也有助於判斷，但在其他的作業系統特別是在 Linux 跟 Mac OS，副檔名有時候並不是這麼可靠。</p>
 </li>
-<li><p>神奇的數字（不知道有沒有更好的翻譯），在某些不同種類的檔案他會有一些規則可以去推斷當前是什麼種類的檔案，比如 GIF 檔會從 47 49 46 38 (16進制)開頭，PNG 檔案會從 89 50 4E 47 (16進制)開頭，但是還是會依照不同的系統有所差別，並不是100％的保證。</p>
+<li><p>神奇的數字(不知道有沒有更好的翻譯)，在某些不同種類的檔案他會有一些規則可以去推斷當前是什麼種類的檔案，比如 GIF 檔會從 47 49 46 38 (16進制)開頭，PNG 檔案會從 89 50 4E 47 (16進制)開頭，但是還是會依照不同的系統有所差別，並不是100％的保證。</p>
 </li>
 </ul>
-<p>在web的世界，必須仔細警慎的設定 MIME-type，瀏覽器跟伺服器通常會透過 <strong>神奇的數字</strong> 又或者是 <strong>副檔名</strong> 來定義 MIME-type ，又或者透過其他的相關性來判斷正確的 MIME-type 當只有 <strong>generic type</strong> 的時候。</p>
+<p>在web的世界，必須仔細警慎的設定 mime type，瀏覽器跟伺服器通常會透過 <strong>神奇的數字</strong> 又或者是 <strong>副檔名</strong> 來定義 mime type ，又或者透過其他的相關性來判斷正確的 mime type 當只有 <strong>generic type</strong> 的時候。</p>
 <h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><p>語法非常簡單，在 / 的左邊是大類，/ 的右邊是子類。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">type/subtype</div></pre></td></tr></table></figure>
 <p>Example</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">text/plain</div><div class="line">text/html</div><div class="line">image/jpeg</div><div class="line">image/png</div><div class="line">audio/mpeg</div><div class="line">audio/ogg</div><div class="line">audio/*</div><div class="line">video/mp4</div><div class="line">application/octet-stream</div></pre></td></tr></table></figure>
 <p>對於只有文字的檔案就用 <strong>text/plain</strong><br>對於只有二進制的檔案就用 <strong>application/octet-stream</strong></p>
 <h1 id="Multipart-types"><a href="#Multipart-types" class="headerlink" title="Multipart types"></a>Multipart types</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">multipart/form-data</div><div class="line">multipart/byteranges</div></pre></td></tr></table></figure>
-<p>當你的檔案有很多不同類型的部分，比如你有 js 又有 html 的 code 在裡面同個檔案，這時候就可以使用 <strong>Multipart types</strong>。而 <strong>multipart/form-data</strong> 常被用在 HTML Forms 跟 HTTP POST ， <strong>multipart/byteranges</strong> 則是用來連接 Http 206 Partial Content 到一個特定的子集。HTTP</p>
+<p>當你的檔案有很多不同類型的部分，這時候就可以使用 <strong>Multipart types</strong>。而 <strong>multipart/form-data</strong> 常被用在 HTML Forms 跟 HTTP POST ， <strong>multipart/byteranges</strong> 則是用來連接 Http 206 Partial Content 到一個特定的子集。HTTP</p>
 <blockquote>
-<p>Http 206 Partial Content 發生在下載檔案又或者影片的時候，客戶端跟 server 說要下載的範圍，我要這段檔案的前面 2M 的 bytes，這時候 Server 就會回傳給你了。</p>
+<p>Http 206 Partial Content = 當下載檔案或者影片的時候，客戶端跟 server 說要下載的範圍 Range，我要這段檔案的前面 2M 的 bytes，這時候 Server 就會回傳給你了。</p>
 </blockquote>
-<h1 id="multipart-form-data-介紹"><a href="#multipart-form-data-介紹" class="headerlink" title="multipart/form-data 介紹"></a>multipart/form-data 介紹</h1><p>當在使用 HTML FORM 傳送複雜表單的時候會使用 <strong>multipart/form-data</strong>，並透過 boundary 分隔符 (一長串的字串，開頭會從 – 開始) 來區分每種不同型態的資料，每一個區塊都是一塊實體並且擁有自己的 HTTP headers，Content-Disposition 和 Content-Type，順帶補充一下，當 boundary 被當作分隔符來使用，通常會忽略 <strong>Content-Length</strong> 。</p>
+<h1 id="multipart-form-data-介紹"><a href="#multipart-form-data-介紹" class="headerlink" title="multipart/form-data 介紹"></a>multipart/form-data 介紹</h1><p>當在使用 HTML FORM 傳送複雜表單的時候會使用 <strong>multipart/form-data</strong>，並透過 boundary 分隔符 (一長串的字串，開頭會從 - - 開始) 來區分每種不同型態的資料，每一個區塊都是一塊實體並且擁有自己的 HTTP headers，Content-Disposition 和 Content-Type。順帶補充一下，當 boundary 被當作分隔符來使用，通常會忽略 <strong>Content-Length</strong> 。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Content-Type: multipart/form-data; boundary=aBoundaryString</div><div class="line">(other headers associated with the multipart document as a whole)</div><div class="line"></div><div class="line">--aBoundaryString</div><div class="line">Content-Disposition: form-data; name="myFile"; filename="img.jpg"</div><div class="line">Content-Type: image/jpeg</div><div class="line"></div><div class="line">(data)</div><div class="line">--aBoundaryString</div><div class="line">Content-Disposition: form-data; name="myField"</div><div class="line"></div><div class="line">(data)</div><div class="line">--aBoundaryString</div><div class="line">(more subparts)</div><div class="line">--aBoundaryString--</div></pre></td></tr></table></figure>
 <h1 id="multipart-byteranges-介紹"><a href="#multipart-byteranges-介紹" class="headerlink" title="multipart/byteranges 介紹"></a>multipart/byteranges 介紹</h1><h1 id="設定對的-Mine-type"><a href="#設定對的-Mine-type" class="headerlink" title="設定對的 Mine type"></a>設定對的 Mine type</h1>]]></content>
     
