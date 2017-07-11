@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-07-11T08:23:15.000Z</updated>
+  <updated>2017-07-11T08:23:45.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -20,13 +20,13 @@
     <link href="http://stephenchen.com/2017/07/11/Xcode-Visual-Memory-View-Debugger/"/>
     <id>http://stephenchen.com/2017/07/11/Xcode-Visual-Memory-View-Debugger/</id>
     <published>2017-07-11T04:32:45.000Z</published>
-    <updated>2017-07-11T08:23:15.000Z</updated>
+    <updated>2017-07-11T08:23:45.000Z</updated>
     
     <content type="html"><![CDATA[<p>Useful tool for debug memory leak in iOS</p>
 <h1 id="Download-the-porject"><a href="#Download-the-porject" class="headerlink" title="Download the porject"></a>Download the porject</h1><p>I deliberately set memory leaks into below small project.</p>
 <p><a href="https://github.com/5SMNOONMS5/xcode_visual_memory_view_debugger/archive/master.zip" target="_blank" rel="external">Memory Leaks Project</a>.</p>
 <p>For this project I just make a simple UITableView with two cells, first one is common <strong>strong retain cycle</strong> and second one is <strong>closure retain cycle</strong>.</p>
-<p><img src="1.gif" alt="Project Animation"></p>
+<h1 id="See-how-it-works"><a href="#See-how-it-works" class="headerlink" title="See how it works"></a>See how it works</h1><p><img src="1.gif" alt="Project Animation"></p>
 <p>All you need to do is run the project and press the feature inside the red circle.</p>
 <p>It’s very easy to diagnosis of memory leak, so now is your time to fix it haha.</p>
 <h1 id="How-to-solve"><a href="#How-to-solve" class="headerlink" title="How to solve"></a>How to solve</h1><p>First one is very easy, just set one of the both to weak reference.</p>
