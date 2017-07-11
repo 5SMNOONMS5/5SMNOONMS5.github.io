@@ -2,9 +2,10 @@
 <h1 id="Download-the-porject"><a href="#Download-the-porject" class="headerlink" title="Download the porject"></a>Download the porject</h1><p>I deliberately set memory leaks into below small project.</p>
 <p><a href="https://github.com/5SMNOONMS5/xcode_visual_memory_view_debugger/archive/master.zip" target="_blank" rel="external">Memory Leaks Project</a>.</p>
 <p>For this project I just make a simple UITableView with two cells, first one is common <strong>strong retain cycle</strong> and second one is <strong>closure retain cycle</strong>.</p>
-<h1 id="See-how-it-works"><a href="#See-how-it-works" class="headerlink" title="See how it works"></a>See how it works</h1><p><img src="1.gif" alt="Project Animation"></p>
-<p>All you need to do is run the project and press the feature inside the red circle.</p>
-<p>It’s very easy to diagnosis of memory leak, so now is your time to fix it haha.</p>
+<h1 id="Run-the-project"><a href="#Run-the-project" class="headerlink" title="Run the project"></a>Run the project</h1><p><img src="1.mov" alt="1.mov"></p>
+<h1 id="Press-the-Debug-View-Graph"><a href="#Press-the-Debug-View-Graph" class="headerlink" title="Press the [Debug View Graph ]"></a>Press the [Debug View Graph ]</h1><p><a href="6.png">Press the Debug View Graph </a></p>
+<h1 id="Press-the-Show-the-issue-navigator-in-project-navigator"><a href="#Press-the-Show-the-issue-navigator-in-project-navigator" class="headerlink" title="Press the [Show the issue navigator] in project navigator"></a>Press the [Show the issue navigator] in project navigator</h1><p><a href="7.png">Show the issue navigator</a></p>
+<p>You will see what cause the retain cycle. It’s very easy to diagnosis of memory leak, so now is your time to fix it haha.</p>
 <h1 id="How-to-solve"><a href="#How-to-solve" class="headerlink" title="How to solve"></a>How to solve</h1><p>First one is very easy, just set one of the both to weak reference.</p>
 <p>Second one I will let this <a href="https://medium.com/compileswift/understanding-memory-leaks-in-closures-48207214cba" target="_blank" rel="external">article</a> explain to you.</p>
 </div></article></div></section><footer><div class="paginator"><a href="/2017/07/02/Http-Mine-types/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
