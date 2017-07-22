@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-07-11T08:46:55.000Z</updated>
+  <updated>2017-07-22T08:50:51.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -16,11 +16,56 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>清理 Mac 垃圾檔案</title>
+    <link href="http://stephenchen.com/2017/07/22/%E6%B8%85%E7%90%86-Mac-%E5%9E%83%E5%9C%BE%E6%AA%94%E6%A1%88/"/>
+    <id>http://stephenchen.com/2017/07/22/清理-Mac-垃圾檔案/</id>
+    <published>2017-07-22T03:53:46.000Z</published>
+    <updated>2017-07-22T08:50:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近發現 Mac 空間不太足夠，又不太想換新的 Mac，只好用了最土法煉鋼的方式一個一個檢視。這邊紀錄我這次清理 Mac 的步驟，所以之後我就有 SOP 來去清理我的 Mac。</p>
+<h1 id="首先先下載能掃描整個硬盤的工具"><a href="#首先先下載能掃描整個硬盤的工具" class="headerlink" title="首先先下載能掃描整個硬盤的工具"></a>首先先下載能掃描整個硬盤的工具</h1><p>隨便一個都可以，只要能掃描就好</p>
+<ul>
+<li><p><a href="https://www.omnigroup.com/more" target="_blank" rel="external">我個人是用這個 OmniDiskSweeper</a></p>
+</li>
+<li><p><a href="https://macpaw.com/cleanmymac" target="_blank" rel="external">或者好像很強大的付費軟體</a></p>
+</li>
+<li><p><a href="https://www.avg.com/en-us/avg-cleaner-for-mac" target="_blank" rel="external">沒用過不知道好不好用的 Avg</a></p>
+</li>
+</ul>
+<h1 id="掃描過後會出現類似的畫面"><a href="#掃描過後會出現類似的畫面" class="headerlink" title="掃描過後會出現類似的畫面"></a>掃描過後會出現類似的畫面</h1><p>在掃描過程中，會等待不少時間這時候可以先清理 垃圾桶 跟 下載的部分</p>
+<h4 id="垃圾桶"><a href="#垃圾桶" class="headerlink" title="垃圾桶"></a>垃圾桶</h4><p>首先最直覺的方式就是把垃圾桶清空，當然在清空前順便瀏覽一下哪些檔案是不小心移動進去的，預防刪掉不小心刪掉的文件。</p>
+<p><img src="2.png" alt="empty trash "></p>
+<h4 id="下載"><a href="#下載" class="headerlink" title="下載"></a>下載</h4><p>再來就是把下載過的檔案刪掉，或者像我是移動到外部的硬碟去保存</p>
+<h1 id="開始清理"><a href="#開始清理" class="headerlink" title="開始清理"></a>開始清理</h1><p><img src="1.png" alt="screen"></p>
+<p>結束掃描之後會出現類似的圖片，因為我比較沒時間一個一個資料夾去研究，所以我就會先針對比較大的去研究，比如像是 User, Applications, Library, private, System 底下去研究。</p>
+<h1 id="盡量別手動-tmp-private-var-底下的資料夾"><a href="#盡量別手動-tmp-private-var-底下的資料夾" class="headerlink" title="盡量別手動 /tmp, /private, /var 底下的資料夾"></a>盡量別手動 /tmp, /private, /var 底下的資料夾</h1><p><a href="http://osxdaily.com/2016/01/13/delete-temporary-items-private-var-folders-mac-os-x/" target="_blank" rel="external">根據</a>，如果你手動刪除或者修正的話會有機率出現崩潰或者奇怪的問題，但檔案又這麼大又不能手動很兩難那該怎辦？正確的做法是 重開機 ， 讓 OS 內建的方法去清理。</p>
+<h4 id="補充-private-var-vm-sleepimage"><a href="#補充-private-var-vm-sleepimage" class="headerlink" title="補充 private/var/vm/sleepimage"></a>補充 private/var/vm/sleepimage</h4><blockquote>
+<p>#補充<br>在 private/var/vm/sleepimage 有一個 Sleepimage，這簡單來說就是當電腦進入睡眠狀態，會把當前在 RAM 記憶體儲存下面，方便在下次使用的時候可以回復之前的狀態。所以假如當前 RAM 有 2G 的記憶體量，那就會有 2G 的 sleepimage 檔案。</p>
+</blockquote>
+<p><a href="http://osxdaily.com/2010/10/11/sleepimage-mac/" target="_blank" rel="external">More detail of sleepimage</a></p>
+<h1 id="手動刪除緩存"><a href="#手動刪除緩存" class="headerlink" title="手動刪除緩存"></a>手動刪除緩存</h1><p>很多應用程式都會有緩存，比如 Chrome 開了一個月，那這緩存量一定非常驚人，這時候可以把 Chrome 關閉（整個關閉喔）就可以把緩存刪除，或者你可以手動刪除緩存</p>
+<p><img src="3.png" alt=""></p>
+<p><a href="http://osxdaily.com/2011/12/08/delete-user-caches-in-mac-os-x/" target="_blank" rel="external">More detail of clean cache</a></p>
+<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>又省了一筆錢買 Mac ， 或者可以 Donate 給我呦 &gt;&lt;…</p>
+<h1 id="推薦網站"><a href="#推薦網站" class="headerlink" title="推薦網站"></a>推薦網站</h1><p><a href="http://osxdaily.com/2012/11/11/tips-free-up-disk-space-mac-os-x/" target="_blank" rel="external">OSX Daily</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近發現 Mac 空間不太足夠，又不太想換新的 Mac，只好用了最土法煉鋼的方式一個一個檢視。這邊紀錄我這次清理 Mac 的步驟，所以之後我就有 SOP 來去清理我的 Mac。&lt;/p&gt;
+&lt;h1 id=&quot;首先先下載能掃描整個硬盤的工具&quot;&gt;&lt;a href=&quot;#首先先下載能掃描整
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Xcode Visual Memory View Debugger</title>
     <link href="http://stephenchen.com/2017/07/11/Xcode-Visual-Memory-View-Debugger/"/>
     <id>http://stephenchen.com/2017/07/11/Xcode-Visual-Memory-View-Debugger/</id>
     <published>2017-07-11T04:32:45.000Z</published>
-    <updated>2017-07-11T08:46:55.000Z</updated>
+    <updated>2017-07-11T08:48:07.000Z</updated>
     
     <content type="html"><![CDATA[<p>Useful tool for debug memory leak in iOS</p>
 <h1 id="Download-the-porject"><a href="#Download-the-porject" class="headerlink" title="Download the porject"></a>Download the porject</h1><p>I deliberately set memory leaks into below small project.</p>
@@ -997,82 +1042,6 @@
     <summary type="html">
     
       &lt;p&gt;using Github Pages combine with blog framework such as &lt;a href=&quot;https://hexo.io/&quot;&gt;hexo&lt;/a&gt; , &lt;a href=&quot;https://ghost.org/&quot;&gt;ghost&lt;/a&gt; or &lt;a href=&quot;https://medium.com/&quot;&gt;medium&lt;/a&gt; ….etc .&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>AWS-EC2 + Vsftpd + Atom</title>
-    <link href="http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/"/>
-    <id>http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/</id>
-    <published>2016-09-12T08:04:26.000Z</published>
-    <updated>2016-12-20T02:29:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Convenience way for working with service side project . For sake of simplicity，this tutorial will only lead you major steps .</p>
-<a id="more"></a>
-<h4 id="OS-Environment"><a href="#OS-Environment" class="headerlink" title="OS Environment"></a>OS Environment</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Mac OS X EI Capitan</div><div class="line">AWS-EC2 Ubuntu 14.04.4 LTS</div></pre></td></tr></table></figure>
-<h4 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h4><ul>
-<li><p>Install <a href="https://atom.io/" target="_blank" rel="external">Atom</a></p>
-</li>
-<li><p>Install Atom packages <a href="https://atom.io/packages/remote-ftp" target="_blank" rel="external">Remote-FTP</a></p>
-</li>
-</ul>
-<h4 id="AWS-EC2"><a href="#AWS-EC2" class="headerlink" title="AWS-EC2"></a>AWS-EC2</h4><ul>
-<li>Complete tutorial <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html" target="_blank" rel="external">AWS</a></li>
-</ul>
-<h4 id="AWS-Security-Group"><a href="#AWS-Security-Group" class="headerlink" title="AWS Security Group"></a>AWS Security Group</h4><ul>
-<li>Add new <strong>Custom TCP Rule</strong> with protocol <strong>TCP</strong> and port range <strong>20 - 21</strong></li>
-<li>Add new <strong>Custom TCP Rule</strong> with protocol <strong>TCP</strong> and port range <strong>13000 - 13100</strong></li>
-</ul>
-<h4 id="Vsftpd"><a href="#Vsftpd" class="headerlink" title="Vsftpd"></a>Vsftpd</h4><p>Connect to your AWS-EC2 via ssh</p>
-<ul>
-<li><p>Install <a href="https://en.wikipedia.org/wiki/Vsftpd" target="_blank" rel="external">Vsftpd</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install vsftpd</div></pre></td></tr></table></figure>
-</li>
-<li><p>Modify vsftpd configuration</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/vsftpd.conf</div><div class="line"><span class="comment"># you can replace vim with vi , nano or emacs ....etc</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>Change few settings within vsftpd.conf</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># change those bool variable to the following</span></div><div class="line">anonymous_enable=NO</div><div class="line">local_enable=YES</div><div class="line">write_enable=YES</div><div class="line"></div><div class="line"><span class="comment"># uncomment this line</span></div><div class="line">chroot_local_user=YES</div><div class="line"></div><div class="line"><span class="comment"># add new lines</span></div><div class="line">pasv_enable=YES</div><div class="line">pasv_min_port=13000</div><div class="line">pasv_max_port=13100</div><div class="line">port_enable=YES</div><div class="line">pasv_address=&lt;your AWS public DNS&gt;</div><div class="line">pasv_addr_resolve=YES</div></pre></td></tr></table></figure>
-</li>
-<li><p>Restart vsftpd</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service vsftpd restart</div></pre></td></tr></table></figure>
-</li>
-<li><p>Create new group</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">groupadd &lt;newGroup&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Create new user and add into your new group</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">useradd -m &lt;user&gt; <span class="_">-s</span> /bin/bash -g &lt;newGroup&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Set password for new user</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">passwd &lt;password&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Create ftp home directory</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir /home/ftp</div></pre></td></tr></table></figure>
-</li>
-<li><p>Change permission</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 750 /home/ftp</div></pre></td></tr></table></figure>
-</li>
-<li><p>Change owner</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chown root:ftp /home/ftp</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="Combine-AWS-EC2-Vsftpd-Atom"><a href="#Combine-AWS-EC2-Vsftpd-Atom" class="headerlink" title="Combine AWS-EC2 - Vsftpd - Atom"></a>Combine AWS-EC2 - Vsftpd - Atom</h4><ul>
-<li><p>Connect to ftp to check it correctly setup</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ftp &lt;Your Ip&gt;</div><div class="line">#enter your user name and user password</div></pre></td></tr></table></figure>
-</li>
-<li><p>Follow the <a href="https://atom.io/packages/Remote-FTP" target="_blank" rel="external">Getting started</a> section</p>
-</li>
-<li><p>Finish</p>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Convenience way for working with service side project . For sake of simplicity，this tutorial will only lead you major steps .&lt;/p&gt;
     
     </summary>
     
