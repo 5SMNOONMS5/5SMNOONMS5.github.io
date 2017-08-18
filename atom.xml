@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-07-22T08:50:51.000Z</updated>
+  <updated>2017-08-18T09:12:01.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://stephenchen.com/2017/07/22/%E6%B8%85%E7%90%86-Mac-%E5%9E%83%E5%9C%BE%E6%AA%94%E6%A1%88/"/>
     <id>http://stephenchen.com/2017/07/22/清理-Mac-垃圾檔案/</id>
     <published>2017-07-22T03:53:46.000Z</published>
-    <updated>2017-07-22T08:50:51.000Z</updated>
+    <updated>2017-08-18T09:12:01.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近發現 Mac 空間不太足夠，又不太想換新的 Mac，只好用了最土法煉鋼的方式一個一個檢視。這邊紀錄我這次清理 Mac 的步驟，所以之後我就有 SOP 來去清理我的 Mac。</p>
 <h1 id="首先先下載能掃描整個硬盤的工具"><a href="#首先先下載能掃描整個硬盤的工具" class="headerlink" title="首先先下載能掃描整個硬盤的工具"></a>首先先下載能掃描整個硬盤的工具</h1><p>隨便一個都可以，只要能掃描就好</p>
@@ -48,6 +48,11 @@
 <p><a href="http://osxdaily.com/2011/12/08/delete-user-caches-in-mac-os-x/" target="_blank" rel="external">More detail of clean cache</a></p>
 <h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>又省了一筆錢買 Mac ， 或者可以 Donate 給我呦 &gt;&lt;…</p>
 <h1 id="推薦網站"><a href="#推薦網站" class="headerlink" title="推薦網站"></a>推薦網站</h1><p><a href="http://osxdaily.com/2012/11/11/tips-free-up-disk-space-mac-os-x/" target="_blank" rel="external">OSX Daily</a></p>
+<h1 id="2017-08-18-Update"><a href="#2017-08-18-Update" class="headerlink" title="2017.08.18 Update"></a>2017.08.18 Update</h1><p>根據<a href="http://osxdaily.com/2012/02/20/clear-versions-history-auto-save-cache-data-in-mac-os-x/" target="_blank" rel="external">這裏</a>，新版的 Mac 會 Versions feature 跟 Auto-Save 的功能，可以讓你自動回覆到之前的檔案的狀態透過序列的方式。但他會在 / 底下產生這個資料夾來記錄電腦的檔案狀態。</p>
+<p><img src="4.png" alt="screen"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/.DocumentRevisions-V100/</div></pre></td></tr></table></figure>
+<p>如果你覺得你不需要上列的舊版本你可以打開終端機刪除 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo rm -rf .DocumentRevisions-V100</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
