@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-08-25T18:02:21.000Z</updated>
+  <updated>2017-08-25T18:06:08.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://stephenchen.com/2017/08/25/Git-small-tracks/"/>
     <id>http://stephenchen.com/2017/08/25/Git-small-tracks/</id>
     <published>2017-08-25T07:42:10.000Z</published>
-    <updated>2017-08-25T18:02:21.000Z</updated>
+    <updated>2017-08-25T18:06:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>Git 小方法</p>
 <a id="more"></a> 
@@ -36,11 +36,11 @@
 <h1 id="二-Git-LFS"><a href="#二-Git-LFS" class="headerlink" title="(二) Git LFS"></a>(二) Git LFS</h1><p>假如要透過 git 來管理較大檔案(超過 2G)的時候 ex: 比如圖片或者影片…等。這時候我推薦使用 <strong><a href="https://git-lfs.github.com/" target="_blank" rel="external">Git Large File Storage</a></strong>，原理就是在目錄底下存了一個 <strong>pointer file</strong>，指向真正存儲這些檔案的地方，當在 clone 這些檔案的時候 git 會自動 mapping 檔案的所在目的地。</p>
 <h4 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git lfs install</div></pre></td></tr></table></figure>
 <h4 id="指定哪些檔案你要-track-跟蹤的，-gitattributes-記得也要跟蹤"><a href="#指定哪些檔案你要-track-跟蹤的，-gitattributes-記得也要跟蹤" class="headerlink" title="指定哪些檔案你要(track)跟蹤的，.gitattributes 記得也要跟蹤"></a>指定哪些檔案你要(track)跟蹤的，.gitattributes 記得也要跟蹤</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git lfs track <span class="string">"*.psd"</span></div></pre></td></tr></table></figure>
-<h4 id="然後結束，接著就可以-push-了"><a href="#然後結束，接著就可以-push-了" class="headerlink" title="然後結束，接著就可以 push 了"></a>然後結束，接著就可以 push 了</h4><h1 id="三-Git-Log"><a href="#三-Git-Log" class="headerlink" title="(三) Git Log"></a>(三) Git Log</h1><p>再多人開發的時候，通常會通過拆功能來共同開發，但有一些檔案難免會互相動到，比如 Marco 或者 AppDelegate …等。在我這邊的情境是我有一個方法在 AppDelegate 寫過，但我忘記是什麼時候寫的，這時候就可以透過 log 的方式去找出哪幾個 commit 有動過 AppDelegate。</p>
+<h4 id="然後結束，接著就可以-push-了"><a href="#然後結束，接著就可以-push-了" class="headerlink" title="然後結束，接著就可以 push 了"></a>然後結束，接著就可以 push 了</h4><h1 id="三-Git-Log"><a href="#三-Git-Log" class="headerlink" title="(三) Git Log"></a>(三) Git Log</h1><p>再多人開發的時候，通常會通過拆功能來共同開發，但有一些檔案難免會互相動到，比如 Marco.swift 或者 AppDelegate …等。在我這邊的情境是我想知道在 AppDelegate 哪時候是誰寫了這段 Code，這時候就可以透過 log 的方式去找出哪幾個 commit 有動過 AppDelegate.swift。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> --follow [Path]</div></pre></td></tr></table></figure>
 <p>有網友提供了其他解決方案</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> [Path]</div></pre></td></tr></table></figure>
-<p>這兩種唯一不同的地方是當假如 AppDelegate 原本不叫 AppDelegate，而是 AppProtocol 的話那單純只使用 <strong>git log [Path]</strong> 就會沒辦法追蹤。</p>
+<p>這兩種唯一不同的地方是當假如 AppDelegate.swift 原本不叫 AppDelegate.swift，而是 AppProtocol.swift 的話那單純只使用 <strong>git log [Path]</strong> 就會沒辦法追蹤。</p>
 <p><a href="https://stackoverflow.com/questions/3701404/list-all-commits-for-a-specific-file" target="_blank" rel="external">感謝原文</a></p>
 <h1 id="四-透過-SourceTree-統一管理-commit-的形式"><a href="#四-透過-SourceTree-統一管理-commit-的形式" class="headerlink" title="(四) 透過 SourceTree 統一管理 commit 的形式"></a>(四) 透過 SourceTree 統一管理 commit 的形式</h1><p>在 SourceTree 的偏好設定裡面有一個選項是 Commit Template，在之後每個專案裡面在準備輸入 Commit 紀錄都會出現 Commit Template 的內文 。治療強迫症，管理 Team 的 Commit 規則。</p>
 <p><img src="1.png" alt=""></p>
