@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-08-18T09:12:01.000Z</updated>
+  <updated>2017-08-25T17:16:36.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git small tracks</title>
+    <link href="http://stephenchen.com/2017/08/25/Git-small-tracks/"/>
+    <id>http://stephenchen.com/2017/08/25/Git-small-tracks/</id>
+    <published>2017-08-25T07:42:10.000Z</published>
+    <updated>2017-08-25T17:16:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Git 小方法</p>
+<a id="more"></a> 
+<h1 id="git-shallow-clone"><a href="#git-shallow-clone" class="headerlink" title="git shallow clone"></a>git shallow clone</h1><p>最近公司配了一台新電腦，當要重新 clone 一個專案的時候發現 clone 了超久，於是就找有沒辦法方法可以快一點，發現了 <em>*git shallow clone</em> *幾個小招數</p>
+<ul>
+<li>只允許 clone 特定數量的 commits</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> --depth &lt;Number&gt; &lt;URL&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>單純 clone 特定的 branch </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> -b [BranchName] --single-branch [URL] [FolderName]</div></pre></td></tr></table></figure>
+<h1 id="給UI設計師們的git"><a href="#給UI設計師們的git" class="headerlink" title="給UI設計師們的git"></a>給UI設計師們的git</h1><p>假如要透過 git 來管理龐大數量的檔案的時候 ex: 比如圖片或者影片…等。總不能每改一次就重新上傳一次吧，這時候我推薦使用 <strong>Git Large File Storage</strong>，他原理就是在目錄底下存了一個 <strong>pointer file</strong>，指向真正存儲這些檔案的地方，當你真正在 clone 這些檔案的時候 git 會自動 mapping 檔案的所在目的地。</p>
+<h4 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git lfs install</div></pre></td></tr></table></figure>
+<h4 id="指定哪些檔案你要-track-跟蹤的，-gitattributes-記得也要跟蹤"><a href="#指定哪些檔案你要-track-跟蹤的，-gitattributes-記得也要跟蹤" class="headerlink" title="指定哪些檔案你要(track)跟蹤的，.gitattributes 記得也要跟蹤"></a>指定哪些檔案你要(track)跟蹤的，.gitattributes 記得也要跟蹤</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git lfs track <span class="string">"*.psd"</span></div></pre></td></tr></table></figure>
+<h4 id="然後結束，接著就可以-push-了"><a href="#然後結束，接著就可以-push-了" class="headerlink" title="然後結束，接著就可以 push 了"></a>然後結束，接著就可以 push 了</h4><p><a href="https://git-lfs.github.com/" target="_blank" rel="external">Git Large File Office WebSite</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Git 小方法&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>清理 Mac 垃圾檔案</title>
@@ -137,7 +170,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;翻譯&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types&quot;&gt;原文&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;翻譯&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -211,7 +244,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;實作 Protocol Buffers on iOS 與本地端 python service， &lt;a href=&quot;https://www.raywenderlich.com/149335/introduction-protocol-buffers-ios&quot;&gt;原文出處&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;實作 Protocol Buffers on iOS 與本地端 python service， &lt;a href=&quot;https://www.raywenderlich.com/149335/introduction-protocol-buffers-ios&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文出處&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -293,7 +326,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Creating a reusable, sharable code across different projects and use it via &lt;a href=&quot;https://github.com/Carthage/Carthage&quot;&gt;Carthage&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;Creating a reusable, sharable code across different projects and use it via &lt;a href=&quot;https://github.com/Carthage/Carthage&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Carthage&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -318,7 +351,7 @@
 <h1 id="結合兩者-Fastlane-Script"><a href="#結合兩者-Fastlane-Script" class="headerlink" title="結合兩者 Fastlane + Script"></a>結合兩者 Fastlane + Script</h1><h4 id="步驟1：完成-Fastlane-的安裝"><a href="#步驟1：完成-Fastlane-的安裝" class="headerlink" title="步驟1：完成 Fastlane 的安裝"></a>步驟1：完成 Fastlane 的安裝</h4><ul>
 <li>安裝 homebrew</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
 <ul>
 <li>透過 homebrew 來安裝 fastlane</li>
 </ul>
@@ -461,7 +494,7 @@
 <p><img src="bash_architecture.png" alt="bash_architecture"></p>
 <p>這邊的架構是所有跟 <strong>script</strong> 相關的 .sh 檔案都會在 script 資料夾底下，透過 <a href="https://www.gnu.org/software/sed/manual/sed.txt" target="_blank" rel="external">sed</a> 會去執行變更 Info.plish 檔案裡面的變數，參數設定則是放在 <strong>script/config</strong> 裡面。</p>
 <p>在終端機底下執行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 先cd到 script 目錄資料夾底下，先看看提供了什麼方法</span></div><div class="line">sh archive -h</div><div class="line"><span class="comment"># 然後執行</span></div><div class="line">sh archive <span class="_">-s</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 先cd到 script 目錄資料夾底下，先看看提供了什麼方法</span></div><div class="line">sh archive -h</div><div class="line"><span class="comment"># 然後執行</span></div><div class="line">sh archive -s</div></pre></td></tr></table></figure>
 <p><img src="archive.png" alt="archive"></p>
 <h1 id="TroubleShooting"><a href="#TroubleShooting" class="headerlink" title="TroubleShooting"></a>TroubleShooting</h1><h4 id="Connection-reset-by-peer-SSL-connect"><a href="#Connection-reset-by-peer-SSL-connect" class="headerlink" title="Connection reset by peer - SSL_connect"></a>Connection reset by peer - SSL_connect</h4><p>因為我的 ruby 版本是 2.0.0，蘋果最近把服務器的TLS版本更新到 TLS 1.2，在我當前的 ruby 是不支持的，所以我要想辦法升級到 支援 TLS 1.2的 ruby 版本。</p>
 <p><img src="opensslfail.png" alt="opensslfail.png"></p>
@@ -502,7 +535,7 @@
 <h4 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h4><ul>
 <li>檢查一下所有的remote 跟 local branch 是不是都有在 local 端了</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch <span class="_">-a</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -a</div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* master</div><div class="line">remotes/origin/develop</div><div class="line">remotes/origin/master</div><div class="line">remotes/origin/release</div></pre></td></tr></table></figure>
 <h4 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h4><ul>
 <li>如果沒有請重新 check out 出來，像上面我們總共有三個 branch ，分別是<strong>develop</strong>，<strong>master</strong>還有 <strong>release</strong>，但是上面只有 <strong>master</strong> 是在 local 端，請在執行下面的指令。</li>
@@ -511,7 +544,7 @@
 <ul>
 <li>然後再確認一次</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch <span class="_">-a</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -a</div></pre></td></tr></table></figure>
 <ul>
 <li>螢幕會顯示</li>
 </ul>
@@ -601,15 +634,15 @@
 <h1 id="Cowsay"><a href="#Cowsay" class="headerlink" title="Cowsay"></a>Cowsay</h1><p>Firstly I want to introduce a cute ASCII picture of a cow named <a href="https://en.wikipedia.org/wiki/Cowsay" target="_blank" rel="external">cowsay</a> , this doll can show a message that you type . As its name cow + say .</p>
 <p><img src="cowsay.png" alt="cowsay.png"></p>
 <p>So that dig into it . First install it with below two commands:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span> &lt; /dev/null 2&gt; /dev/null</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span> &lt; /dev/null 2&gt; /dev/null</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install cowsay</div></pre></td></tr></table></figure>
 <p>After settle down all installation</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cowsay <span class="string">"Hello, Word"</span></div></pre></td></tr></table></figure>
 <p>There will show you a cow with a message “Hello, Word” , but I am not satisfied with it . In fact, there is more than one doll that you can use . For example :</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cowsay <span class="_">-l</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cowsay -l</div></pre></td></tr></table></figure>
 <p>It will show lots of doll that you can replace with .</p>
 <p><img src="dolls.png" alt="dolls"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># formula</span></div><div class="line"><span class="comment"># cowsay -f [new doll] "message here"</span></div><div class="line">cowsay <span class="_">-f</span> eyes <span class="string">"New dolls say hello word"</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># formula</span></div><div class="line"><span class="comment"># cowsay -f [new doll] "message here"</span></div><div class="line">cowsay -f eyes <span class="string">"New dolls say hello word"</span></div></pre></td></tr></table></figure>
 <p><img src="eyes.png" alt="eyes.png"></p>
 <p>Ha . There are more informations<br><a href="http://ithelp.ithome.com.tw/articles/10127590" target="_blank" rel="external">source 1</a><br><a href="http://ithelp.ithome.com.tw/articles/10143897" target="_blank" rel="external">source 2</a></p>
 <h1 id="More-powerful-cowsay"><a href="#More-powerful-cowsay" class="headerlink" title="More powerful cowsay"></a>More powerful cowsay</h1><p><img src="super_cowsay.gif" alt="powerful cowsay"></p>
@@ -623,7 +656,7 @@
 <h1 id="Train"><a href="#Train" class="headerlink" title="Train"></a>Train</h1><p>Another funny commands is a <strong>sl</strong> , it shows like a train</p>
 <p><img src="train.gif" alt="train picture"></p>
 <p>Install it with below two commands:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span> &lt; /dev/null 2&gt; /dev/null</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span> &lt; /dev/null 2&gt; /dev/null</div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install sl</div></pre></td></tr></table></figure>
 <p>Run it</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sl</div></pre></td></tr></table></figure>
@@ -631,12 +664,12 @@
 <p>Try it , but …. it really take a long time .</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">telnet towel.blinkenlights.nl</div></pre></td></tr></table></figure>
 <h1 id="9-x-9-multiplication-table"><a href="#9-x-9-multiplication-table" class="headerlink" title="9 x 9 multiplication table"></a>9 x 9 multiplication table</h1><p><img src="multiplication table.png" alt="multiplication table"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..12&#125;; <span class="keyword">do</span> <span class="keyword">for</span> j <span class="keyword">in</span> $(seq 1 <span class="variable">$i</span>); <span class="keyword">do</span> <span class="built_in">echo</span> <span class="_">-ne</span> <span class="variable">$i</span>Ã—<span class="variable">$j</span>=$((i*j))\\t;<span class="keyword">done</span>; <span class="built_in">echo</span>;<span class="keyword">done</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..12&#125;; <span class="keyword">do</span> <span class="keyword">for</span> j <span class="keyword">in</span> $(seq 1 <span class="variable">$i</span>); <span class="keyword">do</span> <span class="built_in">echo</span> -ne <span class="variable">$i</span>Ã—<span class="variable">$j</span>=$((i*j))\\t;<span class="keyword">done</span>; <span class="built_in">echo</span>;<span class="keyword">done</span></div></pre></td></tr></table></figure>
 <h1 id="A-cute-ponysay"><a href="#A-cute-ponysay" class="headerlink" title="A cute ponysay"></a>A cute ponysay</h1><p><img src="pony1.png" alt="pony picture1"></p>
 <p><img src="pony2.png" alt="pony picture2"></p>
 <p>Now is the moment to be quiet , just enjoy the beauty .</p>
 <p>Install commands .</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span> &lt; /dev/null 2&gt; /dev/null</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span> &lt; /dev/null 2&gt; /dev/null</div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install ponysay</div></pre></td></tr></table></figure>
 <p>Run it</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ponysay --quote</div></pre></td></tr></table></figure>
@@ -690,7 +723,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;此篇轉自 CocoaAsyncSocket 的 &lt;a href=&quot;https://github.com/robbiehanson/CocoaAsyncSocket/wiki/Intro&quot;&gt;Wiki&lt;/a&gt; ， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！&lt;/p&gt;
+      &lt;p&gt;此篇轉自 CocoaAsyncSocket 的 &lt;a href=&quot;https://github.com/robbiehanson/CocoaAsyncSocket/wiki/Intro&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wiki&lt;/a&gt; ， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！&lt;/p&gt;
     
     </summary>
     
@@ -767,7 +800,7 @@
 <p>run again</p>
 <p><img src="warning2.png" alt="warning2 picture"></p>
 <p>see? The warning disappear , I add <strong>syntactic_sugar</strong> to disabled_rules .</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># rule identifiers to exclude from running</span></div><div class="line"><span class="attr">disabled_rules:</span></div><div class="line"><span class="bullet">  -</span> syntactic_sugar</div><div class="line"><span class="bullet">  -</span> colon</div><div class="line"><span class="bullet">  -</span> todo</div><div class="line"><span class="bullet">  -</span> empty_count</div><div class="line"><span class="bullet">  -</span> trailing_whitespace</div></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># rule identifiers to exclude from running</span></div><div class="line"><span class="attr">disabled_rules:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">syntactic_sugar</span></div><div class="line"><span class="bullet">  -</span> <span class="string">colon</span></div><div class="line"><span class="bullet">  -</span> <span class="string">todo</span></div><div class="line"><span class="bullet">  -</span> <span class="string">empty_count</span></div><div class="line"><span class="bullet">  -</span> <span class="string">trailing_whitespace</span></div></pre></td></tr></table></figure>
 <h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>It is always necessary to have effective tools .</p>
 ]]></content>
     
@@ -923,7 +956,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild -showsdks</div></pre></td></tr></table></figure>
 </li>
 <li><p>Outcomes will add behind the xcodebuild <strong>-destination</strong> parameter</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ instruments <span class="_">-s</span> devices</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ instruments -s devices</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="With-simulator"><a href="#With-simulator" class="headerlink" title="With simulator"></a>With simulator</h4><blockquote>
@@ -938,7 +971,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcpretty --h</div></pre></td></tr></table></figure>
 </li>
 <li><p>Combine <strong>xcodebuild</strong> and <strong>xcpretty</strong> sample</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild \</div><div class="line">  -sdk iphonesimulator10.0 \</div><div class="line">  -workspace <span class="string">"&lt;YourName&gt;.xcworkspace"</span> \</div><div class="line">  -scheme <span class="string">"&lt;YourName&gt;"</span> \</div><div class="line">  -destination <span class="string">'platform=iOS Simulator,name=iPhone 6,OS=10.0'</span> \</div><div class="line">  -configuration <span class="string">"Debug"</span> \</div><div class="line">  <span class="built_in">test</span> | xcpretty -t -c -r html &amp;&amp; open <span class="_">-a</span> Google\ Chrome.app build/reports/tests.html</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild \</div><div class="line">  -sdk iphonesimulator10.0 \</div><div class="line">  -workspace <span class="string">"&lt;YourName&gt;.xcworkspace"</span> \</div><div class="line">  -scheme <span class="string">"&lt;YourName&gt;"</span> \</div><div class="line">  -destination <span class="string">'platform=iOS Simulator,name=iPhone 6,OS=10.0'</span> \</div><div class="line">  -configuration <span class="string">"Debug"</span> \</div><div class="line">  <span class="built_in">test</span> | xcpretty -t -c -r html &amp;&amp; open -a Google\ Chrome.app build/reports/tests.html</div></pre></td></tr></table></figure>
 </li>
 <li><p>You can also <strong>pipe</strong> above command with other commands such as <strong>open -a Google\ Chrome.app</strong></p>
 </li>
@@ -988,65 +1021,6 @@
     <summary type="html">
     
       &lt;p&gt;I saw this terminology a lot，here is my review&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Easy Way To Create A Blog</title>
-    <link href="http://stephenchen.com/2016/10/06/Hexo-Github-Pages/"/>
-    <id>http://stephenchen.com/2016/10/06/Hexo-Github-Pages/</id>
-    <published>2016-10-06T04:31:48.000Z</published>
-    <updated>2016-10-26T08:36:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>using Github Pages combine with blog framework such as <a href="https://hexo.io/" target="_blank" rel="external">hexo</a> , <a href="https://ghost.org/" target="_blank" rel="external">ghost</a> or <a href="https://medium.com/" target="_blank" rel="external">medium</a> ….etc .</p>
-<a id="more"></a>
-<h4 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Mac OS X EI Capitan</div></pre></td></tr></table></figure>
-<h4 id="Blog-Framework"><a href="#Blog-Framework" class="headerlink" title="Blog Framework"></a>Blog Framework</h4><p>There are many <a href="http://mashable.com/2014/05/09/16-minimalist-blogging-platforms/#01_25XkZZkqA" target="_blank" rel="external">frameworks</a>，here I choose <a href="https://hexo.io/" target="_blank" rel="external">hexo</a> .</p>
-<ul>
-<li><p>Complete tutorial <a href="https://hexo.io/" target="_blank" rel="external">hexo</a></p>
-</li>
-<li><p>Normally it hosts at port 4000 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></p>
-</li>
-</ul>
-<h4 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a>Github Pages</h4><ul>
-<li><p><a href="https://pages.github.com/" target="_blank" rel="external">Complete tutorial</a></p>
-</li>
-<li><p>Be sure your repositories name follow the rule <strong>username.github.io</strong> ( subdomain )</p>
-</li>
-</ul>
-<h4 id="Deploy-Hexo-to-Github-Pages"><a href="#Deploy-Hexo-to-Github-Pages" class="headerlink" title="Deploy Hexo to Github Pages"></a>Deploy Hexo to Github Pages</h4><ul>
-<li><p>Prerequisite</p>
-<ul>
-<li><p>With <strong>github pages</strong> and <strong>github repositories</strong> all well down</p>
-</li>
-<li><p>Success running Hexo in localhost</p>
-</li>
-</ul>
-</li>
-<li><p>Install additional package</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-</li>
-<li><p>Edit file <strong>_config.yml</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: &lt;repository url&gt;</div><div class="line">  branch: [branch]</div><div class="line">  message: [message]</div></pre></td></tr></table></figure>
-</li>
-<li><p>Generate static files for Github Pages</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure>
-</li>
-<li><p>Deploy</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure>
-</li>
-<li><p>Finish</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://yourGitHubName.github.io/</div></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;using Github Pages combine with blog framework such as &lt;a href=&quot;https://hexo.io/&quot;&gt;hexo&lt;/a&gt; , &lt;a href=&quot;https://ghost.org/&quot;&gt;ghost&lt;/a&gt; or &lt;a href=&quot;https://medium.com/&quot;&gt;medium&lt;/a&gt; ….etc .&lt;/p&gt;
     
     </summary>
     

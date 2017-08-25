@@ -9,7 +9,7 @@
 <h1 id="結合兩者-Fastlane-Script"><a href="#結合兩者-Fastlane-Script" class="headerlink" title="結合兩者 Fastlane + Script"></a>結合兩者 Fastlane + Script</h1><h4 id="步驟1：完成-Fastlane-的安裝"><a href="#步驟1：完成-Fastlane-的安裝" class="headerlink" title="步驟1：完成 Fastlane 的安裝"></a>步驟1：完成 Fastlane 的安裝</h4><ul>
 <li>安裝 homebrew</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
 <ul>
 <li>透過 homebrew 來安裝 fastlane</li>
 </ul>
@@ -152,7 +152,7 @@
 <p><img src="bash_architecture.png" alt="bash_architecture"></p>
 <p>這邊的架構是所有跟 <strong>script</strong> 相關的 .sh 檔案都會在 script 資料夾底下，透過 <a href="https://www.gnu.org/software/sed/manual/sed.txt" target="_blank" rel="external">sed</a> 會去執行變更 Info.plish 檔案裡面的變數，參數設定則是放在 <strong>script/config</strong> 裡面。</p>
 <p>在終端機底下執行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 先cd到 script 目錄資料夾底下，先看看提供了什麼方法</span></div><div class="line">sh archive -h</div><div class="line"><span class="comment"># 然後執行</span></div><div class="line">sh archive <span class="_">-s</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 先cd到 script 目錄資料夾底下，先看看提供了什麼方法</span></div><div class="line">sh archive -h</div><div class="line"><span class="comment"># 然後執行</span></div><div class="line">sh archive -s</div></pre></td></tr></table></figure>
 <p><img src="archive.png" alt="archive"></p>
 <h1 id="TroubleShooting"><a href="#TroubleShooting" class="headerlink" title="TroubleShooting"></a>TroubleShooting</h1><h4 id="Connection-reset-by-peer-SSL-connect"><a href="#Connection-reset-by-peer-SSL-connect" class="headerlink" title="Connection reset by peer - SSL_connect"></a>Connection reset by peer - SSL_connect</h4><p>因為我的 ruby 版本是 2.0.0，蘋果最近把服務器的TLS版本更新到 TLS 1.2，在我當前的 ruby 是不支持的，所以我要想辦法升級到 支援 TLS 1.2的 ruby 版本。</p>
 <p><img src="opensslfail.png" alt="opensslfail.png"></p>
