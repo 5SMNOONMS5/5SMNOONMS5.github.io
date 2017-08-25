@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-08-25T17:16:36.000Z</updated>
+  <updated>2017-08-25T17:36:44.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -20,11 +20,11 @@
     <link href="http://stephenchen.com/2017/08/25/Git-small-tracks/"/>
     <id>http://stephenchen.com/2017/08/25/Git-small-tracks/</id>
     <published>2017-08-25T07:42:10.000Z</published>
-    <updated>2017-08-25T17:16:36.000Z</updated>
+    <updated>2017-08-25T17:36:44.000Z</updated>
     
     <content type="html"><![CDATA[<p>Git 小方法</p>
 <a id="more"></a> 
-<h1 id="git-shallow-clone"><a href="#git-shallow-clone" class="headerlink" title="git shallow clone"></a>git shallow clone</h1><p>最近公司配了一台新電腦，當要重新 clone 一個專案的時候發現 clone 了超久，於是就找有沒辦法方法可以快一點，發現了 <em>*git shallow clone</em> *幾個小招數</p>
+<p>最近公司配了一台新電腦，當要重新 clone 一個專案的時候發現 clone 了超久，於是就找有沒辦法方法可以快一點，分享兩個小招數。</p>
 <ul>
 <li>只允許 clone 特定數量的 commits</li>
 </ul>
@@ -33,7 +33,7 @@
 <li>單純 clone 特定的 branch </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> -b [BranchName] --single-branch [URL] [FolderName]</div></pre></td></tr></table></figure>
-<h1 id="給UI設計師們的git"><a href="#給UI設計師們的git" class="headerlink" title="給UI設計師們的git"></a>給UI設計師們的git</h1><p>假如要透過 git 來管理龐大數量的檔案的時候 ex: 比如圖片或者影片…等。總不能每改一次就重新上傳一次吧，這時候我推薦使用 <strong>Git Large File Storage</strong>，他原理就是在目錄底下存了一個 <strong>pointer file</strong>，指向真正存儲這些檔案的地方，當你真正在 clone 這些檔案的時候 git 會自動 mapping 檔案的所在目的地。</p>
+<p>假如要透過 git 來管理較大檔案(超過 2G)的時候 ex: 比如圖片或者影片…等。總不能每改一次就重新上傳一次吧，這時候我推薦使用 <strong>Git Large File Storage</strong>，原理就是在目錄底下存了一個 <strong>pointer file</strong>，指向真正存儲這些檔案的地方，當在 clone 這些檔案的時候 git 會自動 mapping 檔案的所在目的地。</p>
 <h4 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git lfs install</div></pre></td></tr></table></figure>
 <h4 id="指定哪些檔案你要-track-跟蹤的，-gitattributes-記得也要跟蹤"><a href="#指定哪些檔案你要-track-跟蹤的，-gitattributes-記得也要跟蹤" class="headerlink" title="指定哪些檔案你要(track)跟蹤的，.gitattributes 記得也要跟蹤"></a>指定哪些檔案你要(track)跟蹤的，.gitattributes 記得也要跟蹤</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git lfs track <span class="string">"*.psd"</span></div></pre></td></tr></table></figure>
 <h4 id="然後結束，接著就可以-push-了"><a href="#然後結束，接著就可以-push-了" class="headerlink" title="然後結束，接著就可以 push 了"></a>然後結束，接著就可以 push 了</h4><p><a href="https://git-lfs.github.com/" target="_blank" rel="external">Git Large File Office WebSite</a></p>
