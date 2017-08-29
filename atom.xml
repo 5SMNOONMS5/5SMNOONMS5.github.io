@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-08-28T13:59:28.000Z</updated>
+  <updated>2017-08-29T02:54:11.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -16,11 +16,34 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>code 的相關單字分享</title>
+    <link href="http://stephenchen.com/2017/08/29/code-%E7%9A%84%E7%9B%B8%E9%97%9C%E5%96%AE%E5%AD%97%E5%88%86%E4%BA%AB/"/>
+    <id>http://stephenchen.com/2017/08/29/code-的相關單字分享/</id>
+    <published>2017-08-29T02:51:49.000Z</published>
+    <updated>2017-08-29T02:54:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>紀錄平常文章看到覺得意義的單字</p>
+<a id="more"></a>
+<h1 id="Spaghetti-code"><a href="#Spaghetti-code" class="headerlink" title="Spaghetti code"></a>Spaghetti code</h1><p>直譯：義大利麵代碼</p>
+<p>原文：<a href="https://en.wikipedia.org/wiki/Spaghetti_code" target="_blank" rel="external">WIKI</a></p>
+<p>大致上：就是貶抑你的 code 寫得很沒有結構，就像義大麵這般的亂</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;紀錄平常文章看到覺得意義的單字&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Git small tracks</title>
     <link href="http://stephenchen.com/2017/08/25/Git-small-tracks/"/>
     <id>http://stephenchen.com/2017/08/25/Git-small-tracks/</id>
     <published>2017-08-25T07:42:10.000Z</published>
-    <updated>2017-08-28T13:59:28.000Z</updated>
+    <updated>2017-08-29T02:50:05.000Z</updated>
     
     <content type="html"><![CDATA[<p>Git 小方法</p>
 <a id="more"></a> 
@@ -35,7 +58,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> -b [BranchName] --single-branch [URL] [FolderName]</div></pre></td></tr></table></figure>
 <h1 id="二-Git-LFS"><a href="#二-Git-LFS" class="headerlink" title="(二) Git LFS"></a>(二) Git LFS</h1><p>假如要透過 git 來管理較大檔案(超過 2G)的時候 ex: 比如圖片或者影片…等。這時候我推薦使用 <strong><a href="https://git-lfs.github.com/" target="_blank" rel="external">Git Large File Storage</a></strong>，原理就是在目錄底下存了一個 <strong>pointer file</strong>，指向真正存儲這些檔案的地方，當在 clone 這些檔案的時候 git 會自動 mapping 檔案的所在目的地。</p>
 <h4 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git lfs install</div></pre></td></tr></table></figure>
-<h4 id="指定哪些檔案你要-track-跟蹤的，-gitattributes-記得也要跟蹤"><a href="#指定哪些檔案你要-track-跟蹤的，-gitattributes-記得也要跟蹤" class="headerlink" title="指定哪些檔案你要(track)跟蹤的，.gitattributes 記得也要跟蹤"></a>指定哪些檔案你要(track)跟蹤的，.gitattributes 記得也要跟蹤</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git lfs track <span class="string">"*.psd"</span></div></pre></td></tr></table></figure>
+<h4 id="指定哪些檔案你要-track-跟蹤的"><a href="#指定哪些檔案你要-track-跟蹤的" class="headerlink" title="指定哪些檔案你要(track)跟蹤的"></a>指定哪些檔案你要(track)跟蹤的</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git lfs track <span class="string">"*.psd"</span></div></pre></td></tr></table></figure>
+<p>並且會生成 .gitattributes，記得要 git add 上</p>
 <h4 id="然後結束，接著就可以-push-了"><a href="#然後結束，接著就可以-push-了" class="headerlink" title="然後結束，接著就可以 push 了"></a>然後結束，接著就可以 push 了</h4><h1 id="三-Git-Log"><a href="#三-Git-Log" class="headerlink" title="(三) Git Log"></a>(三) Git Log</h1><p>再多人開發的時候，通常會通過拆功能來共同開發，但有一些檔案難免會互相動到，比如 Marco.swift 或者 AppDelegate …等。在我這邊的情境是我想知道在 AppDelegate 哪時候是誰寫了這段 Code，這時候就可以以下指令找出哪幾個 commits 有更改過 AppDelegate.swift。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> --follow [Path]</div></pre></td></tr></table></figure>
 <p>有網友提供了其他解決方案</p>
@@ -991,44 +1015,6 @@
     <summary type="html">
     
       &lt;p&gt;Speed up iOS development process via Command Line Tools &lt;strong&gt;xcodebuild&lt;/strong&gt; and &lt;strong&gt;xcbuild&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>One-way Hash Function</title>
-    <link href="http://stephenchen.com/2016/10/12/One-way-Hash-Function/"/>
-    <id>http://stephenchen.com/2016/10/12/One-way-Hash-Function/</id>
-    <published>2016-10-12T03:56:05.000Z</published>
-    <updated>2016-10-26T08:42:15.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>I saw this terminology a lot，here is my review</p>
-<a id="more"></a>
-<h4 id="Nick-names"><a href="#Nick-names" class="headerlink" title="Nick names"></a>Nick names</h4><ul>
-<li>message digest</li>
-<li>fingerprint</li>
-<li>compression function</li>
-</ul>
-<h4 id="One-way-hash-function-flow-diagram"><a href="#One-way-hash-function-flow-diagram" class="headerlink" title="One-way hash function flow diagram"></a>One-way hash function flow diagram</h4><p><img src="hash%20function.png" alt="name"></p>
-<ul>
-<li>note : hash values (ex：A，B) can’t be the same ( <a href="https://en.wikipedia.org/wiki/Collision_(computer_science" target="_blank" rel="external">collision</a>) )  </li>
-</ul>
-<h4 id="One-way-hash-algorithms"><a href="#One-way-hash-algorithms" class="headerlink" title="One-way hash algorithms"></a>One-way hash algorithms</h4><ul>
-<li><p><strong>MD4</strong>(Message Digest 4) and its improved version <strong>MD5</strong>. Both algorithms produce <strong>128-bit</strong>    hash values.</p>
-</li>
-<li><p><strong>SHA</strong>(Secure Hash Algorithm) produce <strong>128-bit</strong> hash values.</p>
-</li>
-<li><p><strong>SHA256</strong>(256-bit version Secure Hash Algorithm) produce <strong>256-bit</strong> hash values.</p>
-</li>
-</ul>
-<p>There is more , likes <strong>SHA512</strong> or <strong>SHA-384</strong> .</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I saw this terminology a lot，here is my review&lt;/p&gt;
     
     </summary>
     
