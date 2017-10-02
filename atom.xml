@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-09-11T09:09:12.000Z</updated>
+  <updated>2017-09-29T04:26:17.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -14,6 +14,69 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git 錯誤日誌紀錄</title>
+    <link href="http://stephenchen.com/2017/09/29/Git-%E9%8C%AF%E8%AA%A4%E6%97%A5%E8%AA%8C%E7%B4%80%E9%8C%84/"/>
+    <id>http://stephenchen.com/2017/09/29/Git-錯誤日誌紀錄/</id>
+    <published>2017-09-29T03:24:53.000Z</published>
+    <updated>2017-09-29T04:26:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>紀錄一些平常不正常操作所出現的問題以及解決方式</p>
+<a id="more"></a>
+<h1 id="fatal-refusing-to-merge-unrelated-histories"><a href="#fatal-refusing-to-merge-unrelated-histories" class="headerlink" title="fatal: refusing to merge unrelated histories"></a>fatal: refusing to merge unrelated histories</h1><p><img src="1.png" alt=""></p>
+<h1 id="是如何出現的"><a href="#是如何出現的" class="headerlink" title="是如何出現的"></a>是如何出現的</h1><ol>
+<li><p>我在 bitbucket 開了一個新的 repository</p>
+</li>
+<li><p>clone 下來之後</p>
+</li>
+<li><p>commmit 一個<strong>新檔案 但沒有 push</strong></p>
+</li>
+<li><p>朋友來了 聊了一下天</p>
+</li>
+<li><p>在 bitbucket 的 repository 裡面 commit 新的 readme 檔案</p>
+</li>
+<li><p>local SourceTree fetch </p>
+</li>
+</ol>
+<p>就這樣出現了這樣的情況</p>
+<h1 id="當下的解決方案"><a href="#當下的解決方案" class="headerlink" title="當下的解決方案"></a>當下的解決方案</h1><p> 找到了 <a href="https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories" target="_blank" rel="external">這個</a></p>
+<p> 然後輸入</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin branchname --allow-unrelated-histories</div></pre></td></tr></table></figure>
+<p>因為在 git 2.9 版開始，git merge 默認不能 merge 兩個沒有相關的分支，所以我下了這個 <strong> –allow-unrelated-histories</strong> 讓 merge 可以強制。merge 兩個無相關的分支。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;紀錄一些平常不正常操作所出現的問題以及解決方式&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>License</title>
+    <link href="http://stephenchen.com/2017/09/29/License/"/>
+    <id>http://stephenchen.com/2017/09/29/License/</id>
+    <published>2017-09-29T03:15:00.000Z</published>
+    <updated>2017-10-02T10:43:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Differentiate between each licenses</p>
+<a id="more"></a> 
+<p>Recently <a href="https://code.facebook.com/posts/300798627056246" target="_blank" rel="external">React relicense</a> issue had been quick hot, so I found a <a href="https://www.zhihu.com/question/28292322" target="_blank" rel="external">easy way</a> to distinguish each licenses and remake it with  English version. </p>
+<p><img src="License.png" alt=""></p>
+<p>Also Github provide a way for developer easy to <a href="https://choosealicense.com/" target="_blank" rel="external">Choose an open source license</a>.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Differentiate between each licenses&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>code 的相關單字分享</title>
@@ -175,7 +238,7 @@
     <link href="http://stephenchen.com/2017/07/02/Http-Mine-types/"/>
     <id>http://stephenchen.com/2017/07/02/Http-Mine-types/</id>
     <published>2017-07-02T04:35:59.000Z</published>
-    <updated>2017-07-02T09:44:16.000Z</updated>
+    <updated>2017-10-02T10:43:27.000Z</updated>
     
     <content type="html"><![CDATA[<p>翻譯<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types" target="_blank" rel="external">原文</a></p>
 <a id="more"></a>
@@ -928,105 +991,6 @@
     <summary type="html">
     
       &lt;p&gt;Sometimes there will be unexpected while playing with servers , so here I will try three different network diagnostic tools to trace the package and guess what may be happened .&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Running Xcode From Command Line Tool</title>
-    <link href="http://stephenchen.com/2016/10/25/Developing-With-Xcodebuild/"/>
-    <id>http://stephenchen.com/2016/10/25/Developing-With-Xcodebuild/</id>
-    <published>2016-10-25T09:46:26.000Z</published>
-    <updated>2016-10-27T07:29:32.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Speed up iOS development process via Command Line Tools <strong>xcodebuild</strong> and <strong>xcbuild</strong></p>
-<a id="more"></a>
-<h4 id="Check-xcodebuild-exists"><a href="#Check-xcodebuild-exists" class="headerlink" title="Check xcodebuild exists"></a>Check xcodebuild exists</h4><ul>
-<li><p>Here provide two way to check，listing 1：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ find /usr/bin -name xcodebuild</div></pre></td></tr></table></figure>
-</li>
-<li><p>Listing 2：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">which</span> xcodebuild</div></pre></td></tr></table></figure>
-</li>
-<li><p>If <strong>xcodebuild</strong> nonexist，run this</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcode-select --install</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="Detail-of-xcodebuild"><a href="#Detail-of-xcodebuild" class="headerlink" title="Detail of xcodebuild"></a>Detail of xcodebuild</h4><ul>
-<li>Actually there is a <a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html" target="_blank" rel="external">comprehensive analysis of xcodebuild</a>，or through the output of <strong>man xcodebuild</strong></li>
-</ul>
-<h4 id="First-check-sdks-and-destination"><a href="#First-check-sdks-and-destination" class="headerlink" title="First check sdks and destination"></a>First check sdks and destination</h4><ul>
-<li><p>Outcomes will add behind the xcodebuild <strong>-sdk</strong> parameter</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild -showsdks</div></pre></td></tr></table></figure>
-</li>
-<li><p>Outcomes will add behind the xcodebuild <strong>-destination</strong> parameter</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ instruments -s devices</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="With-simulator"><a href="#With-simulator" class="headerlink" title="With simulator"></a>With simulator</h4><blockquote>
-<p>Remember to replace -destination . -sdk and <yourname>.xcworkspace with your own</yourname></p>
-</blockquote>
-<ul>
-<li>Change working directory to the directory that contains <yourname>.xcworkspace or <yourname>.xcodeproj</yourname></yourname></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild \</div><div class="line">  -sdk iphonesimulator10.0 \</div><div class="line">  -workspace <span class="string">"&lt;YourName&gt;.xcworkspace"</span> \</div><div class="line">  -scheme <span class="string">"&lt;YourName&gt;"</span> \</div><div class="line">  -destination <span class="string">'platform=iOS Simulator,name=iPhone 6,OS=10.0'</span> \</div><div class="line">  -configuration <span class="string">"Debug"</span> \</div><div class="line">  <span class="built_in">test</span></div></pre></td></tr></table></figure>
-<h4 id="Xcodebuild-with-xcpretty-highly-recommend"><a href="#Xcodebuild-with-xcpretty-highly-recommend" class="headerlink" title="Xcodebuild with xcpretty (highly recommend)"></a>Xcodebuild with xcpretty (highly recommend)</h4><ul>
-<li><p><a href="https://github.com/supermarin/xcpretty" target="_blank" rel="external">Xcodebuild</a> make your xcodebuild output more readable，following line to see the usage of <strong>xcpretty</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcpretty --h</div></pre></td></tr></table></figure>
-</li>
-<li><p>Combine <strong>xcodebuild</strong> and <strong>xcpretty</strong> sample</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild \</div><div class="line">  -sdk iphonesimulator10.0 \</div><div class="line">  -workspace <span class="string">"&lt;YourName&gt;.xcworkspace"</span> \</div><div class="line">  -scheme <span class="string">"&lt;YourName&gt;"</span> \</div><div class="line">  -destination <span class="string">'platform=iOS Simulator,name=iPhone 6,OS=10.0'</span> \</div><div class="line">  -configuration <span class="string">"Debug"</span> \</div><div class="line">  <span class="built_in">test</span> | xcpretty -t -c -r html &amp;&amp; open -a Google\ Chrome.app build/reports/tests.html</div></pre></td></tr></table></figure>
-</li>
-<li><p>You can also <strong>pipe</strong> above command with other commands such as <strong>open -a Google\ Chrome.app</strong></p>
-</li>
-</ul>
-<h4 id="Build-the-archive"><a href="#Build-the-archive" class="headerlink" title="Build the archive"></a>Build the archive</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild</div><div class="line">  -workspace &lt;YourName&gt;.xcworkspace</div><div class="line">  -scheme &lt;YourName&gt;</div><div class="line">  -sdk iphoneos</div><div class="line">  -configuration AppStoreDistribution archive</div><div class="line">  -archivePath ./build/&lt;YourName&gt;.xcarchive</div></pre></td></tr></table></figure>
-<h4 id="Export-ipa-file"><a href="#Export-ipa-file" class="headerlink" title="Export .ipa file"></a>Export .ipa file</h4><p><a href="http://stackoverflow.com/questions/32763288/ios-builds-ipa-creation-no-longer-works-from-the-command-line" target="_blank" rel="external">iOS builds / ipa creation no longer works from the command line</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Speed up iOS development process via Command Line Tools &lt;strong&gt;xcodebuild&lt;/strong&gt; and &lt;strong&gt;xcbuild&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>One-way Hash Function</title>
-    <link href="http://stephenchen.com/2016/10/12/One-way-Hash-Function/"/>
-    <id>http://stephenchen.com/2016/10/12/One-way-Hash-Function/</id>
-    <published>2016-10-12T03:56:05.000Z</published>
-    <updated>2016-10-26T08:42:15.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>I saw this terminology a lot，here is my review</p>
-<a id="more"></a>
-<h4 id="Nick-names"><a href="#Nick-names" class="headerlink" title="Nick names"></a>Nick names</h4><ul>
-<li>message digest</li>
-<li>fingerprint</li>
-<li>compression function</li>
-</ul>
-<h4 id="One-way-hash-function-flow-diagram"><a href="#One-way-hash-function-flow-diagram" class="headerlink" title="One-way hash function flow diagram"></a>One-way hash function flow diagram</h4><p><img src="hash%20function.png" alt="name"></p>
-<ul>
-<li>note : hash values (ex：A，B) can’t be the same ( <a href="https://en.wikipedia.org/wiki/Collision_(computer_science" target="_blank" rel="external">collision</a>) )  </li>
-</ul>
-<h4 id="One-way-hash-algorithms"><a href="#One-way-hash-algorithms" class="headerlink" title="One-way hash algorithms"></a>One-way hash algorithms</h4><ul>
-<li><p><strong>MD4</strong>(Message Digest 4) and its improved version <strong>MD5</strong>. Both algorithms produce <strong>128-bit</strong>    hash values.</p>
-</li>
-<li><p><strong>SHA</strong>(Secure Hash Algorithm) produce <strong>128-bit</strong> hash values.</p>
-</li>
-<li><p><strong>SHA256</strong>(256-bit version Secure Hash Algorithm) produce <strong>256-bit</strong> hash values.</p>
-</li>
-</ul>
-<p>There is more , likes <strong>SHA512</strong> or <strong>SHA-384</strong> .</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I saw this terminology a lot，here is my review&lt;/p&gt;
     
     </summary>
     

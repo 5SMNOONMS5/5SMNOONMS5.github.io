@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Git 錯誤日誌紀錄 · CLS</title><meta name="description" content="Git 錯誤日誌紀錄 - Stephen Chen"><meta name="viewport" content="width=device-width, initial-scale=2"><link rel="short icon" href="/img/earth.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://stephenchen.com/atom.xml" title="CLS"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/img/earth.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="https://github.com/5SMNOONMS5" target="_blank" class="nav-list-link"><img src="/img/github.png" alt="GitHub" style="width: 15px;"></a></li><li class="nav-list-item"><a href="http://stackoverflow.com/users/3672927/stephen-chen?tab=profile" target="_blank" class="nav-list-link"><img src="/img/stackoverflow.png" alt="Stack Overflow" style="width: 16px;"></a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link"><img src="/img/rss.png" alt="Rss" style="width: 14px;"></a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Git 錯誤日誌紀錄</h1><div class="post-info">Sep 29, 2017</div><div class="post-content"><p>紀錄一些平常不正常操作所出現的問題以及解決方式</p>
+<a id="more"></a>
+<h1 id="fatal-refusing-to-merge-unrelated-histories"><a href="#fatal-refusing-to-merge-unrelated-histories" class="headerlink" title="fatal: refusing to merge unrelated histories"></a>fatal: refusing to merge unrelated histories</h1><p><img src="1.png" alt=""></p>
+<h1 id="是如何出現的"><a href="#是如何出現的" class="headerlink" title="是如何出現的"></a>是如何出現的</h1><ol>
+<li><p>我在 bitbucket 開了一個新的 repository</p>
+</li>
+<li><p>clone 下來之後</p>
+</li>
+<li><p>commmit 一個<strong>新檔案 但沒有 push</strong></p>
+</li>
+<li><p>朋友來了 聊了一下天</p>
+</li>
+<li><p>在 bitbucket 的 repository 裡面 commit 新的 readme 檔案</p>
+</li>
+<li><p>local SourceTree fetch </p>
+</li>
+</ol>
+<p>就這樣出現了這樣的情況</p>
+<h1 id="當下的解決方案"><a href="#當下的解決方案" class="headerlink" title="當下的解決方案"></a>當下的解決方案</h1><p> 找到了 <a href="https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories" target="_blank" rel="external">這個</a></p>
+<p> 然後輸入</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin branchname --allow-unrelated-histories</div></pre></td></tr></table></figure>
+<p>因為在 git 2.9 版開始，git merge 默認不能 merge 兩個沒有相關的分支，所以我下了這個 <strong> –allow-unrelated-histories</strong> 讓 merge 可以強制。merge 兩個無相關的分支。</p>
+</div></article></div></section><footer><div class="paginator"><a href="/2017/09/29/License/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+var disqus_identifier = '2017/09/29/Git-錯誤日誌紀錄/';
+var disqus_title = 'Git 錯誤日誌紀錄';
+var disqus_url = 'http://stephenchen.com/2017/09/29/Git-錯誤日誌紀錄/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//seansun.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://stephenchen.com">Stephen Chen</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
