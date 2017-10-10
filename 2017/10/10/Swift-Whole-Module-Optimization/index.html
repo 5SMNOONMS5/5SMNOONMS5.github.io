@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Optimization Level · CLS</title><meta name="description" content="Optimization Level - Stephen Chen"><meta name="viewport" content="width=device-width, initial-scale=2"><link rel="short icon" href="/img/earth.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://stephenchen.com/atom.xml" title="CLS"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/img/earth.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="https://github.com/5SMNOONMS5" target="_blank" class="nav-list-link"><img src="/img/github.png" alt="GitHub" style="width: 15px;"></a></li><li class="nav-list-item"><a href="http://stackoverflow.com/users/3672927/stephen-chen?tab=profile" target="_blank" class="nav-list-link"><img src="/img/stackoverflow.png" alt="Stack Overflow" style="width: 16px;"></a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link"><img src="/img/rss.png" alt="Rss" style="width: 14px;"></a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Optimization Level</h1><div class="post-info">Oct 10, 2017</div><div class="post-content"><a id="more"></a>
+<p>什麼是 Optimization Level ? 其實跟在 Xcode 是如何 compile files 有關係。</p>
+<p>在 Xcode 裡面分成三種方式 </p>
+<h4 id="1-None"><a href="#1-None" class="headerlink" title="1. None"></a>1. None</h4><p>就是 None …..</p>
+<h4 id="2-Single-File-Optimization"><a href="#2-Single-File-Optimization" class="headerlink" title="2. Single-File Optimization"></a>2. Single-File Optimization</h4><p>Xcode 會把每一個 file 各別 compile，當下一次有需要也只會 compile 有更動過的檔案，但問題在於 scope 只侷限在同一個 file </p>
+<p>來看 WWDC 的截圖</p>
+<p><img src="1.png" alt=""></p>
+<h4 id="3-Whole-Module-Optimization"><a href="#3-Whole-Module-Optimization" class="headerlink" title="3. Whole Module Optimization"></a>3. Whole Module Optimization</h4><p>Xcode 7 出現之後才有的，原理是 compiler 會一次把你所有的檔案一起 compile </p>
+<p>所以 compile 所花的時間會比較長，但是產生出來的 binaries 會 run 的比較快 <a href="https://useyourloaf.com/blog/swift-whole-module-optimization/" target="_blank" rel="external">(大神的測試)</a></p>
+<p>在來看 WWDC 的截圖</p>
+<p><img src="2.png" alt=""></p>
+<p>所以了解以上這三種 compile 的區別之後，就可以更深一層的去了解，當你在 Xcode 7 以上所開新的專案都會預設在 debug mode 下使用 <strong>None</strong>，release mode 下使用 <strong>Whole Module Optimization</strong></p>
+<p><img src="3.png" alt=""></p>
+</div></article></div></section><footer><div class="paginator"><a href="/2017/09/29/Git-錯誤日誌紀錄/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+var disqus_identifier = '2017/10/10/Swift-Whole-Module-Optimization/';
+var disqus_title = 'Optimization Level';
+var disqus_url = 'http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//seansun.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://stephenchen.com">Stephen Chen</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

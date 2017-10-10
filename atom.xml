@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-09-29T04:26:17.000Z</updated>
+  <updated>2017-10-10T16:01:47.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Optimization Level</title>
+    <link href="http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/"/>
+    <id>http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/</id>
+    <published>2017-10-10T15:18:41.000Z</published>
+    <updated>2017-10-10T16:01:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a>
+<p>什麼是 Optimization Level ? 其實跟在 Xcode 是如何 compile files 有關係。</p>
+<p>在 Xcode 裡面分成三種方式 </p>
+<h4 id="1-None"><a href="#1-None" class="headerlink" title="1. None"></a>1. None</h4><p>就是 None …..</p>
+<h4 id="2-Single-File-Optimization"><a href="#2-Single-File-Optimization" class="headerlink" title="2. Single-File Optimization"></a>2. Single-File Optimization</h4><p>Xcode 會把每一個 file 各別 compile，當下一次有需要也只會 compile 有更動過的檔案，但問題在於 scope 只侷限在同一個 file </p>
+<p>來看 WWDC 的截圖</p>
+<p><img src="1.png" alt=""></p>
+<h4 id="3-Whole-Module-Optimization"><a href="#3-Whole-Module-Optimization" class="headerlink" title="3. Whole Module Optimization"></a>3. Whole Module Optimization</h4><p>Xcode 7 出現之後才有的，原理是 compiler 會一次把你所有的檔案一起 compile </p>
+<p>所以 compile 所花的時間會比較長，但是產生出來的 binaries 會 run 的比較快 <a href="https://useyourloaf.com/blog/swift-whole-module-optimization/" target="_blank" rel="external">(大神的測試)</a></p>
+<p>在來看 WWDC 的截圖</p>
+<p><img src="2.png" alt=""></p>
+<p>所以了解以上這三種 compile 的區別之後，就可以更深一層的去了解，當你在 Xcode 7 以上所開新的專案都會預設在 debug mode 下使用 <strong>None</strong>，release mode 下使用 <strong>Whole Module Optimization</strong></p>
+<p><img src="3.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;什麼是 Optimization Level ? 其實跟在 Xcode 是如何 compile files 有關係。&lt;/p&gt;
+&lt;p&gt;在 Xcode 裡面分成三種方式 &lt;/p&gt;
+&lt;h4 id=&quot;1-None&quot;&gt;&lt;a href=&quot;#1-Non
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Git 錯誤日誌紀錄</title>
@@ -941,58 +975,6 @@
     <summary type="html">
     
       &lt;p&gt;a coding life with Vim&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Network Diagnostic Tools</title>
-    <link href="http://stephenchen.com/2016/11/18/network-diagnostic-tools/"/>
-    <id>http://stephenchen.com/2016/11/18/network-diagnostic-tools/</id>
-    <published>2016-11-18T09:51:00.000Z</published>
-    <updated>2016-11-23T09:17:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Sometimes there will be unexpected while playing with servers , so here I will try three different network diagnostic tools to trace the package and guess what may be happened .</p>
-<a id="more"></a>
-<h1 id="1-Ping"><a href="#1-Ping" class="headerlink" title="1.Ping"></a>1.Ping</h1><h4 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h4><ul>
-<li>The ping command is usually used as a simple way verify that a computer can communicate over the network with another computer or network device.</li>
-</ul>
-<p><img src="ping.png" alt="ping"></p>
-<ul>
-<li>In above example , the ping command is used to ping the hostname www.google.com . The report tells me each ICMP echo request message sent to www.google.com was returned successful.</li>
-</ul>
-<p><img src="ping-DDos.png" alt="ping-DDos"></p>
-<div class="tip"><br>    Don’t try to use -f (Flood) option , some firewalls or hosts can believe it’s a DoS attack and drop the icmp packets silently.<br></div>
-
-<h1 id="2-MTR"><a href="#2-MTR" class="headerlink" title="2.MTR"></a>2.MTR</h1><h4 id="Synopsis-1"><a href="#Synopsis-1" class="headerlink" title="Synopsis"></a>Synopsis</h4><ul>
-<li><a href="http://www.bitwizard.nl/mtr/" target="_blank" rel="external">MTR</a> combines the functionality of the <a href="https://en.wikipedia.org/wiki/Traceroute" target="_blank" rel="external">Traceroute</a> and <a href="https://www.lifewire.com/ping-command-2618099" target="_blank" rel="external">Ping</a> programs in a single network diagnostic tool.</li>
-</ul>
-<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mtr</div></pre></td></tr></table></figure>
-<h4 id="Export-environment-variable-for-further-use"><a href="#Export-environment-variable-for-further-use" class="headerlink" title="Export environment variable for further use"></a>Export environment variable for further use</h4><ul>
-<li>After install via <a href="http://brew.sh/" target="_blank" rel="external">Homebrew</a> , <a href="http://www.bitwizard.nl/mtr/" target="_blank" rel="external">MTR</a> will locate under <strong>/usr/local/sbin/</strong> folder .</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>"</span>:/usr/<span class="built_in">local</span>/sbin/</div></pre></td></tr></table></figure>
-<h4 id="MTR-Sample"><a href="#MTR-Sample" class="headerlink" title="MTR Sample"></a>MTR Sample</h4><p><img src="mtr-sample.png" alt="mtr-sample"></p>
-<ul>
-<li>Above you can see all packets of data travelling from my host to destination host . Unfortunately, I don’t want to dig this here . If you want learn more , please go  <a href="https://www.linode.com/docs/networking/diagnostics/diagnosing-network-issues-with-mtr" target="_blank" rel="external">here</a>  </li>
-</ul>
-<h1 id="3-Traceroute"><a href="#3-Traceroute" class="headerlink" title="3.Traceroute"></a>3.Traceroute</h1><ul>
-<li><a href="https://linux.die.net/man/8/traceroute" target="_blank" rel="external">Traceroute</a> print the route packets trace to network host</li>
-</ul>
-<p><img src="tracerouter.png" alt="tracerouter"></p>
-<ul>
-<li><p>Above you can see your all packets of data travelling just likes <a href="http://www.bitwizard.nl/mtr/" target="_blank" rel="external">MTR</a> , but one of the different part is you can see the router transfer inside one specify router . See No.7 ~ No.11 at above sample .</p>
-</li>
-<li><p>more reference <a href="https://www.digitalocean.com/community/tutorials/how-to-use-traceroute-and-mtr-to-diagnose-network-issues" target="_blank" rel="external">DigitalOcean</a> , <a href="https://shapeshed.com/unix-traceroute/" target="_blank" rel="external">here</a>.</p>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Sometimes there will be unexpected while playing with servers , so here I will try three different network diagnostic tools to trace the package and guess what may be happened .&lt;/p&gt;
     
     </summary>
     
