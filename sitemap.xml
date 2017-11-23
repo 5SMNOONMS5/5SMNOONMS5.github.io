@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stephenchen.com/2017/08/25/Git-small-tracks/</loc>
+    
+    <lastmod>2017-11-23T01:35:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stephenchen.com/2017/11/15/%E5%89%8D%E5%BE%80%E9%81%8A%E6%88%B2%E9%96%8B%E7%99%BC%E4%B9%8B%E8%B7%AF/</loc>
     
     <lastmod>2017-11-16T14:41:35.000Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://stephenchen.com/2017/09/29/Git-%E9%8C%AF%E8%AA%A4%E6%97%A5%E8%AA%8C%E7%B4%80%E9%8C%84/</loc>
     
     <lastmod>2017-09-29T04:26:17.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/08/25/Git-small-tracks/</loc>
-    
-    <lastmod>2017-08-29T02:50:05.000Z</lastmod>
     
   </url>
   

@@ -22,6 +22,17 @@
 <h1 id="四-SourceTree-統一-commit"><a href="#四-SourceTree-統一-commit" class="headerlink" title="(四) SourceTree 統一 commit"></a>(四) SourceTree 統一 commit</h1><p>在 SourceTree 的偏好設定裡面有一個選項是 Commit Template，在之後每個專案裡面在準備輸入 Commit 紀錄都會出現初始化好的 Commit Template。治療強迫症，是一個不錯的方法來管理整個 Team 的 Commit 規則。</p>
 <p><img src="1.png" alt=""></p>
 <h1 id="五-SourceTree-repositories-介面也可以透過資料夾區分"><a href="#五-SourceTree-repositories-介面也可以透過資料夾區分" class="headerlink" title="(五) SourceTree repositories 介面也可以透過資料夾區分"></a>(五) SourceTree repositories 介面也可以透過資料夾區分</h1><p><img src="2.png" alt=""></p>
+<h1 id="六-欺騙-Git"><a href="#六-欺騙-Git" class="headerlink" title="(六) 欺騙 Git"></a>(六) 欺騙 Git</h1><p>在開發 <a href="http://developer.egret.com/cn/" target="_blank" rel="external">Egret</a> 的時候有些設定檔案(下面叫它 A File)在每次 build 的時候都會變動，造成多人開發的時候非常困難，那怎麼辦呢。</p>
+<p>我想到兩種做法</p>
+<ol>
+<li><p>第一次 push 的時候把 A File push 上去，然後第二次 push 的時候把 A File 加入 .gitignore 裡面，這樣共同開發者 pull 下來的時候有 A File ，然後之後在開發的時候又不會造成 conflict。</p>
+</li>
+<li><p>使用 assuming </p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git update-index --assume-unchanged path/to/file.txt</div></pre></td></tr></table></figure>
+<p>直接上 code 拉，就是假裝這個檔案已經 unchanged，所以之後如何變動都不用造成共同開發的 conflict。</p>
+<p><a href="https://stackoverflow.com/questions/18276951/how-do-i-stop-git-from-tracking-any-changes-to-a-file-from-this-commit-forward" target="_blank" rel="external">感謝原文</a></p>
 </div></article></div></section><footer><div class="paginator"><a href="/2017/08/29/code-的相關單字分享/" class="prev">PREV</a><a href="/2017/07/22/清理-Mac-垃圾檔案/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
 var disqus_identifier = '2017/08/25/Git-small-tracks/';
 var disqus_title = 'Git small tracks';
