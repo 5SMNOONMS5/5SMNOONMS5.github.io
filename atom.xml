@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-11-16T14:41:35.000Z</updated>
+  <updated>2017-11-25T14:24:55.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -14,6 +14,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>memory of static and non-static methods</title>
+    <link href="http://stephenchen.com/2017/11/25/memory-of-static-and-non-static-methods/"/>
+    <id>http://stephenchen.com/2017/11/25/memory-of-static-and-non-static-methods/</id>
+    <published>2017-11-25T14:24:55.000Z</published>
+    <updated>2017-11-25T14:24:55.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>前往遊戲開發之路</title>
@@ -958,32 +972,6 @@
     <summary type="html">
     
       &lt;p&gt;A way to cheat time from Project Manager&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Fix &#39;&#39;Unrecognized selector sent to instance&#39;&#39; error</title>
-    <link href="http://stephenchen.com/2016/12/16/unrecognized-selector-sent-to-instance-error/"/>
-    <id>http://stephenchen.com/2016/12/16/unrecognized-selector-sent-to-instance-error/</id>
-    <published>2016-12-16T03:37:09.000Z</published>
-    <updated>2017-01-13T01:54:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Provide easy way to solve this horrible problem</p>
-<a id="more"></a>
-<p>While developing iOS application , you probably face this kind of error a lot</p>
-<p><img src="error.png" alt="error picture"></p>
-<p>The easiest way is create a exception breakpoint</p>
-<p><img src="Step1.png" alt="Step1"></p>
-<p><img src="Step2.png" alt="Step2"></p>
-<p>Run and build , the breakpoint should stop at where caused this error .</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Provide easy way to solve this horrible problem&lt;/p&gt;
     
     </summary>
     

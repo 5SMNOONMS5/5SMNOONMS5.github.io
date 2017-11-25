@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stephenchen.com/2017/11/25/memory-of-static-and-non-static-methods/</loc>
+    
+    <lastmod>2017-11-25T14:24:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stephenchen.com/2017/08/25/Git-small-tracks/</loc>
     
     <lastmod>2017-11-23T01:35:09.000Z</lastmod>

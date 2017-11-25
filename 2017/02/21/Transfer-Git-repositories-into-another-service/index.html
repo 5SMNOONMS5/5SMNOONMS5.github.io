@@ -1,4 +1,144 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Transfer Git repositories into another server · CLS</title><meta name="description" content="Transfer Git repositories into another server - Stephen Chen"><meta name="viewport" content="width=device-width, initial-scale=2"><link rel="short icon" href="/img/earth.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://stephenchen.com/atom.xml" title="CLS"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/img/earth.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="https://github.com/5SMNOONMS5" target="_blank" class="nav-list-link"><img src="/img/github.png" alt="GitHub" style="width: 15px;"></a></li><li class="nav-list-item"><a href="http://stackoverflow.com/users/3672927/stephen-chen?tab=profile" target="_blank" class="nav-list-link"><img src="/img/stackoverflow.png" alt="Stack Overflow" style="width: 16px;"></a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link"><img src="/img/rss.png" alt="Rss" style="width: 14px;"></a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Transfer Git repositories into another server</h1><div class="post-info">Feb 21, 2017</div><div class="post-content"><p>今天公司剛好要把 原先的 Git Server 轉移到另外一台 Server，於是研究了一下</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Transfer Git repositories into another server | CLS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="MinHow,MinHow's Blog" />
+  
+  <meta name="description" content="今天公司剛好要把 原先的 Git Server 轉移到另外一台 Server，於是研究了一下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Transfer Git repositories into another server">
+<meta property="og:url" content="http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/index.html">
+<meta property="og:site_name" content="CLS">
+<meta property="og:description" content="今天公司剛好要把 原先的 Git Server 轉移到另外一台 Server，於是研究了一下">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-04-18T17:00:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Transfer Git repositories into another server">
+<meta name="twitter:description" content="今天公司剛好要把 原先的 Git Server 轉移到另外一台 Server，於是研究了一下">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">MinHow&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        MinHow&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Transfer-Git-repositories-into-another-service" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Transfer Git repositories into another server
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-02-21
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>今天公司剛好要把 原先的 Git Server 轉移到另外一台 Server，於是研究了一下</p>
 <a id="more"></a>
 <h4 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h4><ul>
 <li>先把<strong>全部</strong>的資源包含tag，Commit 節點，branch 全部都抓到 local 端</li>
@@ -54,12 +194,281 @@
 <p>2017/04/19 update</p>
 </blockquote>
 <p>無意間同事發了這篇鏈接，覺得比我之前的方法要更簡潔更方便，真後悔沒有提早看到<br><a href="https://dinos80152.wordpress.com/2015/09/21/%E4%BD%BF%E7%94%A8-git-mirror-%E7%84%A1%E7%97%9B%E8%BD%89%E7%A7%BB-git-server/" target="_blank" rel="external">git mirror</a></p>
-</div></article></div></section><footer><div class="paginator"><a href="/2017/03/22/fastlane-customize-plist-file/" class="prev">PREV</a><a href="/2017/01/27/Custom-build-in-Sublime-Text-3/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
-var disqus_identifier = '2017/02/21/Transfer-Git-repositories-into-another-service/';
-var disqus_title = 'Transfer Git repositories into another server';
-var disqus_url = 'http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/';
-(function() {
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();</script><script id="dsq-count-scr" src="//seansun.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://stephenchen.com">Stephen Chen</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2017年04月19日 01:00</p>
+        <p>原始链接： <a class="post-url" href="/2017/02/21/Transfer-Git-repositories-into-another-service/" title="Transfer Git repositories into another server">http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/</a></p>
+        <footer>
+            <a href="http://stephenchen.com">
+                <img src="/images/logo.png" alt="Stephen Chen">
+                Stephen Chen
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多少都行~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/&title=《Transfer Git repositories into another server》 — CLS&pic=http://stephenchen.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/&title=《Transfer Git repositories into another server》 — CLS&source=今天公司剛好要把 原先的 Git Server 轉移到另外一台 Server，於是研究了一下" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Transfer Git repositories into another server》 — CLS&url=http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/&via=http://stephenchen.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Step-1"><span class="post-toc-text">Step 1</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Step-2"><span class="post-toc-text">Step 2</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Step-3"><span class="post-toc-text">Step 3</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Step-4"><span class="post-toc-text">Step 4</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Step-5"><span class="post-toc-text">Step 5</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Step-6"><span class="post-toc-text">Step 6</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Git-mirror"><span class="post-toc-text">Git mirror</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2017/03/22/fastlane-customize-plist-file/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Integrate fastlane save your time .
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/01/27/Custom-build-in-Sublime-Text-3/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Custom build in Sublime Text 3</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2017 Stephen Chen<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://stephenchen.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>
