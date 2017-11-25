@@ -67,22 +67,22 @@
     <link href="http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/"/>
     <id>http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/</id>
     <published>2017-10-10T15:18:41.000Z</published>
-    <updated>2017-10-10T16:10:56.000Z</updated>
+    <updated>2017-11-25T15:21:47.000Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a>
 <p>什麼是 Optimization Level ? 其實跟在 Xcode 是如何 compile files 有關係。</p>
 <p>在 Xcode 裡面分成三種方式 </p>
 <h4 id="1-None"><a href="#1-None" class="headerlink" title="1. None"></a>1. None</h4><p>就是 None …..</p>
-<h4 id="2-Single-File-Optimization"><a href="#2-Single-File-Optimization" class="headerlink" title="2. Single-File Optimization"></a>2. Single-File Optimization</h4><p>Xcode 會把每一個 file 各別 compile，當下一次有需要也只會 compile 有更動過的檔案，但問題在於 scope 只侷限在同一個 file </p>
+<h4 id="2-Single-File-Optimization"><a href="#2-Single-File-Optimization" class="headerlink" title="2. Single-File Optimization"></a>2. Single-File Optimization</h4><p>Xcode 會把每一個 file 個別 compile，當下一次需要也只會 compile 有更動過的檔案，但問題在於 compile scope 只侷限在同一個 file </p>
 <p>來看 WWDC 的截圖</p>
 <p><img src="1.png" alt=""></p>
-<h4 id="3-Whole-Module-Optimization"><a href="#3-Whole-Module-Optimization" class="headerlink" title="3. Whole Module Optimization"></a>3. Whole Module Optimization</h4><p>Xcode 7 出現之後才有的，原理是 compiler 會一次把你所有的檔案一起 compile </p>
+<h4 id="3-Whole-Module-Optimization"><a href="#3-Whole-Module-Optimization" class="headerlink" title="3. Whole Module Optimization"></a>3. Whole Module Optimization</h4><p>Xcode 7 出現之後才有，原理是 compiler 會一次把你所有的檔案一起 compile </p>
 <p>所以 compile 所花的時間會比較長，但是產生出來的 binaries 會 run 的比較快 <a href="https://useyourloaf.com/blog/swift-whole-module-optimization/" target="_blank" rel="external">(大神的測試)</a></p>
-<p>在來看 WWDC 的截圖</p>
+<p>再來看 WWDC 的截圖</p>
 <p><img src="2.png" alt=""></p>
-<p>所以了解以上這三種 compile 的區別之後，就可以更深一層的去了解，當你在 Xcode 7 以上所開新的專案都會預設在 debug mode 下使用 <strong>None</strong>，release mode 下使用 <strong>Whole Module Optimization</strong></p>
+<p>所以了解以上這三種 compile 的區別之後，就可以更深一層的去了解，當你在 Xcode 7 以上所開新的專案都會預設在 <strong>Debug mode</strong> 下使用 <strong>None</strong>，<strong>Release mode</strong> 下使用 <strong>Whole Module Optimization</strong></p>
 <p><img src="3.png" alt=""></p>
-<p>以上提供非常表面的分析，其實 Swift <a href="https://github.com/apple/swift/blob/master/docs/OptimizationTips.rst#advice-use-unchecked-integer-arithmetic-when-you-can-prove-that-overflow-cannot-occur" target="_blank" rel="external">官方文檔</a> 提供了更多的 Optimization Tips。恩！夜深了，我就先睡了拉：）</p>
+<p>以上提供非常表面的分析，其實 Swift <a href="https://github.com/apple/swift/blob/master/docs/OptimizationTips.rst#advice-use-unchecked-integer-arithmetic-when-you-can-prove-that-overflow-cannot-occur" target="_blank" rel="external">官方文檔</a> 提供了更多 Optimization 的相關文章。恩！夜深了，我就先睡了拉：）</p>
 <p><a href="https://developer.apple.com/videos/play/wwdc2015/409/" target="_blank" rel="external">WWDC 參考文檔</a></p>
 ]]></content>
     
@@ -96,6 +96,8 @@
     </summary>
     
     
+      <category term="ios, swift" scheme="http://stephenchen.com/tags/ios-swift/"/>
+    
   </entry>
   
   <entry>
@@ -103,7 +105,7 @@
     <link href="http://stephenchen.com/2017/09/29/Git-%E9%8C%AF%E8%AA%A4%E6%97%A5%E8%AA%8C%E7%B4%80%E9%8C%84/"/>
     <id>http://stephenchen.com/2017/09/29/Git-錯誤日誌紀錄/</id>
     <published>2017-09-29T03:24:53.000Z</published>
-    <updated>2017-09-29T04:26:17.000Z</updated>
+    <updated>2017-11-25T15:22:02.000Z</updated>
     
     <content type="html"><![CDATA[<p>紀錄一些平常不正常操作所出現的問題以及解決方式</p>
 <a id="more"></a>
@@ -135,6 +137,8 @@
     
     </summary>
     
+    
+      <category term="git" scheme="http://stephenchen.com/tags/git/"/>
     
   </entry>
   

@@ -8,20 +8,21 @@
   
     <meta name="keywords" content="StephenChen's Blog" />
   
-  <meta name="description" content="什麼是 Optimization Level ? 其實跟在 Xcode 是如何 compile files 有關係。 在 Xcode 裡面分成三種方式  1. None就是 None ….. 2. Single-File OptimizationXcode 會把每一個 file 各別 compile，當下一次有需要也只會 compile 有更動過的檔案，但問題在於 scope 只侷限在同一個 f">
+  <meta name="description" content="什麼是 Optimization Level ? 其實跟在 Xcode 是如何 compile files 有關係。 在 Xcode 裡面分成三種方式  1. None就是 None ….. 2. Single-File OptimizationXcode 會把每一個 file 個別 compile，當下一次需要也只會 compile 有更動過的檔案，但問題在於 compile scope 只侷">
+<meta name="keywords" content="ios, swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift Optimization Level">
 <meta property="og:url" content="http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/index.html">
 <meta property="og:site_name" content="CLS">
-<meta property="og:description" content="什麼是 Optimization Level ? 其實跟在 Xcode 是如何 compile files 有關係。 在 Xcode 裡面分成三種方式  1. None就是 None ….. 2. Single-File OptimizationXcode 會把每一個 file 各別 compile，當下一次有需要也只會 compile 有更動過的檔案，但問題在於 scope 只侷限在同一個 f">
+<meta property="og:description" content="什麼是 Optimization Level ? 其實跟在 Xcode 是如何 compile files 有關係。 在 Xcode 裡面分成三種方式  1. None就是 None ….. 2. Single-File OptimizationXcode 會把每一個 file 個別 compile，當下一次需要也只會 compile 有更動過的檔案，但問題在於 compile scope 只侷">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/1.png">
 <meta property="og:image" content="http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/2.png">
 <meta property="og:image" content="http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/3.png">
-<meta property="og:updated_time" content="2017-10-10T16:10:56.000Z">
+<meta property="og:updated_time" content="2017-11-25T15:21:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift Optimization Level">
-<meta name="twitter:description" content="什麼是 Optimization Level ? 其實跟在 Xcode 是如何 compile files 有關係。 在 Xcode 裡面分成三種方式  1. None就是 None ….. 2. Single-File OptimizationXcode 會把每一個 file 各別 compile，當下一次有需要也只會 compile 有更動過的檔案，但問題在於 scope 只侷限在同一個 f">
+<meta name="twitter:description" content="什麼是 Optimization Level ? 其實跟在 Xcode 是如何 compile files 有關係。 在 Xcode 裡面分成三種方式  1. None就是 None ….. 2. Single-File OptimizationXcode 會把每一個 file 個別 compile，當下一次需要也只會 compile 有更動過的檔案，但問題在於 compile scope 只侷">
 <meta name="twitter:image" content="http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/1.png">
   
   
@@ -143,21 +144,21 @@
 <p>什麼是 Optimization Level ? 其實跟在 Xcode 是如何 compile files 有關係。</p>
 <p>在 Xcode 裡面分成三種方式 </p>
 <h4 id="1-None"><a href="#1-None" class="headerlink" title="1. None"></a>1. None</h4><p>就是 None …..</p>
-<h4 id="2-Single-File-Optimization"><a href="#2-Single-File-Optimization" class="headerlink" title="2. Single-File Optimization"></a>2. Single-File Optimization</h4><p>Xcode 會把每一個 file 各別 compile，當下一次有需要也只會 compile 有更動過的檔案，但問題在於 scope 只侷限在同一個 file </p>
+<h4 id="2-Single-File-Optimization"><a href="#2-Single-File-Optimization" class="headerlink" title="2. Single-File Optimization"></a>2. Single-File Optimization</h4><p>Xcode 會把每一個 file 個別 compile，當下一次需要也只會 compile 有更動過的檔案，但問題在於 compile scope 只侷限在同一個 file </p>
 <p>來看 WWDC 的截圖</p>
 <p><img src="1.png" alt=""></p>
-<h4 id="3-Whole-Module-Optimization"><a href="#3-Whole-Module-Optimization" class="headerlink" title="3. Whole Module Optimization"></a>3. Whole Module Optimization</h4><p>Xcode 7 出現之後才有的，原理是 compiler 會一次把你所有的檔案一起 compile </p>
+<h4 id="3-Whole-Module-Optimization"><a href="#3-Whole-Module-Optimization" class="headerlink" title="3. Whole Module Optimization"></a>3. Whole Module Optimization</h4><p>Xcode 7 出現之後才有，原理是 compiler 會一次把你所有的檔案一起 compile </p>
 <p>所以 compile 所花的時間會比較長，但是產生出來的 binaries 會 run 的比較快 <a href="https://useyourloaf.com/blog/swift-whole-module-optimization/" target="_blank" rel="external">(大神的測試)</a></p>
-<p>在來看 WWDC 的截圖</p>
+<p>再來看 WWDC 的截圖</p>
 <p><img src="2.png" alt=""></p>
-<p>所以了解以上這三種 compile 的區別之後，就可以更深一層的去了解，當你在 Xcode 7 以上所開新的專案都會預設在 debug mode 下使用 <strong>None</strong>，release mode 下使用 <strong>Whole Module Optimization</strong></p>
+<p>所以了解以上這三種 compile 的區別之後，就可以更深一層的去了解，當你在 Xcode 7 以上所開新的專案都會預設在 <strong>Debug mode</strong> 下使用 <strong>None</strong>，<strong>Release mode</strong> 下使用 <strong>Whole Module Optimization</strong></p>
 <p><img src="3.png" alt=""></p>
-<p>以上提供非常表面的分析，其實 Swift <a href="https://github.com/apple/swift/blob/master/docs/OptimizationTips.rst#advice-use-unchecked-integer-arithmetic-when-you-can-prove-that-overflow-cannot-occur" target="_blank" rel="external">官方文檔</a> 提供了更多的 Optimization Tips。恩！夜深了，我就先睡了拉：）</p>
+<p>以上提供非常表面的分析，其實 Swift <a href="https://github.com/apple/swift/blob/master/docs/OptimizationTips.rst#advice-use-unchecked-integer-arithmetic-when-you-can-prove-that-overflow-cannot-occur" target="_blank" rel="external">官方文檔</a> 提供了更多 Optimization 的相關文章。恩！夜深了，我就先睡了拉：）</p>
 <p><a href="https://developer.apple.com/videos/play/wwdc2015/409/" target="_blank" rel="external">WWDC 參考文檔</a></p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年10月11日 00:10</p>
+        <p>最后更新： 2017年11月25日 23:21</p>
         <p>原始链接： <a class="post-url" href="/2017/10/10/Swift-Whole-Module-Optimization/" title="Swift Optimization Level">http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/</a></p>
         <footer>
             <a href="http://stephenchen.com">
@@ -259,6 +260,13 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/ios,swift/" class="color1">ios, swift</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -352,7 +360,7 @@
             
         </div>
         <div id="sidebar-menu-box-tags">
-            
+            <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -385,7 +393,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            
+            <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a>
         </div>
     </div>
 </div>
