@@ -8,17 +8,18 @@
   
     <meta name="keywords" content="StephenChen's Blog" />
   
-  <meta name="description" content="Speed up iOS development process via Command Line Tools xcodebuild and xcbuild">
+  <meta name="description" content="Speed up develop process using xcodebuild and xcbuild">
+<meta name="keywords" content="Xcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Running Xcode From Command Line Tool">
 <meta property="og:url" content="http://stephenchen.com/2016/10/25/Developing-With-Xcodebuild/index.html">
 <meta property="og:site_name" content="CLS">
-<meta property="og:description" content="Speed up iOS development process via Command Line Tools xcodebuild and xcbuild">
+<meta property="og:description" content="Speed up develop process using xcodebuild and xcbuild">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2016-10-27T07:29:32.000Z">
+<meta property="og:updated_time" content="2017-11-25T16:09:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Running Xcode From Command Line Tool">
-<meta name="twitter:description" content="Speed up iOS development process via Command Line Tools xcodebuild and xcbuild">
+<meta name="twitter:description" content="Speed up develop process using xcodebuild and xcbuild">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -135,53 +136,58 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>Speed up iOS development process via Command Line Tools <strong>xcodebuild</strong> and <strong>xcbuild</strong></p>
+            <p>Speed up develop process using <strong>xcodebuild</strong> and <strong>xcbuild</strong></p>
 <a id="more"></a>
-<h4 id="Check-xcodebuild-exists"><a href="#Check-xcodebuild-exists" class="headerlink" title="Check xcodebuild exists"></a>Check xcodebuild exists</h4><ul>
-<li><p>Here provide two way to check，listing 1：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ find /usr/bin -name xcodebuild</div></pre></td></tr></table></figure>
+<h2 id="Check-xcodebuild-exists"><a href="#Check-xcodebuild-exists" class="headerlink" title="Check xcodebuild exists"></a>Check xcodebuild exists</h2><ul>
+<li><p>Here provide two way to check</p>
 </li>
-<li><p>Listing 2：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">which</span> xcodebuild</div></pre></td></tr></table></figure>
-</li>
-<li><p>If <strong>xcodebuild</strong> nonexist，run this</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcode-select --install</div></pre></td></tr></table></figure>
+<li><p>Frist</p>
 </li>
 </ul>
-<h4 id="Detail-of-xcodebuild"><a href="#Detail-of-xcodebuild" class="headerlink" title="Detail of xcodebuild"></a>Detail of xcodebuild</h4><ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ find /usr/bin -name xcodebuild</div></pre></td></tr></table></figure>
+<ul>
+<li>Second</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">which</span> xcodebuild</div></pre></td></tr></table></figure>
+<ul>
+<li>If <strong>xcodebuild</strong> nonexist，run this</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcode-select --install</div></pre></td></tr></table></figure>
+<h2 id="Detail-of-xcodebuild"><a href="#Detail-of-xcodebuild" class="headerlink" title="Detail of xcodebuild"></a>Detail of xcodebuild</h2><ul>
 <li>Actually there is a <a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html" target="_blank" rel="external">comprehensive analysis of xcodebuild</a>，or through the output of <strong>man xcodebuild</strong></li>
 </ul>
-<h4 id="First-check-sdks-and-destination"><a href="#First-check-sdks-and-destination" class="headerlink" title="First check sdks and destination"></a>First check sdks and destination</h4><ul>
-<li><p>Outcomes will add behind the xcodebuild <strong>-sdk</strong> parameter</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild -showsdks</div></pre></td></tr></table></figure>
-</li>
-<li><p>Outcomes will add behind the xcodebuild <strong>-destination</strong> parameter</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ instruments -s devices</div></pre></td></tr></table></figure>
-</li>
+<h2 id="First-check-sdks-and-destination"><a href="#First-check-sdks-and-destination" class="headerlink" title="First check sdks and destination"></a>First check sdks and destination</h2><ul>
+<li>Show sdks</li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild -showsdks</div></pre></td></tr></table></figure>
+<ul>
+<li>Show devices</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ instruments -s devices</div></pre></td></tr></table></figure>
 <h4 id="With-simulator"><a href="#With-simulator" class="headerlink" title="With simulator"></a>With simulator</h4><blockquote>
-<p>Remember to replace -destination . -sdk and <yourname>.xcworkspace with your own</yourname></p>
+<p>Remember to replace parameters -destination . -sdk and <yourname>.xcworkspace with your own</yourname></p>
 </blockquote>
 <ul>
 <li>Change working directory to the directory that contains <yourname>.xcworkspace or <yourname>.xcodeproj</yourname></yourname></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild \</div><div class="line">  -sdk iphonesimulator10.0 \</div><div class="line">  -workspace <span class="string">"&lt;YourName&gt;.xcworkspace"</span> \</div><div class="line">  -scheme <span class="string">"&lt;YourName&gt;"</span> \</div><div class="line">  -destination <span class="string">'platform=iOS Simulator,name=iPhone 6,OS=10.0'</span> \</div><div class="line">  -configuration <span class="string">"Debug"</span> \</div><div class="line">  <span class="built_in">test</span></div></pre></td></tr></table></figure>
-<h4 id="Xcodebuild-with-xcpretty-highly-recommend"><a href="#Xcodebuild-with-xcpretty-highly-recommend" class="headerlink" title="Xcodebuild with xcpretty (highly recommend)"></a>Xcodebuild with xcpretty (highly recommend)</h4><ul>
-<li><p><a href="https://github.com/supermarin/xcpretty" target="_blank" rel="external">Xcodebuild</a> make your xcodebuild output more readable，following line to see the usage of <strong>xcpretty</strong></p>
+<h4 id="With-xcpretty-highly-recommend"><a href="#With-xcpretty-highly-recommend" class="headerlink" title="With xcpretty (highly recommend)"></a>With xcpretty (highly recommend)</h4><ul>
+<li><a href="https://github.com/supermarin/xcpretty" target="_blank" rel="external">Xcpretty</a> make your xcodebuild output more readable，following line to see the usage of <strong>xcpretty</strong></li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcpretty --h</div></pre></td></tr></table></figure>
-</li>
-<li><p>Combine <strong>xcodebuild</strong> and <strong>xcpretty</strong> sample</p>
+<ul>
+<li>Combine <strong>xcodebuild</strong> and <strong>xcpretty</strong> sample</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild \</div><div class="line">  -sdk iphonesimulator10.0 \</div><div class="line">  -workspace <span class="string">"&lt;YourName&gt;.xcworkspace"</span> \</div><div class="line">  -scheme <span class="string">"&lt;YourName&gt;"</span> \</div><div class="line">  -destination <span class="string">'platform=iOS Simulator,name=iPhone 6,OS=10.0'</span> \</div><div class="line">  -configuration <span class="string">"Debug"</span> \</div><div class="line">  <span class="built_in">test</span> | xcpretty -t -c -r html &amp;&amp; open -a Google\ Chrome.app build/reports/tests.html</div></pre></td></tr></table></figure>
-</li>
-<li><p>You can also <strong>pipe</strong> above command with other commands such as <strong>open -a Google\ Chrome.app</strong></p>
-</li>
+<ul>
+<li>You can also <strong>pipe</strong> above command with other commands such as <strong>open -a Google\ Chrome.app</strong></li>
 </ul>
 <h4 id="Build-the-archive"><a href="#Build-the-archive" class="headerlink" title="Build the archive"></a>Build the archive</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild</div><div class="line">  -workspace &lt;YourName&gt;.xcworkspace</div><div class="line">  -scheme &lt;YourName&gt;</div><div class="line">  -sdk iphoneos</div><div class="line">  -configuration AppStoreDistribution archive</div><div class="line">  -archivePath ./build/&lt;YourName&gt;.xcarchive</div></pre></td></tr></table></figure>
 <h4 id="Export-ipa-file"><a href="#Export-ipa-file" class="headerlink" title="Export .ipa file"></a>Export .ipa file</h4><p><a href="http://stackoverflow.com/questions/32763288/ios-builds-ipa-creation-no-longer-works-from-the-command-line" target="_blank" rel="external">iOS builds / ipa creation no longer works from the command line</a></p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2016年10月27日 15:29</p>
+        <p>最后更新： 2017年11月26日 00:09</p>
         <p>原始链接： <a class="post-url" href="/2016/10/25/Developing-With-Xcodebuild/" title="Running Xcode From Command Line Tool">http://stephenchen.com/2016/10/25/Developing-With-Xcodebuild/</a></p>
         <footer>
             <a href="http://stephenchen.com">
@@ -249,7 +255,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2016/10/25/Developing-With-Xcodebuild/&title=《Running Xcode From Command Line Tool》 — CLS&source=Speed up iOS development process via Command Line Tools xcodebuild and xcbuild" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2016/10/25/Developing-With-Xcodebuild/&title=《Running Xcode From Command Line Tool》 — CLS&source=Speed up develop process using xcodebuild and xcbuild" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -283,6 +289,13 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Xcode/" class="color1">Xcode</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -292,7 +305,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Check-xcodebuild-exists"><span class="post-toc-text">Check xcodebuild exists</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Detail-of-xcodebuild"><span class="post-toc-text">Detail of xcodebuild</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#First-check-sdks-and-destination"><span class="post-toc-text">First check sdks and destination</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#With-simulator"><span class="post-toc-text">With simulator</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Xcodebuild-with-xcpretty-highly-recommend"><span class="post-toc-text">Xcodebuild with xcpretty (highly recommend)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Build-the-archive"><span class="post-toc-text">Build the archive</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Export-ipa-file"><span class="post-toc-text">Export .ipa file</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Check-xcodebuild-exists"><span class="post-toc-text">Check xcodebuild exists</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Detail-of-xcodebuild"><span class="post-toc-text">Detail of xcodebuild</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#First-check-sdks-and-destination"><span class="post-toc-text">First check sdks and destination</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#With-simulator"><span class="post-toc-text">With simulator</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#With-xcpretty-highly-recommend"><span class="post-toc-text">With xcpretty (highly recommend)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Build-the-archive"><span class="post-toc-text">Build the archive</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Export-ipa-file"><span class="post-toc-text">Export .ipa file</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -376,7 +389,7 @@
             
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
+            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -409,7 +422,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
+            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
         </div>
     </div>
 </div>
