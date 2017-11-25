@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/</loc>
+    
+    <lastmod>2017-11-25T15:59:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stephenchen.com/2017/01/27/Custom-build-in-Sublime-Text-3/</loc>
     
-    <lastmod>2017-11-25T15:50:22.000Z</lastmod>
+    <lastmod>2017-11-25T15:55:55.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://stephenchen.com/2017/08/29/code-%E7%9A%84%E7%9B%B8%E9%97%9C%E5%96%AE%E5%AD%97%E5%88%86%E4%BA%AB/</loc>
     
-    <lastmod>2017-11-25T15:49:56.000Z</lastmod>
+    <lastmod>2017-11-25T15:55:41.000Z</lastmod>
     
   </url>
   
@@ -110,13 +117,6 @@
     <loc>http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/</loc>
     
     <lastmod>2017-04-18T17:00:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/</loc>
-    
-    <lastmod>2017-03-30T16:08:39.000Z</lastmod>
     
   </url>
   
