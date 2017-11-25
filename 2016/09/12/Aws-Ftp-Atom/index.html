@@ -3,22 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>AWS-EC2 + Vsftpd + Atom | CLS</title>
+  <title>AWS-EC2 + vsftpd + Atom | CLS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="StephenChen's Blog" />
   
-  <meta name="description" content="Convenience way for working with service side project . For sake of simplicity，this tutorial will only lead you major steps .">
+  <meta name="description" content="Convenience way for working with service side project。 For sake of simplicity，this tutorial will only lead you major steps。">
+<meta name="keywords" content="aws">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AWS-EC2 + Vsftpd + Atom">
+<meta property="og:title" content="AWS-EC2 + vsftpd + Atom">
 <meta property="og:url" content="http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/index.html">
 <meta property="og:site_name" content="CLS">
-<meta property="og:description" content="Convenience way for working with service side project . For sake of simplicity，this tutorial will only lead you major steps .">
+<meta property="og:description" content="Convenience way for working with service side project。 For sake of simplicity，this tutorial will only lead you major steps。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2016-12-20T02:29:56.000Z">
+<meta property="og:updated_time" content="2017-11-25T15:45:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AWS-EC2 + Vsftpd + Atom">
-<meta name="twitter:description" content="Convenience way for working with service side project . For sake of simplicity，this tutorial will only lead you major steps .">
+<meta name="twitter:title" content="AWS-EC2 + vsftpd + Atom">
+<meta name="twitter:description" content="Convenience way for working with service side project。 For sake of simplicity，this tutorial will only lead you major steps。">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -113,7 +114,7 @@
         
   
     <h1 class="post-title" itemprop="name">
-      AWS-EC2 + Vsftpd + Atom
+      AWS-EC2 + vsftpd + Atom
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -135,25 +136,27 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>Convenience way for working with service side project . For sake of simplicity，this tutorial will only lead you major steps .</p>
+            <p>Convenience way for working with service side project。 For sake of simplicity，this tutorial will only lead you major steps。</p>
 <a id="more"></a>
-<h4 id="OS-Environment"><a href="#OS-Environment" class="headerlink" title="OS Environment"></a>OS Environment</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Mac OS X EI Capitan</div><div class="line">AWS-EC2 Ubuntu 14.04.4 LTS</div></pre></td></tr></table></figure>
-<h4 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h4><ul>
+<h4 id="OS-Environment"><a href="#OS-Environment" class="headerlink" title="OS Environment"></a>OS Environment</h4><blockquote>
+<p>Mac OS X EI Capitan<br>AWS-EC2 Ubuntu 14.04.4 LTS</p>
+</blockquote>
+<h4 id="1-Setup-Atom"><a href="#1-Setup-Atom" class="headerlink" title="1. Setup Atom"></a>1. Setup Atom</h4><ul>
 <li><p>Install <a href="https://atom.io/" target="_blank" rel="external">Atom</a></p>
 </li>
-<li><p>Install Atom packages <a href="https://atom.io/packages/remote-ftp" target="_blank" rel="external">Remote-FTP</a></p>
+<li><p>Install Atom packages <a href="https://atom.io/packages/remote-ftp" target="_blank" rel="external">remote-ftp</a></p>
 </li>
 </ul>
-<h4 id="AWS-EC2"><a href="#AWS-EC2" class="headerlink" title="AWS-EC2"></a>AWS-EC2</h4><ul>
+<h4 id="2-Setup-AWS-EC2"><a href="#2-Setup-AWS-EC2" class="headerlink" title="2. Setup AWS-EC2"></a>2. Setup AWS-EC2</h4><ul>
 <li>Complete tutorial <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html" target="_blank" rel="external">AWS</a></li>
 </ul>
-<h4 id="AWS-Security-Group"><a href="#AWS-Security-Group" class="headerlink" title="AWS Security Group"></a>AWS Security Group</h4><ul>
+<h4 id="3-Setup-AWS-Security-Group"><a href="#3-Setup-AWS-Security-Group" class="headerlink" title="3. Setup AWS Security Group"></a>3. Setup AWS Security Group</h4><ul>
 <li>Add new <strong>Custom TCP Rule</strong> with protocol <strong>TCP</strong> and port range <strong>20 - 21</strong></li>
 <li>Add new <strong>Custom TCP Rule</strong> with protocol <strong>TCP</strong> and port range <strong>13000 - 13100</strong></li>
 </ul>
-<h4 id="Vsftpd"><a href="#Vsftpd" class="headerlink" title="Vsftpd"></a>Vsftpd</h4><p>Connect to your AWS-EC2 via ssh</p>
+<h4 id="4-Setup-vsftpd"><a href="#4-Setup-vsftpd" class="headerlink" title="4. Setup vsftpd"></a>4. Setup vsftpd</h4><p>Connect to AWS-EC2 via ssh</p>
 <ul>
-<li><p>Install <a href="https://en.wikipedia.org/wiki/Vsftpd" target="_blank" rel="external">Vsftpd</a></p>
+<li><p>Install <a href="https://en.wikipedia.org/wiki/Vsftpd" target="_blank" rel="external">vsftpd</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install vsftpd</div></pre></td></tr></table></figure>
 </li>
 <li><p>Modify vsftpd configuration</p>
@@ -184,11 +187,13 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chown root:ftp /home/ftp</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="Combine-AWS-EC2-Vsftpd-Atom"><a href="#Combine-AWS-EC2-Vsftpd-Atom" class="headerlink" title="Combine AWS-EC2 - Vsftpd - Atom"></a>Combine AWS-EC2 - Vsftpd - Atom</h4><ul>
-<li><p>Connect to ftp to check it correctly setup</p>
+<h4 id="5-Final"><a href="#5-Final" class="headerlink" title="5. Final"></a>5. Final</h4><ul>
+<li><p>Combine AWS-EC2 + vsftpd + Atom</p>
+</li>
+<li><p>Ftp your ip and check wether is correct or not?</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ftp &lt;Your Ip&gt;</div><div class="line">#enter your user name and user password</div></pre></td></tr></table></figure>
 </li>
-<li><p>Follow the <a href="https://atom.io/packages/Remote-FTP" target="_blank" rel="external">Getting started</a> section</p>
+<li><p>Follow the <a href="https://atom.io/packages/Remote-FTP" target="_blank" rel="external">getting started</a> section</p>
 </li>
 <li><p>Finish</p>
 </li>
@@ -196,8 +201,8 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2016年12月20日 10:29</p>
-        <p>原始链接： <a class="post-url" href="/2016/09/12/Aws-Ftp-Atom/" title="AWS-EC2 + Vsftpd + Atom">http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/</a></p>
+        <p>最后更新： 2017年11月25日 23:45</p>
+        <p>原始链接： <a class="post-url" href="/2016/09/12/Aws-Ftp-Atom/" title="AWS-EC2 + vsftpd + Atom">http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/</a></p>
         <footer>
             <a href="http://stephenchen.com">
                 <img src="/images/logo.png" alt="Stephen Chen">
@@ -254,7 +259,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/&title=《AWS-EC2 + Vsftpd + Atom》 — CLS&pic=http://stephenchen.comimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/&title=《AWS-EC2 + vsftpd + Atom》 — CLS&pic=http://stephenchen.comimages/logo.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -264,7 +269,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/&title=《AWS-EC2 + Vsftpd + Atom》 — CLS&source=Convenience way for working with service side project . For sake of simplicit..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/&title=《AWS-EC2 + vsftpd + Atom》 — CLS&source=Convenience way for working with service side project。 For sake of simplicity..." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -274,7 +279,7 @@
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AWS-EC2 + Vsftpd + Atom》 — CLS&url=http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/&via=http://stephenchen.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AWS-EC2 + vsftpd + Atom》 — CLS&url=http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/&via=http://stephenchen.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -298,6 +303,13 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/aws/" class="color4">aws</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -307,7 +319,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#OS-Environment"><span class="post-toc-text">OS Environment</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Atom"><span class="post-toc-text">Atom</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#AWS-EC2"><span class="post-toc-text">AWS-EC2</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#AWS-Security-Group"><span class="post-toc-text">AWS Security Group</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Vsftpd"><span class="post-toc-text">Vsftpd</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Combine-AWS-EC2-Vsftpd-Atom"><span class="post-toc-text">Combine AWS-EC2 - Vsftpd - Atom</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#OS-Environment"><span class="post-toc-text">OS Environment</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-Setup-Atom"><span class="post-toc-text">1. Setup Atom</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-Setup-AWS-EC2"><span class="post-toc-text">2. Setup AWS-EC2</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-Setup-AWS-Security-Group"><span class="post-toc-text">3. Setup AWS Security Group</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-Setup-vsftpd"><span class="post-toc-text">4. Setup vsftpd</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-Final"><span class="post-toc-text">5. Final</span></a></li></ol>
         </nav>
     </aside>
     
@@ -386,7 +398,7 @@
             
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a>
+            <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -419,7 +431,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a>
+            <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a>
         </div>
     </div>
 </div>
