@@ -71,16 +71,16 @@
     <link href="http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/"/>
     <id>http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/</id>
     <published>2017-10-10T15:18:41.000Z</published>
-    <updated>2017-11-26T03:49:25.000Z</updated>
+    <updated>2017-11-26T03:53:59.000Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a>
 <p>什麼是 Optimization Level ? 其實跟在 Xcode 是如何 compile files 有關係。</p>
 <p>在 Xcode 裡面分成三種方式 </p>
-<h4 id="1-None"><a href="#1-None" class="headerlink" title="1. None"></a>1. None</h4><p>就是 None …..</p>
-<h4 id="2-Single-File-Optimization"><a href="#2-Single-File-Optimization" class="headerlink" title="2. Single-File Optimization"></a>2. Single-File Optimization</h4><p>Xcode 會把每一個 file 個別 compile，當下一次需要也只會 compile 有更動過的檔案，但問題在於 compile scope 只侷限在同一個 file </p>
+<h3 id="1-None"><a href="#1-None" class="headerlink" title="1. None"></a>1. None</h3><p>就是 None …..</p>
+<h3 id="2-Single-File-Optimization"><a href="#2-Single-File-Optimization" class="headerlink" title="2. Single-File Optimization"></a>2. Single-File Optimization</h3><p>Xcode 會把每一個 file 個別 compile，當下一次需要也只會 compile 有更動過的檔案，但問題在於 compile scope 只侷限在同一個 file </p>
 <p>來看 WWDC 的截圖</p>
 <p><img src="1.png" alt=""></p>
-<h4 id="3-Whole-Module-Optimization"><a href="#3-Whole-Module-Optimization" class="headerlink" title="3. Whole Module Optimization"></a>3. Whole Module Optimization</h4><p>Xcode 7 出現之後才有，原理是 compiler 會一次把你所有的檔案一起 compile </p>
+<h3 id="3-Whole-Module-Optimization"><a href="#3-Whole-Module-Optimization" class="headerlink" title="3. Whole Module Optimization"></a>3. Whole Module Optimization</h3><p>Xcode 7 出現之後才有，原理是 compiler 會一次把你所有的檔案一起 compile </p>
 <p>所以 compile 所花的時間會比較長，但是產生出來的 binaries 會 run 的比較快 <a href="https://useyourloaf.com/blog/swift-whole-module-optimization/" target="_blank" rel="external">(大神的測試)</a></p>
 <p>再來看 WWDC 的截圖</p>
 <p><img src="2.png" alt=""></p>
@@ -95,7 +95,7 @@
       &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;什麼是 Optimization Level ? 其實跟在 Xcode 是如何 compile files 有關係。&lt;/p&gt;
 &lt;p&gt;在 Xcode 裡面分成三種方式 &lt;/p&gt;
-&lt;h4 id=&quot;1-None&quot;&gt;&lt;a href=&quot;#1-Non
+&lt;h3 id=&quot;1-None&quot;&gt;&lt;a href=&quot;#1-Non
     
     </summary>
     
@@ -324,25 +324,25 @@
     <link href="http://stephenchen.com/2017/07/11/Xcode-Visual-Memory-View-Debugger/"/>
     <id>http://stephenchen.com/2017/07/11/Xcode-Visual-Memory-View-Debugger/</id>
     <published>2017-07-11T04:32:45.000Z</published>
-    <updated>2017-11-26T03:49:51.000Z</updated>
+    <updated>2017-11-26T03:54:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>Useful tool for debug memory leak in iOS</p>
-<h1 id="Download-the-porject"><a href="#Download-the-porject" class="headerlink" title="Download the porject"></a>Download the porject</h1><p>I deliberately set memory leaks into below small project.</p>
+<h3 id="Download-the-porject"><a href="#Download-the-porject" class="headerlink" title="Download the porject"></a>Download the porject</h3><p>I deliberately set memory leaks into below small project.</p>
 <p><a href="https://github.com/5SMNOONMS5/xcode_visual_memory_view_debugger" target="_blank" rel="external">Source file</a>,</p>
 <p><a href="https://github.com/5SMNOONMS5/xcode_visual_memory_view_debugger/archive/master.zip" target="_blank" rel="external">Download</a>.</p>
 <p>For this project I just make a simple UITableView with two cells, first one is common <strong>strong retain cycle</strong> and second one is <strong>closure retain cycle</strong>.</p>
-<h1 id="Run-the-project"><a href="#Run-the-project" class="headerlink" title="Run the project"></a>Run the project</h1><p><img src="1.gif" alt="project animation"></p>
-<h1 id="Press-the-Debug-View-Graph"><a href="#Press-the-Debug-View-Graph" class="headerlink" title="Press the [Debug View Graph ]"></a>Press the [Debug View Graph ]</h1><p><img src="6.png" alt="Press the Debug View Graph "></p>
-<h1 id="Press-the-Show-the-issue-navigator-in-project-navigator"><a href="#Press-the-Show-the-issue-navigator-in-project-navigator" class="headerlink" title="Press the [Show the issue navigator] in project navigator"></a>Press the [Show the issue navigator] in project navigator</h1><p><img src="7.png" alt="Show the issue navigator"></p>
+<h3 id="Run-the-project"><a href="#Run-the-project" class="headerlink" title="Run the project"></a>Run the project</h3><p><img src="1.gif" alt="project animation"></p>
+<h3 id="Press-the-Debug-View-Graph"><a href="#Press-the-Debug-View-Graph" class="headerlink" title="Press the [Debug View Graph ]"></a>Press the [Debug View Graph ]</h3><p><img src="6.png" alt="Press the Debug View Graph "></p>
+<h3 id="Press-the-Show-the-issue-navigator-in-project-navigator"><a href="#Press-the-Show-the-issue-navigator-in-project-navigator" class="headerlink" title="Press the [Show the issue navigator] in project navigator"></a>Press the [Show the issue navigator] in project navigator</h3><p><img src="7.png" alt="Show the issue navigator"></p>
 <p>You will see what cause the retain cycle. It’s very easy to diagnosis of memory leak, so now is your time to fix it haha.</p>
-<h1 id="How-to-solve"><a href="#How-to-solve" class="headerlink" title="How to solve"></a>How to solve</h1><p>First one is very easy, just set one of the both to weak reference.</p>
+<h3 id="How-to-solve"><a href="#How-to-solve" class="headerlink" title="How to solve"></a>How to solve</h3><p>First one is very easy, just set one of the both to weak reference.</p>
 <p>Second one I will let this <a href="https://medium.com/compileswift/understanding-memory-leaks-in-closures-48207214cba" target="_blank" rel="external">article</a> explain to you.</p>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;Useful tool for debug memory leak in iOS&lt;/p&gt;
-&lt;h1 id=&quot;Download-the-porject&quot;&gt;&lt;a href=&quot;#Download-the-porject&quot; class=&quot;headerlink&quot; title=&quot;Down
+&lt;h3 id=&quot;Download-the-porject&quot;&gt;&lt;a href=&quot;#Download-the-porject&quot; class=&quot;headerlink&quot; title=&quot;Down
     
     </summary>
     
@@ -407,7 +407,7 @@
     <link href="http://stephenchen.com/2017/04/24/What-is-Podfile-lock/"/>
     <id>http://stephenchen.com/2017/04/24/What-is-Podfile-lock/</id>
     <published>2017-04-24T03:52:44.000Z</published>
-    <updated>2017-11-26T03:49:46.000Z</updated>
+    <updated>2017-11-26T03:54:44.000Z</updated>
     
     <content type="html"><![CDATA[<p>Illustrated explanation of what is Podfile.lock</p>
 <a id="more"></a>
@@ -418,16 +418,16 @@
 <p>Assume that you have basic concept of using <strong><a href="https://guides.cocoapods.org/using/using-cocoapods.html" target="_blank" rel="external">Cocoapods</a></strong></p>
 </blockquote>
 <p>That said after first time run <strong>pod install</strong>, you will generate a file call <strong>Podfile.lock</strong>. First, don’t let that <strong>lock</strong> name confuse you. The purpose of <strong>Podfile.lock</strong> is tracking of every version of every library that <strong>Cocoapods</strong> has installed for you, especially working together with a team. so I copy some screenshots from <a href="https://www.youtube.com/watch?v=H-zK1mEwTe0" target="_blank" rel="external">“CocoaPods and Lockfiles (Route 85)”</a> for easily to explain.</p>
-<h4 id="Pod-install"><a href="#Pod-install" class="headerlink" title="Pod install"></a>Pod install</h4><p>According to the screenshot, run pod install will install <strong>Version 1.3.3 DemoLibrary</strong> on Suzie’s project</p>
+<h3 id="Pod-install"><a href="#Pod-install" class="headerlink" title="Pod install"></a>Pod install</h3><p>According to the screenshot, run pod install will install <strong>Version 1.3.3 DemoLibrary</strong> on Suzie’s project</p>
 <p><img src="podfile-lock-explanation-1.png" alt="podfile-lock-explanation-1.png"></p>
-<h4 id="Fews-days-later-DemoLibrary-update-to-version-1-4-0"><a href="#Fews-days-later-DemoLibrary-update-to-version-1-4-0" class="headerlink" title="Fews days later, DemoLibrary update to version 1.4.0"></a>Fews days later, DemoLibrary update to version 1.4.0</h4><p><img src="podfile-lock-explanation-2.png" alt="podfile-lock-explanation-2.png"></p>
-<h4 id="Your-coworker-Mark-run-pod-install-and-then-version-1-4-0-DemoLibrary-will-show-up-on-Mark’s-project-And-when-you-merge-those-two-project-together-Boom-because-your-project-using-the-feature-on-version-1-3-3-but-not-fit-on-Mark’s-project-which-is-version-1-4-0。"><a href="#Your-coworker-Mark-run-pod-install-and-then-version-1-4-0-DemoLibrary-will-show-up-on-Mark’s-project-And-when-you-merge-those-two-project-together-Boom-because-your-project-using-the-feature-on-version-1-3-3-but-not-fit-on-Mark’s-project-which-is-version-1-4-0。" class="headerlink" title="Your coworker(Mark) run pod install and then version 1.4.0 DemoLibrary will show up on Mark’s project, And when you merge those two project together. Boom, because your project using the feature on version 1.3.3 but not fit on Mark’s project which is version 1.4.0。"></a>Your coworker(Mark) run pod install and then version 1.4.0 DemoLibrary will show up on Mark’s project, And when you merge those two project together. Boom, because your project using the feature on version 1.3.3 but not fit on Mark’s project which is version 1.4.0。</h4><p><img src="podfile-lock-explanation-3.png" alt="podfile-lock-explanation-3.png"></p>
-<h4 id="So-here-is-how-Podfile-lock-work-record-the-version-of-what-Suzie-had-installed-then-cocoapods-will-check-what-version-Suzie-had-installed-and-then-install-on-Mark’s-project。"><a href="#So-here-is-how-Podfile-lock-work-record-the-version-of-what-Suzie-had-installed-then-cocoapods-will-check-what-version-Suzie-had-installed-and-then-install-on-Mark’s-project。" class="headerlink" title="So here is how Podfile.lock work, record the version of what Suzie had installed, then cocoapods will check what version Suzie had installed and then install on Mark’s project。"></a>So here is how Podfile.lock work, record the version of what Suzie had installed, then cocoapods will check what version Suzie had installed and then install on Mark’s project。</h4><p><img src="podfile-lock-explanation-4.png" alt="podfile-lock-explanation-4.png"></p>
-<h4 id="so-if-Mark-run-pod-update-then-Podfile-lock-will-changed-to-version-1-4-0-after-merge-it-will-appear-like-above-error，so-this-is-why-cause-this-error。"><a href="#so-if-Mark-run-pod-update-then-Podfile-lock-will-changed-to-version-1-4-0-after-merge-it-will-appear-like-above-error，so-this-is-why-cause-this-error。" class="headerlink" title="so if Mark run pod update, then Podfile.lock will changed to version 1.4.0, after merge, it will appear like above error，so this is why cause this error。"></a>so if Mark run pod update, then Podfile.lock will changed to version 1.4.0, after merge, it will appear like above error，so this is why cause this error。</h4><p><img src="podfile-lock-explanation-5.png" alt="podfile-lock-explanation-5.png"></p>
-<h4 id="Another-nice-feature-is-cocoapods-will-create-a-snapshot-of-every-library-while-using-source-control"><a href="#Another-nice-feature-is-cocoapods-will-create-a-snapshot-of-every-library-while-using-source-control" class="headerlink" title="Another nice feature is cocoapods will create a snapshot of every library while using source control"></a>Another nice feature is cocoapods will create a snapshot of every library while using source control</h4><p><img src="podfile-lock-explanation-6.png" alt="podfile-lock-explanation-6.png"></p>
-<h4 id="Briefly-here-is-what-I-learn-from-this-video-hope-you-like-it"><a href="#Briefly-here-is-what-I-learn-from-this-video-hope-you-like-it" class="headerlink" title="Briefly, here is what I learn from this video, hope you like it."></a>Briefly, here is what I learn from this video, hope you like it.</h4><p><a href="https://www.youtube.com/watch?v=H-zK1mEwTe0" target="_blank" rel="external">Reference1</a></p>
+<h3 id="Fews-days-later-DemoLibrary-update-to-version-1-4-0"><a href="#Fews-days-later-DemoLibrary-update-to-version-1-4-0" class="headerlink" title="Fews days later, DemoLibrary update to version 1.4.0"></a>Fews days later, DemoLibrary update to version 1.4.0</h3><p><img src="podfile-lock-explanation-2.png" alt="podfile-lock-explanation-2.png"></p>
+<h3 id="Your-coworker-Mark-run-pod-install-and-then-version-1-4-0-DemoLibrary-will-show-up-on-Mark’s-project-And-when-you-merge-those-two-project-together-Boom-because-your-project-using-the-feature-on-version-1-3-3-but-not-fit-on-Mark’s-project-which-is-version-1-4-0。"><a href="#Your-coworker-Mark-run-pod-install-and-then-version-1-4-0-DemoLibrary-will-show-up-on-Mark’s-project-And-when-you-merge-those-two-project-together-Boom-because-your-project-using-the-feature-on-version-1-3-3-but-not-fit-on-Mark’s-project-which-is-version-1-4-0。" class="headerlink" title="Your coworker(Mark) run pod install and then version 1.4.0 DemoLibrary will show up on Mark’s project, And when you merge those two project together. Boom, because your project using the feature on version 1.3.3 but not fit on Mark’s project which is version 1.4.0。"></a>Your coworker(Mark) run pod install and then version 1.4.0 DemoLibrary will show up on Mark’s project, And when you merge those two project together. Boom, because your project using the feature on version 1.3.3 but not fit on Mark’s project which is version 1.4.0。</h3><p><img src="podfile-lock-explanation-3.png" alt="podfile-lock-explanation-3.png"></p>
+<h3 id="So-here-is-how-Podfile-lock-work-record-the-version-of-what-Suzie-had-installed-then-cocoapods-will-check-what-version-Suzie-had-installed-and-then-install-on-Mark’s-project。"><a href="#So-here-is-how-Podfile-lock-work-record-the-version-of-what-Suzie-had-installed-then-cocoapods-will-check-what-version-Suzie-had-installed-and-then-install-on-Mark’s-project。" class="headerlink" title="So here is how Podfile.lock work, record the version of what Suzie had installed, then cocoapods will check what version Suzie had installed and then install on Mark’s project。"></a>So here is how Podfile.lock work, record the version of what Suzie had installed, then cocoapods will check what version Suzie had installed and then install on Mark’s project。</h3><p><img src="podfile-lock-explanation-4.png" alt="podfile-lock-explanation-4.png"></p>
+<h3 id="so-if-Mark-run-pod-update-then-Podfile-lock-will-changed-to-version-1-4-0-after-merge-it-will-appear-like-above-error，so-this-is-why-cause-this-error。"><a href="#so-if-Mark-run-pod-update-then-Podfile-lock-will-changed-to-version-1-4-0-after-merge-it-will-appear-like-above-error，so-this-is-why-cause-this-error。" class="headerlink" title="so if Mark run pod update, then Podfile.lock will changed to version 1.4.0, after merge, it will appear like above error，so this is why cause this error。"></a>so if Mark run pod update, then Podfile.lock will changed to version 1.4.0, after merge, it will appear like above error，so this is why cause this error。</h3><p><img src="podfile-lock-explanation-5.png" alt="podfile-lock-explanation-5.png"></p>
+<h3 id="Another-nice-feature-is-cocoapods-will-create-a-snapshot-of-every-library-while-using-source-control"><a href="#Another-nice-feature-is-cocoapods-will-create-a-snapshot-of-every-library-while-using-source-control" class="headerlink" title="Another nice feature is cocoapods will create a snapshot of every library while using source control"></a>Another nice feature is cocoapods will create a snapshot of every library while using source control</h3><p><img src="podfile-lock-explanation-6.png" alt="podfile-lock-explanation-6.png"></p>
+<h3 id="Briefly-here-is-what-I-learn-from-this-video-hope-you-like-it"><a href="#Briefly-here-is-what-I-learn-from-this-video-hope-you-like-it" class="headerlink" title="Briefly, here is what I learn from this video, hope you like it."></a>Briefly, here is what I learn from this video, hope you like it.</h3><p><a href="https://www.youtube.com/watch?v=H-zK1mEwTe0" target="_blank" rel="external">Reference1</a></p>
 <p><a href="https://guides.cocoapods.org/using/using-cocoapods.html" target="_blank" rel="external">Reference2</a></p>
-<h4 id="If-you-use-Cartfile-instead-of-cocoapods-on-your-project-the-Cartfile-resolved-work-exactly-the-same-as-Podfile-lock"><a href="#If-you-use-Cartfile-instead-of-cocoapods-on-your-project-the-Cartfile-resolved-work-exactly-the-same-as-Podfile-lock" class="headerlink" title="If you use Cartfile instead of cocoapods on your project, the Cartfile.resolved work exactly the same as Podfile.lock"></a>If you use Cartfile instead of cocoapods on your project, the <strong>Cartfile.resolved</strong> work exactly the same as <strong>Podfile.lock</strong></h4>]]></content>
+<h3 id="If-you-use-Cartfile-instead-of-cocoapods-on-your-project-the-Cartfile-resolved-work-exactly-the-same-as-Podfile-lock"><a href="#If-you-use-Cartfile-instead-of-cocoapods-on-your-project-the-Cartfile-resolved-work-exactly-the-same-as-Podfile-lock" class="headerlink" title="If you use Cartfile instead of cocoapods on your project, the Cartfile.resolved work exactly the same as Podfile.lock"></a>If you use Cartfile instead of cocoapods on your project, the <strong>Cartfile.resolved</strong> work exactly the same as <strong>Podfile.lock</strong></h3>]]></content>
     
     <summary type="html">
     
@@ -677,20 +677,20 @@
     <link href="http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/"/>
     <id>http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/</id>
     <published>2017-02-21T08:51:43.000Z</published>
-    <updated>2017-11-26T03:49:30.000Z</updated>
+    <updated>2017-11-26T03:54:22.000Z</updated>
     
     <content type="html"><![CDATA[<p>今天公司剛好要把 原先的 Git Server 轉移到另外一台 Server，於是研究了一下</p>
 <a id="more"></a>
-<h4 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h4><ul>
+<h3 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h3><ul>
 <li>先把<strong>全部</strong>的資源包含tag，Commit 節點，branch 全部都抓到 local 端</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch origin</div></pre></td></tr></table></figure>
-<h4 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h4><ul>
+<h3 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h3><ul>
 <li>檢查一下所有的remote 跟 local branch 是不是都有在 local 端了</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -a</div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* master</div><div class="line">remotes/origin/develop</div><div class="line">remotes/origin/master</div><div class="line">remotes/origin/release</div></pre></td></tr></table></figure>
-<h4 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h4><ul>
+<h3 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h3><ul>
 <li>如果沒有請重新 check out 出來，像上面我們總共有三個 branch ，分別是<strong>develop</strong>，<strong>master</strong>還有 <strong>release</strong>，但是上面只有 <strong>master</strong> 是在 local 端，請在執行下面的指令。</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git checkout -b "local name" "remote name"</span></div><div class="line">git checkout -b develop remotes/origin/master</div><div class="line">git checkout -b release remotes/origin/release</div></pre></td></tr></table></figure>
@@ -702,14 +702,14 @@
 <li>螢幕會顯示</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">develop</div><div class="line">master</div><div class="line">* release</div><div class="line">remotes/origin/develop</div><div class="line">remotes/origin/master</div><div class="line">remotes/origin/release</div></pre></td></tr></table></figure>
-<h4 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h4><ul>
+<h3 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h3><ul>
 <li>把新的 git service 路徑加進去</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add new-origin <span class="string">"新的URL路徑"</span></div></pre></td></tr></table></figure>
 <ul>
 <li><strong>新的URL路徑</strong> 看是要透過 <strong>http</strong> 或者是 <strong>ssh</strong>，<strong>ssh</strong> 方式先加 <strong>public key</strong> 到新的 <strong>git service</strong></li>
 </ul>
-<h4 id="Step-5"><a href="#Step-5" class="headerlink" title="Step 5"></a>Step 5</h4><ul>
+<h3 id="Step-5"><a href="#Step-5" class="headerlink" title="Step 5"></a>Step 5</h3><ul>
 <li><p>都完成之後，請務必上面步驟都要準確，不然到時候少資料就掰惹。</p>
 </li>
 <li><p>接著執行</p>
@@ -720,7 +720,7 @@
 <li>如果有 <strong>tag</strong> 的話</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push --tags new-origin</div></pre></td></tr></table></figure>
-<h4 id="Step-6"><a href="#Step-6" class="headerlink" title="Step 6"></a>Step 6</h4><ul>
+<h3 id="Step-6"><a href="#Step-6" class="headerlink" title="Step 6"></a>Step 6</h3><ul>
 <li><p>到新的 server 看一下 repo 是否成功惹。</p>
 </li>
 <li><p>當確認完成之後，把原本的舊的 server URL <strong>刪除</strong></p>
@@ -731,7 +731,7 @@
 <li>然後再把新的 remote name 改掉變成新的URL路徑</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote rename new-origin origin</div></pre></td></tr></table></figure>
-<h1 id="Git-mirror"><a href="#Git-mirror" class="headerlink" title="Git mirror"></a>Git mirror</h1><blockquote>
+<h3 id="Git-mirror"><a href="#Git-mirror" class="headerlink" title="Git mirror"></a>Git mirror</h3><blockquote>
 <p>2017/04/19 update</p>
 </blockquote>
 <p>無意間同事發了這篇鏈接，覺得比我之前的方法要更簡潔更方便，真後悔沒有提早看到<br><a href="https://dinos80152.wordpress.com/2015/09/21/%E4%BD%BF%E7%94%A8-git-mirror-%E7%84%A1%E7%97%9B%E8%BD%89%E7%A7%BB-git-server/" target="_blank" rel="external">git mirror</a></p>
@@ -854,35 +854,35 @@
     <link href="http://stephenchen.com/2017/01/12/Socket/"/>
     <id>http://stephenchen.com/2017/01/12/Socket/</id>
     <published>2017-01-12T14:41:19.000Z</published>
-    <updated>2017-11-26T03:49:15.000Z</updated>
+    <updated>2017-11-26T03:50:31.000Z</updated>
     
-    <content type="html"><![CDATA[<p>此篇轉自 CocoaAsyncSocket 的 <a href="https://github.com/robbiehanson/CocoaAsyncSocket/wiki/Intro" target="_blank" rel="external">Wiki</a> ， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！</p>
+    <content type="html"><![CDATA[<p>此篇轉自 CocoaAsyncSocket 的 <a href="https://github.com/robbiehanson/CocoaAsyncSocket/wiki/Intro" target="_blank" rel="external">Wiki</a>， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！</p>
 <a id="more"></a>
-<h1 id="Sockets-Ports-and-DNS-Oh-My"><a href="#Sockets-Ports-and-DNS-Oh-My" class="headerlink" title="Sockets, Ports, and DNS - Oh My!"></a>Sockets, Ports, and DNS - Oh My!</h1><p>以網路的術語，一台電腦可能擁有很多的 socket 端口。當兩台電腦要連結，比如從自己的桌機連到 yahoo 的主機，兩台電腦會建立一個連線，從使用者的 socket 端口到 yahoo 主機的 socket 端口，這條連線我們稱它為 <strong>Network connection</strong>。</p>
+<h3 id="Sockets-Ports-and-DNS-Oh-My"><a href="#Sockets-Ports-and-DNS-Oh-My" class="headerlink" title="Sockets, Ports, and DNS - Oh My!"></a>Sockets, Ports, and DNS - Oh My!</h3><p>以網路的術語，一台電腦可能擁有很多的 socket 端口。當兩台電腦要連結，比如從自己的桌機連到 yahoo 的主機，兩台電腦會建立一個連線，從使用者的 socket 端口到 yahoo 主機的 socket 端口，這條連線我們稱它為 <strong>Network connection</strong>。</p>
 <p>要建立這條 Network connection，自己電腦的 socket 必須先得知 yahoo 主機的 socket 端口位置。知道位置才能進行連線，而每個 socket 的組成大致上區分為兩個區塊：一個是 <strong>Ip位址</strong> 另一個是 <strong>Port</strong>。</p>
 <p>而一台主機可以擁有很多個 <strong>Ip位址</strong>，比如可以擁有網卡，數據機，WIFI卡，VPN連線跟藍芽連線…等。另外附帶一提，每台電腦都有一個介面是可以自己呼叫自己的網路介面，通常工程師稱他們為 <strong>localhost</strong>，術語則是 <strong>loopback</strong>。通常 loopback 是去 ping 這台電腦主機的虛擬網卡，一直一直 ping 自己的虛擬網卡，達到一個迴圈的概念，所以稱作 <strong>loopback</strong>。</p>
 <p>那什麼是 DNS 呢。DNS 就好像一本電話簿一樣，如果你要打給某個人，但是你不知道他的電話，你可以打開電話簿來看他的電話號碼。用以上的例子來解釋。假如你要連上 google.com，那你的電腦會先到 DNS 去找 google.com 的 ip address，然後你自己電腦的 socket 就會得知 google.com 的 ip address，這樣就連上並且形成 Network connection。</p>
-<h1 id="Networking"><a href="#Networking" class="headerlink" title="Networking"></a>Networking</h1><p>網路其實有時候不是很可靠的。當你發送一個新的<strong>請求</strong>出去的時候，封包有可能會透過 Wifi, 行動網路或者透過衛星系統。</p>
+<h3 id="Networking"><a href="#Networking" class="headerlink" title="Networking"></a>Networking</h3><p>網路其實有時候不是很可靠的。當你發送一個新的<strong>請求</strong>出去的時候，封包有可能會透過 Wifi, 行動網路或者透過衛星系統。</p>
 <p>所有網路傳遞在傳送和接收的時候都會被切割為很多小的封包，這些封包透過網路到達路由器之後再讓路由器決定這些封包要分配到哪。但是假如網路開始出現問題，封包越傳越多，路由器會開始超過他的負荷。這種很時常發生，所以路由器開始把一些來不及解析的封包丟掉。</p>
 <p>此外也有可能是電腦自己把封包丟掉，當電腦超過負荷的時候，應用程式也有可能沒辦法這麼快速的讀取封包。或者有一些淺在的可能性當這些封包再傳輸的過程中被毀損了。</p>
 <p>如果你剛開始接觸網路，當一切都很正常運行的時候，你會覺得這一切都是奇蹟。</p>
-<h1 id="Bring-on-the-Protocols"><a href="#Bring-on-the-Protocols" class="headerlink" title="Bring on the Protocols"></a>Bring on the Protocols</h1><p>網路世界有一大堆的 Protocols (協議)，協議就好像是有一位女生答應我的告白，但是要成為她男朋友必須要有某些條件，比如我星期一，三，五要吃雞排。二，四，六要喝珍奶，必須要遵守這些條件才可以當她男朋友。那回到議題上，網路也是一樣，當我要建立 Network connection，那我首先要先遵守條件才可能建立連線，以下這些被列出來的 範例 (Protocols) 我們稱它為 <strong>應用層</strong></p>
+<h3 id="Bring-on-the-Protocols"><a href="#Bring-on-the-Protocols" class="headerlink" title="Bring on the Protocols"></a>Bring on the Protocols</h3><p>網路世界有一大堆的 Protocols (協議)，協議就好像是有一位女生答應我的告白，但是要成為她男朋友必須要有某些條件，比如我星期一，三，五要吃雞排。二，四，六要喝珍奶，必須要遵守這些條件才可以當她男朋友。那回到議題上，網路也是一樣，當我要建立 Network connection，那我首先要先遵守條件才可能建立連線，以下這些被列出來的 範例 (Protocols) 我們稱它為 <strong>應用層</strong></p>
 <blockquote>
 <p>HTTP, FTP, XMPP, POP, IMAP, SMTP, DHCP, DNS, VoIP, SIP, RTP, RTCP …etc</p>
 </blockquote>
 <p>但以上所有的 應用層 都是建立在另外一種 Protocols 上，我們稱它為 <strong>傳輸層</strong>。傳輸層是專門管理 網路方面的，但在這個 <strong>CocoaAsyncSocket專案</strong> 我們只會用到 <strong>UDP</strong> 跟 <strong>TCP</strong> 兩種。</p>
-<h4 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h4><p><strong>User Datagram Protocol (UDP)</strong> 相對於 TCP 來說他比較簡單，UDP只能傳送比較小的封包，然後透過 socket 傳過去到指定目的地，然後…….沒了！就好像你出發到德國去，只買單程機票。而且也不保證順利到得了目的地。如果你傳送十個封包，然後也不保證他們是依照順序到達。但… UDP 缺點也是 UDP 的優點，比如今天你要打電話或者使用視訊功能，你不想要你的網路花時間在處理那些在中間不小心失去的封包，舉例來說今天你在觀看一位當紅主播的視屏，她表演了吃麵，過了一陣子表演了喝湯，如果這時候剛好吃麵的封包被解析回來了出現在喝湯的畫面，那不就變得很怪嗎？</p>
+<h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><p><strong>User Datagram Protocol (UDP)</strong> 相對於 TCP 來說他比較簡單，UDP只能傳送比較小的封包，然後透過 socket 傳過去到指定目的地，然後…….沒了！就好像你出發到德國去，只買單程機票。而且也不保證順利到得了目的地。如果你傳送十個封包，然後也不保證他們是依照順序到達。但… UDP 缺點也是 UDP 的優點，比如今天你要打電話或者使用視訊功能，你不想要你的網路花時間在處理那些在中間不小心失去的封包，舉例來說今天你在觀看一位當紅主播的視屏，她表演了吃麵，過了一陣子表演了喝湯，如果這時候剛好吃麵的封包被解析回來了出現在喝湯的畫面，那不就變得很怪嗎？</p>
 <p>UDP 還有另外一項優點，他並不用實作 <strong>Connection Handshake</strong>。Handshake 其實很複雜，但長話短說來解釋就是，互相確認一下雙方的個人資料。又舉了吃麵的例子，我今天到了麵店要點一碗陽春麵，我先批哩啪拉的問過老闆的身世，老闆幾歲啊？住哪啊？你有沒有女兒啊？先把一些該有的資訊都得到之後才說：我要一碗陽春麵，就不能直接說嗎？所以 UDP 不做 handshake 可以加速他來回通訊的時間，但缺點就是不安全。</p>
-<h4 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h4><p><strong>Transmission Control Protocol (TCP)</strong>，這應該是我們最常用的協議了。當你上網，確認e-mail，或者聊天幾乎都在使用。</p>
+<h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p><strong>Transmission Control Protocol (TCP)</strong>，這應該是我們最常用的協議了。當你上網，確認e-mail，或者聊天幾乎都在使用。</p>
 <p>TCP 被設計專門給那些 <strong>較長的通訊</strong> 來使用，一開始 TCP 會先實作 <strong> Connection handshake</strong>，然後 封包便會開始傳遞。最棒的事情是 TCP 也被設計來專門連現在那些比較不穩定的網路上，他會做了很多 cool things for us 。比如你在傳送的途中失去了封包，程式會自己找出哪些封包失去並且重新傳送一次，而且保證你的訊息是一定會傳送到，而且也會依造順序傳送，不會像 UDP 一樣。</p>
 <p>附帶一提，TCP 沒有傳送的上限。</p>
-<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>看完之後 什麼時候開始用 TCP 什麼時候該使用 UDP，也許留點空間給你思考。接著當然要推薦一下 CocoaAsyncSocket 拉，他們其實提供很多很棒的 Api 讓你不用去思考網路方面的問題，但網路還是處處充滿危機。</p>
-<h1 id="更多參考"><a href="#更多參考" class="headerlink" title="更多參考"></a>更多參考</h1><p><a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol" target="_blank" rel="external">Wiki</a></p>
+<h3 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h3><p>看完之後 什麼時候開始用 TCP 什麼時候該使用 UDP，也許留點空間給你思考。接著當然要推薦一下 CocoaAsyncSocket 拉，他們其實提供很多很棒的 Api 讓你不用去思考網路方面的問題，但網路還是處處充滿危機。</p>
+<h3 id="更多參考"><a href="#更多參考" class="headerlink" title="更多參考"></a>更多參考</h3><p><a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol" target="_blank" rel="external">Wiki</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;此篇轉自 CocoaAsyncSocket 的 &lt;a href=&quot;https://github.com/robbiehanson/CocoaAsyncSocket/wiki/Intro&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wiki&lt;/a&gt; ， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！&lt;/p&gt;
+      &lt;p&gt;此篇轉自 CocoaAsyncSocket 的 &lt;a href=&quot;https://github.com/robbiehanson/CocoaAsyncSocket/wiki/Intro&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wiki&lt;/a&gt;， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！&lt;/p&gt;
     
     </summary>
     
@@ -896,30 +896,29 @@
     <link href="http://stephenchen.com/2016/12/21/Swift-3-access-control/"/>
     <id>http://stephenchen.com/2016/12/21/Swift-3-access-control/</id>
     <published>2016-12-21T10:28:39.000Z</published>
-    <updated>2017-11-26T03:33:20.000Z</updated>
+    <updated>2017-11-26T03:50:59.000Z</updated>
     
-    <content type="html"><![CDATA[<p>A diagram for open, public, private, fileprivate access level</p>
+    <content type="html"><![CDATA[<p>A diagram for open, public, private, fileprivate access level for swfit 3</p>
 <a id="more"></a>
 <p><img src="swift3-access-control.png" alt="swift3-access-control"></p>
-<p>In words</p>
-<h1 id="open"><a href="#open" class="headerlink" title="open"></a>open</h1><ul>
+<h3 id="open"><a href="#open" class="headerlink" title="open"></a>open</h3><ul>
 <li>An open class is accessible and subclassable outside of the defining module. An open class member is accessible and overridable outside of the defining module.</li>
 </ul>
-<h1 id="public"><a href="#public" class="headerlink" title="public"></a>public</h1><ul>
+<h3 id="public"><a href="#public" class="headerlink" title="public"></a>public</h3><ul>
 <li>A public class is accessible but not subclassable outside of the defining module. A public class member is accessible but not overridable outside of the defining module.</li>
 </ul>
-<h1 id="private"><a href="#private" class="headerlink" title="private"></a>private</h1><ul>
+<h3 id="private"><a href="#private" class="headerlink" title="private"></a>private</h3><ul>
 <li>The private foo method is accessible only within the scope of the class A { … } definition. It is not even accessible from an extension to the type.</li>
 </ul>
-<h1 id="fileprivate"><a href="#fileprivate" class="headerlink" title="fileprivate"></a>fileprivate</h1><ul>
+<h3 id="fileprivate"><a href="#fileprivate" class="headerlink" title="fileprivate"></a>fileprivate</h3><ul>
 <li>The file-private bar method is accessible from the same source file.</li>
 </ul>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html" target="_blank" rel="external">reference</a><br><a href="http://stackoverflow.com/questions/39027250/what-is-a-good-example-to-differentiate-between-fileprivate-and-private-in-swift/41261058#41261058" target="_blank" rel="external">Stack overflow about private and fileprivate</a></p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html" target="_blank" rel="external">reference</a><br><a href="http://stackoverflow.com/questions/39027250/what-is-a-good-example-to-differentiate-between-fileprivate-and-private-in-swift/41261058#41261058" target="_blank" rel="external">Stack overflow about private and fileprivate</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;A diagram for open, public, private, fileprivate access level&lt;/p&gt;
+      &lt;p&gt;A diagram for open, public, private, fileprivate access level for swfit 3&lt;/p&gt;
     
     </summary>
     
@@ -929,47 +928,51 @@
   </entry>
   
   <entry>
-    <title>Swift Code Conventions Helper And Document Generator</title>
+    <title>Swift Code Conventions And Documenter</title>
     <link href="http://stephenchen.com/2016/12/20/Swift-Code-Conventions-Helper-And-Documentor/"/>
     <id>http://stephenchen.com/2016/12/20/Swift-Code-Conventions-Helper-And-Documentor/</id>
     <published>2016-12-20T02:29:31.000Z</published>
-    <updated>2017-11-26T03:49:21.000Z</updated>
+    <updated>2017-11-26T03:53:48.000Z</updated>
     
-    <content type="html"><![CDATA[<p>A way to cheat time from Project Manager</p>
+    <content type="html"><![CDATA[<p>A way to get more time from Project Manager</p>
 <a id="more"></a>
-<p>Code Conventions and Code Document had been part of my big problems , until <a href="https://realm.io/" target="_blank" rel="external">Realm</a> released two great tools which are <a href="https://github.com/realm/SwiftLint" target="_blank" rel="external">SwiftLint</a> and <a href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy</a></p>
-<h1 id="Jazzy"><a href="#Jazzy" class="headerlink" title="Jazzy"></a>Jazzy</h1><p>A command-line utility that generates documentation for Swift or Objective-C . I will provide very simple use here</p>
-<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[sudo] gem install jazzy</div></pre></td></tr></table></figure>
-<h4 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h4><p>Remember to replace the text inside angle brackets , assume you have <a href="https://cocoapods.org/" target="_blank" rel="external">cocoapods</a> install</p>
+<p>Code Conventions and Documenter had been part of my big problems， until <a href="https://realm.io/" target="_blank" rel="external">Realm</a> released two great tools <a href="https://github.com/realm/SwiftLint" target="_blank" rel="external">SwiftLint</a> and <a href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy</a>。</p>
+<h3 id="Jazzy"><a href="#Jazzy" class="headerlink" title="Jazzy"></a>Jazzy</h3><p>A command-line utility that generates documentation for Swift or Objective-C . I will provide very simple use here</p>
+<h5 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[sudo] gem install jazzy</div></pre></td></tr></table></figure>
+<h5 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h5><p>Remember to replace the text inside angle brackets , assume you have <a href="https://cocoapods.org/" target="_blank" rel="external">cocoapods</a> install</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">jazzy \</div><div class="line">  --clean \</div><div class="line">  --xcodebuild-arguments -workspace,&lt;PROJECT&gt;.xcworkspace,-scheme,&lt;SCHEME&gt; \</div><div class="line">  --min-acl internal \</div><div class="line">  --author &lt;NAME&gt; \</div><div class="line">  --theme apple \</div><div class="line">  --author_url &lt;URL&gt; \</div><div class="line">  --github_url &lt;URL&gt; \</div><div class="line">  --module-version &lt;VERSION&gt; \</div><div class="line">  --output docs/index.html</div></pre></td></tr></table></figure>
-<p>If you don’t have <a href="https://cocoapods.org/" target="_blank" rel="external">cocoapods</a> , change above code from<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--xcodebuild-arguments -workspace,&lt;PROJECT&gt;.xcworkspace,-scheme,&lt;SCHEME&gt; \</div></pre></td></tr></table></figure></p>
-<p>To<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--xcodebuild-arguments -project,&lt;PROJECT&gt;.xcodeproj,-scheme,&lt;SCHEME&gt; \</div></pre></td></tr></table></figure></p>
-<h4 id="Success"><a href="#Success" class="headerlink" title="Success"></a>Success</h4><p>♪♫ ♪♫ ♪♫ ♪♫  </p>
+<p>If you don’t have <a href="https://cocoapods.org/" target="_blank" rel="external">cocoapods</a> , change above code from  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--xcodebuild-arguments -workspace,&lt;PROJECT&gt;.xcworkspace,-scheme,&lt;SCHEME&gt; \</div></pre></td></tr></table></figure>
+<p>To</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--xcodebuild-arguments -project,&lt;PROJECT&gt;.xcodeproj,-scheme,&lt;SCHEME&gt; \</div></pre></td></tr></table></figure>
+<h5 id="Success"><a href="#Success" class="headerlink" title="Success"></a>Success</h5><p>♪♫ ♪♫ ♪♫ ♪♫  </p>
 <p><img src="jazzy.gif" alt="jszzy"></p>
 <p>Fro advance usage and more detail , please head to <a href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy</a> or type jazzy -h</p>
-<h1 id="SwiftLint"><a href="#SwiftLint" class="headerlink" title="SwiftLint"></a>SwiftLint</h1><p>A tool to enforce Swift style and conventions. This is great for entire iOS team write a unified style code .</p>
-<h4 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a>Install</h4><p>Here use <a href="http://brew.sh/" target="_blank" rel="external">homebrew</a> to install<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install swiftlint</div></pre></td></tr></table></figure></p>
-<h4 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a>Usage</h4><p>Add below code to xcode run script , then run the project .</p>
+<h3 id="SwiftLint"><a href="#SwiftLint" class="headerlink" title="SwiftLint"></a>SwiftLint</h3><p>A tool to enforce Swift style and conventions. This is great for entire iOS team write a unified style code .</p>
+<h5 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a>Install</h5><p>Here use <a href="http://brew.sh/" target="_blank" rel="external">homebrew</a> to install</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install swiftlint</div></pre></td></tr></table></figure>
+<h5 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a>Usage</h5><p>Add below code into your xcode run script， then run the project。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> which swiftlint &gt;/dev/null; then</div><div class="line">    swiftlint</div><div class="line"><span class="keyword">else</span></div><div class="line">    echo <span class="string">"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"</span></div><div class="line">fi</div></pre></td></tr></table></figure>
 <p><img src="swiftlint.gif" alt="homebrew"></p>
-<h4 id="Understanding"><a href="#Understanding" class="headerlink" title="Understanding"></a>Understanding</h4><p>You will probably see lots of warning and here I pick line 17 <strong>syntactic_sugar</strong> warning</p>
+<h5 id="Understanding"><a href="#Understanding" class="headerlink" title="Understanding"></a>Understanding</h5><p>You will probably see lots of warning and here I pick line 17 <strong>syntactic_sugar</strong> warning</p>
 <p><img src="warning1.png" alt="warning picture"></p>
-<p>First let us parse the warning . All the warning and error combine follow the syntax<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">description (rules_name)</div></pre></td></tr></table></figure></p>
+<p>First let us parse the warning . All the warning and error combine follow the syntax</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">description (rules_name)</div></pre></td></tr></table></figure>
 <p>So this warning is call <strong>syntactic_sugar</strong> and <strong>“Shorthand syntactic sugar should be used, i.e. [Int] instead of Array<int>“</int></strong> is the description of <strong>syntactic_sugar</strong> , you can fix it by what description suggested .</p>
-<h4 id="Customize-your-own"><a href="#Customize-your-own" class="headerlink" title="Customize your own"></a>Customize your own</h4><p>First: You can see all the rules <a href="https://github.com/realm/SwiftLint/tree/master/Source/SwiftLintFramework/Rules" target="_blank" rel="external">here</a></p>
+<h5 id="Customize-your-own"><a href="#Customize-your-own" class="headerlink" title="Customize your own"></a>Customize your own</h5><p>First: You can see all the rules <a href="https://github.com/realm/SwiftLint/tree/master/Source/SwiftLintFramework/Rules" target="_blank" rel="external">here</a></p>
 <p>Second: Add .swiftlint.yml under the project folder , then copy the code and fill each respectively .</p>
 <script src="https://gist.github.com/5SMNOONMS5/f25219b5407eba652063f161eb712782.js"></script>
 
 <p>run again</p>
 <p><img src="warning2.png" alt="warning2 picture"></p>
-<p>see? The warning disappear , I add <strong>syntactic_sugar</strong> to disabled_rules .</p>
+<p>see? The warning disappear , I add <strong>syntactic_sugar</strong> to disabled_rules 。</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># rule identifiers to exclude from running</span></div><div class="line"><span class="attr">disabled_rules:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">syntactic_sugar</span></div><div class="line"><span class="bullet">  -</span> <span class="string">colon</span></div><div class="line"><span class="bullet">  -</span> <span class="string">todo</span></div><div class="line"><span class="bullet">  -</span> <span class="string">empty_count</span></div><div class="line"><span class="bullet">  -</span> <span class="string">trailing_whitespace</span></div></pre></td></tr></table></figure>
-<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>It is always necessary to have effective tools .</p>
+<h5 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h5><p>It is always necessary to have effective tools .</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;A way to cheat time from Project Manager&lt;/p&gt;
+      &lt;p&gt;A way to get more time from Project Manager&lt;/p&gt;
     
     </summary>
     
@@ -983,7 +986,7 @@
     <link href="http://stephenchen.com/2016/12/16/Unrecognized-selector/"/>
     <id>http://stephenchen.com/2016/12/16/Unrecognized-selector/</id>
     <published>2016-12-16T03:37:09.000Z</published>
-    <updated>2017-11-26T03:49:41.000Z</updated>
+    <updated>2017-11-26T03:54:27.000Z</updated>
     
     <content type="html"><![CDATA[<p>Provide easy way to solve this horrible problem</p>
 <a id="more"></a>

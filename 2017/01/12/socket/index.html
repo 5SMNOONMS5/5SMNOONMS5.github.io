@@ -8,18 +8,18 @@
   
     <meta name="keywords" content="StephenChen's Blog" />
   
-  <meta name="description" content="此篇轉自 CocoaAsyncSocket 的 Wiki ， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！">
+  <meta name="description" content="此篇轉自 CocoaAsyncSocket 的 Wiki， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！">
 <meta name="keywords" content="network">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sockets">
 <meta property="og:url" content="http://stephenchen.com/2017/01/12/Socket/index.html">
 <meta property="og:site_name" content="CLS">
-<meta property="og:description" content="此篇轉自 CocoaAsyncSocket 的 Wiki ， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！">
+<meta property="og:description" content="此篇轉自 CocoaAsyncSocket 的 Wiki， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-26T03:49:15.000Z">
+<meta property="og:updated_time" content="2017-11-26T03:50:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sockets">
-<meta name="twitter:description" content="此篇轉自 CocoaAsyncSocket 的 Wiki ， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！">
+<meta name="twitter:description" content="此篇轉自 CocoaAsyncSocket 的 Wiki， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -136,32 +136,32 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>此篇轉自 CocoaAsyncSocket 的 <a href="https://github.com/robbiehanson/CocoaAsyncSocket/wiki/Intro" target="_blank" rel="external">Wiki</a> ， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！</p>
+            <p>此篇轉自 CocoaAsyncSocket 的 <a href="https://github.com/robbiehanson/CocoaAsyncSocket/wiki/Intro" target="_blank" rel="external">Wiki</a>， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！</p>
 <a id="more"></a>
-<h1 id="Sockets-Ports-and-DNS-Oh-My"><a href="#Sockets-Ports-and-DNS-Oh-My" class="headerlink" title="Sockets, Ports, and DNS - Oh My!"></a>Sockets, Ports, and DNS - Oh My!</h1><p>以網路的術語，一台電腦可能擁有很多的 socket 端口。當兩台電腦要連結，比如從自己的桌機連到 yahoo 的主機，兩台電腦會建立一個連線，從使用者的 socket 端口到 yahoo 主機的 socket 端口，這條連線我們稱它為 <strong>Network connection</strong>。</p>
+<h3 id="Sockets-Ports-and-DNS-Oh-My"><a href="#Sockets-Ports-and-DNS-Oh-My" class="headerlink" title="Sockets, Ports, and DNS - Oh My!"></a>Sockets, Ports, and DNS - Oh My!</h3><p>以網路的術語，一台電腦可能擁有很多的 socket 端口。當兩台電腦要連結，比如從自己的桌機連到 yahoo 的主機，兩台電腦會建立一個連線，從使用者的 socket 端口到 yahoo 主機的 socket 端口，這條連線我們稱它為 <strong>Network connection</strong>。</p>
 <p>要建立這條 Network connection，自己電腦的 socket 必須先得知 yahoo 主機的 socket 端口位置。知道位置才能進行連線，而每個 socket 的組成大致上區分為兩個區塊：一個是 <strong>Ip位址</strong> 另一個是 <strong>Port</strong>。</p>
 <p>而一台主機可以擁有很多個 <strong>Ip位址</strong>，比如可以擁有網卡，數據機，WIFI卡，VPN連線跟藍芽連線…等。另外附帶一提，每台電腦都有一個介面是可以自己呼叫自己的網路介面，通常工程師稱他們為 <strong>localhost</strong>，術語則是 <strong>loopback</strong>。通常 loopback 是去 ping 這台電腦主機的虛擬網卡，一直一直 ping 自己的虛擬網卡，達到一個迴圈的概念，所以稱作 <strong>loopback</strong>。</p>
 <p>那什麼是 DNS 呢。DNS 就好像一本電話簿一樣，如果你要打給某個人，但是你不知道他的電話，你可以打開電話簿來看他的電話號碼。用以上的例子來解釋。假如你要連上 google.com，那你的電腦會先到 DNS 去找 google.com 的 ip address，然後你自己電腦的 socket 就會得知 google.com 的 ip address，這樣就連上並且形成 Network connection。</p>
-<h1 id="Networking"><a href="#Networking" class="headerlink" title="Networking"></a>Networking</h1><p>網路其實有時候不是很可靠的。當你發送一個新的<strong>請求</strong>出去的時候，封包有可能會透過 Wifi, 行動網路或者透過衛星系統。</p>
+<h3 id="Networking"><a href="#Networking" class="headerlink" title="Networking"></a>Networking</h3><p>網路其實有時候不是很可靠的。當你發送一個新的<strong>請求</strong>出去的時候，封包有可能會透過 Wifi, 行動網路或者透過衛星系統。</p>
 <p>所有網路傳遞在傳送和接收的時候都會被切割為很多小的封包，這些封包透過網路到達路由器之後再讓路由器決定這些封包要分配到哪。但是假如網路開始出現問題，封包越傳越多，路由器會開始超過他的負荷。這種很時常發生，所以路由器開始把一些來不及解析的封包丟掉。</p>
 <p>此外也有可能是電腦自己把封包丟掉，當電腦超過負荷的時候，應用程式也有可能沒辦法這麼快速的讀取封包。或者有一些淺在的可能性當這些封包再傳輸的過程中被毀損了。</p>
 <p>如果你剛開始接觸網路，當一切都很正常運行的時候，你會覺得這一切都是奇蹟。</p>
-<h1 id="Bring-on-the-Protocols"><a href="#Bring-on-the-Protocols" class="headerlink" title="Bring on the Protocols"></a>Bring on the Protocols</h1><p>網路世界有一大堆的 Protocols (協議)，協議就好像是有一位女生答應我的告白，但是要成為她男朋友必須要有某些條件，比如我星期一，三，五要吃雞排。二，四，六要喝珍奶，必須要遵守這些條件才可以當她男朋友。那回到議題上，網路也是一樣，當我要建立 Network connection，那我首先要先遵守條件才可能建立連線，以下這些被列出來的 範例 (Protocols) 我們稱它為 <strong>應用層</strong></p>
+<h3 id="Bring-on-the-Protocols"><a href="#Bring-on-the-Protocols" class="headerlink" title="Bring on the Protocols"></a>Bring on the Protocols</h3><p>網路世界有一大堆的 Protocols (協議)，協議就好像是有一位女生答應我的告白，但是要成為她男朋友必須要有某些條件，比如我星期一，三，五要吃雞排。二，四，六要喝珍奶，必須要遵守這些條件才可以當她男朋友。那回到議題上，網路也是一樣，當我要建立 Network connection，那我首先要先遵守條件才可能建立連線，以下這些被列出來的 範例 (Protocols) 我們稱它為 <strong>應用層</strong></p>
 <blockquote>
 <p>HTTP, FTP, XMPP, POP, IMAP, SMTP, DHCP, DNS, VoIP, SIP, RTP, RTCP …etc</p>
 </blockquote>
 <p>但以上所有的 應用層 都是建立在另外一種 Protocols 上，我們稱它為 <strong>傳輸層</strong>。傳輸層是專門管理 網路方面的，但在這個 <strong>CocoaAsyncSocket專案</strong> 我們只會用到 <strong>UDP</strong> 跟 <strong>TCP</strong> 兩種。</p>
-<h4 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h4><p><strong>User Datagram Protocol (UDP)</strong> 相對於 TCP 來說他比較簡單，UDP只能傳送比較小的封包，然後透過 socket 傳過去到指定目的地，然後…….沒了！就好像你出發到德國去，只買單程機票。而且也不保證順利到得了目的地。如果你傳送十個封包，然後也不保證他們是依照順序到達。但… UDP 缺點也是 UDP 的優點，比如今天你要打電話或者使用視訊功能，你不想要你的網路花時間在處理那些在中間不小心失去的封包，舉例來說今天你在觀看一位當紅主播的視屏，她表演了吃麵，過了一陣子表演了喝湯，如果這時候剛好吃麵的封包被解析回來了出現在喝湯的畫面，那不就變得很怪嗎？</p>
+<h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><p><strong>User Datagram Protocol (UDP)</strong> 相對於 TCP 來說他比較簡單，UDP只能傳送比較小的封包，然後透過 socket 傳過去到指定目的地，然後…….沒了！就好像你出發到德國去，只買單程機票。而且也不保證順利到得了目的地。如果你傳送十個封包，然後也不保證他們是依照順序到達。但… UDP 缺點也是 UDP 的優點，比如今天你要打電話或者使用視訊功能，你不想要你的網路花時間在處理那些在中間不小心失去的封包，舉例來說今天你在觀看一位當紅主播的視屏，她表演了吃麵，過了一陣子表演了喝湯，如果這時候剛好吃麵的封包被解析回來了出現在喝湯的畫面，那不就變得很怪嗎？</p>
 <p>UDP 還有另外一項優點，他並不用實作 <strong>Connection Handshake</strong>。Handshake 其實很複雜，但長話短說來解釋就是，互相確認一下雙方的個人資料。又舉了吃麵的例子，我今天到了麵店要點一碗陽春麵，我先批哩啪拉的問過老闆的身世，老闆幾歲啊？住哪啊？你有沒有女兒啊？先把一些該有的資訊都得到之後才說：我要一碗陽春麵，就不能直接說嗎？所以 UDP 不做 handshake 可以加速他來回通訊的時間，但缺點就是不安全。</p>
-<h4 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h4><p><strong>Transmission Control Protocol (TCP)</strong>，這應該是我們最常用的協議了。當你上網，確認e-mail，或者聊天幾乎都在使用。</p>
+<h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p><strong>Transmission Control Protocol (TCP)</strong>，這應該是我們最常用的協議了。當你上網，確認e-mail，或者聊天幾乎都在使用。</p>
 <p>TCP 被設計專門給那些 <strong>較長的通訊</strong> 來使用，一開始 TCP 會先實作 <strong> Connection handshake</strong>，然後 封包便會開始傳遞。最棒的事情是 TCP 也被設計來專門連現在那些比較不穩定的網路上，他會做了很多 cool things for us 。比如你在傳送的途中失去了封包，程式會自己找出哪些封包失去並且重新傳送一次，而且保證你的訊息是一定會傳送到，而且也會依造順序傳送，不會像 UDP 一樣。</p>
 <p>附帶一提，TCP 沒有傳送的上限。</p>
-<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>看完之後 什麼時候開始用 TCP 什麼時候該使用 UDP，也許留點空間給你思考。接著當然要推薦一下 CocoaAsyncSocket 拉，他們其實提供很多很棒的 Api 讓你不用去思考網路方面的問題，但網路還是處處充滿危機。</p>
-<h1 id="更多參考"><a href="#更多參考" class="headerlink" title="更多參考"></a>更多參考</h1><p><a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol" target="_blank" rel="external">Wiki</a></p>
+<h3 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h3><p>看完之後 什麼時候開始用 TCP 什麼時候該使用 UDP，也許留點空間給你思考。接著當然要推薦一下 CocoaAsyncSocket 拉，他們其實提供很多很棒的 Api 讓你不用去思考網路方面的問題，但網路還是處處充滿危機。</p>
+<h3 id="更多參考"><a href="#更多參考" class="headerlink" title="更多參考"></a>更多參考</h3><p><a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol" target="_blank" rel="external">Wiki</a></p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年11月26日 11:49</p>
+        <p>最后更新： 2017年11月26日 11:50</p>
         <p>原始链接： <a class="post-url" href="/2017/01/12/Socket/" title="Sockets">http://stephenchen.com/2017/01/12/Socket/</a></p>
         <footer>
             <a href="http://stephenchen.com">
@@ -229,7 +229,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2017/01/12/Socket/&title=《Sockets》 — CLS&source=此篇轉自 CocoaAsyncSocket 的 Wiki ， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2017/01/12/Socket/&title=《Sockets》 — CLS&source=此篇轉自 CocoaAsyncSocket 的 Wiki， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -279,7 +279,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Sockets-Ports-and-DNS-Oh-My"><span class="post-toc-text">Sockets, Ports, and DNS - Oh My!</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Networking"><span class="post-toc-text">Networking</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Bring-on-the-Protocols"><span class="post-toc-text">Bring on the Protocols</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#UDP"><span class="post-toc-text">UDP</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#TCP"><span class="post-toc-text">TCP</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#結論"><span class="post-toc-text">結論</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#更多參考"><span class="post-toc-text">更多參考</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Sockets-Ports-and-DNS-Oh-My"><span class="post-toc-text">Sockets, Ports, and DNS - Oh My!</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Networking"><span class="post-toc-text">Networking</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Bring-on-the-Protocols"><span class="post-toc-text">Bring on the Protocols</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#UDP"><span class="post-toc-text">UDP</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TCP"><span class="post-toc-text">TCP</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#結論"><span class="post-toc-text">結論</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更多參考"><span class="post-toc-text">更多參考</span></a></li></ol>
         </nav>
     </aside>
     
