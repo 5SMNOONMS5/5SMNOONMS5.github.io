@@ -863,7 +863,7 @@
     <link href="http://stephenchen.com/2017/01/12/Socket/"/>
     <id>http://stephenchen.com/2017/01/12/Socket/</id>
     <published>2017-01-12T14:41:19.000Z</published>
-    <updated>2017-11-26T04:20:28.000Z</updated>
+    <updated>2017-11-26T04:23:12.000Z</updated>
     
     <content type="html"><![CDATA[<p>此篇轉自 CocoaAsyncSocket 的 <a href="https://github.com/robbiehanson/CocoaAsyncSocket/wiki/Intro" target="_blank" rel="external">Wiki</a>， 介紹 Socket 的基本概要，並加上我自己個人的一些想法！</p>
 <a id="more"></a>
@@ -896,7 +896,7 @@
     </summary>
     
     
-      <category term="ios" scheme="http://stephenchen.com/tags/ios/"/>
+      <category term="network" scheme="http://stephenchen.com/tags/network/"/>
     
   </entry>
   
