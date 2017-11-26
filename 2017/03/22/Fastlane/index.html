@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://stephenchen.com/2017/03/22/Fastlane/bash_architecture.png">
 <meta property="og:image" content="http://stephenchen.com/2017/03/22/Fastlane/archive.png">
 <meta property="og:image" content="http://stephenchen.com/2017/03/22/Fastlane/opensslfail.png">
-<meta property="og:updated_time" content="2017-11-26T02:47:36.000Z">
+<meta property="og:updated_time" content="2017-11-26T02:56:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Integrate With Fastlane And Bash-Script">
 <meta name="twitter:description" content="利用 fastlane + script 一鍵產出 .ipa 檔。">
@@ -161,17 +161,16 @@
 <h2 id="步驟2：Fastlane-初始化設定"><a href="#步驟2：Fastlane-初始化設定" class="headerlink" title="步驟2：Fastlane 初始化設定"></a>步驟2：Fastlane 初始化設定</h2><ul>
 <li>第一種：(建議）</li>
 </ul>
-<blockquote>
 <p>透過 <a href="https://fabric.io/features/distribution?utm_campaign=github_readme" target="_blank" rel="external">官方</a>提供的文檔來產生初始化的程式碼</p>
-</blockquote>
 <ul>
 <li>第二種：開啟 Terminal 到當前 iOS 的資料夾下，init 之後會要你需入輸入帳號以及其他相關資料</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane init</div></pre></td></tr></table></figure>
 <p><img src="fastlaneinit2.png" alt="fastlaneinit2.png"></p>
 <p>那兩種哪邊不一樣呢？，第一種其實已經幫你把程式碼初始化了，讓你少去比較多的步驟，接著我們打開 <strong>Fastlane</strong> 來看一下的 Code。</p>
+<p>接著我們來看 fastlane</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">fastlane_version <span class="string">"1.109.0"</span></div><div class="line"></div><div class="line">generated_fastfile_id <span class="string">"adb8dedb-e633-43f6-87b0-03588e2f5a43"</span></div><div class="line"></div><div class="line">default_platform <span class="symbol">:ios</span></div><div class="line"></div><div class="line"><span class="comment"># 原本的</span></div><div class="line">lane <span class="symbol">:beta</span> <span class="keyword">do</span></div><div class="line"></div><div class="line">  <span class="comment"># build your iOS app</span></div><div class="line">  gym(</div><div class="line">    <span class="comment"># scheme: "YourScheme"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  <span class="comment"># upload to Beta by Crashlytics</span></div><div class="line">  crashlytics(</div><div class="line">    <span class="comment"># api_token: "YOUR_API_KEY",</span></div><div class="line">    <span class="comment"># build_secret: "YOUR_BUILD_SECRET"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  <span class="comment"># slack(</span></div><div class="line">  <span class="comment">#   slack_url: "https://hooks.slack.com/services/IDS"</span></div><div class="line">  <span class="comment"># )</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># 自定義名稱我在這邊自定義名稱為 BABABA</span></div><div class="line">lane <span class="symbol">:BABABA</span> <span class="keyword">do</span></div><div class="line"></div><div class="line">  actions <span class="number">1</span>(</div><div class="line">    <span class="symbol">key1:</span> <span class="string">"value1"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  actions <span class="number">2</span>(</div><div class="line">    <span class="symbol">key1:</span> <span class="string">"value1"</span>,</div><div class="line">    <span class="symbol">key2:</span> <span class="string">"value2"</span>,</div><div class="line">    <span class="symbol">key3:</span> <span class="string">"value3"</span>,</div><div class="line">  )</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>其實他的邏輯非常簡單，就是把上面我打中文的地方替換成所需要的參數，你可以想像成宣告一個Class，然後裡面有不同的 <strong>actions</strong> ，每個 <strong>actions</strong> 都有屬於他的 key:value 型態的變數，那  <strong>actions</strong>  哪些呢？依造官方來說有 <strong>deliver</strong> ， <strong>supply</strong> …等。以下是所有的 actions </p>
+<p>其實他的邏輯非常簡單，你可以想像成宣告一個Class，然後裡面有不同的 <strong>actions</strong> ，每個 <strong>actions</strong> 都有屬於他的 key:value 型態的變數，那  <strong>actions</strong>  哪些呢？依造官方來說有 <strong>deliver</strong> ， <strong>supply</strong> …等。以下是所有的 actions </p>
 <p><img src="allactions.png" alt="allactions"></p>
 <p>這邊翻譯官方幾個比較常用的 Commands</p>
 <table>
@@ -279,18 +278,17 @@
 </tr>
 </tbody>
 </table>
-<p>那 <strong> </strong>actions<strong> 的 key1，value1 有哪些呢？請在 Terminal 打上 </strong>fastlane action [方法]<strong>，比如我想要看 </strong>supply** 有哪些參數：</p>
+<p>那 <strong> </strong>actions<strong> 的 key1，value1 有哪些呢？請在 Terminal 打上 fastlane action [方法]，比如我想要看 </strong>supply** 有哪些參數：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane action supply</div></pre></td></tr></table></figure>
 <p><img src="parameters.png" alt="parameters"></p>
 <p>像這次想要自動化產生 ipa 檔的話就要研究 <strong>gym</strong>。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane action gym</div></pre></td></tr></table></figure>
 <p><img src="gym.png" alt="gym"></p>
 <p>接著就慢慢看囉～依照自己的需求去決定使用哪些。</p>
-<h2 id="步驟3：執行-Fastlane"><a href="#步驟3：執行-Fastlane" class="headerlink" title="步驟3：執行 Fastlane"></a>步驟3：執行 Fastlane</h2><p>fastlane [公式名稱]，如上圖我的名稱是 <strong>BABABA</strong>，那就在終端機上打以下指令</p>
+<h2 id="步驟3：執行-Fastlane"><a href="#步驟3：執行-Fastlane" class="headerlink" title="步驟3：執行 Fastlane"></a>步驟3：執行 Fastlane</h2><p>fastlane [name]，如上圖我的名稱是 <strong>BABABA</strong>，那就在終端機上打以下指令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane BABABA</div></pre></td></tr></table></figure>
 <p>這邊也許會遇到一些環境問題，以及安裝問題，這時候就要一個一個自己去解決了，每個人遇到的問題不太一樣，可以留言在下面互相討論。不過有個問題我也覺得非常麻煩，我把這問題寫在最下面的 TroubleShooting 部分</p>
-<h2 id="步驟4：參考範例走"><a href="#步驟4：參考範例走" class="headerlink" title="步驟4：參考範例走"></a>步驟4：參考範例走</h2><p>這邊提供專案有使用 Fastlane 的，可以參考別人都使用了些什麼。</p>
-<p><a href="https://github.com/fastlane/examples" target="_blank" rel="external">Examples</a></p>
+<h2 id="步驟4：參考範例走"><a href="#步驟4：參考範例走" class="headerlink" title="步驟4：參考範例走"></a>步驟4：參考範例走</h2><p>這邊提供<a href="https://github.com/fastlane/examples" target="_blank" rel="external">一些開源</a>有使用 Fastlane 的，可以參考別人都使用了些什麼。</p>
 <h2 id="步驟5：循環步驟4"><a href="#步驟5：循環步驟4" class="headerlink" title="步驟5：循環步驟4"></a>步驟5：循環步驟4</h2><p>這邊一定要想成功，不然等下之後再結合 script 的時候問題會更多。</p>
 <h2 id="步驟6：結合腳本語言"><a href="#步驟6：結合腳本語言" class="headerlink" title="步驟6：結合腳本語言"></a>步驟6：結合腳本語言</h2><p>這部分就比較簡單了，我把 code 放在 <a href="https://github.com/5SMNOONMS5/TestFastlane" target="_blank" rel="external">github</a> 上。大致架構圖如下</p>
 <p><img src="bash_architecture.png" alt="bash_architecture"></p>
@@ -315,7 +313,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年11月26日 10:47</p>
+        <p>最后更新： 2017年11月26日 10:56</p>
         <p>原始链接： <a class="post-url" href="/2017/03/22/Fastlane/" title="Integrate With Fastlane And Bash-Script">http://stephenchen.com/2017/03/22/Fastlane/</a></p>
         <footer>
             <a href="http://stephenchen.com">
@@ -517,7 +515,7 @@
             
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
+            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -550,7 +548,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
+            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
         </div>
     </div>
 </div>

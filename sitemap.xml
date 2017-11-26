@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stephenchen.com/2016/10/06/Hexo-Github-Pages/</loc>
+    
+    <lastmod>2017-11-26T02:59:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/08/25/Git-small-tracks/</loc>
+    
+    <lastmod>2017-11-26T02:58:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/03/22/Fastlane/</loc>
+    
+    <lastmod>2017-11-26T02:56:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stephenchen.com/2017/08/29/Code%20%E7%9A%84%E7%9B%B8%E9%97%9C%E5%96%AE%E5%AD%97%E5%88%86%E4%BA%AB/</loc>
     
     <lastmod>2017-11-26T02:51:58.000Z</lastmod>
@@ -9,23 +30,9 @@
   </url>
   
   <url>
-    <loc>http://stephenchen.com/2017/08/25/Git-small-tracks/</loc>
-    
-    <lastmod>2017-11-26T02:51:05.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://stephenchen.com/2017/09/29/Git-%E9%8C%AF%E8%AA%A4%E6%97%A5%E8%AA%8C%E7%B4%80%E9%8C%84/</loc>
     
     <lastmod>2017-11-26T02:48:39.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/03/22/Fastlane/</loc>
-    
-    <lastmod>2017-11-26T02:47:36.000Z</lastmod>
     
   </url>
   
@@ -173,13 +180,6 @@
     <loc>http://stephenchen.com/2016/10/12/One-way-Hash-Function/</loc>
     
     <lastmod>2016-10-26T08:42:15.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2016/10/06/Hexo-Github-Pages/</loc>
-    
-    <lastmod>2016-10-26T08:36:23.000Z</lastmod>
     
   </url>
   
