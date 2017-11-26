@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-11-26T03:55:36.000Z</updated>
+  <updated>2017-11-26T04:09:54.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -16,13 +16,22 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>About Memory usage Static And Nonstatic Methods</title>
+    <title>Memory Usage Of Static And Non-static Methods</title>
     <link href="http://stephenchen.com/2017/11/25/Memory-of-static-and-non-static-methods/"/>
     <id>http://stephenchen.com/2017/11/25/Memory-of-static-and-non-static-methods/</id>
     <published>2017-11-25T14:24:55.000Z</published>
-    <updated>2017-11-26T03:55:36.000Z</updated>
+    <updated>2017-11-26T04:09:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>curious</p>
+<a id="more"></a>
+<p>I use static methods in lots of places, so I just<br>curious about the memory footprint between static and non-static methods or parameter.</p>
+<p>According to <a href="https://stackoverflow.com/questions/8353842/static-methods-save-memory-unmanaged-code" target="_blank" rel="external">this</a>, non-static methods or parameters is almost same as static methods or parameters.</p>
+<p>So be design-driven, not memory-driven.</p>
+]]></content>
     
     <summary type="html">
+    
+      &lt;p&gt;curious&lt;/p&gt;
     
     </summary>
     
@@ -209,11 +218,11 @@
   </entry>
   
   <entry>
-    <title>Git small tracks</title>
+    <title>Git Tracks</title>
     <link href="http://stephenchen.com/2017/08/25/Git-small-tracks/"/>
     <id>http://stephenchen.com/2017/08/25/Git-small-tracks/</id>
     <published>2017-08-25T07:42:10.000Z</published>
-    <updated>2017-11-26T03:04:56.000Z</updated>
+    <updated>2017-11-26T03:58:20.000Z</updated>
     
     <content type="html"><![CDATA[<p>記錄平常在使用 git 一些不錯指令。</p>
 <a id="more"></a> 
@@ -324,7 +333,7 @@
     <link href="http://stephenchen.com/2017/07/11/Xcode-Visual-Memory-View-Debugger/"/>
     <id>http://stephenchen.com/2017/07/11/Xcode-Visual-Memory-View-Debugger/</id>
     <published>2017-07-11T04:32:45.000Z</published>
-    <updated>2017-11-26T03:54:53.000Z</updated>
+    <updated>2017-11-26T03:59:21.000Z</updated>
     
     <content type="html"><![CDATA[<p>Useful tool for debug memory leak in iOS</p>
 <h3 id="Download-the-porject"><a href="#Download-the-porject" class="headerlink" title="Download the porject"></a>Download the porject</h3><p>I deliberately set memory leaks into below small project.</p>
@@ -352,11 +361,11 @@
   </entry>
   
   <entry>
-    <title>Http Mine types</title>
+    <title>Http Mine Types</title>
     <link href="http://stephenchen.com/2017/07/02/Http-Mine-types/"/>
     <id>http://stephenchen.com/2017/07/02/Http-Mine-types/</id>
     <published>2017-07-02T04:35:59.000Z</published>
-    <updated>2017-11-26T03:31:20.000Z</updated>
+    <updated>2017-11-26T03:58:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>翻譯<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types" target="_blank" rel="external">原文</a></p>
 <a id="more"></a>
@@ -673,11 +682,11 @@
   </entry>
   
   <entry>
-    <title>Transfer Git repositories into another server</title>
-    <link href="http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/"/>
-    <id>http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/</id>
+    <title>Transfer Git Repositories</title>
+    <link href="http://stephenchen.com/2017/02/21/Transfer-Git-repositories/"/>
+    <id>http://stephenchen.com/2017/02/21/Transfer-Git-repositories/</id>
     <published>2017-02-21T08:51:43.000Z</published>
-    <updated>2017-11-26T03:54:22.000Z</updated>
+    <updated>2017-11-26T03:58:56.000Z</updated>
     
     <content type="html"><![CDATA[<p>今天公司剛好要把 原先的 Git Server 轉移到另外一台 Server，於是研究了一下</p>
 <a id="more"></a>
@@ -779,11 +788,11 @@
   </entry>
   
   <entry>
-    <title>Funny commands</title>
+    <title>Funny Commands</title>
     <link href="http://stephenchen.com/2017/01/19/Funny-commands/"/>
     <id>http://stephenchen.com/2017/01/19/Funny-commands/</id>
     <published>2017-01-19T12:15:47.000Z</published>
-    <updated>2017-11-26T03:04:33.000Z</updated>
+    <updated>2017-11-26T03:58:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>A set of ASCII pictures that enjoy code life though hard up .</p>
 <a id="more"></a>

@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stephenchen.com/2017/11/25/Memory-of-static-and-non-static-methods/</loc>
+    
+    <lastmod>2017-11-26T04:09:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/07/11/Xcode-Visual-Memory-View-Debugger/</loc>
+    
+    <lastmod>2017-11-26T03:59:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/02/21/Transfer-Git-repositories/</loc>
+    
+    <lastmod>2017-11-26T03:58:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/07/02/Http-Mine-types/</loc>
+    
+    <lastmod>2017-11-26T03:58:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/08/25/Git-small-tracks/</loc>
+    
+    <lastmod>2017-11-26T03:58:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/01/19/Funny-commands/</loc>
+    
+    <lastmod>2017-11-26T03:58:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/</loc>
     
     <lastmod>2017-11-26T03:57:06.000Z</lastmod>
@@ -30,30 +72,9 @@
   </url>
   
   <url>
-    <loc>http://stephenchen.com/2017/11/25/Memory-of-static-and-non-static-methods/</loc>
-    
-    <lastmod>2017-11-26T03:55:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/07/11/Xcode-Visual-Memory-View-Debugger/</loc>
-    
-    <lastmod>2017-11-26T03:54:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://stephenchen.com/2017/04/24/What-is-Podfile-lock/</loc>
     
     <lastmod>2017-11-26T03:54:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/</loc>
-    
-    <lastmod>2017-11-26T03:54:22.000Z</lastmod>
     
   </url>
   
@@ -86,13 +107,6 @@
   </url>
   
   <url>
-    <loc>http://stephenchen.com/2017/07/02/Http-Mine-types/</loc>
-    
-    <lastmod>2017-11-26T03:31:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://stephenchen.com/2017/09/29/License/</loc>
     
     <lastmod>2017-11-26T03:08:01.000Z</lastmod>
@@ -107,23 +121,9 @@
   </url>
   
   <url>
-    <loc>http://stephenchen.com/2017/08/25/Git-small-tracks/</loc>
-    
-    <lastmod>2017-11-26T03:04:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://stephenchen.com/2017/09/29/Git-%E9%8C%AF%E8%AA%A4%E6%97%A5%E8%AA%8C%E7%B4%80%E9%8C%84/</loc>
     
     <lastmod>2017-11-26T03:04:38.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/01/19/Funny-commands/</loc>
-    
-    <lastmod>2017-11-26T03:04:33.000Z</lastmod>
     
   </url>
   
