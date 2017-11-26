@@ -8,19 +8,20 @@
   
     <meta name="keywords" content="StephenChen's Blog" />
   
-  <meta name="description" content="Git 小方法">
+  <meta name="description" content="記錄平常在使用 git 一些不錯指令。">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git small tracks">
 <meta property="og:url" content="http://stephenchen.com/2017/08/25/Git-small-tracks/index.html">
 <meta property="og:site_name" content="CLS">
-<meta property="og:description" content="Git 小方法">
+<meta property="og:description" content="記錄平常在使用 git 一些不錯指令。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://stephenchen.com/2017/08/25/Git-small-tracks/1.png">
 <meta property="og:image" content="http://stephenchen.com/2017/08/25/Git-small-tracks/2.png">
-<meta property="og:updated_time" content="2017-11-23T01:35:09.000Z">
+<meta property="og:updated_time" content="2017-11-26T02:51:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git small tracks">
-<meta name="twitter:description" content="Git 小方法">
+<meta name="twitter:description" content="記錄平常在使用 git 一些不錯指令。">
 <meta name="twitter:image" content="http://stephenchen.com/2017/08/25/Git-small-tracks/1.png">
   
   
@@ -138,9 +139,9 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>Git 小方法</p>
+            <p>記錄平常在使用 git 一些不錯指令。</p>
 <a id="more"></a> 
-<h1 id="一-Git-Clone"><a href="#一-Git-Clone" class="headerlink" title="(一) Git Clone"></a>(一) Git Clone</h1><p>最近公司配了一台新電腦，當要重新 clone 一個專案的時候發現 clone 了超久，於是就找找了兩種小方法。</p>
+<h2 id="一-Git-Clone"><a href="#一-Git-Clone" class="headerlink" title="(一) Git Clone"></a>(一) Git Clone</h2><p>最近公司配了一台新電腦，當要重新 clone 一個專案的時候發現 clone 了超久，於是就找找了兩種小方法來縮短 clone 的時間 xd 。</p>
 <ul>
 <li>只允許 clone 特定數量的 commits</li>
 </ul>
@@ -149,11 +150,11 @@
 <li>單純 clone 特定的 branch </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> -b [BranchName] --single-branch [URL] [FolderName]</div></pre></td></tr></table></figure>
-<h1 id="二-Git-LFS"><a href="#二-Git-LFS" class="headerlink" title="(二) Git LFS"></a>(二) Git LFS</h1><p>假如要透過 git 來管理較大檔案(超過 2G)的時候 ex: 比如圖片或者影片…等。這時候我推薦使用 <strong><a href="https://git-lfs.github.com/" target="_blank" rel="external">Git Large File Storage</a></strong>，原理就是在目錄底下存了一個 <strong>pointer file</strong>，指向真正存儲這些檔案的地方，當在 clone 這些檔案的時候 git 會自動 mapping 檔案的所在目的地。</p>
+<h2 id="二-Git-LFS"><a href="#二-Git-LFS" class="headerlink" title="(二) Git LFS"></a>(二) Git LFS</h2><p>假如要透過 git 來管理較大檔案(超過 2G)的時候 ex: 比如圖片或者影片…等。這時候我推薦使用 <strong><a href="https://git-lfs.github.com/" target="_blank" rel="external">Git Large File Storage</a></strong>，原理就是在目錄底下存了一個 <strong>pointer file</strong>，指向真正存儲這些檔案的地方，當在 clone 這些檔案的時候 git 會自動 mapping 檔案的所在目的地。</p>
 <h4 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git lfs install</div></pre></td></tr></table></figure>
 <h4 id="指定哪些檔案你要-track-跟蹤的"><a href="#指定哪些檔案你要-track-跟蹤的" class="headerlink" title="指定哪些檔案你要(track)跟蹤的"></a>指定哪些檔案你要(track)跟蹤的</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git lfs track <span class="string">"*.psd"</span></div></pre></td></tr></table></figure>
-<p>並且會生成 .gitattributes，記得要 git add 上</p>
-<h4 id="然後結束，接著就可以-push-了"><a href="#然後結束，接著就可以-push-了" class="headerlink" title="然後結束，接著就可以 push 了"></a>然後結束，接著就可以 push 了</h4><h1 id="三-Git-Log"><a href="#三-Git-Log" class="headerlink" title="(三) Git Log"></a>(三) Git Log</h1><p>再多人開發的時候，通常會通過拆功能來共同開發，但有一些檔案難免會互相動到，比如 Marco.swift 或者 AppDelegate …等。在我這邊的情境是我想知道在 AppDelegate 哪時候是誰寫了這段 Code，這時候就可以以下指令找出哪幾個 commits 有更改過 AppDelegate.swift。</p>
+<p>並會生成 .gitattributes，記得要 git add 上</p>
+<h4 id="Down，接著就可以-push-。"><a href="#Down，接著就可以-push-。" class="headerlink" title="Down，接著就可以 push 。"></a>Down，接著就可以 push 。</h4><h1 id="三-Git-Log"><a href="#三-Git-Log" class="headerlink" title="(三) Git Log"></a>(三) Git Log</h1><p>再多人開發的時候，通常會通過拆功能來共同開發，但有一些檔案難免會互相動到，比如 Marco.swift 或者 AppDelegate …等。在我這邊的情境是我想知道在 AppDelegate 哪時候是誰寫了這段 Code，這時候就可以以下指令找出哪幾個 commits 有更改過 AppDelegate.swift。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> --follow [Path]</div></pre></td></tr></table></figure>
 <p>有網友提供了其他解決方案</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> [Path]</div></pre></td></tr></table></figure>
@@ -176,7 +177,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年11月23日 09:35</p>
+        <p>最后更新： 2017年11月26日 10:51</p>
         <p>原始链接： <a class="post-url" href="/2017/08/25/Git-small-tracks/" title="Git small tracks">http://stephenchen.com/2017/08/25/Git-small-tracks/</a></p>
         <footer>
             <a href="http://stephenchen.com">
@@ -244,7 +245,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2017/08/25/Git-small-tracks/&title=《Git small tracks》 — CLS&source=Git 小方法" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2017/08/25/Git-small-tracks/&title=《Git small tracks》 — CLS&source=記錄平常在使用 git 一些不錯指令。" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -278,6 +279,13 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/git/" class="color4">git</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -287,19 +295,19 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一-Git-Clone"><span class="post-toc-text">(一) Git Clone</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二-Git-LFS"><span class="post-toc-text">(二) Git LFS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安裝"><span class="post-toc-text">安裝</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#指定哪些檔案你要-track-跟蹤的"><span class="post-toc-text">指定哪些檔案你要(track)跟蹤的</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#然後結束，接著就可以-push-了"><span class="post-toc-text">然後結束，接著就可以 push 了</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三-Git-Log"><span class="post-toc-text">(三) Git Log</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四-SourceTree-統一-commit"><span class="post-toc-text">(四) SourceTree 統一 commit</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五-SourceTree-repositories-介面也可以透過資料夾區分"><span class="post-toc-text">(五) SourceTree repositories 介面也可以透過資料夾區分</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#六-欺騙-Git"><span class="post-toc-text">(六) 欺騙 Git</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一-Git-Clone"><span class="post-toc-text">(一) Git Clone</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二-Git-LFS"><span class="post-toc-text">(二) Git LFS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安裝"><span class="post-toc-text">安裝</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#指定哪些檔案你要-track-跟蹤的"><span class="post-toc-text">指定哪些檔案你要(track)跟蹤的</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Down，接著就可以-push-。"><span class="post-toc-text">Down，接著就可以 push 。</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三-Git-Log"><span class="post-toc-text">(三) Git Log</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四-SourceTree-統一-commit"><span class="post-toc-text">(四) SourceTree 統一 commit</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五-SourceTree-repositories-介面也可以透過資料夾區分"><span class="post-toc-text">(五) SourceTree repositories 介面也可以透過資料夾區分</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#六-欺騙-Git"><span class="post-toc-text">(六) 欺騙 Git</span></a>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2017/08/29/code-的相關單字分享/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/29/Code 的相關單字分享/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          code 的相關單字分享
+          Code 的相關單字分享
         
       </span>
     </a>
@@ -371,7 +379,7 @@
             
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
+            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -404,7 +412,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
+            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
         </div>
     </div>
 </div>
