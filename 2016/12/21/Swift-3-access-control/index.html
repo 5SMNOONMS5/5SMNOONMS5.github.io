@@ -3,24 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>One-way Hash Function | CLS</title>
+  <title>Swift 3 Access Control with diagram | CLS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="StephenChen's Blog" />
   
-  <meta name="description" content="I saw this terminology a lot，here is my review">
+  <meta name="description" content="A diagram for open, public, private, fileprivate access level">
+<meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="One-way Hash Function">
-<meta property="og:url" content="http://stephenchen.com/2016/10/12/One-way-Hash-Function/index.html">
+<meta property="og:title" content="Swift 3 Access Control with diagram">
+<meta property="og:url" content="http://stephenchen.com/2016/12/21/Swift-3-access-control/index.html">
 <meta property="og:site_name" content="CLS">
-<meta property="og:description" content="I saw this terminology a lot，here is my review">
+<meta property="og:description" content="A diagram for open, public, private, fileprivate access level">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://stephenchen.com/2016/10/12/One-way-Hash-Function/hash%20function.png">
-<meta property="og:updated_time" content="2016-10-26T08:42:15.000Z">
+<meta property="og:image" content="http://stephenchen.com/2016/12/21/Swift-3-access-control/swift3-access-control.png">
+<meta property="og:updated_time" content="2017-11-26T03:33:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="One-way Hash Function">
-<meta name="twitter:description" content="I saw this terminology a lot，here is my review">
-<meta name="twitter:image" content="http://stephenchen.com/2016/10/12/One-way-Hash-Function/hash%20function.png">
+<meta name="twitter:title" content="Swift 3 Access Control with diagram">
+<meta name="twitter:description" content="A diagram for open, public, private, fileprivate access level">
+<meta name="twitter:image" content="http://stephenchen.com/2016/12/21/Swift-3-access-control/swift3-access-control.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -108,20 +109,20 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-One-way-Hash-Function" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Swift-3-access-control" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      One-way Hash Function
+      Swift 3 Access Control with diagram
     </h1>
     <div class="post-title-bar">
       <ul>
           
         <li>
-          <i class="fa fa-calendar"></i>  2016-10-12
+          <i class="fa fa-calendar"></i>  2016-12-21
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -137,31 +138,28 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>I saw this terminology a lot，here is my review</p>
+            <p>A diagram for open, public, private, fileprivate access level</p>
 <a id="more"></a>
-<h4 id="Nick-names"><a href="#Nick-names" class="headerlink" title="Nick names"></a>Nick names</h4><ul>
-<li>message digest</li>
-<li>fingerprint</li>
-<li>compression function</li>
+<p><img src="swift3-access-control.png" alt="swift3-access-control"></p>
+<p>In words</p>
+<h1 id="open"><a href="#open" class="headerlink" title="open"></a>open</h1><ul>
+<li>An open class is accessible and subclassable outside of the defining module. An open class member is accessible and overridable outside of the defining module.</li>
 </ul>
-<h4 id="One-way-hash-function-flow-diagram"><a href="#One-way-hash-function-flow-diagram" class="headerlink" title="One-way hash function flow diagram"></a>One-way hash function flow diagram</h4><p><img src="hash%20function.png" alt="name"></p>
-<ul>
-<li>note : hash values (ex：A，B) can’t be the same ( <a href="https://en.wikipedia.org/wiki/Collision_(computer_science" target="_blank" rel="external">collision</a>) )  </li>
+<h1 id="public"><a href="#public" class="headerlink" title="public"></a>public</h1><ul>
+<li>A public class is accessible but not subclassable outside of the defining module. A public class member is accessible but not overridable outside of the defining module.</li>
 </ul>
-<h4 id="One-way-hash-algorithms"><a href="#One-way-hash-algorithms" class="headerlink" title="One-way hash algorithms"></a>One-way hash algorithms</h4><ul>
-<li><p><strong>MD4</strong>(Message Digest 4) and its improved version <strong>MD5</strong>. Both algorithms produce <strong>128-bit</strong>    hash values.</p>
-</li>
-<li><p><strong>SHA</strong>(Secure Hash Algorithm) produce <strong>128-bit</strong> hash values.</p>
-</li>
-<li><p><strong>SHA256</strong>(256-bit version Secure Hash Algorithm) produce <strong>256-bit</strong> hash values.</p>
-</li>
+<h1 id="private"><a href="#private" class="headerlink" title="private"></a>private</h1><ul>
+<li>The private foo method is accessible only within the scope of the class A { … } definition. It is not even accessible from an extension to the type.</li>
 </ul>
-<p>There is more , likes <strong>SHA512</strong> or <strong>SHA-384</strong> .</p>
+<h1 id="fileprivate"><a href="#fileprivate" class="headerlink" title="fileprivate"></a>fileprivate</h1><ul>
+<li>The file-private bar method is accessible from the same source file.</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html" target="_blank" rel="external">reference</a><br><a href="http://stackoverflow.com/questions/39027250/what-is-a-good-example-to-differentiate-between-fileprivate-and-private-in-swift/41261058#41261058" target="_blank" rel="external">Stack overflow about private and fileprivate</a></p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2016年10月26日 16:42</p>
-        <p>原始链接： <a class="post-url" href="/2016/10/12/One-way-Hash-Function/" title="One-way Hash Function">http://stephenchen.com/2016/10/12/One-way-Hash-Function/</a></p>
+        <p>最后更新： 2017年11月26日 11:33</p>
+        <p>原始链接： <a class="post-url" href="/2016/12/21/Swift-3-access-control/" title="Swift 3 Access Control with diagram">http://stephenchen.com/2016/12/21/Swift-3-access-control/</a></p>
         <footer>
             <a href="http://stephenchen.com">
                 <img src="/images/logo.png" alt="Stephen Chen">
@@ -218,7 +216,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://stephenchen.com/2016/10/12/One-way-Hash-Function/&title=《One-way Hash Function》 — CLS&pic=http://stephenchen.comimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://stephenchen.com/2016/12/21/Swift-3-access-control/&title=《Swift 3 Access Control with diagram》 — CLS&pic=http://stephenchen.comimages/logo.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -228,22 +226,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2016/10/12/One-way-Hash-Function/&title=《One-way Hash Function》 — CLS&source=I saw this terminology a lot，here is my review" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2016/12/21/Swift-3-access-control/&title=《Swift 3 Access Control with diagram》 — CLS&source=A diagram for open, public, private, fileprivate access level" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://stephenchen.com/2016/10/12/One-way-Hash-Function/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://stephenchen.com/2016/12/21/Swift-3-access-control/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《One-way Hash Function》 — CLS&url=http://stephenchen.com/2016/10/12/One-way-Hash-Function/&via=http://stephenchen.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Swift 3 Access Control with diagram》 — CLS&url=http://stephenchen.com/2016/12/21/Swift-3-access-control/&via=http://stephenchen.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://stephenchen.com/2016/10/12/One-way-Hash-Function/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://stephenchen.com/2016/12/21/Swift-3-access-control/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -253,7 +251,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://stephenchen.com/2016/10/12/One-way-Hash-Function/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://stephenchen.com/2016/12/21/Swift-3-access-control/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -262,6 +260,13 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/iOS/" class="color4">iOS</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -271,26 +276,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Nick-names"><span class="post-toc-text">Nick names</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#One-way-hash-function-flow-diagram"><span class="post-toc-text">One-way hash function flow diagram</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#One-way-hash-algorithms"><span class="post-toc-text">One-way hash algorithms</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#open"><span class="post-toc-text">open</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#public"><span class="post-toc-text">public</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#private"><span class="post-toc-text">private</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#fileprivate"><span class="post-toc-text">fileprivate</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Reference"><span class="post-toc-text">Reference</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2016/10/25/Developing-With-Xcodebuild/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/01/12/Socket/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          Running Xcode From Command Line Tool
+          Sockets
         
       </span>
     </a>
   
   
-    <a href="/2016/10/06/Hexo-Github-Pages/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Easy Way To Create A Blog</span>
+    <a href="/2016/12/20/Swift-Code-Conventions-Helper-And-Documentor/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Swift Code Conventions Helper And Document Generator</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -355,7 +360,7 @@
             
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
+            <a href="/tags/AWS/" style="font-size: 10px;">AWS</a> <a href="/tags/Xcode/" style="font-size: 15px;">Xcode</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/iOS/" style="font-size: 17.5px;">iOS</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/network/" style="font-size: 12.5px;">network</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -388,7 +393,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
+            <a href="/tags/AWS/" style="font-size: 10px;">AWS</a> <a href="/tags/Xcode/" style="font-size: 15px;">Xcode</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/iOS/" style="font-size: 17.5px;">iOS</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/network/" style="font-size: 12.5px;">network</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
         </div>
     </div>
 </div>

@@ -8,22 +8,23 @@
   
     <meta name="keywords" content="StephenChen's Blog" />
   
-  <meta name="description" content="Sometimes there will be unexpected while playing with servers , so here I will try three different network diagnostic tools to trace the package and guess what may be happened .">
+  <meta name="description" content="Mac network diagnostic tools….">
+<meta name="keywords" content="network">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Network Diagnostic Tools">
-<meta property="og:url" content="http://stephenchen.com/2016/11/18/network-diagnostic-tools/index.html">
+<meta property="og:url" content="http://stephenchen.com/2016/11/18/Network-diagnostic-tools/index.html">
 <meta property="og:site_name" content="CLS">
-<meta property="og:description" content="Sometimes there will be unexpected while playing with servers , so here I will try three different network diagnostic tools to trace the package and guess what may be happened .">
+<meta property="og:description" content="Mac network diagnostic tools….">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://stephenchen.com/2016/11/18/network-diagnostic-tools/ping.png">
-<meta property="og:image" content="http://stephenchen.com/2016/11/18/network-diagnostic-tools/ping-DDos.png">
-<meta property="og:image" content="http://stephenchen.com/2016/11/18/network-diagnostic-tools/mtr-sample.png">
-<meta property="og:image" content="http://stephenchen.com/2016/11/18/network-diagnostic-tools/tracerouter.png">
-<meta property="og:updated_time" content="2016-11-23T09:17:33.000Z">
+<meta property="og:image" content="http://stephenchen.com/2016/11/18/Network-diagnostic-tools/ping.png">
+<meta property="og:image" content="http://stephenchen.com/2016/11/18/Network-diagnostic-tools/ping-DDos.png">
+<meta property="og:image" content="http://stephenchen.com/2016/11/18/Network-diagnostic-tools/mtr-sample.png">
+<meta property="og:image" content="http://stephenchen.com/2016/11/18/Network-diagnostic-tools/tracerouter.png">
+<meta property="og:updated_time" content="2017-11-26T03:44:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Network Diagnostic Tools">
-<meta name="twitter:description" content="Sometimes there will be unexpected while playing with servers , so here I will try three different network diagnostic tools to trace the package and guess what may be happened .">
-<meta name="twitter:image" content="http://stephenchen.com/2016/11/18/network-diagnostic-tools/ping.png">
+<meta name="twitter:description" content="Mac network diagnostic tools….">
+<meta name="twitter:image" content="http://stephenchen.com/2016/11/18/Network-diagnostic-tools/ping.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -111,7 +112,7 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-network-diagnostic-tools" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Network-diagnostic-tools" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -140,36 +141,37 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>Sometimes there will be unexpected while playing with servers , so here I will try three different network diagnostic tools to trace the package and guess what may be happened .</p>
+            <p>Mac network diagnostic tools….</p>
 <a id="more"></a>
-<h1 id="1-Ping"><a href="#1-Ping" class="headerlink" title="1.Ping"></a>1.Ping</h1><h4 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h4><ul>
-<li>The ping command is usually used as a simple way verify that a computer can communicate over the network with another computer or network device.</li>
+<h3 id="1-Ping"><a href="#1-Ping" class="headerlink" title="1.Ping"></a>1.Ping</h3><h5 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h5><ul>
+<li>The ping command is usually used as a simple way for verify that the mac computer can communicate over the network with one other。</li>
 </ul>
 <p><img src="ping.png" alt="ping"></p>
 <ul>
-<li>In above example , the ping command is used to ping the hostname www.google.com . The report tells me each ICMP echo request message sent to www.google.com was returned successful.</li>
+<li>In above example, the ping command is pinging <strong>www.google.com</strong> with each ICMP message. so it tells us currently our network is good and google is good too.</li>
 </ul>
 <p><img src="ping-DDos.png" alt="ping-DDos"></p>
-<div class="tip"><br>    Don’t try to use -f (Flood) option , some firewalls or hosts can believe it’s a DoS attack and drop the icmp packets silently.<br></div>
-
-<h1 id="2-MTR"><a href="#2-MTR" class="headerlink" title="2.MTR"></a>2.MTR</h1><h4 id="Synopsis-1"><a href="#Synopsis-1" class="headerlink" title="Synopsis"></a>Synopsis</h4><ul>
-<li><a href="http://www.bitwizard.nl/mtr/" target="_blank" rel="external">MTR</a> combines the functionality of the <a href="https://en.wikipedia.org/wiki/Traceroute" target="_blank" rel="external">Traceroute</a> and <a href="https://www.lifewire.com/ping-command-2618099" target="_blank" rel="external">Ping</a> programs in a single network diagnostic tool.</li>
+<ul>
+<li>Don’t try to use -f (Flood) option , some firewalls or hosts can believe it’s a DoS attack and drop the icmp packets silently.</li>
 </ul>
-<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mtr</div></pre></td></tr></table></figure>
-<h4 id="Export-environment-variable-for-further-use"><a href="#Export-environment-variable-for-further-use" class="headerlink" title="Export environment variable for further use"></a>Export environment variable for further use</h4><ul>
+<h3 id="2-MTR"><a href="#2-MTR" class="headerlink" title="2.MTR"></a>2.MTR</h3><h5 id="Synopsis-1"><a href="#Synopsis-1" class="headerlink" title="Synopsis"></a>Synopsis</h5><ul>
+<li><a href="http://www.bitwizard.nl/mtr/" target="_blank" rel="external">MTR</a> combines the functionality of the <a href="https://en.wikipedia.org/wiki/Traceroute" target="_blank" rel="external">Traceroute</a> and <a href="https://www.lifewire.com/ping-command-2618099" target="_blank" rel="external">Ping</a> 。</li>
+</ul>
+<h5 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mtr</div></pre></td></tr></table></figure>
+<h5 id="Export-environment-variable-for-further-use"><a href="#Export-environment-variable-for-further-use" class="headerlink" title="Export environment variable for further use"></a>Export environment variable for further use</h5><ul>
 <li>After install via <a href="http://brew.sh/" target="_blank" rel="external">Homebrew</a> , <a href="http://www.bitwizard.nl/mtr/" target="_blank" rel="external">MTR</a> will locate under <strong>/usr/local/sbin/</strong> folder .</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>"</span>:/usr/<span class="built_in">local</span>/sbin/</div></pre></td></tr></table></figure>
-<h4 id="MTR-Sample"><a href="#MTR-Sample" class="headerlink" title="MTR Sample"></a>MTR Sample</h4><p><img src="mtr-sample.png" alt="mtr-sample"></p>
+<h5 id="MTR-Sample"><a href="#MTR-Sample" class="headerlink" title="MTR Sample"></a>MTR Sample</h5><p><img src="mtr-sample.png" alt="mtr-sample"></p>
 <ul>
-<li>Above you can see all packets of data travelling from my host to destination host . Unfortunately, I don’t want to dig this here . If you want learn more , please go  <a href="https://www.linode.com/docs/networking/diagnostics/diagnosing-network-issues-with-mtr" target="_blank" rel="external">here</a>  </li>
+<li>Above you can see all packets of data travelling from my host to destination host。Unfortunately, I don’t want to dig this here。 If you want learn more，please go <a href="https://www.linode.com/docs/networking/diagnostics/diagnosing-network-issues-with-mtr" target="_blank" rel="external">here</a> 。</li>
 </ul>
-<h1 id="3-Traceroute"><a href="#3-Traceroute" class="headerlink" title="3.Traceroute"></a>3.Traceroute</h1><ul>
-<li><a href="https://linux.die.net/man/8/traceroute" target="_blank" rel="external">Traceroute</a> print the route packets trace to network host</li>
+<h3 id="3-Traceroute"><a href="#3-Traceroute" class="headerlink" title="3.Traceroute"></a>3.Traceroute</h3><ul>
+<li><a href="https://linux.die.net/man/8/traceroute" target="_blank" rel="external">Traceroute</a> print the route packets trace to network host。</li>
 </ul>
 <p><img src="tracerouter.png" alt="tracerouter"></p>
 <ul>
-<li><p>Above you can see your all packets of data travelling just likes <a href="http://www.bitwizard.nl/mtr/" target="_blank" rel="external">MTR</a> , but one of the different part is you can see the router transfer inside one specify router . See No.7 ~ No.11 at above sample .</p>
+<li><p>Above you can see your all packets of data travelling just like <a href="http://www.bitwizard.nl/mtr/" target="_blank" rel="external">MTR</a>， but one of the different part that you can see more details about what is going on inside the routhe。 See No.7 ~ No.11 at above sample。</p>
 </li>
 <li><p>more reference <a href="https://www.digitalocean.com/community/tutorials/how-to-use-traceroute-and-mtr-to-diagnose-network-issues" target="_blank" rel="external">DigitalOcean</a> , <a href="https://shapeshed.com/unix-traceroute/" target="_blank" rel="external">here</a>.</p>
 </li>
@@ -177,8 +179,8 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2016年11月23日 17:17</p>
-        <p>原始链接： <a class="post-url" href="/2016/11/18/network-diagnostic-tools/" title="Network Diagnostic Tools">http://stephenchen.com/2016/11/18/network-diagnostic-tools/</a></p>
+        <p>最后更新： 2017年11月26日 11:44</p>
+        <p>原始链接： <a class="post-url" href="/2016/11/18/Network-diagnostic-tools/" title="Network Diagnostic Tools">http://stephenchen.com/2016/11/18/Network-diagnostic-tools/</a></p>
         <footer>
             <a href="http://stephenchen.com">
                 <img src="/images/logo.png" alt="Stephen Chen">
@@ -235,7 +237,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://stephenchen.com/2016/11/18/network-diagnostic-tools/&title=《Network Diagnostic Tools》 — CLS&pic=http://stephenchen.comimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://stephenchen.com/2016/11/18/Network-diagnostic-tools/&title=《Network Diagnostic Tools》 — CLS&pic=http://stephenchen.comimages/logo.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -245,22 +247,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2016/11/18/network-diagnostic-tools/&title=《Network Diagnostic Tools》 — CLS&source=Sometimes there will be unexpected while playing with servers , so here I wil..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2016/11/18/Network-diagnostic-tools/&title=《Network Diagnostic Tools》 — CLS&source=Mac network diagnostic tools…." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://stephenchen.com/2016/11/18/network-diagnostic-tools/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://stephenchen.com/2016/11/18/Network-diagnostic-tools/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Network Diagnostic Tools》 — CLS&url=http://stephenchen.com/2016/11/18/network-diagnostic-tools/&via=http://stephenchen.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Network Diagnostic Tools》 — CLS&url=http://stephenchen.com/2016/11/18/Network-diagnostic-tools/&via=http://stephenchen.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://stephenchen.com/2016/11/18/network-diagnostic-tools/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://stephenchen.com/2016/11/18/Network-diagnostic-tools/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -270,7 +272,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://stephenchen.com/2016/11/18/network-diagnostic-tools/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://stephenchen.com/2016/11/18/Network-diagnostic-tools/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -279,6 +281,13 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/network/" class="color3">network</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -288,14 +297,14 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-Ping"><span class="post-toc-text">1.Ping</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Synopsis"><span class="post-toc-text">Synopsis</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-MTR"><span class="post-toc-text">2.MTR</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Synopsis-1"><span class="post-toc-text">Synopsis</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Install"><span class="post-toc-text">Install</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Export-environment-variable-for-further-use"><span class="post-toc-text">Export environment variable for further use</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#MTR-Sample"><span class="post-toc-text">MTR Sample</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-Traceroute"><span class="post-toc-text">3.Traceroute</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Ping"><span class="post-toc-text">1.Ping</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Synopsis"><span class="post-toc-text">Synopsis</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-MTR"><span class="post-toc-text">2.MTR</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Synopsis-1"><span class="post-toc-text">Synopsis</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Install"><span class="post-toc-text">Install</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Export-environment-variable-for-further-use"><span class="post-toc-text">Export environment variable for further use</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#MTR-Sample"><span class="post-toc-text">MTR Sample</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-Traceroute"><span class="post-toc-text">3.Traceroute</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2016/12/16/unrecognized-selector-sent-to-instance-error/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/12/16/Unrecognized-selector/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
@@ -372,7 +381,7 @@
             
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
+            <a href="/tags/AWS/" style="font-size: 10px;">AWS</a> <a href="/tags/Xcode/" style="font-size: 15px;">Xcode</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/iOS/" style="font-size: 17.5px;">iOS</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/network/" style="font-size: 12.5px;">network</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -405,7 +414,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
+            <a href="/tags/AWS/" style="font-size: 10px;">AWS</a> <a href="/tags/Xcode/" style="font-size: 15px;">Xcode</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/iOS/" style="font-size: 17.5px;">iOS</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/network/" style="font-size: 12.5px;">network</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
         </div>
     </div>
 </div>

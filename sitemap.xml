@@ -2,16 +2,100 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://stephenchen.com/2017/09/29/License/</loc>
+    <loc>http://stephenchen.com/2017/07/11/Xcode-Visual-Memory-View-Debugger/</loc>
     
-    <lastmod>2017-11-26T03:08:01.000Z</lastmod>
+    <lastmod>2017-11-26T03:49:51.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/04/24/What-is-Podfile-lock/</loc>
+    
+    <lastmod>2017-11-26T03:49:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2016/12/16/Unrecognized-selector/</loc>
+    
+    <lastmod>2017-11-26T03:49:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/</loc>
+    
+    <lastmod>2017-11-26T03:49:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/</loc>
+    
+    <lastmod>2017-11-26T03:49:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2016/12/20/Swift-Code-Conventions-Helper-And-Documentor/</loc>
+    
+    <lastmod>2017-11-26T03:49:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/01/12/Socket/</loc>
+    
+    <lastmod>2017-11-26T03:49:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/</loc>
+    
+    <lastmod>2017-11-26T03:49:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/</loc>
+    
+    <lastmod>2017-11-26T03:48:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2016/11/18/Network-diagnostic-tools/</loc>
+    
+    <lastmod>2017-11-26T03:44:47.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/11/25/Memory-of-static-and-non-static-methods/</loc>
+    
+    <lastmod>2017-11-26T03:33:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2016/12/21/Swift-3-access-control/</loc>
+    
+    <lastmod>2017-11-26T03:33:20.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://stephenchen.com/2017/07/02/Http-Mine-types/</loc>
     
-    <lastmod>2017-11-26T03:07:54.000Z</lastmod>
+    <lastmod>2017-11-26T03:31:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/09/29/License/</loc>
+    
+    <lastmod>2017-11-26T03:08:01.000Z</lastmod>
     
   </url>
   
@@ -65,13 +149,6 @@
   </url>
   
   <url>
-    <loc>http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/</loc>
-    
-    <lastmod>2017-11-26T03:03:15.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://stephenchen.com/2017/01/27/Custom-build-in-Sublime-Text-3/</loc>
     
     <lastmod>2017-11-26T03:02:58.000Z</lastmod>
@@ -89,97 +166,6 @@
     <loc>http://stephenchen.com/2017/08/29/Code%20%E7%9A%84%E7%9B%B8%E9%97%9C%E5%96%AE%E5%AD%97%E5%88%86%E4%BA%AB/</loc>
     
     <lastmod>2017-11-26T02:51:58.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/</loc>
-    
-    <lastmod>2017-11-25T15:21:47.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/11/25/memory-of-static-and-non-static-methods/</loc>
-    
-    <lastmod>2017-11-25T14:24:55.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/07/11/Xcode-Visual-Memory-View-Debugger/</loc>
-    
-    <lastmod>2017-07-11T08:48:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/05/24/Protocol-Buffers-on-iOS/</loc>
-    
-    <lastmod>2017-07-10T08:03:01.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/04/21/simple-way-build-an-framework/</loc>
-    
-    <lastmod>2017-04-27T07:26:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/04/24/What-is-Podfile-lock/</loc>
-    
-    <lastmod>2017-04-26T03:46:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/02/21/Transfer-Git-repositories-into-another-service/</loc>
-    
-    <lastmod>2017-04-18T17:00:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/01/12/socket/</loc>
-    
-    <lastmod>2017-01-23T01:22:35.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2016/12/16/unrecognized-selector-sent-to-instance-error/</loc>
-    
-    <lastmod>2017-01-13T01:54:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2016/12/21/swift-3-open-public-private-fileprivate/</loc>
-    
-    <lastmod>2017-01-10T01:41:01.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2016/12/20/Swift-Code-Conventions-Helper-And-Documentor/</loc>
-    
-    <lastmod>2016-12-20T08:44:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2016/11/18/network-diagnostic-tools/</loc>
-    
-    <lastmod>2016-11-23T09:17:33.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2016/10/12/One-way-Hash-Function/</loc>
-    
-    <lastmod>2016-10-26T08:42:15.000Z</lastmod>
     
   </url>
   

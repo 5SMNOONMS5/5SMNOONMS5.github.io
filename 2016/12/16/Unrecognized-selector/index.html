@@ -3,22 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Protocol Buffers on iOS | CLS</title>
+  <title>Fix &#39;&#39;Unrecognized selector sent to instance&#39;&#39; error | CLS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="StephenChen's Blog" />
   
-  <meta name="description" content="實作 Protocol Buffers on iOS 與本地端 python service， 原文出處">
+  <meta name="description" content="Provide easy way to solve this horrible problem">
+<meta name="keywords" content="Xcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Protocol Buffers on iOS">
-<meta property="og:url" content="http://stephenchen.com/2017/05/24/Protocol-Buffers-on-iOS/index.html">
+<meta property="og:title" content="Fix &#39;&#39;Unrecognized selector sent to instance&#39;&#39; error">
+<meta property="og:url" content="http://stephenchen.com/2016/12/16/Unrecognized-selector/index.html">
 <meta property="og:site_name" content="CLS">
-<meta property="og:description" content="實作 Protocol Buffers on iOS 與本地端 python service， 原文出處">
+<meta property="og:description" content="Provide easy way to solve this horrible problem">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-07-10T08:03:01.000Z">
+<meta property="og:image" content="http://stephenchen.com/2016/12/16/Unrecognized-selector/error.png">
+<meta property="og:image" content="http://stephenchen.com/2016/12/16/Unrecognized-selector/Step1.png">
+<meta property="og:image" content="http://stephenchen.com/2016/12/16/Unrecognized-selector/Step2.png">
+<meta property="og:updated_time" content="2017-11-26T03:49:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Protocol Buffers on iOS">
-<meta name="twitter:description" content="實作 Protocol Buffers on iOS 與本地端 python service， 原文出處">
+<meta name="twitter:title" content="Fix &#39;&#39;Unrecognized selector sent to instance&#39;&#39; error">
+<meta name="twitter:description" content="Provide easy way to solve this horrible problem">
+<meta name="twitter:image" content="http://stephenchen.com/2016/12/16/Unrecognized-selector/error.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -106,20 +111,20 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-Protocol-Buffers-on-iOS" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Unrecognized-selector" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      Protocol Buffers on iOS
+      Fix &#39;&#39;Unrecognized selector sent to instance&#39;&#39; error
     </h1>
     <div class="post-title-bar">
       <ul>
           
         <li>
-          <i class="fa fa-calendar"></i>  2017-05-24
+          <i class="fa fa-calendar"></i>  2016-12-16
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -135,31 +140,19 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>實作 Protocol Buffers on iOS 與本地端 python service， <a href="https://www.raywenderlich.com/149335/introduction-protocol-buffers-ios" target="_blank" rel="external">原文出處</a></p>
+            <p>Provide easy way to solve this horrible problem</p>
 <a id="more"></a>
-<p>這陣子忙完了終於有機會可以來嘗試由 Google 推出的 <a href="https://developers.google.com/protocol-buffers/" target="_blank" rel="external">Protocol Buffers</a>，如果您是新專案的話可以考慮用看看</p>
-<h1 id="優點"><a href="#優點" class="headerlink" title="優點"></a>優點</h1><ul>
-<li><p>快速輕巧：根據 google 的統計 protocol buffers 比 XML 更小更快，這邊也有<a href="https://damienbod.com/2014/01/09/comparing-protobuf-json-bson-xml-with-net-for-file-streams/" target="_blank" rel="external">牛人</a>幫忙實際測試。</p>
-</li>
-<li><p>型態安全 (Type safety)：使用 protocol buffer language 必須給予型態。</p>
-</li>
-<li><p>自動反序列化：不用在寫任何解析的程式碼了，只需要更新 proto 檔案然後重新產生 model calss。</p>
-</li>
-<li><p>支援多種跨平台</p>
-</li>
-</ul>
-<h1 id="缺點"><a href="#缺點" class="headerlink" title="缺點"></a>缺點</h1><ul>
-<li><p>時間成本：要在既有專案上更動所耗費的時間成本非常的高，這點可能要好好考慮考慮</p>
-</li>
-<li><p>比較不好閱讀： 相比 XML 跟 JSON，protocol buffer 會比較不好上手</p>
-</li>
-</ul>
-<p>未完成…….待續….</p>
+<p>While developing iOS application , you probably face this kind of error a lot</p>
+<p><img src="error.png" alt="error picture"></p>
+<p>The easiest way is create a exception breakpoint</p>
+<p><img src="Step1.png" alt="Step1"></p>
+<p><img src="Step2.png" alt="Step2"></p>
+<p>Run and build , the breakpoint should stop at where caused this error .</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年07月10日 16:03</p>
-        <p>原始链接： <a class="post-url" href="/2017/05/24/Protocol-Buffers-on-iOS/" title="Protocol Buffers on iOS">http://stephenchen.com/2017/05/24/Protocol-Buffers-on-iOS/</a></p>
+        <p>最后更新： 2017年11月26日 11:49</p>
+        <p>原始链接： <a class="post-url" href="/2016/12/16/Unrecognized-selector/" title="Fix &#39;&#39;Unrecognized selector sent to instance&#39;&#39; error">http://stephenchen.com/2016/12/16/Unrecognized-selector/</a></p>
         <footer>
             <a href="http://stephenchen.com">
                 <img src="/images/logo.png" alt="Stephen Chen">
@@ -216,7 +209,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://stephenchen.com/2017/05/24/Protocol-Buffers-on-iOS/&title=《Protocol Buffers on iOS》 — CLS&pic=http://stephenchen.comimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://stephenchen.com/2016/12/16/Unrecognized-selector/&title=《Fix ''Unrecognized selector sent to instance'' error》 — CLS&pic=http://stephenchen.comimages/logo.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -226,22 +219,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2017/05/24/Protocol-Buffers-on-iOS/&title=《Protocol Buffers on iOS》 — CLS&source=實作 Protocol Buffers on iOS 與本地端 python service， 原文出處" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2016/12/16/Unrecognized-selector/&title=《Fix ''Unrecognized selector sent to instance'' error》 — CLS&source=Provide easy way to solve this horrible problem" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://stephenchen.com/2017/05/24/Protocol-Buffers-on-iOS/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://stephenchen.com/2016/12/16/Unrecognized-selector/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Protocol Buffers on iOS》 — CLS&url=http://stephenchen.com/2017/05/24/Protocol-Buffers-on-iOS/&via=http://stephenchen.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Fix ''Unrecognized selector sent to instance'' error》 — CLS&url=http://stephenchen.com/2016/12/16/Unrecognized-selector/&via=http://stephenchen.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://stephenchen.com/2017/05/24/Protocol-Buffers-on-iOS/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://stephenchen.com/2016/12/16/Unrecognized-selector/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -251,7 +244,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://stephenchen.com/2017/05/24/Protocol-Buffers-on-iOS/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://stephenchen.com/2016/12/16/Unrecognized-selector/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -260,6 +253,13 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Xcode/" class="color1">Xcode</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -267,28 +267,22 @@
 </article>
 
 
-    <aside class="post-toc-pos post-toc-top" id="post-toc">
-        <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#優點"><span class="post-toc-text">優點</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#缺點"><span class="post-toc-text">缺點</span></a></li></ol>
-        </nav>
-    </aside>
-    
 
 <nav id="article-nav">
   
-    <a href="/2017/07/02/Http-Mine-types/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/12/20/Swift-Code-Conventions-Helper-And-Documentor/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          Http Mine types
+          Swift Code Conventions Helper And Document Generator
         
       </span>
     </a>
   
   
-    <a href="/2017/04/24/What-is-Podfile-lock/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">What is Podfile.lock?</span>
+    <a href="/2016/11/18/Network-diagnostic-tools/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Network Diagnostic Tools</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -353,7 +347,7 @@
             
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
+            <a href="/tags/AWS/" style="font-size: 10px;">AWS</a> <a href="/tags/Xcode/" style="font-size: 15px;">Xcode</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/iOS/" style="font-size: 17.5px;">iOS</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/network/" style="font-size: 12.5px;">network</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -386,7 +380,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
+            <a href="/tags/AWS/" style="font-size: 10px;">AWS</a> <a href="/tags/Xcode/" style="font-size: 15px;">Xcode</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/iOS/" style="font-size: 17.5px;">iOS</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/network/" style="font-size: 12.5px;">network</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
         </div>
     </div>
 </div>
