@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-11-26T04:09:54.000Z</updated>
+  <updated>2017-11-26T04:11:38.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>Memory Usage Of Static And Non-static Methods</title>
-    <link href="http://stephenchen.com/2017/11/25/Memory-of-static-and-non-static-methods/"/>
-    <id>http://stephenchen.com/2017/11/25/Memory-of-static-and-non-static-methods/</id>
+    <link href="http://stephenchen.com/2017/11/25/Memory-usage/"/>
+    <id>http://stephenchen.com/2017/11/25/Memory-usage/</id>
     <published>2017-11-25T14:24:55.000Z</published>
-    <updated>2017-11-26T04:09:54.000Z</updated>
+    <updated>2017-11-26T04:11:38.000Z</updated>
     
     <content type="html"><![CDATA[<p>curious</p>
 <a id="more"></a>
@@ -451,8 +451,8 @@
   
   <entry>
     <title>Simple Way To Build An iOS Framework</title>
-    <link href="http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/"/>
-    <id>http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/</id>
+    <link href="http://stephenchen.com/2017/04/21/Simple-Way-To-Build-An-iOS-Framework/"/>
+    <id>http://stephenchen.com/2017/04/21/Simple-Way-To-Build-An-iOS-Framework/</id>
     <published>2017-04-21T08:03:08.000Z</published>
     <updated>2017-11-26T03:57:06.000Z</updated>
     

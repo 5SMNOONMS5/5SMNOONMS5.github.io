@@ -3,31 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Simple Way To Build An iOS Framework | CLS</title>
+  <title>Memory Usage Of Static And Non-static Methods | CLS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="StephenChen's Blog" />
   
-  <meta name="description" content="Creating a reusable, sharable code across different projects and deploy with Carthage">
-<meta name="keywords" content="iOS">
+  <meta name="description" content="curious">
+<meta name="keywords" content="programming">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Simple Way To Build An iOS Framework">
-<meta property="og:url" content="http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/index.html">
+<meta property="og:title" content="Memory Usage Of Static And Non-static Methods">
+<meta property="og:url" content="http://stephenchen.com/2017/11/25/Memory-usage/index.html">
 <meta property="og:site_name" content="CLS">
-<meta property="og:description" content="Creating a reusable, sharable code across different projects and deploy with Carthage">
+<meta property="og:description" content="curious">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/create-framework.gif">
-<meta property="og:image" content="http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/create-framework2.gif">
-<meta property="og:image" content="http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/create-framework3.gif">
-<meta property="og:image" content="http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/create-framework4.gif">
-<meta property="og:image" content="http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/create-framework5.png">
-<meta property="og:image" content="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat">
-<meta property="og:image" content="http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/create-framework6.gif">
-<meta property="og:updated_time" content="2017-11-26T03:57:06.000Z">
+<meta property="og:updated_time" content="2017-11-26T04:11:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Simple Way To Build An iOS Framework">
-<meta name="twitter:description" content="Creating a reusable, sharable code across different projects and deploy with Carthage">
-<meta name="twitter:image" content="http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/create-framework.gif">
+<meta name="twitter:title" content="Memory Usage Of Static And Non-static Methods">
+<meta name="twitter:description" content="curious">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -115,20 +107,20 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-Simple-way-build-an-framework" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Memory-usage" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      Simple Way To Build An iOS Framework
+      Memory Usage Of Static And Non-static Methods
     </h1>
     <div class="post-title-bar">
       <ul>
           
         <li>
-          <i class="fa fa-calendar"></i>  2017-04-21
+          <i class="fa fa-calendar"></i>  2017-11-25
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -144,37 +136,16 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>Creating a reusable, sharable code across different projects and deploy with <a href="https://github.com/Carthage/Carthage" target="_blank" rel="external">Carthage</a></p>
+            <p>curious</p>
 <a id="more"></a>
-<p>This article has minimal version iOS 8 require， because Apple allow developer create their own dynamic framework since iOS 8。</p>
-<p>Below are some references you can dig into it。</p>
-<p><a href="http://stackoverflow.com/questions/27899799/ios-static-vs-dynamic-frameworks-clarifications" target="_blank" rel="external">iOS Static vs Dynamic frameworks clarifications</a></p>
-<p><a href="https://github.com/jverkoey/iOS-Framework" target="_blank" rel="external">Building a static iOS framework is a pain in the ass</a></p>
-<h3 id="OS-Environment"><a href="#OS-Environment" class="headerlink" title="OS Environment"></a>OS Environment</h3><p>macOS Sierra</p>
-<h3 id="Step-1-Create-a-new-framework-project"><a href="#Step-1-Create-a-new-framework-project" class="headerlink" title="Step 1: Create a new framework project"></a>Step 1: Create a new framework project</h3><p>Just like create a normal project.</p>
-<p><img src="create-framework.gif" alt="create-framework"></p>
-<p>Then add your files into it.</p>
-<h3 id="Step-2-Share-your-framework"><a href="#Step-2-Share-your-framework" class="headerlink" title="Step 2: Share your framework"></a>Step 2: Share your framework</h3><p>Make scheme sharable.</p>
-<p><img src="create-framework2.gif" alt="create-framework2"></p>
-<h3 id="Step-3-Add-files-into-your-framework-and-finish"><a href="#Step-3-Add-files-into-your-framework-and-finish" class="headerlink" title="Step 3: Add files into your framework and finish."></a>Step 3: Add files into your framework and finish.</h3><p>First add your files into your framework then generate this framework by press <strong>commnad + B</strong>. After all, right click <strong>show in finder</strong> option with popup menu.</p>
-<p><img src="create-framework3.gif" alt="create-framework3"></p>
-<h3 id="Step-4-Before-Deploy"><a href="#Step-4-Before-Deploy" class="headerlink" title="Step 4: Before Deploy"></a>Step 4: Before Deploy</h3><p>Run below code or <a href="https://github.com/Carthage/Carthage#share-your-xcode-schemes" target="_blank" rel="external">see office guildline</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">carthage build --no-skip-current</div></pre></td></tr></table></figure>
-<p><img src="create-framework4.gif" alt="create-framework4"></p>
-<p>Then checking the Carthage/Build folder.</p>
-<p><img src="create-framework5.png" alt="create-framework5"></p>
-<h3 id="Setp-5-Make-a-badge"><a href="#Setp-5-Make-a-badge" class="headerlink" title="Setp 5: Make a badge"></a>Setp 5: Make a badge</h3><p>add below into your Readme.md, it shows like <a href="https://github.com/Carthage/Carthage" target="_blank" rel="external"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)</div></pre></td></tr></table></figure>
-<h3 id="Step-6-Deploy-it-with-private-way"><a href="#Step-6-Deploy-it-with-private-way" class="headerlink" title="Step 6: Deploy it with private way"></a>Step 6: Deploy it with private way</h3><p>Deploy it to your personal git service such as <strong>BitBucket</strong>、<strong>GitLab</strong>、<strong>Github</strong>….etc.</p>
-<p>Then add private URL inside <strong>Cartfile</strong> on any of your projects.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> git \<span class="string">"Your Git URL Address\" &gt; Cartfile</span></div></pre></td></tr></table></figure>
-<p><img src="create-framework6.gif" alt="create-framework6"></p>
-<h1 id="Step-7-Deploy-it-with-public-way"><a href="#Step-7-Deploy-it-with-public-way" class="headerlink" title="Step 7: Deploy it with public way"></a>Step 7: Deploy it with public way</h1><p>to be continue….</p>
+<p>I use static methods in lots of places, so I just<br>curious about the memory footprint between static and non-static methods or parameter.</p>
+<p>According to <a href="https://stackoverflow.com/questions/8353842/static-methods-save-memory-unmanaged-code" target="_blank" rel="external">this</a>, non-static methods or parameters is almost same as static methods or parameters.</p>
+<p>So be design-driven, not memory-driven.</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年11月26日 11:57</p>
-        <p>原始链接： <a class="post-url" href="/2017/04/21/Simple-way-build-an-framework/" title="Simple Way To Build An iOS Framework">http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/</a></p>
+        <p>最后更新： 2017年11月26日 12:11</p>
+        <p>原始链接： <a class="post-url" href="/2017/11/25/Memory-usage/" title="Memory Usage Of Static And Non-static Methods">http://stephenchen.com/2017/11/25/Memory-usage/</a></p>
         <footer>
             <a href="http://stephenchen.com">
                 <img src="/images/logo.png" alt="Stephen Chen">
@@ -231,7 +202,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/&title=《Simple Way To Build An iOS Framework》 — CLS&pic=http://stephenchen.comimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://stephenchen.com/2017/11/25/Memory-usage/&title=《Memory Usage Of Static And Non-static Methods》 — CLS&pic=http://stephenchen.comimages/logo.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -241,22 +212,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/&title=《Simple Way To Build An iOS Framework》 — CLS&source=Creating a reusable, sharable code across different projects and deploy with ..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2017/11/25/Memory-usage/&title=《Memory Usage Of Static And Non-static Methods》 — CLS&source=curious" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://stephenchen.com/2017/11/25/Memory-usage/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Simple Way To Build An iOS Framework》 — CLS&url=http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/&via=http://stephenchen.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Memory Usage Of Static And Non-static Methods》 — CLS&url=http://stephenchen.com/2017/11/25/Memory-usage/&via=http://stephenchen.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://stephenchen.com/2017/11/25/Memory-usage/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -266,7 +237,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://stephenchen.com/2017/11/25/Memory-usage/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -278,7 +249,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/iOS/" class="color4">iOS</a>
+    <a href="/tags/programming/" class="color2">programming</a>
       
   </li>
 
@@ -289,28 +260,12 @@
 </article>
 
 
-    <aside class="post-toc-pos post-toc-top" id="post-toc">
-        <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OS-Environment"><span class="post-toc-text">OS Environment</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Step-1-Create-a-new-framework-project"><span class="post-toc-text">Step 1: Create a new framework project</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Step-2-Share-your-framework"><span class="post-toc-text">Step 2: Share your framework</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Step-3-Add-files-into-your-framework-and-finish"><span class="post-toc-text">Step 3: Add files into your framework and finish.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Step-4-Before-Deploy"><span class="post-toc-text">Step 4: Before Deploy</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Setp-5-Make-a-badge"><span class="post-toc-text">Setp 5: Make a badge</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Step-6-Deploy-it-with-private-way"><span class="post-toc-text">Step 6: Deploy it with private way</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Step-7-Deploy-it-with-public-way"><span class="post-toc-text">Step 7: Deploy it with public way</span></a>
-        </nav>
-    </aside>
-    
 
 <nav id="article-nav">
   
-    <a href="/2017/04/24/What-is-Podfile-lock/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          What is Podfile.lock?
-        
-      </span>
-    </a>
   
-  
-    <a href="/2017/03/22/Fastlane/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Integrate With Fastlane And Bash-Script</span>
+    <a href="/2017/11/15/前往遊戲開發之路/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">前往遊戲開發之路</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
