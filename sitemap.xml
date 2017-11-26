@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://stephenchen.com/2017/11/25/Memory-usage/</loc>
+    <loc>http://stephenchen.com/2016/11/18/Network-Diagnostic-Tools/</loc>
     
-    <lastmod>2017-11-26T04:11:38.000Z</lastmod>
+    <lastmod>2017-11-26T04:15:35.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/11/25/Memory-Usage-Of-Static-And-Non-static-Methods/</loc>
+    
+    <lastmod>2017-11-26T04:15:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/01/12/Socket/</loc>
+    
+    <lastmod>2017-11-26T04:14:39.000Z</lastmod>
     
   </url>
   
@@ -89,20 +103,6 @@
     <loc>http://stephenchen.com/2016/12/20/Swift-Code-Conventions-Helper-And-Documentor/</loc>
     
     <lastmod>2017-11-26T03:53:48.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/01/12/Socket/</loc>
-    
-    <lastmod>2017-11-26T03:50:31.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2016/11/18/Network-diagnostic-tools/</loc>
-    
-    <lastmod>2017-11-26T03:44:47.000Z</lastmod>
     
   </url>
   
