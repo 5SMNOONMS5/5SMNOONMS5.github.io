@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-11-26T03:33:37.000Z</updated>
+  <updated>2017-11-26T03:55:36.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>memory of static and non-static methods</title>
+    <title>About Memory usage Static And Nonstatic Methods</title>
     <link href="http://stephenchen.com/2017/11/25/Memory-of-static-and-non-static-methods/"/>
     <id>http://stephenchen.com/2017/11/25/Memory-of-static-and-non-static-methods/</id>
     <published>2017-11-25T14:24:55.000Z</published>
-    <updated>2017-11-26T03:33:37.000Z</updated>
+    <updated>2017-11-26T03:55:36.000Z</updated>
     
     <summary type="html">
     
@@ -441,11 +441,11 @@
   </entry>
   
   <entry>
-    <title>Simple way to build an iOS framework</title>
+    <title>Simple Way To Build An iOS Framework</title>
     <link href="http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/"/>
     <id>http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/</id>
     <published>2017-04-21T08:03:08.000Z</published>
-    <updated>2017-11-26T03:48:49.000Z</updated>
+    <updated>2017-11-26T03:57:06.000Z</updated>
     
     <content type="html"><![CDATA[<p>Creating a reusable, sharable code across different projects and deploy with <a href="https://github.com/Carthage/Carthage" target="_blank" rel="external">Carthage</a></p>
 <a id="more"></a>
@@ -892,11 +892,11 @@
   </entry>
   
   <entry>
-    <title>Swift 3 Access Control with diagram</title>
+    <title>Swift 3 Access Control Diagram</title>
     <link href="http://stephenchen.com/2016/12/21/Swift-3-access-control/"/>
     <id>http://stephenchen.com/2016/12/21/Swift-3-access-control/</id>
     <published>2016-12-21T10:28:39.000Z</published>
-    <updated>2017-11-26T03:50:59.000Z</updated>
+    <updated>2017-11-26T03:56:02.000Z</updated>
     
     <content type="html"><![CDATA[<p>A diagram for open, public, private, fileprivate access level for swfit 3</p>
 <a id="more"></a>
@@ -982,11 +982,11 @@
   </entry>
   
   <entry>
-    <title>Fix &#39;&#39;Unrecognized selector sent to instance&#39;&#39; error</title>
+    <title>Xcode Unrecognized Selector Sent To Instance Error</title>
     <link href="http://stephenchen.com/2016/12/16/Unrecognized-selector/"/>
     <id>http://stephenchen.com/2016/12/16/Unrecognized-selector/</id>
     <published>2016-12-16T03:37:09.000Z</published>
-    <updated>2017-11-26T03:54:27.000Z</updated>
+    <updated>2017-11-26T03:56:26.000Z</updated>
     
     <content type="html"><![CDATA[<p>Provide easy way to solve this horrible problem</p>
 <a id="more"></a>

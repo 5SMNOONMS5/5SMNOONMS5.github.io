@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/</loc>
+    
+    <lastmod>2017-11-26T03:57:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/</loc>
+    
+    <lastmod>2017-11-26T03:56:33.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2016/12/16/Unrecognized-selector/</loc>
+    
+    <lastmod>2017-11-26T03:56:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2016/12/21/Swift-3-access-control/</loc>
+    
+    <lastmod>2017-11-26T03:56:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/11/25/Memory-of-static-and-non-static-methods/</loc>
+    
+    <lastmod>2017-11-26T03:55:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stephenchen.com/2017/07/11/Xcode-Visual-Memory-View-Debugger/</loc>
     
     <lastmod>2017-11-26T03:54:53.000Z</lastmod>
@@ -12,13 +47,6 @@
     <loc>http://stephenchen.com/2017/04/24/What-is-Podfile-lock/</loc>
     
     <lastmod>2017-11-26T03:54:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2016/12/16/Unrecognized-selector/</loc>
-    
-    <lastmod>2017-11-26T03:54:27.000Z</lastmod>
     
   </url>
   
@@ -44,13 +72,6 @@
   </url>
   
   <url>
-    <loc>http://stephenchen.com/2016/12/21/Swift-3-access-control/</loc>
-    
-    <lastmod>2017-11-26T03:50:59.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://stephenchen.com/2017/01/12/Socket/</loc>
     
     <lastmod>2017-11-26T03:50:31.000Z</lastmod>
@@ -58,30 +79,9 @@
   </url>
   
   <url>
-    <loc>http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/</loc>
-    
-    <lastmod>2017-11-26T03:49:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/04/21/Simple-way-build-an-framework/</loc>
-    
-    <lastmod>2017-11-26T03:48:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://stephenchen.com/2016/11/18/Network-diagnostic-tools/</loc>
     
     <lastmod>2017-11-26T03:44:47.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/11/25/Memory-of-static-and-non-static-methods/</loc>
-    
-    <lastmod>2017-11-26T03:33:37.000Z</lastmod>
     
   </url>
   
