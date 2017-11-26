@@ -3,30 +3,31 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Integrate With Fastlane | CLS</title>
+  <title>Integrate With Fastlane And Bash-Script | CLS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="StephenChen's Blog" />
   
-  <meta name="description" content="fastlane + script 一鍵產出多種 .ipa 檔。">
+  <meta name="description" content="利用 fastlane + script 一鍵產出 .ipa 檔。">
+<meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Integrate With Fastlane">
-<meta property="og:url" content="http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/index.html">
+<meta property="og:title" content="Integrate With Fastlane And Bash-Script">
+<meta property="og:url" content="http://stephenchen.com/2017/03/22/Fastlane/index.html">
 <meta property="og:site_name" content="CLS">
-<meta property="og:description" content="fastlane + script 一鍵產出多種 .ipa 檔。">
+<meta property="og:description" content="利用 fastlane + script 一鍵產出 .ipa 檔。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/fastlaneinit2.png">
-<meta property="og:image" content="http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/allactions.png">
-<meta property="og:image" content="http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/parameters.png">
-<meta property="og:image" content="http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/gym.png">
-<meta property="og:image" content="http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/bash_architecture.png">
-<meta property="og:image" content="http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/archive.png">
-<meta property="og:image" content="http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/opensslfail.png">
-<meta property="og:updated_time" content="2017-11-25T15:59:36.000Z">
+<meta property="og:image" content="http://stephenchen.com/2017/03/22/Fastlane/fastlaneinit2.png">
+<meta property="og:image" content="http://stephenchen.com/2017/03/22/Fastlane/allactions.png">
+<meta property="og:image" content="http://stephenchen.com/2017/03/22/Fastlane/parameters.png">
+<meta property="og:image" content="http://stephenchen.com/2017/03/22/Fastlane/gym.png">
+<meta property="og:image" content="http://stephenchen.com/2017/03/22/Fastlane/bash_architecture.png">
+<meta property="og:image" content="http://stephenchen.com/2017/03/22/Fastlane/archive.png">
+<meta property="og:image" content="http://stephenchen.com/2017/03/22/Fastlane/opensslfail.png">
+<meta property="og:updated_time" content="2017-11-26T02:47:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Integrate With Fastlane">
-<meta name="twitter:description" content="fastlane + script 一鍵產出多種 .ipa 檔。">
-<meta name="twitter:image" content="http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/fastlaneinit2.png">
+<meta name="twitter:title" content="Integrate With Fastlane And Bash-Script">
+<meta name="twitter:description" content="利用 fastlane + script 一鍵產出 .ipa 檔。">
+<meta name="twitter:image" content="http://stephenchen.com/2017/03/22/Fastlane/fastlaneinit2.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -114,14 +115,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-fastlane-customize-plist-file" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Fastlane" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      Integrate With Fastlane
+      Integrate With Fastlane And Bash-Script
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -143,15 +144,13 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>fastlane + script 一鍵產出多種 .ipa 檔。</p>
+            <p>利用 fastlane + script 一鍵產出 .ipa 檔。</p>
 <a id="more"></a>
-<h4 id="使用環境"><a href="#使用環境" class="headerlink" title="使用環境"></a>使用環境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">macOS Sierra</div></pre></td></tr></table></figure>
-<h1 id="自身面臨的情況"><a href="#自身面臨的情況" class="headerlink" title="自身面臨的情況"></a>自身面臨的情況</h1><p>因工作所需，需要發布 <strong>企業內部使用</strong>，並打包成不同形式的 .ipa 上架擋案。換句話說，假設我要產生 10 個 擁有不同 Info.plist 的 .ipa 檔案，如果手動的話我不就要改到死了？每次 Archive 都要等很久，然後結束之後在改 Info.plist 上的參數然後再 Archive 然後再上架。</p>
-<h1 id="本篇分享概要"><a href="#本篇分享概要" class="headerlink" title="本篇分享概要"></a>本篇分享概要</h1><p>因為官方文檔其實非常詳細，所以這邊只分享大致流程，並不打算寫的太詳細。</p>
-<h1 id="如何自動上架"><a href="#如何自動上架" class="headerlink" title="如何自動上架"></a>如何自動上架</h1><p>目前iOS我知道打包除了手動之外，還有幾種方式分別是<a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html" target="_blank" rel="external">xcodebuild</a>和<a href="https://github.com/facebook/xctool" target="_blank" rel="external">xctool</a>，而今天要使用的是把這些神器打包好的神器 <a href="https://fastlane.tools/" target="_blank" rel="external">fastlane</a></p>
-<h1 id="如何自動更新-Info-plist-的參數"><a href="#如何自動更新-Info-plist-的參數" class="headerlink" title="如何自動更新 Info.plist 的參數"></a>如何自動更新 Info.plist 的參數</h1><p>這邊我打算使用 <a href="https://www.gnu.org/software/sed/manual/sed.txt" target="_blank" rel="external">sed</a> 來完成替換 Info.plist 內部參數。</p>
-<p>附帶一提，這邊情況適用我自己而已，其實任何在專案內部的檔案，圖片都可以進行變更，包括上架到 AppStore，Screenshot，Test，管理證書都可以。It’s all depending on you.</p>
-<h1 id="結合兩者-Fastlane-Script"><a href="#結合兩者-Fastlane-Script" class="headerlink" title="結合兩者 Fastlane + Script"></a>結合兩者 Fastlane + Script</h1><h4 id="步驟1：完成-Fastlane-的安裝"><a href="#步驟1：完成-Fastlane-的安裝" class="headerlink" title="步驟1：完成 Fastlane 的安裝"></a>步驟1：完成 Fastlane 的安裝</h4><ul>
+<h2 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">macOS Sierra</div></pre></td></tr></table></figure>
+<h2 id="面臨的問題"><a href="#面臨的問題" class="headerlink" title="面臨的問題"></a>面臨的問題</h2><p>因工作所需，需要發布只提供 <strong>企業使用</strong> 的 ipa 檔，每個 ipa 檔會擁有不同格式的 plist ，而且數量可能不少。</p>
+<h2 id="本篇分享概要"><a href="#本篇分享概要" class="headerlink" title="本篇分享概要"></a>本篇分享概要</h2><p>其實 <a href="https://fastlane.tools/" target="_blank" rel="external">fastlane</a> 官方 已經很詳細了，所以這裡只分享大致流程，並不打算寫的太詳細。</p>
+<h2 id="如何自動上架"><a href="#如何自動上架" class="headerlink" title="如何自動上架"></a>如何自動上架</h2><p>目前iOS我知道打包除了手動之外，還有幾種方式分別是<a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html" target="_blank" rel="external">xcodebuild</a>和<a href="https://github.com/facebook/xctool" target="_blank" rel="external">xctool</a>，而今天想分享的是 <a href="https://fastlane.tools/" target="_blank" rel="external">fastlane</a></p>
+<h2 id="步驟1：首先把-Fastlane-安裝"><a href="#步驟1：首先把-Fastlane-安裝" class="headerlink" title="步驟1：首先把 Fastlane 安裝"></a>步驟1：首先把 Fastlane 安裝</h2><ul>
 <li>安裝 homebrew</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
@@ -159,22 +158,22 @@
 <li>透過 homebrew 來安裝 fastlane</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew cask install fastlane</div></pre></td></tr></table></figure>
-<h4 id="步驟2：Fastlane-的初始化設定"><a href="#步驟2：Fastlane-的初始化設定" class="headerlink" title="步驟2：Fastlane 的初始化設定"></a>步驟2：Fastlane 的初始化設定</h4><ul>
+<h2 id="步驟2：Fastlane-初始化設定"><a href="#步驟2：Fastlane-初始化設定" class="headerlink" title="步驟2：Fastlane 初始化設定"></a>步驟2：Fastlane 初始化設定</h2><ul>
 <li>第一種：(建議）</li>
 </ul>
 <blockquote>
 <p>透過 <a href="https://fabric.io/features/distribution?utm_campaign=github_readme" target="_blank" rel="external">官方</a>提供的文檔來產生初始化的程式碼</p>
 </blockquote>
 <ul>
-<li>第二種：開啟 Terminal 到當前 iOS 的資料夾下，並且跟著輸入帳號跟相關的資料</li>
+<li>第二種：開啟 Terminal 到當前 iOS 的資料夾下，init 之後會要你需入輸入帳號以及其他相關資料</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane init</div></pre></td></tr></table></figure>
 <p><img src="fastlaneinit2.png" alt="fastlaneinit2.png"></p>
 <p>那兩種哪邊不一樣呢？，第一種其實已經幫你把程式碼初始化了，讓你少去比較多的步驟，接著我們打開 <strong>Fastlane</strong> 來看一下的 Code。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">fastlane_version <span class="string">"1.109.0"</span></div><div class="line"></div><div class="line">generated_fastfile_id <span class="string">"adb8dedb-e633-43f6-87b0-03588e2f5a43"</span></div><div class="line"></div><div class="line">default_platform <span class="symbol">:ios</span></div><div class="line"></div><div class="line"><span class="comment"># 原本的</span></div><div class="line">lane <span class="symbol">:beta</span> <span class="keyword">do</span></div><div class="line"></div><div class="line">  <span class="comment"># build your iOS app</span></div><div class="line">  gym(</div><div class="line">    <span class="comment"># scheme: "YourScheme"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  <span class="comment"># upload to Beta by Crashlytics</span></div><div class="line">  crashlytics(</div><div class="line">    <span class="comment"># api_token: "YOUR_API_KEY",</span></div><div class="line">    <span class="comment"># build_secret: "YOUR_BUILD_SECRET"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  <span class="comment"># slack(</span></div><div class="line">  <span class="comment">#   slack_url: "https://hooks.slack.com/services/IDS"</span></div><div class="line">  <span class="comment"># )</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># 自定義名稱我在這邊自定義名稱為 BABABA</span></div><div class="line">lane <span class="symbol">:BABABA</span> <span class="keyword">do</span></div><div class="line"></div><div class="line">  方法<span class="number">1</span>(</div><div class="line">    參數名<span class="number">1</span>: <span class="string">"參數值1"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  方法<span class="number">2</span>(</div><div class="line">    參數名<span class="number">1</span>: <span class="string">"參數值1"</span>,</div><div class="line">    參數名<span class="number">2</span>: <span class="string">"參數值2"</span>,</div><div class="line">    參數名<span class="number">3</span>: <span class="string">"參數值3"</span>,</div><div class="line">  )</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>其實他的公式非常簡單，就是把上面我打中文的地方替換成所需要的參數，你可以想像成宣告一個Class，然後裡面給予他n個 key:value 型態的變數，那<strong>方法</strong>有哪些呢？依造官方有很多，比如 <strong>deliver</strong> 或者 <strong>supply</strong> 之類的…，以下是所有的 actions 列表</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">fastlane_version <span class="string">"1.109.0"</span></div><div class="line"></div><div class="line">generated_fastfile_id <span class="string">"adb8dedb-e633-43f6-87b0-03588e2f5a43"</span></div><div class="line"></div><div class="line">default_platform <span class="symbol">:ios</span></div><div class="line"></div><div class="line"><span class="comment"># 原本的</span></div><div class="line">lane <span class="symbol">:beta</span> <span class="keyword">do</span></div><div class="line"></div><div class="line">  <span class="comment"># build your iOS app</span></div><div class="line">  gym(</div><div class="line">    <span class="comment"># scheme: "YourScheme"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  <span class="comment"># upload to Beta by Crashlytics</span></div><div class="line">  crashlytics(</div><div class="line">    <span class="comment"># api_token: "YOUR_API_KEY",</span></div><div class="line">    <span class="comment"># build_secret: "YOUR_BUILD_SECRET"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  <span class="comment"># slack(</span></div><div class="line">  <span class="comment">#   slack_url: "https://hooks.slack.com/services/IDS"</span></div><div class="line">  <span class="comment"># )</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># 自定義名稱我在這邊自定義名稱為 BABABA</span></div><div class="line">lane <span class="symbol">:BABABA</span> <span class="keyword">do</span></div><div class="line"></div><div class="line">  actions <span class="number">1</span>(</div><div class="line">    <span class="symbol">key1:</span> <span class="string">"value1"</span></div><div class="line">  )</div><div class="line"></div><div class="line">  actions <span class="number">2</span>(</div><div class="line">    <span class="symbol">key1:</span> <span class="string">"value1"</span>,</div><div class="line">    <span class="symbol">key2:</span> <span class="string">"value2"</span>,</div><div class="line">    <span class="symbol">key3:</span> <span class="string">"value3"</span>,</div><div class="line">  )</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>其實他的邏輯非常簡單，就是把上面我打中文的地方替換成所需要的參數，你可以想像成宣告一個Class，然後裡面有不同的 <strong>actions</strong> ，每個 <strong>actions</strong> 都有屬於他的 key:value 型態的變數，那  <strong>actions</strong>  哪些呢？依造官方來說有 <strong>deliver</strong> ， <strong>supply</strong> …等。以下是所有的 actions </p>
 <p><img src="allactions.png" alt="allactions"></p>
-<p>這邊翻譯官方的幾個比較常用的 Commands</p>
+<p>這邊翻譯官方幾個比較常用的 Commands</p>
 <table>
 <thead>
 <tr>
@@ -205,7 +204,7 @@
 </tr>
 </tbody>
 </table>
-<p>另外翻譯官方重點 actions，外加幾個我感覺比較常用的＠＠</p>
+<p>另外翻譯官方重點 <strong>actions</strong>，外加幾個我感覺比較常用的＠＠</p>
 <table>
 <thead>
 <tr>
@@ -280,42 +279,44 @@
 </tr>
 </tbody>
 </table>
-<p>那<strong>方法的參數</strong>有哪些呢？請在 Terminal 打上 <strong>fastlane action [方法]</strong>，比如我想要看 <strong>supply</strong> 有哪些參數，那就</p>
+<p>那 <strong> </strong>actions<strong> 的 key1，value1 有哪些呢？請在 Terminal 打上 </strong>fastlane action [方法]<strong>，比如我想要看 </strong>supply** 有哪些參數：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane action supply</div></pre></td></tr></table></figure>
 <p><img src="parameters.png" alt="parameters"></p>
-<p>像我自己要產生 ipa 檔案的話就要看 <strong>gym</strong></p>
+<p>像這次想要自動化產生 ipa 檔的話就要研究 <strong>gym</strong>。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane action gym</div></pre></td></tr></table></figure>
 <p><img src="gym.png" alt="gym"></p>
-<p>接著就慢慢看囉～想要什麼就打什麼需要什麼就打什麼。在依序填入到上面的公式</p>
-<h4 id="步驟3：執行-Fastlane"><a href="#步驟3：執行-Fastlane" class="headerlink" title="步驟3：執行 Fastlane"></a>步驟3：執行 Fastlane</h4><p>fastlane [公式名稱]，如上圖我的名稱是 <strong>BABABA</strong>，那就在終端機上打以下指令</p>
+<p>接著就慢慢看囉～依照自己的需求去決定使用哪些。</p>
+<h2 id="步驟3：執行-Fastlane"><a href="#步驟3：執行-Fastlane" class="headerlink" title="步驟3：執行 Fastlane"></a>步驟3：執行 Fastlane</h2><p>fastlane [公式名稱]，如上圖我的名稱是 <strong>BABABA</strong>，那就在終端機上打以下指令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane BABABA</div></pre></td></tr></table></figure>
 <p>這邊也許會遇到一些環境問題，以及安裝問題，這時候就要一個一個自己去解決了，每個人遇到的問題不太一樣，可以留言在下面互相討論。不過有個問題我也覺得非常麻煩，我把這問題寫在最下面的 TroubleShooting 部分</p>
-<h4 id="步驟4：跟著範例走"><a href="#步驟4：跟著範例走" class="headerlink" title="步驟4：跟著範例走"></a>步驟4：跟著範例走</h4><p>這邊有很多開源分享他們的 Fastlane 開源檔案。</p>
+<h2 id="步驟4：參考範例走"><a href="#步驟4：參考範例走" class="headerlink" title="步驟4：參考範例走"></a>步驟4：參考範例走</h2><p>這邊提供專案有使用 Fastlane 的，可以參考別人都使用了些什麼。</p>
 <p><a href="https://github.com/fastlane/examples" target="_blank" rel="external">Examples</a></p>
-<h4 id="步驟5：循環步驟4"><a href="#步驟5：循環步驟4" class="headerlink" title="步驟5：循環步驟4"></a>步驟5：循環步驟4</h4><p>這邊一定要想成功，不然之後再結合 script 的時候問題會更多。</p>
-<h1 id="Script"><a href="#Script" class="headerlink" title="Script"></a>Script</h1><p>這部分就比較簡單了，我把 code 放在 <a href="https://github.com/5SMNOONMS5/TestFastlane" target="_blank" rel="external">github</a> 上。大致架構圖如下</p>
+<h2 id="步驟5：循環步驟4"><a href="#步驟5：循環步驟4" class="headerlink" title="步驟5：循環步驟4"></a>步驟5：循環步驟4</h2><p>這邊一定要想成功，不然等下之後再結合 script 的時候問題會更多。</p>
+<h2 id="步驟6：結合腳本語言"><a href="#步驟6：結合腳本語言" class="headerlink" title="步驟6：結合腳本語言"></a>步驟6：結合腳本語言</h2><p>這部分就比較簡單了，我把 code 放在 <a href="https://github.com/5SMNOONMS5/TestFastlane" target="_blank" rel="external">github</a> 上。大致架構圖如下</p>
 <p><img src="bash_architecture.png" alt="bash_architecture"></p>
-<p>這邊的架構是所有跟 <strong>script</strong> 相關的 .sh 檔案都會在 script 資料夾底下，透過 <a href="https://www.gnu.org/software/sed/manual/sed.txt" target="_blank" rel="external">sed</a> 會去執行變更 Info.plish 檔案裡面的變數，參數設定則是放在 <strong>script/config</strong> 裡面。</p>
+<p>這邊的架構是所有跟 <strong>script</strong> 相關的 .sh 檔案都會在 script 資料夾底下，透過 <a href="https://www.gnu.org/software/sed/manual/sed.txt" target="_blank" rel="external">sed</a> 去執行變更 Info.plish 檔案裡面的變數，參數設定則是放在 <strong>script/config</strong> 裡面。</p>
 <p>在終端機底下執行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 先cd到 script 目錄資料夾底下，先看看提供了什麼方法</span></div><div class="line">sh archive -h</div><div class="line"><span class="comment"># 然後執行</span></div><div class="line">sh archive -s</div></pre></td></tr></table></figure>
 <p><img src="archive.png" alt="archive"></p>
-<h1 id="TroubleShooting"><a href="#TroubleShooting" class="headerlink" title="TroubleShooting"></a>TroubleShooting</h1><h4 id="Connection-reset-by-peer-SSL-connect"><a href="#Connection-reset-by-peer-SSL-connect" class="headerlink" title="Connection reset by peer - SSL_connect"></a>Connection reset by peer - SSL_connect</h4><p>因為我的 ruby 版本是 2.0.0，蘋果最近把服務器的TLS版本更新到 TLS 1.2，在我當前的 ruby 是不支持的，所以我要想辦法升級到 支援 TLS 1.2的 ruby 版本。</p>
+<h2 id="步驟7：結合兩者-Fastlane-Script"><a href="#步驟7：結合兩者-Fastlane-Script" class="headerlink" title="步驟7：結合兩者 Fastlane + Script"></a>步驟7：結合兩者 Fastlane + Script</h2><p>其實核心價值就是透過 Script 去把 plist 裡面的值依造需求作改變，然後再呼叫 fastlane 去執行打包 ipa 。</p>
+<h1 id="TroubleShooting"><a href="#TroubleShooting" class="headerlink" title="TroubleShooting"></a>TroubleShooting</h1><h2 id="Connection-reset-by-peer-SSL-connect"><a href="#Connection-reset-by-peer-SSL-connect" class="headerlink" title="Connection reset by peer - SSL_connect"></a>Connection reset by peer - SSL_connect</h2><p>因為我的 ruby 版本是 2.0.0，蘋果最近把服務器的TLS版本更新到 TLS 1.2，在我當前的 ruby 是不支持的，所以我要想辦法升級到 支援 TLS 1.2的 ruby 版本。</p>
 <p><img src="opensslfail.png" alt="opensslfail.png"></p>
 <p>在解決問題之前，我想分享一些我個人覺得蠻需要被了解的基礎，就是因為我也對 ruby 不了解，所以吃了不少虧在解決這個問題上</p>
 <p>首先安裝 ruby 可以透過 <a href="https://brew.sh/" target="_blank" rel="external">homebrew</a> ， <a href="https://github.com/rbenv/rbenv" target="_blank" rel="external">rbenv</a> 以及 <a href="https://rvm.io/" target="_blank" rel="external">rvm</a>，一台電腦可能有很多 ruby 的版本存在，你必須讓你當前的 ruby 版本使用可以支援 TLS 1.2 的版本，不管你是用什麼套件安裝，但我個人這邊的問題是當初我忘記我用什麼來安裝的。</p>
-<p>對於不知道用什麼來安裝的囧情況，我用了最笨的方法來檢查我是不是有以上三個套件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 檢查是否有安裝 rvm</span></div><div class="line">ls -al | grep .rvm</div><div class="line"><span class="comment"># 檢查是否有安裝 rbenv</span></div><div class="line">ls -al | grep .rbenv</div><div class="line"><span class="comment"># 檢查是否 homebrew 有安裝 ruby</span></div><div class="line">brew list</div></pre></td></tr></table></figure></p>
+<p>對於不知道用什麼來安裝的囧情況，我用了最笨的方法來檢查我是不是有以上三個套件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 切換到使用者根目錄</span></div><div class="line"><span class="built_in">cd</span> ~</div><div class="line"><span class="comment"># 檢查是否有安裝 rvm</span></div><div class="line">ls -al | grep .rvm</div><div class="line"><span class="comment"># 檢查是否有安裝 rbenv</span></div><div class="line">ls -al | grep .rbenv</div><div class="line"><span class="comment"># 檢查是否 homebrew 有安裝 ruby</span></div><div class="line">brew list</div></pre></td></tr></table></figure>
 <p>這下好了，很幸運的我並沒有使用 brew 安裝。但我有可能是使用 rvm 或者是 rbenv 安裝。之後我又奮鬥了很久？茫茫大海之中，我看到了這段</p>
 <blockquote>
 <p>Hey everyone, we’ve been working on a new way to install and use fastlane, all you have to do is to download <a href="https://kits-crashlytics-com.s3.amazonaws.com/fastlane/standalone/latest.zip" target="_blank" rel="external">fastlane.zip</a> and double click the install file. This will install fastlane with all its Ruby and OpenSSL dependencies, and should all work out of the box.<br>We just finished building this, and would love your early feedback on this beta. Please let us know how it works for you and if you run into any problems 👍<br>Download the latest version here.</p>
 </blockquote>
-<p>大意就是他把 fastlane 所需要的 dependencies 全部放在 <strong>~./fastlane/bin</strong> 底下，這就是整個程式，有點類似 docker 的感覺，安裝好之後，我的問題也解決了。</p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://github.com/fastlane/fastlane/issues/6553" target="_blank" rel="external">Connection reset by peer</a></p>
+<p>大意就是他把 fastlane 所需要的 dependencies 全部放在 <strong>~./fastlane/bin</strong> 底下，有點類似 docker 的感覺，安裝好之後，我的問題也解決了。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://github.com/fastlane/fastlane/issues/6553" target="_blank" rel="external">Connection reset by peer</a></p>
 <p><a href="https://github.com/fastlane/fastlane/issues/6758" target="_blank" rel="external">cert fails with error ‘Connection reset by peer - SSL_connect’</a></p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年11月25日 23:59</p>
-        <p>原始链接： <a class="post-url" href="/2017/03/22/fastlane-customize-plist-file/" title="Integrate With Fastlane">http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/</a></p>
+        <p>最后更新： 2017年11月26日 10:47</p>
+        <p>原始链接： <a class="post-url" href="/2017/03/22/Fastlane/" title="Integrate With Fastlane And Bash-Script">http://stephenchen.com/2017/03/22/Fastlane/</a></p>
         <footer>
             <a href="http://stephenchen.com">
                 <img src="/images/logo.png" alt="Stephen Chen">
@@ -372,7 +373,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/&title=《Integrate With Fastlane》 — CLS&pic=http://stephenchen.comimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://stephenchen.com/2017/03/22/Fastlane/&title=《Integrate With Fastlane And Bash-Script》 — CLS&pic=http://stephenchen.comimages/logo.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -382,22 +383,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/&title=《Integrate With Fastlane》 — CLS&source=fastlane + script 一鍵產出多種 .ipa 檔。" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://stephenchen.com/2017/03/22/Fastlane/&title=《Integrate With Fastlane And Bash-Script》 — CLS&source=利用 fastlane + script 一鍵產出 .ipa 檔。" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://stephenchen.com/2017/03/22/Fastlane/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Integrate With Fastlane》 — CLS&url=http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/&via=http://stephenchen.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Integrate With Fastlane And Bash-Script》 — CLS&url=http://stephenchen.com/2017/03/22/Fastlane/&via=http://stephenchen.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://stephenchen.com/2017/03/22/Fastlane/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -407,7 +408,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://stephenchen.com/2017/03/22/fastlane-customize-plist-file/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://stephenchen.com/2017/03/22/Fastlane/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -416,6 +417,13 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/iOS/" class="color4">iOS</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -425,7 +433,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用環境"><span class="post-toc-text">使用環境</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#自身面臨的情況"><span class="post-toc-text">自身面臨的情況</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#本篇分享概要"><span class="post-toc-text">本篇分享概要</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#如何自動上架"><span class="post-toc-text">如何自動上架</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#如何自動更新-Info-plist-的參數"><span class="post-toc-text">如何自動更新 Info.plist 的參數</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#結合兩者-Fastlane-Script"><span class="post-toc-text">結合兩者 Fastlane + Script</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#步驟1：完成-Fastlane-的安裝"><span class="post-toc-text">步驟1：完成 Fastlane 的安裝</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#步驟2：Fastlane-的初始化設定"><span class="post-toc-text">步驟2：Fastlane 的初始化設定</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#步驟3：執行-Fastlane"><span class="post-toc-text">步驟3：執行 Fastlane</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#步驟4：跟著範例走"><span class="post-toc-text">步驟4：跟著範例走</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#步驟5：循環步驟4"><span class="post-toc-text">步驟5：循環步驟4</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Script"><span class="post-toc-text">Script</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#TroubleShooting"><span class="post-toc-text">TroubleShooting</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Connection-reset-by-peer-SSL-connect"><span class="post-toc-text">Connection reset by peer - SSL_connect</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Reference"><span class="post-toc-text">Reference</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#環境"><span class="post-toc-text">環境</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#面臨的問題"><span class="post-toc-text">面臨的問題</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#本篇分享概要"><span class="post-toc-text">本篇分享概要</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何自動上架"><span class="post-toc-text">如何自動上架</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#步驟1：首先把-Fastlane-安裝"><span class="post-toc-text">步驟1：首先把 Fastlane 安裝</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#步驟2：Fastlane-初始化設定"><span class="post-toc-text">步驟2：Fastlane 初始化設定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#步驟3：執行-Fastlane"><span class="post-toc-text">步驟3：執行 Fastlane</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#步驟4：參考範例走"><span class="post-toc-text">步驟4：參考範例走</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#步驟5：循環步驟4"><span class="post-toc-text">步驟5：循環步驟4</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#步驟6：結合腳本語言"><span class="post-toc-text">步驟6：結合腳本語言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#步驟7：結合兩者-Fastlane-Script"><span class="post-toc-text">步驟7：結合兩者 Fastlane + Script</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#TroubleShooting"><span class="post-toc-text">TroubleShooting</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Connection-reset-by-peer-SSL-connect"><span class="post-toc-text">Connection reset by peer - SSL_connect</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Reference"><span class="post-toc-text">Reference</span></a></li></ol>
         </nav>
     </aside>
     
@@ -509,7 +517,7 @@
             
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
+            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -542,7 +550,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
+            <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/ios-swift/" style="font-size: 10px;">ios, swift</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
         </div>
     </div>
 </div>
