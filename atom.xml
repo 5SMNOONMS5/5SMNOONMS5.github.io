@@ -34,27 +34,27 @@
     <link href="http://stephenchen.com/2017/11/15/%E5%89%8D%E5%BE%80%E9%81%8A%E6%88%B2%E9%96%8B%E7%99%BC%E4%B9%8B%E8%B7%AF/"/>
     <id>http://stephenchen.com/2017/11/15/前往遊戲開發之路/</id>
     <published>2017-11-15T12:26:00.000Z</published>
-    <updated>2017-11-25T15:23:31.000Z</updated>
+    <updated>2017-11-26T03:03:20.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="一切的開始"><a href="#一切的開始" class="headerlink" title="一切的開始"></a>一切的開始</h1><p>一切的開始全是接了原先外包出去的遊戲，在經歷三個禮拜陣痛期的洗禮之後，記錄一下自己這三個禮拜的發生過程。</p>
-<h1 id="我們-Team-的背景"><a href="#我們-Team-的背景" class="headerlink" title="我們 Team 的背景"></a>我們 Team 的背景</h1><p>目前我們 App Team 總共有四個人。1 位 iOS (就是我拉~~~) 和 2 位 Android 外加一位曾經是全端的 PM ，我們全部都沒有遊戲開發的背景。</p>
-<h1 id="先定大方向"><a href="#先定大方向" class="headerlink" title="先定大方向"></a>先定大方向</h1><p>聽到要開發遊戲的瞬間其實抖了一下，而且只有兩個月的時程包含學習，雖然已經有了後端 Api，而且又在完全沒有任何有經驗的人帶領之下，我們只能從 0 開始。</p>
+    <content type="html"><![CDATA[<h3 id="一切的開始"><a href="#一切的開始" class="headerlink" title="一切的開始"></a>一切的開始</h3><p>一切的開始全是接了原先外包出去的遊戲，在經歷三個禮拜陣痛期的洗禮之後，記錄一下自己這三個禮拜的發生過程。</p>
+<h3 id="我們-Team-的背景"><a href="#我們-Team-的背景" class="headerlink" title="我們 Team 的背景"></a>我們 Team 的背景</h3><p>目前我們 App Team 總共有四個人。1 位 iOS (就是我拉~~~) 和 2 位 Android 外加一位曾經是全端的 PM ，我們全部都沒有遊戲開發的背景。</p>
+<h3 id="先定大方向"><a href="#先定大方向" class="headerlink" title="先定大方向"></a>先定大方向</h3><p>聽到要開發遊戲的瞬間其實抖了一下，而且只有兩個月的時程包含學習，雖然已經有了後端 Api，而且又在完全沒有任何有經驗的人帶領之下，我們只能從 0 開始。</p>
 <p>所以首先要先決定大方向</p>
-<h4 id="1-到底要用原生-iOS-跟-Android-開發呢，還是用類似-Unity-這種跨平台的-engine-一次-build-兩個平台？"><a href="#1-到底要用原生-iOS-跟-Android-開發呢，還是用類似-Unity-這種跨平台的-engine-一次-build-兩個平台？" class="headerlink" title="1. 到底要用原生 iOS 跟 Android 開發呢，還是用類似 Unity 這種跨平台的 engine 一次 build 兩個平台？"></a>1. 到底要用原生 iOS 跟 Android 開發呢，還是用類似 Unity 這種跨平台的 engine 一次 build 兩個平台？</h4><p>我們的想法是因為人手不足，採兩次坑不如採一次，於是我們決定使用可以跨平台的開發工具。</p>
-<h4 id="2-在來要用什麼樣的跨平台工具呢"><a href="#2-在來要用什麼樣的跨平台工具呢" class="headerlink" title="2. 在來要用什麼樣的跨平台工具呢??"></a>2. 在來要用什麼樣的跨平台工具呢??</h4><p>這問題其實超難的對於新手來說，要考慮<strong>學習成本</strong>(包含了文檔的完善程度，社區活不活躍?，還有對於我們 Team 來說最重要的是有中文文檔)，考慮<strong>人材問題</strong>（總不能選個較冷門的然後招不到開發者吧？），然後<strong>考慮效能</strong>（這邊只能猛看文章惹)以及<strong>可能的開發時間</strong>。<a href="https://thinkmobiles.com/blog/mobile-game-development-tools/" target="_blank" rel="external">這篇有一篇文章各種遊戲引擎比較的文章</a>，中間歷經多次的討論，多番折騰之後我們後來選擇了 <a href="https://www.egret.com/" target="_blank" rel="external">白鷺 Egret</a>。</p>
-<h4 id="3-接著語言"><a href="#3-接著語言" class="headerlink" title="3. 接著語言"></a>3. 接著語言</h4><p> <a href="https://www.egret.com/" target="_blank" rel="external">白鷺 Egret</a> 5.0.x 之後導入 <a href="https://www.typescriptlang.org/" target="_blank" rel="external">Typescript</a>為主要的開發語言，因為有了程式底子其實上手不難，但我在這邊除了強烈推薦看完官方文檔之後（雖然我只看了一半..）另外分享我一個小捷徑，就是使用 <strong>linter</strong> 來加速學習。</p>
+<h5 id="1-到底要用原生-iOS-跟-Android-開發呢，還是用類似-Unity-這種跨平台的-engine-一次-build-兩個平台？"><a href="#1-到底要用原生-iOS-跟-Android-開發呢，還是用類似-Unity-這種跨平台的-engine-一次-build-兩個平台？" class="headerlink" title="1. 到底要用原生 iOS 跟 Android 開發呢，還是用類似 Unity 這種跨平台的 engine 一次 build 兩個平台？"></a>1. 到底要用原生 iOS 跟 Android 開發呢，還是用類似 Unity 這種跨平台的 engine 一次 build 兩個平台？</h5><p>我們的想法是因為人手不足，採兩次坑不如採一次，於是我們決定使用可以跨平台的開發工具。</p>
+<h5 id="2-在來要用什麼樣的跨平台工具呢"><a href="#2-在來要用什麼樣的跨平台工具呢" class="headerlink" title="2. 在來要用什麼樣的跨平台工具呢??"></a>2. 在來要用什麼樣的跨平台工具呢??</h5><p>這問題其實超難的對於新手來說，要考慮<strong>學習成本</strong>(包含了文檔的完善程度，社區活不活躍?，還有對於我們 Team 來說最重要的是有中文文檔)，考慮<strong>人材問題</strong>（總不能選個較冷門的然後招不到開發者吧？），然後<strong>考慮效能</strong>（這邊只能猛看文章惹)以及<strong>可能的開發時間</strong>。<a href="https://thinkmobiles.com/blog/mobile-game-development-tools/" target="_blank" rel="external">這篇有一篇文章各種遊戲引擎比較的文章</a>，中間歷經多次的討論，多番折騰之後我們後來選擇了 <a href="https://www.egret.com/" target="_blank" rel="external">白鷺 Egret</a>。</p>
+<h5 id="3-接著語言"><a href="#3-接著語言" class="headerlink" title="3. 接著語言"></a>3. 接著語言</h5><p> <a href="https://www.egret.com/" target="_blank" rel="external">白鷺 Egret</a> 5.0.x 之後導入 <a href="https://www.typescriptlang.org/" target="_blank" rel="external">Typescript</a>為主要的開發語言，因為有了程式底子其實上手不難，但我在這邊除了強烈推薦看完官方文檔之後（雖然我只看了一半..）另外分享我一個小捷徑，就是使用 <strong>linter</strong> 來加速學習。</p>
 <p> 其實每個語言都有自己專屬檢查自我代碼風格的工作，關鍵字 <strong>lint</strong>。swift有<a href="https://github.com/realm/SwiftLint" target="_blank" rel="external">SwiftLint</a>，css有<a href="https://github.com/stylelint/stylelint" target="_blank" rel="external">stylelint</a>，當然<a href="https://www.typescriptlang.org/" target="_blank" rel="external">Typescript</a>也有<a href="https://github.com/palantir/tslint" target="_blank" rel="external">Tslint</a>。如果你發現那個語言沒有<strong>linter</strong>的話，趕快去模仿各大 open source 然後去 Github 騙星星吧 XD。</p>
 <p> 為什麼我要推薦這個呢？除了到底 {} 要不要換行之外這種小風格問題，它會告訴哪些寫法不好，你第一眼一定不知道他為什麼不好，但是細看下去你會慢慢更了解這語言，它幫你省了很多時間去專心在處理業務邏輯，這對於有沒有太多時間學習的人來說我個人是大力推薦的。</p>
-<h4 id="4-再來是框架"><a href="#4-再來是框架" class="headerlink" title="4. 再來是框架"></a>4. 再來是框架</h4><p>因為我們手中的專案我們大家的直覺是會大量的使用<a href="https://zh.wikipedia.org/wiki/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F" target="_blank" rel="external">觀察者模式 Observer Pattern</a>，於是 PM 找了一套叫做<a href="http://puremvc.org/" target="_blank" rel="external">PureMVC</a>的架構，這框架確確實實使用了非常大量的(Observer Pattern)，我們弄一個小 Demo 覺得不錯，於是就開始使用了。其實主要原因還是 <a href="https://github.com/dily3825002/EgerPro" target="_blank" rel="external">白鷺 Egret 社區</a> 開源了一個中型遊戲框架也使用<a href="http://puremvc.org/" target="_blank" rel="external">PureMVC</a>於是我們也跟著用….，在沒經驗之前只能從模仿開始。</p>
+<h5 id="4-再來是框架"><a href="#4-再來是框架" class="headerlink" title="4. 再來是框架"></a>4. 再來是框架</h5><p>因為我們手中的專案我們大家的直覺是會大量的使用<a href="https://zh.wikipedia.org/wiki/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F" target="_blank" rel="external">觀察者模式 Observer Pattern</a>，於是 PM 找了一套叫做<a href="http://puremvc.org/" target="_blank" rel="external">PureMVC</a>的架構，這框架確確實實使用了非常大量的(Observer Pattern)，我們弄一個小 Demo 覺得不錯，於是就開始使用了。其實主要原因還是 <a href="https://github.com/dily3825002/EgerPro" target="_blank" rel="external">白鷺 Egret 社區</a> 開源了一個中型遊戲框架也使用<a href="http://puremvc.org/" target="_blank" rel="external">PureMVC</a>於是我們也跟著用….，在沒經驗之前只能從模仿開始。</p>
 <ul>
 <li>之後再寫一下這框架的坑……..。</li>
 </ul>
-<h4 id="5-最後是-Egret-學習之路"><a href="#5-最後是-Egret-學習之路" class="headerlink" title="5. 最後是 Egret 學習之路"></a>5. 最後是 Egret 學習之路</h4><p>這邊應該又可以寫成好幾篇了……待續…….。</p>
+<h5 id="5-最後是-Egret-學習之路"><a href="#5-最後是-Egret-學習之路" class="headerlink" title="5. 最後是 Egret 學習之路"></a>5. 最後是 Egret 學習之路</h5><p>這邊應該又可以寫成好幾篇了……待續…….。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;一切的開始&quot;&gt;&lt;a href=&quot;#一切的開始&quot; class=&quot;headerlink&quot; title=&quot;一切的開始&quot;&gt;&lt;/a&gt;一切的開始&lt;/h1&gt;&lt;p&gt;一切的開始全是接了原先外包出去的遊戲，在經歷三個禮拜陣痛期的洗禮之後，記錄一下自己這三個禮拜的發生過程。&lt;/p&gt;
+      &lt;h3 id=&quot;一切的開始&quot;&gt;&lt;a href=&quot;#一切的開始&quot; class=&quot;headerlink&quot; title=&quot;一切的開始&quot;&gt;&lt;/a&gt;一切的開始&lt;/h3&gt;&lt;p&gt;一切的開始全是接了原先外包出去的遊戲，在經歷三個禮拜陣痛期的洗禮之後，記錄一下自己這三個禮拜的發生過程。&lt;/p&gt;
 &lt;
     
     </summary>
@@ -107,12 +107,12 @@
     <link href="http://stephenchen.com/2017/09/29/Git-%E9%8C%AF%E8%AA%A4%E6%97%A5%E8%AA%8C%E7%B4%80%E9%8C%84/"/>
     <id>http://stephenchen.com/2017/09/29/Git-錯誤日誌紀錄/</id>
     <published>2017-09-29T03:24:53.000Z</published>
-    <updated>2017-11-26T02:48:39.000Z</updated>
+    <updated>2017-11-26T03:04:38.000Z</updated>
     
     <content type="html"><![CDATA[<p>紀錄一些平常不正常操作所出現的問題以及解決方式</p>
 <a id="more"></a>
-<h2 id="Fatal-refusing-to-merge-unrelated-histories"><a href="#Fatal-refusing-to-merge-unrelated-histories" class="headerlink" title="Fatal: refusing to merge unrelated histories"></a>Fatal: refusing to merge unrelated histories</h2><p><img src="1.png" alt=""></p>
-<h2 id="是如何出現的"><a href="#是如何出現的" class="headerlink" title="是如何出現的"></a>是如何出現的</h2><ol>
+<h3 id="Fatal-refusing-to-merge-unrelated-histories"><a href="#Fatal-refusing-to-merge-unrelated-histories" class="headerlink" title="Fatal: refusing to merge unrelated histories"></a>Fatal: refusing to merge unrelated histories</h3><p><img src="1.png" alt=""></p>
+<h3 id="是如何出現的"><a href="#是如何出現的" class="headerlink" title="是如何出現的"></a>是如何出現的</h3><ol>
 <li><p>我在 bitbucket 開了一個新的 repository</p>
 </li>
 <li><p>clone 下來之後</p>
@@ -127,7 +127,7 @@
 </li>
 </ol>
 <p>就這樣出現了這樣的情況</p>
-<h2 id="當下的解決方案"><a href="#當下的解決方案" class="headerlink" title="當下的解決方案"></a>當下的解決方案</h2><p> 找到了 <a href="https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories" target="_blank" rel="external">這個</a></p>
+<h3 id="當下的解決方案"><a href="#當下的解決方案" class="headerlink" title="當下的解決方案"></a>當下的解決方案</h3><p> 找到了 <a href="https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories" target="_blank" rel="external">這個</a></p>
 <p> 然後輸入</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin branchname --allow-unrelated-histories</div></pre></td></tr></table></figure>
 <p>因為在 git 2.9 版開始，git merge 默認不能 merge 兩個沒有相關的分支，所以我下了這個 <strong> –allow-unrelated-histories</strong> 讓 merge 可以強制。merge 兩個無相關的分支。</p>
@@ -149,7 +149,7 @@
     <link href="http://stephenchen.com/2017/09/29/License/"/>
     <id>http://stephenchen.com/2017/09/29/License/</id>
     <published>2017-09-29T03:15:00.000Z</published>
-    <updated>2017-10-02T10:43:28.000Z</updated>
+    <updated>2017-11-26T03:08:01.000Z</updated>
     
     <content type="html"><![CDATA[<p>Differentiate between each licenses</p>
 <a id="more"></a> 
@@ -164,6 +164,8 @@
     
     </summary>
     
+    
+      <category term="programming" scheme="http://stephenchen.com/tags/programming/"/>
     
   </entry>
   
@@ -209,11 +211,11 @@
     <link href="http://stephenchen.com/2017/08/25/Git-small-tracks/"/>
     <id>http://stephenchen.com/2017/08/25/Git-small-tracks/</id>
     <published>2017-08-25T07:42:10.000Z</published>
-    <updated>2017-11-26T02:58:16.000Z</updated>
+    <updated>2017-11-26T03:04:56.000Z</updated>
     
     <content type="html"><![CDATA[<p>記錄平常在使用 git 一些不錯指令。</p>
 <a id="more"></a> 
-<h2 id="一-Git-Clone"><a href="#一-Git-Clone" class="headerlink" title="(一) Git Clone"></a>(一) Git Clone</h2><p>最近公司配了一台新電腦，當要重新 clone 一個專案的時候發現 clone 了超久，於是就找找了兩種小方法來縮短 clone 的時間 xd 。</p>
+<h3 id="一-Git-Clone"><a href="#一-Git-Clone" class="headerlink" title="(一) Git Clone"></a>(一) Git Clone</h3><p>最近公司配了一台新電腦，當要重新 clone 一個專案的時候發現 clone 了超久，於是就找找了兩種小方法來縮短 clone 的時間 xd 。</p>
 <ul>
 <li>只允許 clone 特定數量的 commits</li>
 </ul>
@@ -222,20 +224,20 @@
 <li>單純 clone 特定的 branch </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> -b [BranchName] --single-branch [URL] [FolderName]</div></pre></td></tr></table></figure>
-<h2 id="二-Git-LFS"><a href="#二-Git-LFS" class="headerlink" title="(二) Git LFS"></a>(二) Git LFS</h2><p>假如要透過 git 來管理較大檔案(超過 2G)的時候 ex: 比如圖片或者影片…等。這時候我推薦使用 <strong><a href="https://git-lfs.github.com/" target="_blank" rel="external">Git Large File Storage</a></strong>，原理就是在目錄底下存了一個 <strong>pointer file</strong>，指向真正存儲這些檔案的地方，當在 clone 這些檔案的時候 git 會自動 mapping 檔案的所在目的地。</p>
-<h4 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git lfs install</div></pre></td></tr></table></figure>
-<h4 id="指定哪些檔案你要-track-跟蹤的"><a href="#指定哪些檔案你要-track-跟蹤的" class="headerlink" title="指定哪些檔案你要(track)跟蹤的"></a>指定哪些檔案你要(track)跟蹤的</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git lfs track <span class="string">"*.psd"</span></div></pre></td></tr></table></figure>
+<h3 id="二-Git-LFS"><a href="#二-Git-LFS" class="headerlink" title="(二) Git LFS"></a>(二) Git LFS</h3><p>假如要透過 git 來管理較大檔案(超過 2G)的時候 ex: 比如圖片或者影片…等。這時候我推薦使用 <strong><a href="https://git-lfs.github.com/" target="_blank" rel="external">Git Large File Storage</a></strong>，原理就是在目錄底下存了一個 <strong>pointer file</strong>，指向真正存儲這些檔案的地方，當在 clone 這些檔案的時候 git 會自動 mapping 檔案的所在目的地。</p>
+<h5 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git lfs install</div></pre></td></tr></table></figure>
+<h5 id="指定哪些檔案你要-track-跟蹤的"><a href="#指定哪些檔案你要-track-跟蹤的" class="headerlink" title="指定哪些檔案你要(track)跟蹤的"></a>指定哪些檔案你要(track)跟蹤的</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git lfs track <span class="string">"*.psd"</span></div></pre></td></tr></table></figure>
 <p>並會生成 .gitattributes，記得要 git add 上</p>
-<h4 id="Down，接著就可以-push-。"><a href="#Down，接著就可以-push-。" class="headerlink" title="Down，接著就可以 push 。"></a>Down，接著就可以 push 。</h4><h2 id="三-Git-Log"><a href="#三-Git-Log" class="headerlink" title="(三) Git Log"></a>(三) Git Log</h2><p>再多人開發的時候，通常會通過拆功能來共同開發，但有一些檔案難免會互相動到，比如 Marco.swift 或者 AppDelegate …等。在我這邊的情境是我想知道在 AppDelegate 哪時候是誰寫了這段 Code，這時候就可以以下指令找出哪幾個 commits 有更改過 AppDelegate.swift。</p>
+<h5 id="Down，接著就可以-push-。"><a href="#Down，接著就可以-push-。" class="headerlink" title="Down，接著就可以 push 。"></a>Down，接著就可以 push 。</h5><h3 id="三-Git-Log"><a href="#三-Git-Log" class="headerlink" title="(三) Git Log"></a>(三) Git Log</h3><p>再多人開發的時候，通常會通過拆功能來共同開發，但有一些檔案難免會互相動到，比如 Marco.swift 或者 AppDelegate …等。在我這邊的情境是我想知道在 AppDelegate 哪時候是誰寫了這段 Code，這時候就可以以下指令找出哪幾個 commits 有更改過 AppDelegate.swift。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> --follow [Path]</div></pre></td></tr></table></figure>
 <p>有網友提供了其他解決方案</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> [Path]</div></pre></td></tr></table></figure>
 <p>這兩種唯一不同的地方是當假如 AppDelegate.swift 原本不叫 AppDelegate.swift，而是 AppProtocol.swift 的話那單純只使用 <strong>git log [Path]</strong> 就會沒辦法追蹤。</p>
 <p><a href="https://stackoverflow.com/questions/3701404/list-all-commits-for-a-specific-file" target="_blank" rel="external">感謝原文</a></p>
-<h2 id="四-SourceTree-統一-commit"><a href="#四-SourceTree-統一-commit" class="headerlink" title="(四) SourceTree 統一 commit"></a>(四) SourceTree 統一 commit</h2><p>在 SourceTree 的偏好設定裡面有一個選項是 Commit Template，在之後每個專案裡面在準備輸入 Commit 紀錄都會出現初始化好的 Commit Template。治療強迫症，是一個不錯的方法來管理整個 Team 的 Commit 規則。</p>
+<h3 id="四-SourceTree-統一-commit"><a href="#四-SourceTree-統一-commit" class="headerlink" title="(四) SourceTree 統一 commit"></a>(四) SourceTree 統一 commit</h3><p>在 SourceTree 的偏好設定裡面有一個選項是 Commit Template，在之後每個專案裡面在準備輸入 Commit 紀錄都會出現初始化好的 Commit Template。治療強迫症，是一個不錯的方法來管理整個 Team 的 Commit 規則。</p>
 <p><img src="1.png" alt=""></p>
-<h2 id="五-SourceTree-repositories-介面也可以透過資料夾區分"><a href="#五-SourceTree-repositories-介面也可以透過資料夾區分" class="headerlink" title="(五) SourceTree repositories 介面也可以透過資料夾區分"></a>(五) SourceTree repositories 介面也可以透過資料夾區分</h2><p><img src="2.png" alt=""></p>
-<h2 id="六-欺騙-Git"><a href="#六-欺騙-Git" class="headerlink" title="(六) 欺騙 Git"></a>(六) 欺騙 Git</h2><p>在開發 <a href="http://developer.egret.com/cn/" target="_blank" rel="external">Egret</a> 的時候有些設定檔案(下面叫它 A File)在每次 build 的時候都會變動，造成多人開發的時候非常困難，那怎麼辦呢。</p>
+<h3 id="五-SourceTree-repositories-介面也可以透過資料夾區分"><a href="#五-SourceTree-repositories-介面也可以透過資料夾區分" class="headerlink" title="(五) SourceTree repositories 介面也可以透過資料夾區分"></a>(五) SourceTree repositories 介面也可以透過資料夾區分</h3><p><img src="2.png" alt=""></p>
+<h3 id="六-欺騙-Git"><a href="#六-欺騙-Git" class="headerlink" title="(六) 欺騙 Git"></a>(六) 欺騙 Git</h3><p>在開發 <a href="http://developer.egret.com/cn/" target="_blank" rel="external">Egret</a> 的時候有些設定檔案(下面叫它 A File)在每次 build 的時候都會變動，造成多人開發的時候非常困難，那怎麼辦呢。</p>
 <p>我想到兩種做法</p>
 <ol>
 <li><p>第一次 push 的時候把 A File push 上去，然後第二次 push 的時候把 A File 加入 .gitignore 裡面，這樣共同開發者 pull 下來的時候有 A File ，然後之後在開發的時候又不會造成 conflict。</p>
@@ -264,10 +266,10 @@
     <link href="http://stephenchen.com/2017/07/22/%E6%B8%85%E7%90%86-Mac-%E5%9E%83%E5%9C%BE%E6%AA%94%E6%A1%88/"/>
     <id>http://stephenchen.com/2017/07/22/清理-Mac-垃圾檔案/</id>
     <published>2017-07-22T03:53:46.000Z</published>
-    <updated>2017-11-25T15:36:33.000Z</updated>
+    <updated>2017-11-26T03:02:37.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近發現 Mac 空間不太足夠，又不太想換新的 Mac。只好用了最土法煉鋼的方式一個一個檢視。這裡紀錄這次清理 Mac 的步驟，順便制定SOP 方便日後又有問題可以來這裡回顧一下：）。</p>
-<h2 id="1-首先先下載能掃描整個硬盤的工具"><a href="#1-首先先下載能掃描整個硬盤的工具" class="headerlink" title="1. 首先先下載能掃描整個硬盤的工具"></a>1. 首先先下載能掃描整個硬盤的工具</h2><p>隨便一個都可以，只要能掃描就好</p>
+<h3 id="1-首先先下載能掃描整個硬盤的工具"><a href="#1-首先先下載能掃描整個硬盤的工具" class="headerlink" title="1. 首先先下載能掃描整個硬盤的工具"></a>1. 首先先下載能掃描整個硬盤的工具</h3><p>隨便一個都可以，只要能掃描就好</p>
 <ul>
 <li><p><a href="https://www.omnigroup.com/more" target="_blank" rel="external">我個人是用這個 OmniDiskSweeper</a></p>
 </li>
@@ -276,11 +278,11 @@
 <li><p><a href="https://www.avg.com/en-us/avg-cleaner-for-mac" target="_blank" rel="external">沒用過不知道好不好用的 Avg</a></p>
 </li>
 </ul>
-<h2 id="2-掃描"><a href="#2-掃描" class="headerlink" title="2. 掃描"></a>2. 掃描</h2><p>在掃描過程中，會等待不少時間這時候可以先清理 <strong>垃圾桶</strong> 跟 <strong>下載目錄裡的檔案</strong>。</p>
-<h4 id="垃圾桶"><a href="#垃圾桶" class="headerlink" title="垃圾桶"></a>垃圾桶</h4><p>首先最直覺的方式就是把垃圾桶清空，當然在清空前順便瀏覽一下哪些檔案是不小心移動進去的，防止不小心刪掉了某些重要的文件。</p>
+<h3 id="2-掃描"><a href="#2-掃描" class="headerlink" title="2. 掃描"></a>2. 掃描</h3><p>在掃描過程中，會等待不少時間這時候可以先清理 <strong>垃圾桶</strong> 跟 <strong>下載目錄裡的檔案</strong>。</p>
+<h5 id="垃圾桶"><a href="#垃圾桶" class="headerlink" title="垃圾桶"></a>垃圾桶</h5><p>首先最直覺的方式就是把垃圾桶清空，當然在清空前順便瀏覽一下哪些檔案是不小心移動進去的，防止不小心刪掉了某些重要的文件。</p>
 <p><img src="2.png" alt="empty trash "></p>
-<h4 id="下載目錄"><a href="#下載目錄" class="headerlink" title="下載目錄"></a>下載目錄</h4><p>再來就是把下載過的檔案刪除，或者移到外部的硬碟。</p>
-<h2 id="3-開始清理"><a href="#3-開始清理" class="headerlink" title="3. 開始清理"></a>3. 開始清理</h2><p><img src="1.png" alt="screen"></p>
+<h5 id="下載目錄"><a href="#下載目錄" class="headerlink" title="下載目錄"></a>下載目錄</h5><p>再來就是把下載過的檔案刪除，或者移到外部的硬碟。</p>
+<h3 id="3-開始清理"><a href="#3-開始清理" class="headerlink" title="3. 開始清理"></a>3. 開始清理</h3><p><img src="1.png" alt="screen"></p>
 <p>結束掃描之後會出現類似的圖片，因為我比較沒時間一個一個資料夾去研究，所以我就會先針對比較大的去研究，比如像是 User, Applications, Library, private, System 底下去研究。</p>
 <ul>
 <li>但是千萬別手動刪除 /tmp, /private, /var 底下的檔案</li>
@@ -290,13 +292,13 @@
 <p>補充：<br>在 private/var/vm/sleepimage 有一個 Sleepimage，這簡單來說就是當電腦進入睡眠狀態，會把當前在 RAM 記憶體儲存下面，方便在下次使用的時候可以回復之前的狀態。所以假如當前 RAM 有 2G 的記憶體量，那就會有 2G 的 sleepimage 檔案。</p>
 </blockquote>
 <p><a href="http://osxdaily.com/2010/10/11/sleepimage-mac/" target="_blank" rel="external">More detail of sleepimage</a></p>
-<h2 id="4-手動刪除緩存"><a href="#4-手動刪除緩存" class="headerlink" title="4. 手動刪除緩存"></a>4. 手動刪除緩存</h2><p>很多應用程式都會有緩存，比如 Chrome 開了一個月，那緩存量一定非常驚人，這時候可以把 Chrome 關閉（整個關閉喔）就可以把緩存刪除，或者你可以手動刪除緩存</p>
+<h3 id="4-手動刪除緩存"><a href="#4-手動刪除緩存" class="headerlink" title="4. 手動刪除緩存"></a>4. 手動刪除緩存</h3><p>很多應用程式都會有緩存，比如 Chrome 開了一個月，那緩存量一定非常驚人，這時候可以把 Chrome 關閉（整個關閉喔）就可以把緩存刪除，或者你可以手動刪除緩存</p>
 <p><img src="3.png" alt=""></p>
 <p><a href="http://osxdaily.com/2011/12/08/delete-user-caches-in-mac-os-x/" target="_blank" rel="external">More detail of clean cache</a></p>
-<h2 id="5-結論"><a href="#5-結論" class="headerlink" title="5. 結論"></a>5. 結論</h2><p>又省了一筆錢買 Mac…。</p>
-<h2 id="6-推薦網站"><a href="#6-推薦網站" class="headerlink" title="6. 推薦網站"></a>6. 推薦網站</h2><p>這網站小弟覺得不錯，常常分享很多知識，如果你是 Mac 重度使用者，不妨加到我的最愛去吧。</p>
+<h3 id="5-結論"><a href="#5-結論" class="headerlink" title="5. 結論"></a>5. 結論</h3><p>又省了一筆錢買 Mac…。</p>
+<h3 id="6-推薦網站"><a href="#6-推薦網站" class="headerlink" title="6. 推薦網站"></a>6. 推薦網站</h3><p>這網站小弟覺得不錯，常常分享很多知識，如果你是 Mac 重度使用者，不妨加到我的最愛去吧。</p>
 <p><a href="http://osxdaily.com/2012/11/11/tips-free-up-disk-space-mac-os-x/" target="_blank" rel="external">OSX Daily</a></p>
-<h2 id="2017-08-18-Update"><a href="#2017-08-18-Update" class="headerlink" title="2017.08.18 Update"></a>2017.08.18 Update</h2><p>根據<a href="http://osxdaily.com/2012/02/20/clear-versions-history-auto-save-cache-data-in-mac-os-x/" target="_blank" rel="external">這邊文章</a>，新版的 Mac 提供 Versions Feature 跟 Auto-Save 的功能，可以讓你自動回覆到之前的檔案的狀態透過序列的方式。但同時會在 / 底下產生檔案來記錄歷史狀態。</p>
+<h3 id="2017-08-18-Update"><a href="#2017-08-18-Update" class="headerlink" title="2017.08.18 Update"></a>2017.08.18 Update</h3><p>根據<a href="http://osxdaily.com/2012/02/20/clear-versions-history-auto-save-cache-data-in-mac-os-x/" target="_blank" rel="external">這邊文章</a>，新版的 Mac 提供 Versions Feature 跟 Auto-Save 的功能，可以讓你自動回覆到之前的檔案的狀態透過序列的方式。但同時會在 / 底下產生檔案來記錄歷史狀態。</p>
 <p><img src="4.png" alt="screen"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/.DocumentRevisions-V100/</div></pre></td></tr></table></figure>
 <p>如果沒有需要以上歷史紀錄的話，打開終端機來把它刪除吧。</p>
@@ -306,7 +308,7 @@
     <summary type="html">
     
       &lt;p&gt;最近發現 Mac 空間不太足夠，又不太想換新的 Mac。只好用了最土法煉鋼的方式一個一個檢視。這裡紀錄這次清理 Mac 的步驟，順便制定SOP 方便日後又有問題可以來這裡回顧一下：）。&lt;/p&gt;
-&lt;h2 id=&quot;1-首先先下載能掃描整個硬盤的工具&quot;&gt;&lt;a href=&quot;#1-首
+&lt;h3 id=&quot;1-首先先下載能掃描整個硬盤的工具&quot;&gt;&lt;a href=&quot;#1-首
     
     </summary>
     
@@ -350,7 +352,7 @@
     <link href="http://stephenchen.com/2017/07/02/Http-Mine-types/"/>
     <id>http://stephenchen.com/2017/07/02/Http-Mine-types/</id>
     <published>2017-07-02T04:35:59.000Z</published>
-    <updated>2017-10-02T10:43:27.000Z</updated>
+    <updated>2017-11-26T03:07:54.000Z</updated>
     
     <content type="html"><![CDATA[<p>翻譯<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types" target="_blank" rel="external">原文</a></p>
 <a id="more"></a>
@@ -391,6 +393,8 @@
     
     </summary>
     
+    
+      <category term="programming" scheme="http://stephenchen.com/tags/programming/"/>
     
   </entry>
   
@@ -519,15 +523,15 @@
     <link href="http://stephenchen.com/2017/03/22/Fastlane/"/>
     <id>http://stephenchen.com/2017/03/22/Fastlane/</id>
     <published>2017-03-22T08:03:28.000Z</published>
-    <updated>2017-11-26T02:56:30.000Z</updated>
+    <updated>2017-11-26T03:04:17.000Z</updated>
     
     <content type="html"><![CDATA[<p>利用 fastlane + script 一鍵產出 .ipa 檔。</p>
 <a id="more"></a>
-<h2 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">macOS Sierra</div></pre></td></tr></table></figure>
-<h2 id="面臨的問題"><a href="#面臨的問題" class="headerlink" title="面臨的問題"></a>面臨的問題</h2><p>因工作所需，需要發布只提供 <strong>企業使用</strong> 的 ipa 檔，每個 ipa 檔會擁有不同格式的 plist ，而且數量可能不少。</p>
-<h2 id="本篇分享概要"><a href="#本篇分享概要" class="headerlink" title="本篇分享概要"></a>本篇分享概要</h2><p>其實 <a href="https://fastlane.tools/" target="_blank" rel="external">fastlane</a> 官方 已經很詳細了，所以這裡只分享大致流程，並不打算寫的太詳細。</p>
-<h2 id="如何自動上架"><a href="#如何自動上架" class="headerlink" title="如何自動上架"></a>如何自動上架</h2><p>目前iOS我知道打包除了手動之外，還有幾種方式分別是<a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html" target="_blank" rel="external">xcodebuild</a>和<a href="https://github.com/facebook/xctool" target="_blank" rel="external">xctool</a>，而今天想分享的是 <a href="https://fastlane.tools/" target="_blank" rel="external">fastlane</a></p>
-<h2 id="步驟1：首先把-Fastlane-安裝"><a href="#步驟1：首先把-Fastlane-安裝" class="headerlink" title="步驟1：首先把 Fastlane 安裝"></a>步驟1：首先把 Fastlane 安裝</h2><ul>
+<h3 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">macOS Sierra</div></pre></td></tr></table></figure>
+<h3 id="面臨的問題"><a href="#面臨的問題" class="headerlink" title="面臨的問題"></a>面臨的問題</h3><p>因工作所需，需要發布只提供 <strong>企業使用</strong> 的 ipa 檔，每個 ipa 檔會擁有不同格式的 plist ，而且數量可能不少。</p>
+<h3 id="本篇分享概要"><a href="#本篇分享概要" class="headerlink" title="本篇分享概要"></a>本篇分享概要</h3><p>其實 <a href="https://fastlane.tools/" target="_blank" rel="external">fastlane</a> 官方 已經很詳細了，所以這裡只分享大致流程，並不打算寫的太詳細。</p>
+<h3 id="如何自動上架"><a href="#如何自動上架" class="headerlink" title="如何自動上架"></a>如何自動上架</h3><p>目前iOS我知道打包除了手動之外，還有幾種方式分別是<a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html" target="_blank" rel="external">xcodebuild</a>和<a href="https://github.com/facebook/xctool" target="_blank" rel="external">xctool</a>，而今天想分享的是 <a href="https://fastlane.tools/" target="_blank" rel="external">fastlane</a></p>
+<h3 id="步驟1：首先把-Fastlane-安裝"><a href="#步驟1：首先把-Fastlane-安裝" class="headerlink" title="步驟1：首先把 Fastlane 安裝"></a>步驟1：首先把 Fastlane 安裝</h3><ul>
 <li>安裝 homebrew</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
@@ -535,7 +539,7 @@
 <li>透過 homebrew 來安裝 fastlane</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew cask install fastlane</div></pre></td></tr></table></figure>
-<h2 id="步驟2：Fastlane-初始化設定"><a href="#步驟2：Fastlane-初始化設定" class="headerlink" title="步驟2：Fastlane 初始化設定"></a>步驟2：Fastlane 初始化設定</h2><ul>
+<h3 id="步驟2：Fastlane-初始化設定"><a href="#步驟2：Fastlane-初始化設定" class="headerlink" title="步驟2：Fastlane 初始化設定"></a>步驟2：Fastlane 初始化設定</h3><ul>
 <li>第一種：(建議）</li>
 </ul>
 <p>透過 <a href="https://fabric.io/features/distribution?utm_campaign=github_readme" target="_blank" rel="external">官方</a>提供的文檔來產生初始化的程式碼</p>
@@ -662,19 +666,19 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane action gym</div></pre></td></tr></table></figure>
 <p><img src="gym.png" alt="gym"></p>
 <p>接著就慢慢看囉～依照自己的需求去決定使用哪些。</p>
-<h2 id="步驟3：執行-Fastlane"><a href="#步驟3：執行-Fastlane" class="headerlink" title="步驟3：執行 Fastlane"></a>步驟3：執行 Fastlane</h2><p>fastlane [name]，如上圖我的名稱是 <strong>BABABA</strong>，那就在終端機上打以下指令</p>
+<h3 id="步驟3：執行-Fastlane"><a href="#步驟3：執行-Fastlane" class="headerlink" title="步驟3：執行 Fastlane"></a>步驟3：執行 Fastlane</h3><p>fastlane [name]，如上圖我的名稱是 <strong>BABABA</strong>，那就在終端機上打以下指令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane BABABA</div></pre></td></tr></table></figure>
 <p>這邊也許會遇到一些環境問題，以及安裝問題，這時候就要一個一個自己去解決了，每個人遇到的問題不太一樣，可以留言在下面互相討論。不過有個問題我也覺得非常麻煩，我把這問題寫在最下面的 TroubleShooting 部分</p>
-<h2 id="步驟4：參考範例走"><a href="#步驟4：參考範例走" class="headerlink" title="步驟4：參考範例走"></a>步驟4：參考範例走</h2><p>這邊提供<a href="https://github.com/fastlane/examples" target="_blank" rel="external">一些開源</a>有使用 Fastlane 的，可以參考別人都使用了些什麼。</p>
+<h3 id="步驟4：參考範例走"><a href="#步驟4：參考範例走" class="headerlink" title="步驟4：參考範例走"></a>步驟4：參考範例走</h3><p>這邊提供<a href="https://github.com/fastlane/examples" target="_blank" rel="external">一些開源</a>有使用 Fastlane 的，可以參考別人都使用了些什麼。</p>
 <h2 id="步驟5：循環步驟4"><a href="#步驟5：循環步驟4" class="headerlink" title="步驟5：循環步驟4"></a>步驟5：循環步驟4</h2><p>這邊一定要想成功，不然等下之後再結合 script 的時候問題會更多。</p>
-<h2 id="步驟6：結合腳本語言"><a href="#步驟6：結合腳本語言" class="headerlink" title="步驟6：結合腳本語言"></a>步驟6：結合腳本語言</h2><p>這部分就比較簡單了，我把 code 放在 <a href="https://github.com/5SMNOONMS5/TestFastlane" target="_blank" rel="external">github</a> 上。大致架構圖如下</p>
+<h3 id="步驟6：結合腳本語言"><a href="#步驟6：結合腳本語言" class="headerlink" title="步驟6：結合腳本語言"></a>步驟6：結合腳本語言</h3><p>這部分就比較簡單了，我把 code 放在 <a href="https://github.com/5SMNOONMS5/TestFastlane" target="_blank" rel="external">github</a> 上。大致架構圖如下</p>
 <p><img src="bash_architecture.png" alt="bash_architecture"></p>
 <p>這邊的架構是所有跟 <strong>script</strong> 相關的 .sh 檔案都會在 script 資料夾底下，透過 <a href="https://www.gnu.org/software/sed/manual/sed.txt" target="_blank" rel="external">sed</a> 去執行變更 Info.plish 檔案裡面的變數，參數設定則是放在 <strong>script/config</strong> 裡面。</p>
 <p>在終端機底下執行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 先cd到 script 目錄資料夾底下，先看看提供了什麼方法</span></div><div class="line">sh archive -h</div><div class="line"><span class="comment"># 然後執行</span></div><div class="line">sh archive -s</div></pre></td></tr></table></figure>
 <p><img src="archive.png" alt="archive"></p>
-<h2 id="步驟7：結合兩者-Fastlane-Script"><a href="#步驟7：結合兩者-Fastlane-Script" class="headerlink" title="步驟7：結合兩者 Fastlane + Script"></a>步驟7：結合兩者 Fastlane + Script</h2><p>其實核心價值就是透過 Script 去把 plist 裡面的值依造需求作改變，然後再呼叫 fastlane 去執行打包 ipa 。</p>
-<h1 id="TroubleShooting"><a href="#TroubleShooting" class="headerlink" title="TroubleShooting"></a>TroubleShooting</h1><h2 id="Connection-reset-by-peer-SSL-connect"><a href="#Connection-reset-by-peer-SSL-connect" class="headerlink" title="Connection reset by peer - SSL_connect"></a>Connection reset by peer - SSL_connect</h2><p>因為我的 ruby 版本是 2.0.0，蘋果最近把服務器的TLS版本更新到 TLS 1.2，在我當前的 ruby 是不支持的，所以我要想辦法升級到 支援 TLS 1.2的 ruby 版本。</p>
+<h3 id="步驟7：結合兩者-Fastlane-Script"><a href="#步驟7：結合兩者-Fastlane-Script" class="headerlink" title="步驟7：結合兩者 Fastlane + Script"></a>步驟7：結合兩者 Fastlane + Script</h3><p>其實核心價值就是透過 Script 去把 plist 裡面的值依造需求作改變，然後再呼叫 fastlane 去執行打包 ipa 。</p>
+<h2 id="TroubleShooting"><a href="#TroubleShooting" class="headerlink" title="TroubleShooting"></a>TroubleShooting</h2><h3 id="Connection-reset-by-peer-SSL-connect"><a href="#Connection-reset-by-peer-SSL-connect" class="headerlink" title="Connection reset by peer - SSL_connect"></a>Connection reset by peer - SSL_connect</h3><p>因為我的 ruby 版本是 2.0.0，蘋果最近把服務器的TLS版本更新到 TLS 1.2，在我當前的 ruby 是不支持的，所以我要想辦法升級到 支援 TLS 1.2的 ruby 版本。</p>
 <p><img src="opensslfail.png" alt="opensslfail.png"></p>
 <p>在解決問題之前，我想分享一些我個人覺得蠻需要被了解的基礎，就是因為我也對 ruby 不了解，所以吃了不少虧在解決這個問題上</p>
 <p>首先安裝 ruby 可以透過 <a href="https://brew.sh/" target="_blank" rel="external">homebrew</a> ， <a href="https://github.com/rbenv/rbenv" target="_blank" rel="external">rbenv</a> 以及 <a href="https://rvm.io/" target="_blank" rel="external">rvm</a>，一台電腦可能有很多 ruby 的版本存在，你必須讓你當前的 ruby 版本使用可以支援 TLS 1.2 的版本，不管你是用什麼套件安裝，但我個人這邊的問題是當初我忘記我用什麼來安裝的。</p>
@@ -685,7 +689,7 @@
 <p>Hey everyone, we’ve been working on a new way to install and use fastlane, all you have to do is to download <a href="https://kits-crashlytics-com.s3.amazonaws.com/fastlane/standalone/latest.zip" target="_blank" rel="external">fastlane.zip</a> and double click the install file. This will install fastlane with all its Ruby and OpenSSL dependencies, and should all work out of the box.<br>We just finished building this, and would love your early feedback on this beta. Please let us know how it works for you and if you run into any problems 👍<br>Download the latest version here.</p>
 </blockquote>
 <p>大意就是他把 fastlane 所需要的 dependencies 全部放在 <strong>~./fastlane/bin</strong> 底下，有點類似 docker 的感覺，安裝好之後，我的問題也解決了。</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://github.com/fastlane/fastlane/issues/6553" target="_blank" rel="external">Connection reset by peer</a></p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://github.com/fastlane/fastlane/issues/6553" target="_blank" rel="external">Connection reset by peer</a></p>
 <p><a href="https://github.com/fastlane/fastlane/issues/6758" target="_blank" rel="external">cert fails with error ‘Connection reset by peer - SSL_connect’</a></p>
 ]]></content>
     
@@ -779,7 +783,7 @@
     <link href="http://stephenchen.com/2017/01/27/Custom-build-in-Sublime-Text-3/"/>
     <id>http://stephenchen.com/2017/01/27/Custom-build-in-Sublime-Text-3/</id>
     <published>2017-01-27T08:44:48.000Z</published>
-    <updated>2017-11-25T15:55:55.000Z</updated>
+    <updated>2017-11-26T03:02:58.000Z</updated>
     
     <content type="html"><![CDATA[<p>Custom builds in sublime 。</p>
 <a id="more"></a>
@@ -788,9 +792,9 @@
 <h3 id="Install-Sublime-Text"><a href="#Install-Sublime-Text" class="headerlink" title="Install Sublime Text"></a>Install Sublime Text</h3><p><a href="https://www.sublimetext.com/3" target="_blank" rel="external">Office Download Page</a></p>
 <h3 id="Create-a-custom-build-system"><a href="#Create-a-custom-build-system" class="headerlink" title="Create a custom build system"></a>Create a custom build system</h3><p><img src="build_system.gif" alt="gif animation"></p>
 <h3 id="Default-file-location"><a href="#Default-file-location" class="headerlink" title="Default file location"></a>Default file location</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/Users/&lt;Your Name&gt;/Library/Application Support/Sublime Text 3/Packages/User/</div></pre></td></tr></table></figure>
-<h1 id="Paste-this-code-into-sublime-build-file"><a href="#Paste-this-code-into-sublime-build-file" class="headerlink" title="Paste this code into .sublime-build file"></a>Paste this code into .sublime-build file</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;cmd&quot; : [&quot;gcc $file_name -o $&#123;file_base_name&#125; &amp;&amp; ./$&#123;file_base_name&#125; &amp;&amp; rm ./$&#123;file_base_name&#125;&quot;],</div><div class="line">	&quot;selector&quot; : &quot;source.c&quot;,</div><div class="line">	&quot;shell&quot;: true,</div><div class="line">	&quot;working_dir&quot; : &quot;$file_path&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="Start-coding-press-command-B"><a href="#Start-coding-press-command-B" class="headerlink" title="Start coding, press command + B"></a>Start coding, press command + B</h1><p><img src="build.gif" alt="build"></p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://stackoverflow.com/questions/24225343/how-to-compile-and-run-c-in-sublime-text-3" target="_blank" rel="external">stack overflow</a></p>
+<h3 id="Paste-this-code-into-sublime-build-file"><a href="#Paste-this-code-into-sublime-build-file" class="headerlink" title="Paste this code into .sublime-build file"></a>Paste this code into .sublime-build file</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;cmd&quot; : [&quot;gcc $file_name -o $&#123;file_base_name&#125; &amp;&amp; ./$&#123;file_base_name&#125; &amp;&amp; rm ./$&#123;file_base_name&#125;&quot;],</div><div class="line">	&quot;selector&quot; : &quot;source.c&quot;,</div><div class="line">	&quot;shell&quot;: true,</div><div class="line">	&quot;working_dir&quot; : &quot;$file_path&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Start-coding-press-command-B"><a href="#Start-coding-press-command-B" class="headerlink" title="Start coding, press command + B"></a>Start coding, press command + B</h3><p><img src="build.gif" alt="build"></p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://stackoverflow.com/questions/24225343/how-to-compile-and-run-c-in-sublime-text-3" target="_blank" rel="external">stack overflow</a></p>
 ]]></content>
     
     <summary type="html">
@@ -809,12 +813,12 @@
     <link href="http://stephenchen.com/2017/01/19/Funny-commands/"/>
     <id>http://stephenchen.com/2017/01/19/Funny-commands/</id>
     <published>2017-01-19T12:15:47.000Z</published>
-    <updated>2017-01-23T01:22:35.000Z</updated>
+    <updated>2017-11-26T03:04:33.000Z</updated>
     
     <content type="html"><![CDATA[<p>A set of ASCII pictures that enjoy code life though hard up .</p>
 <a id="more"></a>
-<h1 id="OS-Environment"><a href="#OS-Environment" class="headerlink" title="OS Environment"></a>OS Environment</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Mac OS X EI Capitan</div></pre></td></tr></table></figure>
-<h1 id="Cowsay"><a href="#Cowsay" class="headerlink" title="Cowsay"></a>Cowsay</h1><p>Firstly I want to introduce a cute ASCII picture of a cow named <a href="https://en.wikipedia.org/wiki/Cowsay" target="_blank" rel="external">cowsay</a> , this doll can show a message that you type . As its name cow + say .</p>
+<h3 id="OS-Environment"><a href="#OS-Environment" class="headerlink" title="OS Environment"></a>OS Environment</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Mac OS X EI Capitan</div></pre></td></tr></table></figure>
+<h3 id="Cowsay"><a href="#Cowsay" class="headerlink" title="Cowsay"></a>Cowsay</h3><p>Firstly I want to introduce a cute ASCII picture of a cow named <a href="https://en.wikipedia.org/wiki/Cowsay" target="_blank" rel="external">cowsay</a> , this doll can show a message that you type . As its name cow + say .</p>
 <p><img src="cowsay.png" alt="cowsay.png"></p>
 <p>So that dig into it . First install it with below two commands:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span> &lt; /dev/null 2&gt; /dev/null</div></pre></td></tr></table></figure>
@@ -828,7 +832,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># formula</span></div><div class="line"><span class="comment"># cowsay -f [new doll] "message here"</span></div><div class="line">cowsay -f eyes <span class="string">"New dolls say hello word"</span></div></pre></td></tr></table></figure>
 <p><img src="eyes.png" alt="eyes.png"></p>
 <p>Ha . There are more informations<br><a href="http://ithelp.ithome.com.tw/articles/10127590" target="_blank" rel="external">source 1</a><br><a href="http://ithelp.ithome.com.tw/articles/10143897" target="_blank" rel="external">source 2</a></p>
-<h1 id="More-powerful-cowsay"><a href="#More-powerful-cowsay" class="headerlink" title="More powerful cowsay"></a>More powerful cowsay</h1><p><img src="super_cowsay.gif" alt="powerful cowsay"></p>
+<h3 id="More-powerful-cowsay"><a href="#More-powerful-cowsay" class="headerlink" title="More powerful cowsay"></a>More powerful cowsay</h3><p><img src="super_cowsay.gif" alt="powerful cowsay"></p>
 <p>Install <strong>fortune</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install fortune</div></pre></td></tr></table></figure>
 <p>Then install <strong>lolcat</strong></p>
@@ -836,17 +840,17 @@
 <p>Run it</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fortune | cowsay | lolcat</div></pre></td></tr></table></figure>
 <p><a href="https://gist.github.com/dakull/6615458" target="_blank" rel="external">more here</a></p>
-<h1 id="Train"><a href="#Train" class="headerlink" title="Train"></a>Train</h1><p>Another funny commands is a <strong>sl</strong> , it shows like a train</p>
+<h3 id="Train"><a href="#Train" class="headerlink" title="Train"></a>Train</h3><p>Another funny commands is a <strong>sl</strong> , it shows like a train</p>
 <p><img src="train.gif" alt="train picture"></p>
 <p>Install it with below two commands:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span> &lt; /dev/null 2&gt; /dev/null</div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install sl</div></pre></td></tr></table></figure>
 <p>Run it</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sl</div></pre></td></tr></table></figure>
-<h1 id="Wanna-watch-a-movies"><a href="#Wanna-watch-a-movies" class="headerlink" title="Wanna watch a movies?"></a>Wanna watch a movies?</h1><p><img src="star_war.gif" alt="star_war"></p>
+<h3 id="Wanna-watch-a-movies"><a href="#Wanna-watch-a-movies" class="headerlink" title="Wanna watch a movies?"></a>Wanna watch a movies?</h3><p><img src="star_war.gif" alt="star_war"></p>
 <p>Try it , but …. it really take a long time .</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">telnet towel.blinkenlights.nl</div></pre></td></tr></table></figure>
-<h1 id="9-x-9-multiplication-table"><a href="#9-x-9-multiplication-table" class="headerlink" title="9 x 9 multiplication table"></a>9 x 9 multiplication table</h1><p><img src="multiplication table.png" alt="multiplication table"></p>
+<h3 id="9-x-9-multiplication-table"><a href="#9-x-9-multiplication-table" class="headerlink" title="9 x 9 multiplication table"></a>9 x 9 multiplication table</h3><p><img src="multiplication table.png" alt="multiplication table"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..12&#125;; <span class="keyword">do</span> <span class="keyword">for</span> j <span class="keyword">in</span> $(seq 1 <span class="variable">$i</span>); <span class="keyword">do</span> <span class="built_in">echo</span> -ne <span class="variable">$i</span>Ã—<span class="variable">$j</span>=$((i*j))\\t;<span class="keyword">done</span>; <span class="built_in">echo</span>;<span class="keyword">done</span></div></pre></td></tr></table></figure>
 <h1 id="A-cute-ponysay"><a href="#A-cute-ponysay" class="headerlink" title="A cute ponysay"></a>A cute ponysay</h1><p><img src="pony1.png" alt="pony picture1"></p>
 <p><img src="pony2.png" alt="pony picture2"></p>
@@ -858,7 +862,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ponysay --quote</div></pre></td></tr></table></figure>
 <p>Or run help for more</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ponysay -h</div></pre></td></tr></table></figure>
-<h1 id="Cmatrix"><a href="#Cmatrix" class="headerlink" title="Cmatrix"></a>Cmatrix</h1><p><strong>The Matrix</strong> . How spectacular it is .</p>
+<h3 id="Cmatrix"><a href="#Cmatrix" class="headerlink" title="Cmatrix"></a>Cmatrix</h3><p><strong>The Matrix</strong> . How spectacular it is .</p>
 <p><img src="matrix.gif" alt="matrix"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install cmatrix</div></pre></td></tr></table></figure>
 <p>More animation <a href="http://www.tecmint.com/20-funny-commands-of-linux-or-linux-is-fun-in-terminal/" target="_blank" rel="external">here</a></p>
@@ -870,6 +874,8 @@
     
     </summary>
     
+    
+      <category term="programming" scheme="http://stephenchen.com/tags/programming/"/>
     
   </entry>
   

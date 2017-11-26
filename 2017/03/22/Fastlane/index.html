@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://stephenchen.com/2017/03/22/Fastlane/bash_architecture.png">
 <meta property="og:image" content="http://stephenchen.com/2017/03/22/Fastlane/archive.png">
 <meta property="og:image" content="http://stephenchen.com/2017/03/22/Fastlane/opensslfail.png">
-<meta property="og:updated_time" content="2017-11-26T02:56:30.000Z">
+<meta property="og:updated_time" content="2017-11-26T03:04:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Integrate With Fastlane And Bash-Script">
 <meta name="twitter:description" content="利用 fastlane + script 一鍵產出 .ipa 檔。">
@@ -146,11 +146,11 @@
             
             <p>利用 fastlane + script 一鍵產出 .ipa 檔。</p>
 <a id="more"></a>
-<h2 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">macOS Sierra</div></pre></td></tr></table></figure>
-<h2 id="面臨的問題"><a href="#面臨的問題" class="headerlink" title="面臨的問題"></a>面臨的問題</h2><p>因工作所需，需要發布只提供 <strong>企業使用</strong> 的 ipa 檔，每個 ipa 檔會擁有不同格式的 plist ，而且數量可能不少。</p>
-<h2 id="本篇分享概要"><a href="#本篇分享概要" class="headerlink" title="本篇分享概要"></a>本篇分享概要</h2><p>其實 <a href="https://fastlane.tools/" target="_blank" rel="external">fastlane</a> 官方 已經很詳細了，所以這裡只分享大致流程，並不打算寫的太詳細。</p>
-<h2 id="如何自動上架"><a href="#如何自動上架" class="headerlink" title="如何自動上架"></a>如何自動上架</h2><p>目前iOS我知道打包除了手動之外，還有幾種方式分別是<a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html" target="_blank" rel="external">xcodebuild</a>和<a href="https://github.com/facebook/xctool" target="_blank" rel="external">xctool</a>，而今天想分享的是 <a href="https://fastlane.tools/" target="_blank" rel="external">fastlane</a></p>
-<h2 id="步驟1：首先把-Fastlane-安裝"><a href="#步驟1：首先把-Fastlane-安裝" class="headerlink" title="步驟1：首先把 Fastlane 安裝"></a>步驟1：首先把 Fastlane 安裝</h2><ul>
+<h3 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">macOS Sierra</div></pre></td></tr></table></figure>
+<h3 id="面臨的問題"><a href="#面臨的問題" class="headerlink" title="面臨的問題"></a>面臨的問題</h3><p>因工作所需，需要發布只提供 <strong>企業使用</strong> 的 ipa 檔，每個 ipa 檔會擁有不同格式的 plist ，而且數量可能不少。</p>
+<h3 id="本篇分享概要"><a href="#本篇分享概要" class="headerlink" title="本篇分享概要"></a>本篇分享概要</h3><p>其實 <a href="https://fastlane.tools/" target="_blank" rel="external">fastlane</a> 官方 已經很詳細了，所以這裡只分享大致流程，並不打算寫的太詳細。</p>
+<h3 id="如何自動上架"><a href="#如何自動上架" class="headerlink" title="如何自動上架"></a>如何自動上架</h3><p>目前iOS我知道打包除了手動之外，還有幾種方式分別是<a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html" target="_blank" rel="external">xcodebuild</a>和<a href="https://github.com/facebook/xctool" target="_blank" rel="external">xctool</a>，而今天想分享的是 <a href="https://fastlane.tools/" target="_blank" rel="external">fastlane</a></p>
+<h3 id="步驟1：首先把-Fastlane-安裝"><a href="#步驟1：首先把-Fastlane-安裝" class="headerlink" title="步驟1：首先把 Fastlane 安裝"></a>步驟1：首先把 Fastlane 安裝</h3><ul>
 <li>安裝 homebrew</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
@@ -158,7 +158,7 @@
 <li>透過 homebrew 來安裝 fastlane</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew cask install fastlane</div></pre></td></tr></table></figure>
-<h2 id="步驟2：Fastlane-初始化設定"><a href="#步驟2：Fastlane-初始化設定" class="headerlink" title="步驟2：Fastlane 初始化設定"></a>步驟2：Fastlane 初始化設定</h2><ul>
+<h3 id="步驟2：Fastlane-初始化設定"><a href="#步驟2：Fastlane-初始化設定" class="headerlink" title="步驟2：Fastlane 初始化設定"></a>步驟2：Fastlane 初始化設定</h3><ul>
 <li>第一種：(建議）</li>
 </ul>
 <p>透過 <a href="https://fabric.io/features/distribution?utm_campaign=github_readme" target="_blank" rel="external">官方</a>提供的文檔來產生初始化的程式碼</p>
@@ -285,19 +285,19 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane action gym</div></pre></td></tr></table></figure>
 <p><img src="gym.png" alt="gym"></p>
 <p>接著就慢慢看囉～依照自己的需求去決定使用哪些。</p>
-<h2 id="步驟3：執行-Fastlane"><a href="#步驟3：執行-Fastlane" class="headerlink" title="步驟3：執行 Fastlane"></a>步驟3：執行 Fastlane</h2><p>fastlane [name]，如上圖我的名稱是 <strong>BABABA</strong>，那就在終端機上打以下指令</p>
+<h3 id="步驟3：執行-Fastlane"><a href="#步驟3：執行-Fastlane" class="headerlink" title="步驟3：執行 Fastlane"></a>步驟3：執行 Fastlane</h3><p>fastlane [name]，如上圖我的名稱是 <strong>BABABA</strong>，那就在終端機上打以下指令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane BABABA</div></pre></td></tr></table></figure>
 <p>這邊也許會遇到一些環境問題，以及安裝問題，這時候就要一個一個自己去解決了，每個人遇到的問題不太一樣，可以留言在下面互相討論。不過有個問題我也覺得非常麻煩，我把這問題寫在最下面的 TroubleShooting 部分</p>
-<h2 id="步驟4：參考範例走"><a href="#步驟4：參考範例走" class="headerlink" title="步驟4：參考範例走"></a>步驟4：參考範例走</h2><p>這邊提供<a href="https://github.com/fastlane/examples" target="_blank" rel="external">一些開源</a>有使用 Fastlane 的，可以參考別人都使用了些什麼。</p>
+<h3 id="步驟4：參考範例走"><a href="#步驟4：參考範例走" class="headerlink" title="步驟4：參考範例走"></a>步驟4：參考範例走</h3><p>這邊提供<a href="https://github.com/fastlane/examples" target="_blank" rel="external">一些開源</a>有使用 Fastlane 的，可以參考別人都使用了些什麼。</p>
 <h2 id="步驟5：循環步驟4"><a href="#步驟5：循環步驟4" class="headerlink" title="步驟5：循環步驟4"></a>步驟5：循環步驟4</h2><p>這邊一定要想成功，不然等下之後再結合 script 的時候問題會更多。</p>
-<h2 id="步驟6：結合腳本語言"><a href="#步驟6：結合腳本語言" class="headerlink" title="步驟6：結合腳本語言"></a>步驟6：結合腳本語言</h2><p>這部分就比較簡單了，我把 code 放在 <a href="https://github.com/5SMNOONMS5/TestFastlane" target="_blank" rel="external">github</a> 上。大致架構圖如下</p>
+<h3 id="步驟6：結合腳本語言"><a href="#步驟6：結合腳本語言" class="headerlink" title="步驟6：結合腳本語言"></a>步驟6：結合腳本語言</h3><p>這部分就比較簡單了，我把 code 放在 <a href="https://github.com/5SMNOONMS5/TestFastlane" target="_blank" rel="external">github</a> 上。大致架構圖如下</p>
 <p><img src="bash_architecture.png" alt="bash_architecture"></p>
 <p>這邊的架構是所有跟 <strong>script</strong> 相關的 .sh 檔案都會在 script 資料夾底下，透過 <a href="https://www.gnu.org/software/sed/manual/sed.txt" target="_blank" rel="external">sed</a> 去執行變更 Info.plish 檔案裡面的變數，參數設定則是放在 <strong>script/config</strong> 裡面。</p>
 <p>在終端機底下執行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 先cd到 script 目錄資料夾底下，先看看提供了什麼方法</span></div><div class="line">sh archive -h</div><div class="line"><span class="comment"># 然後執行</span></div><div class="line">sh archive -s</div></pre></td></tr></table></figure>
 <p><img src="archive.png" alt="archive"></p>
-<h2 id="步驟7：結合兩者-Fastlane-Script"><a href="#步驟7：結合兩者-Fastlane-Script" class="headerlink" title="步驟7：結合兩者 Fastlane + Script"></a>步驟7：結合兩者 Fastlane + Script</h2><p>其實核心價值就是透過 Script 去把 plist 裡面的值依造需求作改變，然後再呼叫 fastlane 去執行打包 ipa 。</p>
-<h1 id="TroubleShooting"><a href="#TroubleShooting" class="headerlink" title="TroubleShooting"></a>TroubleShooting</h1><h2 id="Connection-reset-by-peer-SSL-connect"><a href="#Connection-reset-by-peer-SSL-connect" class="headerlink" title="Connection reset by peer - SSL_connect"></a>Connection reset by peer - SSL_connect</h2><p>因為我的 ruby 版本是 2.0.0，蘋果最近把服務器的TLS版本更新到 TLS 1.2，在我當前的 ruby 是不支持的，所以我要想辦法升級到 支援 TLS 1.2的 ruby 版本。</p>
+<h3 id="步驟7：結合兩者-Fastlane-Script"><a href="#步驟7：結合兩者-Fastlane-Script" class="headerlink" title="步驟7：結合兩者 Fastlane + Script"></a>步驟7：結合兩者 Fastlane + Script</h3><p>其實核心價值就是透過 Script 去把 plist 裡面的值依造需求作改變，然後再呼叫 fastlane 去執行打包 ipa 。</p>
+<h2 id="TroubleShooting"><a href="#TroubleShooting" class="headerlink" title="TroubleShooting"></a>TroubleShooting</h2><h3 id="Connection-reset-by-peer-SSL-connect"><a href="#Connection-reset-by-peer-SSL-connect" class="headerlink" title="Connection reset by peer - SSL_connect"></a>Connection reset by peer - SSL_connect</h3><p>因為我的 ruby 版本是 2.0.0，蘋果最近把服務器的TLS版本更新到 TLS 1.2，在我當前的 ruby 是不支持的，所以我要想辦法升級到 支援 TLS 1.2的 ruby 版本。</p>
 <p><img src="opensslfail.png" alt="opensslfail.png"></p>
 <p>在解決問題之前，我想分享一些我個人覺得蠻需要被了解的基礎，就是因為我也對 ruby 不了解，所以吃了不少虧在解決這個問題上</p>
 <p>首先安裝 ruby 可以透過 <a href="https://brew.sh/" target="_blank" rel="external">homebrew</a> ， <a href="https://github.com/rbenv/rbenv" target="_blank" rel="external">rbenv</a> 以及 <a href="https://rvm.io/" target="_blank" rel="external">rvm</a>，一台電腦可能有很多 ruby 的版本存在，你必須讓你當前的 ruby 版本使用可以支援 TLS 1.2 的版本，不管你是用什麼套件安裝，但我個人這邊的問題是當初我忘記我用什麼來安裝的。</p>
@@ -308,12 +308,12 @@
 <p>Hey everyone, we’ve been working on a new way to install and use fastlane, all you have to do is to download <a href="https://kits-crashlytics-com.s3.amazonaws.com/fastlane/standalone/latest.zip" target="_blank" rel="external">fastlane.zip</a> and double click the install file. This will install fastlane with all its Ruby and OpenSSL dependencies, and should all work out of the box.<br>We just finished building this, and would love your early feedback on this beta. Please let us know how it works for you and if you run into any problems 👍<br>Download the latest version here.</p>
 </blockquote>
 <p>大意就是他把 fastlane 所需要的 dependencies 全部放在 <strong>~./fastlane/bin</strong> 底下，有點類似 docker 的感覺，安裝好之後，我的問題也解決了。</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://github.com/fastlane/fastlane/issues/6553" target="_blank" rel="external">Connection reset by peer</a></p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://github.com/fastlane/fastlane/issues/6553" target="_blank" rel="external">Connection reset by peer</a></p>
 <p><a href="https://github.com/fastlane/fastlane/issues/6758" target="_blank" rel="external">cert fails with error ‘Connection reset by peer - SSL_connect’</a></p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年11月26日 10:56</p>
+        <p>最后更新： 2017年11月26日 11:04</p>
         <p>原始链接： <a class="post-url" href="/2017/03/22/Fastlane/" title="Integrate With Fastlane And Bash-Script">http://stephenchen.com/2017/03/22/Fastlane/</a></p>
         <footer>
             <a href="http://stephenchen.com">
@@ -431,7 +431,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#環境"><span class="post-toc-text">環境</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#面臨的問題"><span class="post-toc-text">面臨的問題</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#本篇分享概要"><span class="post-toc-text">本篇分享概要</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何自動上架"><span class="post-toc-text">如何自動上架</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#步驟1：首先把-Fastlane-安裝"><span class="post-toc-text">步驟1：首先把 Fastlane 安裝</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#步驟2：Fastlane-初始化設定"><span class="post-toc-text">步驟2：Fastlane 初始化設定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#步驟3：執行-Fastlane"><span class="post-toc-text">步驟3：執行 Fastlane</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#步驟4：參考範例走"><span class="post-toc-text">步驟4：參考範例走</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#步驟5：循環步驟4"><span class="post-toc-text">步驟5：循環步驟4</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#步驟6：結合腳本語言"><span class="post-toc-text">步驟6：結合腳本語言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#步驟7：結合兩者-Fastlane-Script"><span class="post-toc-text">步驟7：結合兩者 Fastlane + Script</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#TroubleShooting"><span class="post-toc-text">TroubleShooting</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Connection-reset-by-peer-SSL-connect"><span class="post-toc-text">Connection reset by peer - SSL_connect</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Reference"><span class="post-toc-text">Reference</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#環境"><span class="post-toc-text">環境</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#面臨的問題"><span class="post-toc-text">面臨的問題</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本篇分享概要"><span class="post-toc-text">本篇分享概要</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何自動上架"><span class="post-toc-text">如何自動上架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#步驟1：首先把-Fastlane-安裝"><span class="post-toc-text">步驟1：首先把 Fastlane 安裝</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#步驟2：Fastlane-初始化設定"><span class="post-toc-text">步驟2：Fastlane 初始化設定</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#步驟3：執行-Fastlane"><span class="post-toc-text">步驟3：執行 Fastlane</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#步驟4：參考範例走"><span class="post-toc-text">步驟4：參考範例走</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#步驟5：循環步驟4"><span class="post-toc-text">步驟5：循環步驟4</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#步驟6：結合腳本語言"><span class="post-toc-text">步驟6：結合腳本語言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#步驟7：結合兩者-Fastlane-Script"><span class="post-toc-text">步驟7：結合兩者 Fastlane + Script</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TroubleShooting"><span class="post-toc-text">TroubleShooting</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Connection-reset-by-peer-SSL-connect"><span class="post-toc-text">Connection reset by peer - SSL_connect</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Reference"><span class="post-toc-text">Reference</span></a></li></ol>
         </nav>
     </aside>
     

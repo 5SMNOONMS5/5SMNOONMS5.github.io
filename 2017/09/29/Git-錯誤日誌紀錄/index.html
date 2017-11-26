@@ -17,7 +17,7 @@
 <meta property="og:description" content="紀錄一些平常不正常操作所出現的問題以及解決方式">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://stephenchen.com/2017/09/29/Git-錯誤日誌紀錄/1.png">
-<meta property="og:updated_time" content="2017-11-26T02:48:39.000Z">
+<meta property="og:updated_time" content="2017-11-26T03:04:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 錯誤日誌紀錄">
 <meta name="twitter:description" content="紀錄一些平常不正常操作所出現的問題以及解決方式">
@@ -140,8 +140,8 @@
             
             <p>紀錄一些平常不正常操作所出現的問題以及解決方式</p>
 <a id="more"></a>
-<h2 id="Fatal-refusing-to-merge-unrelated-histories"><a href="#Fatal-refusing-to-merge-unrelated-histories" class="headerlink" title="Fatal: refusing to merge unrelated histories"></a>Fatal: refusing to merge unrelated histories</h2><p><img src="1.png" alt=""></p>
-<h2 id="是如何出現的"><a href="#是如何出現的" class="headerlink" title="是如何出現的"></a>是如何出現的</h2><ol>
+<h3 id="Fatal-refusing-to-merge-unrelated-histories"><a href="#Fatal-refusing-to-merge-unrelated-histories" class="headerlink" title="Fatal: refusing to merge unrelated histories"></a>Fatal: refusing to merge unrelated histories</h3><p><img src="1.png" alt=""></p>
+<h3 id="是如何出現的"><a href="#是如何出現的" class="headerlink" title="是如何出現的"></a>是如何出現的</h3><ol>
 <li><p>我在 bitbucket 開了一個新的 repository</p>
 </li>
 <li><p>clone 下來之後</p>
@@ -156,14 +156,14 @@
 </li>
 </ol>
 <p>就這樣出現了這樣的情況</p>
-<h2 id="當下的解決方案"><a href="#當下的解決方案" class="headerlink" title="當下的解決方案"></a>當下的解決方案</h2><p> 找到了 <a href="https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories" target="_blank" rel="external">這個</a></p>
+<h3 id="當下的解決方案"><a href="#當下的解決方案" class="headerlink" title="當下的解決方案"></a>當下的解決方案</h3><p> 找到了 <a href="https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories" target="_blank" rel="external">這個</a></p>
 <p> 然後輸入</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin branchname --allow-unrelated-histories</div></pre></td></tr></table></figure>
 <p>因為在 git 2.9 版開始，git merge 默認不能 merge 兩個沒有相關的分支，所以我下了這個 <strong> –allow-unrelated-histories</strong> 讓 merge 可以強制。merge 兩個無相關的分支。</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年11月26日 10:48</p>
+        <p>最后更新： 2017年11月26日 11:04</p>
         <p>原始链接： <a class="post-url" href="/2017/09/29/Git-錯誤日誌紀錄/" title="Git 錯誤日誌紀錄">http://stephenchen.com/2017/09/29/Git-錯誤日誌紀錄/</a></p>
         <footer>
             <a href="http://stephenchen.com">
@@ -281,7 +281,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Fatal-refusing-to-merge-unrelated-histories"><span class="post-toc-text">Fatal: refusing to merge unrelated histories</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#是如何出現的"><span class="post-toc-text">是如何出現的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#當下的解決方案"><span class="post-toc-text">當下的解決方案</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Fatal-refusing-to-merge-unrelated-histories"><span class="post-toc-text">Fatal: refusing to merge unrelated histories</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#是如何出現的"><span class="post-toc-text">是如何出現的</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#當下的解決方案"><span class="post-toc-text">當下的解決方案</span></a></li></ol>
         </nav>
     </aside>
     

@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://stephenchen.com/2017/01/27/Custom-build-in-Sublime-Text-3/build_system.gif">
 <meta property="og:image" content="http://stephenchen.com/2017/01/27/Custom-build-in-Sublime-Text-3/build.gif">
-<meta property="og:updated_time" content="2017-11-25T15:55:55.000Z">
+<meta property="og:updated_time" content="2017-11-26T03:02:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Custom Builds In Sublime 3">
 <meta name="twitter:description" content="Custom builds in sublime 。">
@@ -146,13 +146,13 @@
 <h3 id="Install-Sublime-Text"><a href="#Install-Sublime-Text" class="headerlink" title="Install Sublime Text"></a>Install Sublime Text</h3><p><a href="https://www.sublimetext.com/3" target="_blank" rel="external">Office Download Page</a></p>
 <h3 id="Create-a-custom-build-system"><a href="#Create-a-custom-build-system" class="headerlink" title="Create a custom build system"></a>Create a custom build system</h3><p><img src="build_system.gif" alt="gif animation"></p>
 <h3 id="Default-file-location"><a href="#Default-file-location" class="headerlink" title="Default file location"></a>Default file location</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/Users/&lt;Your Name&gt;/Library/Application Support/Sublime Text 3/Packages/User/</div></pre></td></tr></table></figure>
-<h1 id="Paste-this-code-into-sublime-build-file"><a href="#Paste-this-code-into-sublime-build-file" class="headerlink" title="Paste this code into .sublime-build file"></a>Paste this code into .sublime-build file</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;cmd&quot; : [&quot;gcc $file_name -o $&#123;file_base_name&#125; &amp;&amp; ./$&#123;file_base_name&#125; &amp;&amp; rm ./$&#123;file_base_name&#125;&quot;],</div><div class="line">	&quot;selector&quot; : &quot;source.c&quot;,</div><div class="line">	&quot;shell&quot;: true,</div><div class="line">	&quot;working_dir&quot; : &quot;$file_path&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="Start-coding-press-command-B"><a href="#Start-coding-press-command-B" class="headerlink" title="Start coding, press command + B"></a>Start coding, press command + B</h1><p><img src="build.gif" alt="build"></p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://stackoverflow.com/questions/24225343/how-to-compile-and-run-c-in-sublime-text-3" target="_blank" rel="external">stack overflow</a></p>
+<h3 id="Paste-this-code-into-sublime-build-file"><a href="#Paste-this-code-into-sublime-build-file" class="headerlink" title="Paste this code into .sublime-build file"></a>Paste this code into .sublime-build file</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;cmd&quot; : [&quot;gcc $file_name -o $&#123;file_base_name&#125; &amp;&amp; ./$&#123;file_base_name&#125; &amp;&amp; rm ./$&#123;file_base_name&#125;&quot;],</div><div class="line">	&quot;selector&quot; : &quot;source.c&quot;,</div><div class="line">	&quot;shell&quot;: true,</div><div class="line">	&quot;working_dir&quot; : &quot;$file_path&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Start-coding-press-command-B"><a href="#Start-coding-press-command-B" class="headerlink" title="Start coding, press command + B"></a>Start coding, press command + B</h3><p><img src="build.gif" alt="build"></p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://stackoverflow.com/questions/24225343/how-to-compile-and-run-c-in-sublime-text-3" target="_blank" rel="external">stack overflow</a></p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年11月25日 23:55</p>
+        <p>最后更新： 2017年11月26日 11:02</p>
         <p>原始链接： <a class="post-url" href="/2017/01/27/Custom-build-in-Sublime-Text-3/" title="Custom Builds In Sublime 3">http://stephenchen.com/2017/01/27/Custom-build-in-Sublime-Text-3/</a></p>
         <footer>
             <a href="http://stephenchen.com">
@@ -270,7 +270,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Install-Sublime-Text"><span class="post-toc-text">Install Sublime Text</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Create-a-custom-build-system"><span class="post-toc-text">Create a custom build system</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Default-file-location"><span class="post-toc-text">Default file location</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Paste-this-code-into-sublime-build-file"><span class="post-toc-text">Paste this code into .sublime-build file</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Start-coding-press-command-B"><span class="post-toc-text">Start coding, press command + B</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Reference"><span class="post-toc-text">Reference</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Install-Sublime-Text"><span class="post-toc-text">Install Sublime Text</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Create-a-custom-build-system"><span class="post-toc-text">Create a custom build system</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Default-file-location"><span class="post-toc-text">Default file location</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Paste-this-code-into-sublime-build-file"><span class="post-toc-text">Paste this code into .sublime-build file</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Start-coding-press-command-B"><span class="post-toc-text">Start coding, press command + B</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Reference"><span class="post-toc-text">Reference</span></a></li></ol>
         </nav>
     </aside>
     
