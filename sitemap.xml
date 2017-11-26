@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stephenchen.com/2017/01/12/Socket/</loc>
+    
+    <lastmod>2017-11-26T04:20:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stephenchen.com/2016/11/18/Network-Diagnostic-Tools/</loc>
     
     <lastmod>2017-11-26T04:17:43.000Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://stephenchen.com/2017/11/25/Memory-Usage-Of-Static-And-Non-static-Methods/</loc>
     
     <lastmod>2017-11-26T04:15:15.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/01/12/Socket/</loc>
-    
-    <lastmod>2017-11-26T04:14:39.000Z</lastmod>
     
   </url>
   
