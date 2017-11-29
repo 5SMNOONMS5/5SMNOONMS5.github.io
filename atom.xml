@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stephenchen.com/"/>
-  <updated>2017-11-29T14:42:46.000Z</updated>
+  <updated>2017-11-29T14:49:19.000Z</updated>
   <id>http://stephenchen.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://stephenchen.com/2017/11/29/How-To-Share-Localhost/"/>
     <id>http://stephenchen.com/2017/11/29/How-To-Share-Localhost/</id>
     <published>2017-11-29T14:30:29.000Z</published>
-    <updated>2017-11-29T14:42:46.000Z</updated>
+    <updated>2017-11-29T14:49:19.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Great tools for share your localhost with oneanother</p><a id="more"></a><p>Sometime you just want a quick demo, so here is what I done. </p><h3 id="Setup-1-Ngrok"><a href="#Setup-1-Ngrok" class="headerlink" title="Setup 1: Ngrok"></a>Setup 1: Ngrok</h3><p>Install <a href="https://ngrok.com/" target="_blank" rel="noopener">ngrok</a></p><h3 id="Setup-2-Start-your-localhost"><a href="#Setup-2-Start-your-localhost" class="headerlink" title="Setup 2: Start your localhost"></a>Setup 2: Start your localhost</h3><p><img src="php.png" alt="php start local host"></p><h3 id="Setup-3-Start-your-ngrok"><a href="#Setup-3-Start-your-ngrok" class="headerlink" title="Setup 3: Start your ngrok"></a>Setup 3: Start your ngrok</h3><p><img src="ngrok.png" alt="ngrok start "></p><h3 id="Setup-4-Done-and-spread-out-your-local-host"><a href="#Setup-4-Done-and-spread-out-your-local-host" class="headerlink" title="Setup 4: Done and spread out your local host."></a>Setup 4: Done and spread out your local host.</h3><p>For this article, my localhost URL address is <strong><a href="http://04a51448.ngrok.io" target="_blank" rel="noopener">http://04a51448.ngrok.io</a></strong>.</p><p>Then enjoy.</p>]]></content>
+    <content type="html"><![CDATA[<p>Great tools for share your localhost with oneanother</p><a id="more"></a><p>Sometime you just want a quick demo, so here is what I done. </p><h3 id="Setup-1-Ngrok"><a href="#Setup-1-Ngrok" class="headerlink" title="Setup 1: Ngrok"></a>Setup 1: Ngrok</h3><p>Install <a href="https://ngrok.com/" target="_blank" rel="noopener">ngrok</a></p><h3 id="Setup-2-Start-your-localhost"><a href="#Setup-2-Start-your-localhost" class="headerlink" title="Setup 2: Start your localhost"></a>Setup 2: Start your localhost</h3><p>Here I used php, I know python do have build-in commands.</p><p>php </p><p><img src="php.png" alt="php start local host"></p><p>python</p><p><img src="python.png" alt="python start local host"></p><h3 id="Setup-3-Start-your-ngrok"><a href="#Setup-3-Start-your-ngrok" class="headerlink" title="Setup 3: Start your ngrok,"></a>Setup 3: Start your ngrok,</h3><blockquote><p>make sure the port is exactly the same</p></blockquote><p><img src="ngrok.png" alt="ngrok start"></p><h3 id="Setup-4-Done-and-spread-out-your-local-host"><a href="#Setup-4-Done-and-spread-out-your-local-host" class="headerlink" title="Setup 4: Done and spread out your local host."></a>Setup 4: Done and spread out your local host.</h3><p>For this article, my localhost URL address is <strong><a href="http://04a51448.ngrok.io" target="_blank" rel="noopener">http://04a51448.ngrok.io</a></strong>.</p><p>Then enjoy.</p>]]></content>
     
     <summary type="html">
     
