@@ -154,7 +154,7 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcode-select --install</div></pre></td></tr></table></figure>
 <h3 id="Detail-of-xcodebuild"><a href="#Detail-of-xcodebuild" class="headerlink" title="Detail of xcodebuild"></a>Detail of xcodebuild</h3><ul>
-<li>Actually there is a <a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html" target="_blank" rel="external">comprehensive analysis of xcodebuild</a>，or through the output of <strong>man xcodebuild</strong></li>
+<li>Actually there is a <a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html" target="_blank" rel="noopener">comprehensive analysis of xcodebuild</a>，or through the output of <strong>man xcodebuild</strong></li>
 </ul>
 <h3 id="First-check-sdks-and-destination"><a href="#First-check-sdks-and-destination" class="headerlink" title="First check sdks and destination"></a>First check sdks and destination</h3><ul>
 <li>Show sdks</li>
@@ -172,7 +172,7 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild \</div><div class="line">  -sdk iphonesimulator10.0 \</div><div class="line">  -workspace <span class="string">"&lt;YourName&gt;.xcworkspace"</span> \</div><div class="line">  -scheme <span class="string">"&lt;YourName&gt;"</span> \</div><div class="line">  -destination <span class="string">'platform=iOS Simulator,name=iPhone 6,OS=10.0'</span> \</div><div class="line">  -configuration <span class="string">"Debug"</span> \</div><div class="line">  <span class="built_in">test</span></div></pre></td></tr></table></figure>
 <h3 id="With-xcpretty-highly-recommend"><a href="#With-xcpretty-highly-recommend" class="headerlink" title="With xcpretty (highly recommend)"></a>With xcpretty (highly recommend)</h3><ul>
-<li><a href="https://github.com/supermarin/xcpretty" target="_blank" rel="external">Xcpretty</a> make your xcodebuild output more readable，following line to see the usage of <strong>xcpretty</strong></li>
+<li><a href="https://github.com/supermarin/xcpretty" target="_blank" rel="noopener">Xcpretty</a> make your xcodebuild output more readable，following line to see the usage of <strong>xcpretty</strong></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xcpretty --h</div></pre></td></tr></table></figure>
 <ul>
@@ -183,7 +183,7 @@
 <li>You can also <strong>pipe</strong> above command with other commands such as <strong>open -a Google\ Chrome.app</strong></li>
 </ul>
 <h3 id="Build-the-archive"><a href="#Build-the-archive" class="headerlink" title="Build the archive"></a>Build the archive</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ xcodebuild</div><div class="line">  -workspace &lt;YourName&gt;.xcworkspace</div><div class="line">  -scheme &lt;YourName&gt;</div><div class="line">  -sdk iphoneos</div><div class="line">  -configuration AppStoreDistribution archive</div><div class="line">  -archivePath ./build/&lt;YourName&gt;.xcarchive</div></pre></td></tr></table></figure>
-<h3 id="Export-ipa-file"><a href="#Export-ipa-file" class="headerlink" title="Export .ipa file"></a>Export .ipa file</h3><p><a href="http://stackoverflow.com/questions/32763288/ios-builds-ipa-creation-no-longer-works-from-the-command-line" target="_blank" rel="external">iOS builds / ipa creation no longer works from the command line</a></p>
+<h3 id="Export-ipa-file"><a href="#Export-ipa-file" class="headerlink" title="Export .ipa file"></a>Export .ipa file</h3><p><a href="http://stackoverflow.com/questions/32763288/ios-builds-ipa-creation-no-longer-works-from-the-command-line" target="_blank" rel="noopener">iOS builds / ipa creation no longer works from the command line</a></p>
 
             <div class="post-copyright">
     <div class="content">

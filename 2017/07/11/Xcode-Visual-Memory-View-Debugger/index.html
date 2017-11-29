@@ -8,7 +8,7 @@
   
     <meta name="keywords" content="StephenChen's Blog" />
   
-  <meta name="description" content="Useful tool for debug memory leak in iOS Download the porjectI deliberately set memory leaks into below small project. Source file, Download. For this project I just make a simple UITableView with two">
+  <meta name="description" content="Useful tool for debug memory leak in iOS Download the porjectI deliberately set memory leaks into below small project. Source file, Download. For this project I">
 <meta name="keywords" content="Xcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Xcode Visual Memory View Debugger">
@@ -142,15 +142,15 @@
             
             <p>Useful tool for debug memory leak in iOS</p>
 <h3 id="Download-the-porject"><a href="#Download-the-porject" class="headerlink" title="Download the porject"></a>Download the porject</h3><p>I deliberately set memory leaks into below small project.</p>
-<p><a href="https://github.com/5SMNOONMS5/xcode_visual_memory_view_debugger" target="_blank" rel="external">Source file</a>,</p>
-<p><a href="https://github.com/5SMNOONMS5/xcode_visual_memory_view_debugger/archive/master.zip" target="_blank" rel="external">Download</a>.</p>
+<p><a href="https://github.com/5SMNOONMS5/xcode_visual_memory_view_debugger" target="_blank" rel="noopener">Source file</a>,</p>
+<p><a href="https://github.com/5SMNOONMS5/xcode_visual_memory_view_debugger/archive/master.zip" target="_blank" rel="noopener">Download</a>.</p>
 <p>For this project I just make a simple UITableView with two cells, first one is common <strong>strong retain cycle</strong> and second one is <strong>closure retain cycle</strong>.</p>
 <h3 id="Run-the-project"><a href="#Run-the-project" class="headerlink" title="Run the project"></a>Run the project</h3><p><img src="1.gif" alt="project animation"></p>
 <h3 id="Press-the-Debug-View-Graph"><a href="#Press-the-Debug-View-Graph" class="headerlink" title="Press the [Debug View Graph ]"></a>Press the [Debug View Graph ]</h3><p><img src="6.png" alt="Press the Debug View Graph "></p>
 <h3 id="Press-the-Show-the-issue-navigator-in-project-navigator"><a href="#Press-the-Show-the-issue-navigator-in-project-navigator" class="headerlink" title="Press the [Show the issue navigator] in project navigator"></a>Press the [Show the issue navigator] in project navigator</h3><p><img src="7.png" alt="Show the issue navigator"></p>
 <p>You will see what cause the retain cycle. It’s very easy to diagnosis of memory leak, so now is your time to fix it haha.</p>
 <h3 id="How-to-solve"><a href="#How-to-solve" class="headerlink" title="How to solve"></a>How to solve</h3><p>First one is very easy, just set one of the both to weak reference.</p>
-<p>Second one I will let this <a href="https://medium.com/compileswift/understanding-memory-leaks-in-closures-48207214cba" target="_blank" rel="external">article</a> explain to you.</p>
+<p>Second one I will let this <a href="https://medium.com/compileswift/understanding-memory-leaks-in-closures-48207214cba" target="_blank" rel="noopener">article</a> explain to you.</p>
 
             <div class="post-copyright">
     <div class="content">

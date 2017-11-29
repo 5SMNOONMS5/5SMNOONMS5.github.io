@@ -143,20 +143,20 @@
             
             <p>A way to get more time from Project Manager</p>
 <a id="more"></a>
-<p>Code Conventions and Documenter had been part of my big problems， until <a href="https://realm.io/" target="_blank" rel="external">Realm</a> released two great tools <a href="https://github.com/realm/SwiftLint" target="_blank" rel="external">SwiftLint</a> and <a href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy</a>。</p>
+<p>Code Conventions and Documenter had been part of my big problems， until <a href="https://realm.io/" target="_blank" rel="noopener">Realm</a> released two great tools <a href="https://github.com/realm/SwiftLint" target="_blank" rel="noopener">SwiftLint</a> and <a href="https://github.com/realm/jazzy" target="_blank" rel="noopener">jazzy</a>。</p>
 <h3 id="Jazzy"><a href="#Jazzy" class="headerlink" title="Jazzy"></a>Jazzy</h3><p>A command-line utility that generates documentation for Swift or Objective-C . I will provide very simple use here</p>
 <h5 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[sudo] gem install jazzy</div></pre></td></tr></table></figure>
-<h5 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h5><p>Remember to replace the text inside angle brackets , assume you have <a href="https://cocoapods.org/" target="_blank" rel="external">cocoapods</a> install</p>
+<h5 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h5><p>Remember to replace the text inside angle brackets , assume you have <a href="https://cocoapods.org/" target="_blank" rel="noopener">cocoapods</a> install</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">jazzy \</div><div class="line">  --clean \</div><div class="line">  --xcodebuild-arguments -workspace,&lt;PROJECT&gt;.xcworkspace,-scheme,&lt;SCHEME&gt; \</div><div class="line">  --min-acl internal \</div><div class="line">  --author &lt;NAME&gt; \</div><div class="line">  --theme apple \</div><div class="line">  --author_url &lt;URL&gt; \</div><div class="line">  --github_url &lt;URL&gt; \</div><div class="line">  --module-version &lt;VERSION&gt; \</div><div class="line">  --output docs/index.html</div></pre></td></tr></table></figure>
-<p>If you don’t have <a href="https://cocoapods.org/" target="_blank" rel="external">cocoapods</a> , change above code from  </p>
+<p>If you don’t have <a href="https://cocoapods.org/" target="_blank" rel="noopener">cocoapods</a> , change above code from  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--xcodebuild-arguments -workspace,&lt;PROJECT&gt;.xcworkspace,-scheme,&lt;SCHEME&gt; \</div></pre></td></tr></table></figure>
 <p>To</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--xcodebuild-arguments -project,&lt;PROJECT&gt;.xcodeproj,-scheme,&lt;SCHEME&gt; \</div></pre></td></tr></table></figure>
 <h5 id="Success"><a href="#Success" class="headerlink" title="Success"></a>Success</h5><p>♪♫ ♪♫ ♪♫ ♪♫  </p>
 <p><img src="jazzy.gif" alt="jszzy"></p>
-<p>Fro advance usage and more detail , please head to <a href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy</a> or type jazzy -h</p>
+<p>Fro advance usage and more detail , please head to <a href="https://github.com/realm/jazzy" target="_blank" rel="noopener">jazzy</a> or type jazzy -h</p>
 <h3 id="SwiftLint"><a href="#SwiftLint" class="headerlink" title="SwiftLint"></a>SwiftLint</h3><p>A tool to enforce Swift style and conventions. This is great for entire iOS team write a unified style code .</p>
-<h5 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a>Install</h5><p>Here use <a href="http://brew.sh/" target="_blank" rel="external">homebrew</a> to install</p>
+<h5 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a>Install</h5><p>Here use <a href="http://brew.sh/" target="_blank" rel="noopener">homebrew</a> to install</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install swiftlint</div></pre></td></tr></table></figure>
 <h5 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a>Usage</h5><p>Add below code into your xcode run script， then run the project。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> which swiftlint &gt;/dev/null; then</div><div class="line">    swiftlint</div><div class="line"><span class="keyword">else</span></div><div class="line">    echo <span class="string">"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"</span></div><div class="line">fi</div></pre></td></tr></table></figure>
@@ -166,7 +166,7 @@
 <p>First let us parse the warning . All the warning and error combine follow the syntax</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">description (rules_name)</div></pre></td></tr></table></figure>
 <p>So this warning is call <strong>syntactic_sugar</strong> and <strong>“Shorthand syntactic sugar should be used, i.e. [Int] instead of Array<int>“</int></strong> is the description of <strong>syntactic_sugar</strong> , you can fix it by what description suggested .</p>
-<h5 id="Customize-your-own"><a href="#Customize-your-own" class="headerlink" title="Customize your own"></a>Customize your own</h5><p>First: You can see all the rules <a href="https://github.com/realm/SwiftLint/tree/master/Source/SwiftLintFramework/Rules" target="_blank" rel="external">here</a></p>
+<h5 id="Customize-your-own"><a href="#Customize-your-own" class="headerlink" title="Customize your own"></a>Customize your own</h5><p>First: You can see all the rules <a href="https://github.com/realm/SwiftLint/tree/master/Source/SwiftLintFramework/Rules" target="_blank" rel="noopener">here</a></p>
 <p>Second: Add .swiftlint.yml under the project folder , then copy the code and fill each respectively .</p>
 <script src="https://gist.github.com/5SMNOONMS5/f25219b5407eba652063f161eb712782.js"></script>
 
