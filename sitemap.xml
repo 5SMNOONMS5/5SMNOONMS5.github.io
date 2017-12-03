@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/</loc>
+    
+    <lastmod>2017-12-03T06:36:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stephenchen.com/2017/03/22/Fastlane/</loc>
     
-    <lastmod>2017-12-03T05:31:11.000Z</lastmod>
+    <lastmod>2017-12-03T06:34:38.000Z</lastmod>
     
   </url>
   
@@ -26,13 +33,6 @@
     <loc>http://stephenchen.com/2016/09/12/Aws-Ftp-Atom/</loc>
     
     <lastmod>2017-12-03T05:03:17.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/</loc>
-    
-    <lastmod>2017-12-03T04:54:47.000Z</lastmod>
     
   </url>
   
