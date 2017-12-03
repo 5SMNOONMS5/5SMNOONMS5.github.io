@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stephenchen.com/2017/02/21/Transfer-Git-repositories/</loc>
+    
+    <lastmod>2017-12-03T04:45:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/</loc>
+    
+    <lastmod>2017-12-03T04:42:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2016/12/20/Swift-Code-Conventions-Helper-And-Documentor/</loc>
+    
+    <lastmod>2017-12-03T04:42:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2016/12/21/Swift-3-access-control/</loc>
+    
+    <lastmod>2017-12-03T04:39:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/09/29/Git-%E9%8C%AF%E8%AA%A4%E6%97%A5%E8%AA%8C%E7%B4%80%E9%8C%84/</loc>
+    
+    <lastmod>2017-12-03T04:35:40.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/03/22/Fastlane/</loc>
+    
+    <lastmod>2017-12-03T04:35:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stephenchen.com/2017/11/29/How-To-Share-Localhost/</loc>
     
     <lastmod>2017-12-03T04:04:46.000Z</lastmod>
@@ -33,13 +75,6 @@
     <loc>http://stephenchen.com/2017/07/11/Xcode-Visual-Memory-View-Debugger/</loc>
     
     <lastmod>2017-11-26T03:59:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/02/21/Transfer-Git-repositories/</loc>
-    
-    <lastmod>2017-11-26T03:58:56.000Z</lastmod>
     
   </url>
   
@@ -86,30 +121,9 @@
   </url>
   
   <url>
-    <loc>http://stephenchen.com/2016/12/21/Swift-3-access-control/</loc>
-    
-    <lastmod>2017-11-26T03:56:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://stephenchen.com/2017/04/24/What-is-Podfile-lock/</loc>
     
     <lastmod>2017-11-26T03:54:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/</loc>
-    
-    <lastmod>2017-11-26T03:53:59.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2016/12/20/Swift-Code-Conventions-Helper-And-Documentor/</loc>
-    
-    <lastmod>2017-11-26T03:53:48.000Z</lastmod>
     
   </url>
   
@@ -124,20 +138,6 @@
     <loc>http://stephenchen.com/2016/10/06/Hexo-Github-Pages/</loc>
     
     <lastmod>2017-11-26T03:07:42.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/09/29/Git-%E9%8C%AF%E8%AA%A4%E6%97%A5%E8%AA%8C%E7%B4%80%E9%8C%84/</loc>
-    
-    <lastmod>2017-11-26T03:04:38.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/03/22/Fastlane/</loc>
-    
-    <lastmod>2017-11-26T03:04:17.000Z</lastmod>
     
   </url>
   
