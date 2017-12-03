@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://stephenchen.com/2017/02/21/Transfer-Git-repositories/</loc>
+    <loc>http://stephenchen.com/2017/04/24/What-is-Podfile-lock/</loc>
     
-    <lastmod>2017-12-03T04:45:12.000Z</lastmod>
+    <lastmod>2017-12-03T04:48:44.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/</loc>
+    <loc>http://stephenchen.com/2017/02/21/Transfer-Git-repositories/</loc>
     
-    <lastmod>2017-12-03T04:42:25.000Z</lastmod>
+    <lastmod>2017-12-03T04:48:40.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://stephenchen.com/2016/12/20/Swift-Code-Conventions-Helper-And-Documentor/</loc>
     
-    <lastmod>2017-12-03T04:42:13.000Z</lastmod>
+    <lastmod>2017-12-03T04:48:33.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stephenchen.com/2017/10/10/Swift-Whole-Module-Optimization/</loc>
+    
+    <lastmod>2017-12-03T04:48:30.000Z</lastmod>
     
   </url>
   
@@ -117,13 +124,6 @@
     <loc>http://stephenchen.com/2016/12/16/Unrecognized-selector/</loc>
     
     <lastmod>2017-11-26T03:56:26.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stephenchen.com/2017/04/24/What-is-Podfile-lock/</loc>
-    
-    <lastmod>2017-11-26T03:54:44.000Z</lastmod>
     
   </url>
   
