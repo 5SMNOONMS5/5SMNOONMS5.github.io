@@ -18,11 +18,14 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://stephenchen.com/2017/08/25/Git-small-tracks/1.png">
 <meta property="og:image" content="http://stephenchen.com/2017/08/25/Git-small-tracks/2.png">
-<meta property="og:image" content="http://stephenchen.com/2017/08/25/Git-small-tracks/3.gif">
+<meta property="og:image" content="http://stephenchen.com/2017/08/25/Git-small-tracks/3.png">
 <meta property="og:image" content="http://stephenchen.com/2017/08/25/Git-small-tracks/4.png">
 <meta property="og:image" content="http://stephenchen.com/2017/08/25/Git-small-tracks/5.png">
 <meta property="og:image" content="http://stephenchen.com/2017/08/25/Git-small-tracks/6.png">
-<meta property="og:updated_time" content="2018-02-08T15:39:33.000Z">
+<meta property="og:image" content="http://stephenchen.com/2017/08/25/Git-small-tracks/7.png">
+<meta property="og:image" content="http://stephenchen.com/2017/08/25/Git-small-tracks/8.png">
+<meta property="og:image" content="http://stephenchen.com/2017/08/25/Git-small-tracks/9.png">
+<meta property="og:updated_time" content="2018-02-08T15:44:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git Tracks">
 <meta name="twitter:description" content="記錄平常在使用 git 一些不錯指令。">
@@ -192,22 +195,21 @@ ga('send', 'pageview');
 <p>直接上 code 拉，就是假裝這個檔案已經 unchanged，所以之後如何變動都不用造成共同開發的 conflict。感覺層次就上升了一層 xxd。</p>
 <p><a href="https://stackoverflow.com/questions/18276951/how-do-i-stop-git-from-tracking-any-changes-to-a-file-from-this-commit-forward" target="_blank" rel="noopener">感謝原文</a></p>
 <h3 id="七-同個分支多人開發，Merge-之後會有一個醜陋的-commit"><a href="#七-同個分支多人開發，Merge-之後會有一個醜陋的-commit" class="headerlink" title="(七) 同個分支多人開發，Merge 之後會有一個醜陋的 commit"></a>(七) 同個分支多人開發，Merge 之後會有一個醜陋的 commit</h3><p>情境：假如 a 跟 b 都共同在 dev 上面開發，a commit + push 了</p>
-<p><img src="3.gif" alt=""></p>
-<p>如上圖，最後 b 必須要把 a 的 origin dev pull 下來，並且會多出 merge branch master into ….. 的 commit 節點。也就是 non fast-forward 的 tree 出現。</p>
-<p>對於有強迫症的我該怎麼辦呢？？</p>
+<p><img src="3.png" alt=""><br><img src="4.png" alt=""><br><img src="5.png" alt=""><br><img src="6.png" alt=""></p>
+<p>如上圖，最後 b 必須要把 a 的 origin master pull 下來，於是會多出 merge branch master into ….. 的 commit 節點。也就是 non fast-forward 的 tree 症狀的出現。對於有強迫症的我該怎麼辦呢？？</p>
 <p>本來是打算往 rebase 的方向去思考，但後來找到更好的<a href="https://coderwall.com/p/7aymfa/please-oh-please-use-git-pull-rebase" target="_blank" rel="noopener">方式</a>，實作下方指令。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull --rebase origin master</div></pre></td></tr></table></figure>
-<p>結果。</p>
-<p><img src="4.png" alt=""></p>
-<p>不過由於我在本機自己分飾 a 跟 b 兩個角色，所以其實我最 top 的 commit 是沒有任何 branch 的，暫時由 HEAD pointer 來指向，那假如我 chekcout 到本地的 master ， 那當前由 HEAD pointer 來指向的 commit 就會不見了呀，於是又找到了<a href="https://stackoverflow.com/questions/4181861/src-refspec-master-does-not-match-any-when-pushing-commits-in-git" target="_blank" rel="noopener">這篇</a></p>
+<p>結果….</p>
+<p><img src="7.png" alt=""></p>
+<p>不過由於我在本機自己分飾 a 跟 b 兩個角色，所以其實我最 top 的 commit 是沒有任何 branch 的，暫時由 HEAD pointer 來指向，那假如我 chekcout 到本地的 master，那當前由 HEAD pointer 來指向的 commit 就會不見了呀，於是又找到了<a href="https://stackoverflow.com/questions/4181861/src-refspec-master-does-not-match-any-when-pushing-commits-in-git" target="_blank" rel="noopener">這篇</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin HEAD:master</div></pre></td></tr></table></figure>
-<p><img src="5.png" alt=""></p>
-<p>再以下根據官方解釋，公式 git push origin “本地端”:”遠端”，來把本地端的 HEAD 推到遠端的 master</p>
-<p><img src="6.png" alt=""></p>
+<p><img src="8.png" alt=""></p>
+<p>再根據下圖官方解釋，公式 <strong>git push origin “本地端”:”遠端”</strong>，來把本地端的 HEAD 推到遠端的 master。之後在 checkout 回去 master 在 pull，完美結束這回合。</p>
+<p><img src="9.png" alt=""></p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月08日 23:39</p>
+        <p>最后更新： 2018年02月08日 23:44</p>
         <p>原始链接： <a class="post-url" href="/2017/08/25/Git-small-tracks/" title="Git Tracks">http://stephenchen.com/2017/08/25/Git-small-tracks/</a></p>
         <footer>
             <a href="http://stephenchen.com">
